@@ -1,0 +1,22 @@
+/* Normal styles for .border1 */
+.border1 {
+    /* Add initial border style */
+    border-bottom: 2px solid transparent;
+    /* Add transition properties */
+    transition: border-color 0.3s ease;
+}
+
+/* Hover effect for .border1 */
+.border1:hover {
+    /* Change border color on hover */
+    border-bottom: 2px solid yellow;
+}
+
+/* Media query for screen width 768px or higher */
+@media screen and (max-width: 768px) {
+    /* Hover effect for left border */
+    .border1:hover {
+        border-left: 2px solid yellow;
+        border-bottom: none;
+    }
+}
