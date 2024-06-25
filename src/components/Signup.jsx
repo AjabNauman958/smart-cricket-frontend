@@ -79,7 +79,7 @@ const Signup = () => {
                                     )}
                                 </div>
                                 {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-                               
+                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign In</button>
                                 {/* "Already have an account?" text */}
                                 <div className="mt-4">
                                     <p className="text-sm">Already have an account? <Link to="/login" className="text-green-500">Sign In</Link></p>

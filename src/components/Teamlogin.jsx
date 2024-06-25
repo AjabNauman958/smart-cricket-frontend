@@ -4,7 +4,7 @@ import { FaRegEnvelope } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md'; // import of icons
 import managementloginpic from '../components/images/managementlogin.png';  // import of image
 
-const Managementlogin = () => {
+const Teamlogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false); //  toggle password visibility
@@ -81,4 +81,4 @@ const Managementlogin = () => {
         </div>
     );
 }
-export default Managementlogin
+export default Teamlogin
