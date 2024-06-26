@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import '../components/css/signup.css'; // Assuming your CSS file is correctly imported
 import forget from '../components/images/forget.png';
-
-
-
 
 const NewPassword = () => {
     const [password, setPassword] = useState('');
@@ -13,6 +11,8 @@ const NewPassword = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+
+    const navigate = useNavigate();
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
@@ -40,6 +40,9 @@ const NewPassword = () => {
         }
         // Perform submit action, e.g., update password in database
         setSuccessMessage('Password updated successfully!');
+        setTimeout(() => {
+            navigate('/login'); // Adjust the path as needed to point to your login screen
+        }, 2000); // Redirect after 2 seconds
     };
 
     return (
@@ -50,8 +53,6 @@ const NewPassword = () => {
                     <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col items-center justify-center'>
                         <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
                         <img src={forget} alt="forget Image" className="w-56 h-56 mb-4" />
-
-                        {/* Add animation or border radius here if needed */}
                     </div>
                     {/* Right side */}
                     <div className='w-full md:w-3/5 p-5'>
@@ -69,6 +70,7 @@ const NewPassword = () => {
                                     <input
                                         type={showPassword ? 'text' : 'password'}
                                         name='password'
+                                        required
                                         value={password}
                                         onChange={handlePasswordChange}
                                         placeholder='Enter your Password'
@@ -86,6 +88,7 @@ const NewPassword = () => {
                                     <MdLockOutline className="text-gray-400 m-2" />
                                     <input
                                         type={showConfirmPassword ? 'text' : 'password'}
+                                        required
                                         name='confirmPassword'
                                         value={confirmPassword}
                                         onChange={handleConfirmPasswordChange}

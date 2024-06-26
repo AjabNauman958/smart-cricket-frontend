@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import forget from '../components/images/forget.png';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { FaRegEnvelope } from 'react-icons/fa'; // Import Google and User icons
-
-import '../components/css/signup.css'; // Import your CSS file
+import { FaRegEnvelope } from 'react-icons/fa';
+import forget from '../components/images/forget.png';
+import '../components/css/signup.css';
 
 const Forget = () => {
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+
+    const handleResetPassword = () => {
+        // Perform any validation or API call here if needed
+        navigate('/newpassword'); // Navigate to the NewPassword screen
+    };
+
+    const handleTryAnotherOption = () => {
+        navigate('/twofactor'); // Navigate to the TwoFactor screen
+    };
 
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100`}>
@@ -42,7 +52,10 @@ const Forget = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center my-4">
                             <div className="mt-4">
-                                <button className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white">
+                                <button 
+                                    onClick={handleResetPassword} 
+                                    className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white"
+                                >
                                     Reset Password
                                 </button>
                             </div>
@@ -51,7 +64,13 @@ const Forget = () => {
                                 <p className="text-sm">Back to login <Link to="/login" className="text-green-500">Sign In</Link></p>
                             </div>
                             <div className='flex flex-col md:flex-row mt-4'>
-                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 mb-2 md:mb-0 md:mr-2'>Try another option</button>
+                                <button 
+                                    onClick={handleTryAnotherOption} 
+                                    type="button" 
+                                    className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 mb-2 md:mb-0 md:mr-2'
+                                >
+                                    Try another option
+                                </button>
                             </div>
                         </div>
                     </div>
