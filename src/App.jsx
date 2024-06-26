@@ -6,6 +6,7 @@ import PlayerLogin from './components/Playerlogin';
 import PlayerSignup from './components/PlayerSignup';
 import Teamlogin from './components/Teamlogin';
 import TeamSignup from './components/TeamSignup';
+import Forget from './components/Forget';
 import Home from './components/Home'; // Import the Home component
 import tournamentImage from './components/images/ipl.png'; // import of images
 import Card from './components/Card'; // Import the Card component
@@ -24,6 +25,7 @@ function App() {
           <Route path="/PlayerSignup" element={<PlayerSignup />} />
           <Route path="/Teamlogin" element={<Teamlogin />} />
           <Route path="/TeamSignup" element={<TeamSignup />} />
+          <Route path="/Forget" element={<Forget />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>

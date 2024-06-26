@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa'; // Import Google and User icons
+import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import cricketImage from '../components/images/signup.png';
 import '../components/css/signup.css'; // Import your CSS file
@@ -52,26 +52,26 @@ const Signup = () => {
                         </div>
                         <form onSubmit={handleSignUp}>
                             <div className='flex flex-col items-center'>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <FaUser className="text-gray-400 m-2" />
-                                    <input required type='text' name='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Enter your First Name' className='bg-gray-100 outline-none text-sm flex-1 p-2 rounded-lg' />
+                                    <input required type='text' name='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Enter your First Name' className='bg-gray-100 outline-none text-sm flex-1 p-2 rounded-lg input-field' />
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <FaRegEnvelope className="text-gray-400 m-2" />
-                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Address' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg' />
+                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Address' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <MdLockOutline className="text-gray-400 m-2" />
-                                    <input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg' />
+                                    <input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
                                     {showPassword ? (
                                         <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
                                     ) : (
                                         <MdVisibility className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
                                     )}
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <MdLockOutline className="text-gray-400 m-2" />
-                                    <input type={showConfirmPassword ? 'text' : 'password'} name='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg' />
+                                    <input type={showConfirmPassword ? 'text' : 'password'} name='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
                                     {showConfirmPassword ? (
                                         <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
                                     ) : (
@@ -79,7 +79,7 @@ const Signup = () => {
                                     )}
                                 </div>
                                 {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign In</button>
+                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign Up</button>
                                 {/* "Already have an account?" text */}
                                 <div className="mt-4">
                                     <p className="text-sm">Already have an account? <Link to="/login" className="text-green-500">Sign In</Link></p>
@@ -95,9 +95,9 @@ const Signup = () => {
                                 </button>
                             </div>
                             <div className='flex flex-col md:flex-row mt-4'>
-                                    <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 mb-2 md:mb-0 md:mr-2'>Sign Up as Player</button>
-                                    <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'>Sign Up as Team</button>
-                                </div>
+                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 mb-2 md:mb-0 md:mr-2'>Sign Up as Player</button>
+                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'>Sign Up as Team</button>
+                            </div>
                         </div>
                     </div>
                 </div>

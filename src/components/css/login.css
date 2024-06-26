@@ -8,3 +8,23 @@
 .textColor{
     color: #00A09A;
 }
+
+.input-container {
+    border-radius: 10px; /* Adjust as needed */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.input-container:hover,
+.input-container:focus-within {
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); /* Green shadow */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.input-field {
+    border-radius: 10px; /* Match border-radius */
+    transition: background-color 0.3s ease;
+}
+
+.input-field:focus {
+    background-color: #f0fff4; /* Light green background on focus */
+}

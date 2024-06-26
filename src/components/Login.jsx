@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle } from 'react-icons/fa'; // Import Google icon
-import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md'; 
+import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import cricketImage from '../components/images/login.png';
 
-// import '../components/css/login.css';
+import '../components/css/login.css'; // Ensure your CSS file is imported
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -43,14 +43,14 @@ const Login = () => {
 
                         <form onSubmit={handleSignIn}>
                             <div className='flex flex-col items-center'>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <FaRegEnvelope className="text-gray-400 m-2" />
-                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Address' className='bg-gray-100 outline-none text-sm flex-1' />
+                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Address' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
                                 </div>
 
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3'>
+                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <MdLockOutline className="text-gray-400 m-2" />
-                                    <input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' className='bg-gray-100 outline-none text-sm flex-1' />
+                                    <input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
                                     {/* Eye icon to toggle password visibility */}
                                     {showPassword ? (
                                         <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
@@ -63,45 +63,43 @@ const Login = () => {
                                     <label className='flex items-center text-xs'>
                                         <input type='checkbox' name='remember' className='mr-1' /> Remember me
                                     </label>
-                                    <a  href='#' className='text-xs'> Forgot Password?</a>
+                                    <a href='#' className='text-xs'> Forgot Password?</a>
                                 </div>
                                 <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign In</button>
-                                 {/* "Don't have an account?" text */}
-                        <div className="mt-4">
-                            <p className="text-sm">Don't have an account? <Link to="/signup" className="text-green-500">Sign Up</Link></p>
-                        </div>
+                                {/* "Don't have an account?" text */}
+                                <div className="mt-4">
+                                    <p className="text-sm">Don't have an account? <Link to="/signup" className="text-green-500">Sign Up</Link></p>
+                                </div>
                             </div>
                         </form>
                         {/* "Or" text between buttons */}
                         <div className="flex items-center justify-center my-4">
-                        <span className="text-black-900">-----Or-----</span>
+                            <span className="text-black-900">-----Or-----</span>
                         </div>
                         {/* Buttons for login types */}
                         <div className="flex justify-center flex-col items-center">
-                        <button className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2  font-semibold hover:bg-green-500 hover:text-white">
-                                    <FaGoogle className="text-orange-500 mr-2" /> {/* Google icon */}
-                                    Login with Google
-                                </button>
+                            <button className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white">
+                                <FaGoogle className="text-orange-500 mr-2" /> {/* Google icon */}
+                                Login with Google
+                            </button>
                             <div className="flex justify-center mt-2">
                                 <Link to="/Playerlogin">
                                     <button className="border-2 border-green-500 text-green-500 rounded-lg px-6 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300">
                                         Login as Player
                                     </button>
                                 </Link>
-                                <Link to="/Managementlogin">
+                                <Link to="/Teamlogin">
                                     <button className="border-2 border-green-500 text-green-500 rounded-lg px-6 py-2 inline-block font-semibold ml-2 hover:bg-green-500 hover:text-white transition-all duration-300">
                                         Login as Management
                                     </button>
                                 </Link>
                             </div>
                         </div>
-                       
                     </div>
                     <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col justify-center items-center'>
                         <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
                         <div className='border-2 w-10 border-white inline-block mb-2'></div>
                         <img src={cricketImage} alt="Cricket Image" className="w-60 h-60 mb-4 self-center" />
-                     
                     </div>
                 </div>
             </main>
