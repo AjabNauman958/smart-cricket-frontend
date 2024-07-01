@@ -41,3 +41,40 @@
     background-color: y;
   }
   
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card-item {
+    flex: 0 1 calc(25% - 1rem); /* Four cards per row */
+    margin-bottom: 1rem;
+  }
+  
+  .card-hover {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .card-hover:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-hover .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .card-hover:hover .card-body {
+    opacity: 1;
+  }
+  

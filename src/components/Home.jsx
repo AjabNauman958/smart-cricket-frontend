@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import backgroundImage from '../components/images/backgroundImage.png'; // import of images
 
 import '../components/css/home.css';
+import cardsData from './Data';
 
 // Define the Home component
     const Home = () => {
@@ -24,6 +25,30 @@ import '../components/css/home.css';
           <Link to="/about" className="btn-overlay bg-yellow-400 cursor-pointer font-semibold hover:bg-yellow-300">About Us</Link>
         </div>
       </div>
+      
+      <div className="container mt-4">
+      <div className="card-container">
+        {cardsData.map(card => (
+          <div className="card-item" key={card.id}>
+            <div className="card card-hover">
+              <div
+                className="card-img-top"
+                style={{
+                  backgroundImage: `url(${card.backgroundImage})`,
+                  height: '200px',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              ></div>
+              <div className="card-body">
+                <h5 className="card-title">{card.title}</h5>
+                <p className="card-text">{card.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
       
     </div>
   );

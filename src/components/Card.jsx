@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Card = ({ title, description, imageSrc }) => {
+const Card = ({ title, description, backgroundImage }) => {
   return (
     <div className="max-w-md mx-auto rounded-lg overflow-hidden shadow-md hover:shadow-lg">
       <div className="relative overflow-hidden bg-cover bg-no-repeat rounded-t-lg">
         <img
           className="w-full h-48 object-cover rounded-t-lg z-0"
-          src={imageSrc}
+          src={backgroundImage}
           alt={title}
         />
         <div className="absolute inset-0 bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
