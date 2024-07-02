@@ -26,7 +26,7 @@ const Navbar = () => {
     let [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className='shadow-md w-full fixed top-0 left-0'>
+        <div className='shadow-md w-full fixed top-0 left-0 z-50'>
             <div className='md:px-10 py-4 px-7 md:flex justify-between items-center bg-green-500'>
                 {/* logo here */}
                 <div className='flex text-2xl cursor-pointer items-center gap-2'>
