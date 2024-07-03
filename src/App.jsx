@@ -10,7 +10,8 @@ import Forget from './components/Forget';
 import TwoFactor from './components/TwoFactor';
 import NewPassword from './components/NewPassword';
 import Otpcode from './components/Otpcode';
-import Home from './components/Home'; // Import the Home component
+import Home from './components/Home';
+import MatchCard from './components/MatchCard'; // Correct import path for MatchCard
 
 import './App.css';
 
@@ -18,20 +19,20 @@ function App() {
   return (
     <>
       <Router>
-       {/* Include Navbar if you want it to be displayed on all pages */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/playerlogin" element={<PlayerLogin />} />
-          <Route path="/PlayerSignup" element={<PlayerSignup />} />
-          <Route path="/Teamlogin" element={<Teamlogin />} />
-          <Route path="/TeamSignup" element={<TeamSignup />} />
-          <Route path="/Forget" element={<Forget />} />
-          <Route path="/TwoFactor" element={<TwoFactor />} />
-          <Route path="/NewPassword" element={<NewPassword />} />
-          <Route path="/Otpcode" element={<Otpcode />} />
-          {/* Add more routes as needed */}
+          <Route path="/playersignup" element={<PlayerSignup />} />
+          <Route path="/teamlogin" element={<Teamlogin />} />
+          <Route path="/teamsignup" element={<TeamSignup />} />
+          <Route path="/forget" element={<Forget />} />
+          <Route path="/twofactor" element={<TwoFactor />} />
+          <Route path="/newpassword" element={<NewPassword />} />
+          <Route path="/otpcode" element={<Otpcode />} />
+          {/* Ensure MatchCard has a unique path */}
+          <Route path="/matchcard" element={<MatchCard />} />
         </Routes>
       </Router>
     </>
