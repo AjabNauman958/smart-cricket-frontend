@@ -38,9 +38,11 @@ const Home = () => {
             </div>
 
 {/* matches section  */}
-<h1 className='text-3xl	font-semibold	text-center	mt-5 mb-52'>Matches</h1>
+<div className='mb-52 '>
+<h1 className='text-3xl	font-semibold	text-center	mt-5    '>Matches</h1>
 
 <MatchCard/>
+        </div>
         </div>
     );
 }

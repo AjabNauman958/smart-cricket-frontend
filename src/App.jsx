@@ -12,6 +12,7 @@ import NewPassword from './components/NewPassword';
 import Otpcode from './components/Otpcode';
 import Home from './components/Home';
 import MatchCard from './components/MatchCard'; // Correct import path for MatchCard
+import RankingCard from './components/RankingCard'; // Correct import path for MatchCard
 
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/otpcode" element={<Otpcode />} />
           {/* Ensure MatchCard has a unique path */}
           <Route path="/matchcard" element={<MatchCard />} />
+          <Route path="/RankingCard" element={<RankingCard />} />
         </Routes>
       </Router>
     </>
