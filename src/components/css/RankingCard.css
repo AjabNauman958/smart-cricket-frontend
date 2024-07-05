@@ -1,0 +1,70 @@
+/* RankingCard.css */
+.ranking-card {
+    background-color: #00A09A;
+    border-radius: 0.5rem; 
+    padding: 1rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    width: 25%; 
+    height: 20rem;
+  
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+
+  }
+  
+  .ranking-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* hover:shadow-lg */
+    border-radius: 1rem; /* hover:rounded-lg */
+    background-color: #00a09be4;
+
+  }
+  
+  .ranking-card-header {
+    text-align: center;
+    padding: 0.5rem 0; /* py-2 */
+    border-top-left-radius: 0.5rem; /* rounded-t-lg */
+    border-top-right-radius: 0.5rem; /* rounded-t-lg */
+  }
+  
+  .ranking-card-header h2 {
+    border-bottom: 2px solid #FF0FCA;
+    color: #fff; /* text-white */
+    font-weight: bold; /* font-bold */
+  }
+  
+  .ranking-card-content {
+    background-color: #fff; /* bg-white */
+   border-radius: 0.5rem ;
+  }
+  
+  .ranking-team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    transition: background-color 0.3s ease;
+  }
+  
+  .ranking-team:hover {
+    background-color: #edf2f7; /* hover:bg-gray-100 */
+    border-radius: 0.5rem ;
+
+  }
+  
+  .ranking-team-flag {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+    margin-right: 0.5rem; /* mr-2 */
+  }
+  
+  .ranking-team-name {
+    flex: 1;
+  }
+  
+  .ranking-full-button {
+    color: #ffffff; /* text-teal-700 */
+  }
+  
+  .ranking-full-button:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
 import { Link } from 'react-router-dom';
 import Card from './Card'; // Import the Card component
@@ -9,8 +9,12 @@ import cardImage3 from '../components/images/icc.jpg';
 import cardImage4 from '../components/images/bigbash.png';
 import '../components/css/home.css';
 import MatchCard from './MatchCard';
+import RankingCard from './RankingCard';
+import CricketRankings from './CricketRankings';
 
 const Home = () => {
+
+    
     return (
         <div>
             <Navbar /> {/* Include the Navbar component */}
@@ -28,7 +32,7 @@ const Home = () => {
             {/* tournamet section  */}
 
             {/* Cards Section */}
-            <h1 className='text-3xl	font-semibold	text-center	mt-5'>Tournaments & Leagues</h1>
+            <h1 className='text-4xl	font-semibold	text-center	mt-5'> Tournaments & <span className='text-green-500'>Leagues</span></h1>
             <div className="cards-container" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}>
               
                 <Card image={cardImage1} title="Card Title 1" description="This is the description for card 1." />
@@ -39,10 +43,14 @@ const Home = () => {
 
 {/* matches section  */}
 <div className='mb-52 '>
-<h1 className='text-3xl	font-semibold	text-center	mt-5    '>Matches</h1>
+<h1 className='text-4xl	font-semibold	text-center	mt-5   '><span className=' text-green-500'> Recent</span> & <span className='text-yellow-500'> Upcoming</span> Matches</h1>
 
 <MatchCard/>
+<h1 className='text-4xl	font-semibold	text-center	mt-5  mb-14  '>Men’s <span className='text-green-500'>Team</span> Ranking </h1>
+
+<CricketRankings />
         </div>
+      
         </div>
     );
 }

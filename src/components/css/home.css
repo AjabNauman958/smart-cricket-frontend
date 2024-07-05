@@ -78,3 +78,31 @@
     opacity: 1;
   }
   
+
+  /* typing heading  */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+  }
+  
+  .typing-container {
+    display: inline-block; /* Adjust the display as needed */
+    overflow: hidden;
+    border-right: 0.15em solid black; /* Adjust the caret style as needed */
+    white-space: nowrap;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  .typing-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.875rem; /* equivalent to text-3xl */
+    font-weight: 600; /* equivalent to font-semibold */
+    text-align: center; /* equivalent to text-center */
+    margin-top: 1.25rem; /* equivalent to mt-5 */
+  }
+  
