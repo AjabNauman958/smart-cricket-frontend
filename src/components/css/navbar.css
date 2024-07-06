@@ -20,3 +20,40 @@
         border-bottom: none;
     }
 }
+
+
+/* navbar.css */
+/* Adjust as needed for your design */
+.navbar-link {
+    position: relative;
+}
+
+.navbar-link ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    z-index: 10;
+}
+
+.navbar-link:hover ul {
+    display: block;
+}
+
+.navbar-link ul li {
+    display: block;
+    padding: 10px;
+}
+
+.navbar-link ul li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-link ul li a:hover {
+    background-color: #f0f0f0;
+}

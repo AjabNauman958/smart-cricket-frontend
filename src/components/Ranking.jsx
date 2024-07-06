@@ -6,7 +6,15 @@ import '../components/css/home.css';
 import '../components/css/matches.css'; 
 
 import CricketRankings from './CricketRankings';
+
+
+
+
 const Ranking = () => {
+
+
+
+
   return (
     <div>
 
@@ -24,9 +32,9 @@ const Ranking = () => {
 
       <h1 className='text-4xl	font-semibold	text-center	mt-10 mb-10 '><span className='text-green-500'>Men's</span> Team Ranking </h1>
 
-      <CricketRankings />
+   
 
-    
+    <CricketRankings/>
       <Footer/>
     </div>
   )
