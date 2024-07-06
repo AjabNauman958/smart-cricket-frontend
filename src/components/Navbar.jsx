@@ -9,13 +9,13 @@ const Navbar = () => {
             name: 'Home', link: '/'
         },
         {
-            name: 'About Us', link: '/'
+            name: 'About Us', link: '/about'
         },
         {
-            name: 'Tournament', link: '/'
+            name: 'Tournament', link: '/tournament'
         },
         {
-            name: 'Matches', link: '/'
+            name: 'Matches', link: '/matches'
         },
         {
             name: 'Ranking', link: '/'

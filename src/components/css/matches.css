@@ -1,0 +1,48 @@
+.match-analysis {
+    background: rgb(0,160,154);
+    background: linear-gradient(90deg, rgba(0,160,154,1) 0%, rgba(120,120,120,1) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+  .match-date, .match-details, .ground, .teams, .opponent-team {
+    margin-bottom: 10px;
+  }
+  
+  .divider1 {
+    width: 10%;
+    border-top: 2px solid #fff;
+    margin: auto;
+  }
+  .divider2 {
+    width:50%;
+    border-top: 2px solid #fff;
+    margin: auto;
+  }
+  
+  .teams {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .team-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .team-left {
+    text-align: left;
+  }
+  
+  .team-right {
+    text-align: right;
+  }
+  
+  .team-left img {
+    width: 30px; /* Adjust size as needed */
+    height: auto;
+  }
+  

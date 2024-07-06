@@ -11,6 +11,9 @@ import TwoFactor from './components/TwoFactor';
 import NewPassword from './components/NewPassword';
 import Otpcode from './components/Otpcode';
 import Home from './components/Home';
+import About from './components/About';
+import Tournament from './components/Tournament';
+import Matches from './components/Matches';
 import MatchCard from './components/MatchCard'; // Correct import path for MatchCard
 import RankingCard from './components/RankingCard'; // Correct import path for MatchCard
 
@@ -22,6 +25,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/tournament" element={<Tournament />} />
+          <Route path="/matches" element={<Matches />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/playerlogin" element={<PlayerLogin />} />
@@ -32,7 +38,6 @@ function App() {
           <Route path="/twofactor" element={<TwoFactor />} />
           <Route path="/newpassword" element={<NewPassword />} />
           <Route path="/otpcode" element={<Otpcode />} />
-          {/* Ensure MatchCard has a unique path */}
           <Route path="/matchcard" element={<MatchCard />} />
           <Route path="/RankingCard" element={<RankingCard />} />
         </Routes>
