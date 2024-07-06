@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer'; 
 import backgroundImage from '../components/images/tournament.jpg'; 
 import '../components/css/home.css'; 
-import MatchCardList from './MatchCard';
+import MatchCardList from './MatchCardList';
 
 const Tournament = () => {
   const [showMoreSeries, setShowMoreSeries] = useState(false);

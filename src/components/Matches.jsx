@@ -4,8 +4,10 @@ import Footer from './Footer';
 import backgroundImage from '../components/images/matches.jpg'; 
 import '../components/css/home.css'; 
 import '../components/css/matches.css'; 
-import MatchCardList from './MatchCard';
+import MatchCardList from './MatchCardList';
 import PAK from '../components/images/pak.png';
+import IND from '../components/images/india.png';
+import record from '../components/images/record.png';
 
 
 const Matches = () => {
@@ -73,32 +75,40 @@ const Matches = () => {
         <h3>Tuesday, 12th March 2024, 11:00</h3>
       </div>
       <div className="match-details">
-        <h3>Hong Kong, China T20 Tri-Series, 2024 - March 3</h3>
+        <h1>Hong Kong, China T20 Tri-Series, 2024 - March 3</h1>
       </div>
-      <div className="divider1"></div>
       <div className="ground">
-        <p>Tin Kwong Road Recreation Ground</p>
+        <p >Tin Kwong Road Recreation Ground</p>
       </div>
       <div className="teams">
-        <div className="team-details">
-          <div className="team-left">
-            <h1>Pakistan</h1>
-            <img src={PAK} alt="Pakistan Flag" />
-            <p>Country Name</p>
-          </div>
-          <div className="team-right">
-            <p>339-5 (50)</p>
-          </div>
+        <div className="team">
+          <img src={PAK} alt="Pakistan Flag" className="team-flag" />
+          <h1>Pakistan</h1>
+          <p className="team-score">339-5 (50)</p>
         </div>
         <div className="match-result">
           <p>Pakistan beat India, by 180 runs</p>
         </div>
-      </div>
-      <div className="divider2"></div>
-      <div className="opponent-team">
-        <p>India losing team details</p>
+        <div className="team">
+          <img src={IND} alt="India Flag" className="team-flag" />
+          <h1>India</h1>
+          <p className="team-score">158-10 (41.2)</p>
+        </div>
       </div>
     </div>
+   <div className='graph flex'>
+  <div className="left-div">
+    <p>Average on both team batting</p>
+    <img src={record} alt="Graph Image" />
+  </div>
+  <div className="right-div">
+    <div className="batting-average-content">
+      <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+    </div>
+    <button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button>
+  </div>
+  </div>
+
 
 
       <Footer />

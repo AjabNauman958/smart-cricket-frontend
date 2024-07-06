@@ -2,7 +2,7 @@ import React from 'react';
 import RankingCard from './RankingCard';
 import PAK from '../components/images/pak.png';
 import AUS from '../components/images/aus.png';
-import IND from '../components/images/india.jpeg';
+import IND from '../components/images/india.png';
 import SA from '../components/images/SA.png';
 import NZ from '../components/images/newzealand.png';
 import ENG from '../components/images/eng.png';
@@ -56,6 +56,7 @@ const CricketRankings = () => {
   return (
     <>
     <div className="flex space-x-4 justify-center mb-10">
+      
       <RankingCard title="Test - Team Ranking" teams={menstestTeams} />
       <RankingCard title="ODI - Team Ranking" teams={mensodiTeams} />
       <RankingCard title="T20 - Team Ranking" teams={menst20Teams} />

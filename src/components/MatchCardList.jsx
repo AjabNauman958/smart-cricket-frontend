@@ -2,10 +2,12 @@ import React from 'react';
 import '../components/css/MatchCard.css';
 import pz from '../components/images/pz.png';
 import lq from '../components/images/lq.png';
-import IND from '../components/images/india.jpeg';
+import IND from '../components/images/india.png';
 import AUS from '../components/images/aus.png';
 import PAK from '../components/images/pak.png';
 import ENG from '../components/images/eng.png';
+import PropTypes from 'prop-types';
+
 
 const MatchCardList = ({ league }) => {
   const matchData = {
@@ -306,7 +308,9 @@ const MatchCardList = ({ league }) => {
       }
     ]
   };
-
+  if (!matchData[league]) {
+    return <div>No matches available for the selected league.</div>;
+  }
   return (
     <div className="flex mt-10" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}>
       {matchData[league].map((matchDetails, index) => (
@@ -329,6 +333,14 @@ const MatchCardList = ({ league }) => {
       ))}
     </div>
   );
+};
+
+MatchCardList.propTypes = {
+  league: PropTypes.oneOf(['recent', 'upcoming', 'series', 'worldcup', 'psl', 'ipl', 'bigbash']).isRequired,
+};
+
+MatchCardList.defaultProps = {
+  league: 'recent',
 };
 
 export default MatchCardList;

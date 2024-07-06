@@ -29,7 +29,12 @@
     transform: translateY(100%);
     transition: transform 0.5s ease-in-out;
 }
-
+.card-content h2{
+    font-size: 18px;
+}
+.card-content p{
+    font-size: 15px;
+}
 .card-component:hover .card-content {
     transform: translateY(0);
 }

@@ -1,48 +1,118 @@
 .match-analysis {
-    background: rgb(0,160,154);
-    background: linear-gradient(90deg, rgba(0,160,154,1) 0%, rgba(120,120,120,1) 100%);
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-  }
-  
-  .match-date, .match-details, .ground, .teams, .opponent-team {
-    margin-bottom: 10px;
-  }
-  
-  .divider1 {
-    width: 10%;
-    border-top: 2px solid #fff;
-    margin: auto;
-  }
-  .divider2 {
-    width:50%;
-    border-top: 2px solid #fff;
-    margin: auto;
-  }
-  
-  .teams {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .team-details {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .team-left {
-    text-align: left;
-  }
-  
-  .team-right {
-    text-align: right;
-  }
-  
-  .team-left img {
-    width: 30px; /* Adjust size as needed */
-    height: auto;
-  }
-  
+  background: rgb(0, 160, 154);
+  background: linear-gradient(90deg, rgba(0, 160, 154, 1) 0%, rgba(120, 120, 120, 1) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  opacity: 1;
+
+  transform: translateY(0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.match-analysis:hover {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+.graph{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.match-date h3,
+.match-details h2,
+.ground p {
+  margin: 0;
+}
+.match-details h1{
+  font-size: 20px;
+}
+.ground {
+  margin-bottom: 20px;
+}
+
+.left-div, .right-div {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-div {
+  text-align: center;
+}
+
+.left-div img {
+  max-width: 100%;
+  /* max-height: 70%; */
+  margin: 10px auto;
+}
+
+.right-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.batting-average-content {
+  margin-bottom: 20px;
+}
+
+.watch-analysis-btn {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.teams {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-flag {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.team h1 {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  margin: 10px 0 0;
+}
+
+.team-score {
+  font-size: 18px;
+  color: white;
+}
+
+.match-result {
+  margin: 0 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.team:hover .team-flag {
+  transform: scale(1.1);
+}
+
+.team:hover h1 {
+  color: #ffeb3b;
+  transition: color 0.3s ease;
+}
