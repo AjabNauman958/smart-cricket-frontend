@@ -1,13 +1,14 @@
 /* RankingCard.css */
 .ranking-card {
-    background-color: #00A09A;
-    border-radius: 0.5rem; 
-    padding: 1rem; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    width: 25%; 
-    height: 20rem;
-  
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  background-color: #00A09A;
+  border-radius: 0.5rem; 
+  padding: 1rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  width: 100%; /* Adjust width for responsiveness */
+  max-width: 25rem; /* Maximum width for larger screens */
+  height: auto; /* Adjust height based on content */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  margin-bottom: 1rem; /* Space between cards */
 
   }
   
@@ -32,6 +33,7 @@
   }
   
   .ranking-card-content {
+    padding: 10px;
     background-color: #fff; /* bg-white */
    border-radius: 0.5rem ;
   }
@@ -68,4 +70,31 @@
     text-decoration: underline;
   }
   
+  @media (min-width: 640px) {
+    .ranking-card {
+      flex-wrap: wrap;
+      flex-basis: calc(50% - 1rem); /* Two cards per row with spacing */
+      max-width: calc(50% - 1rem); /* Maximum width for larger screens */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .ranking-card {
+      flex-basis: calc(33.33% - 1rem); /* Three cards per row with spacing */
+      max-width: calc(33.33% - 1rem); /* Maximum width for larger screens */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ranking-card {
+      flex-basis: calc(25% - 1rem); /* Four cards per row with spacing */
+      max-width: calc(25% - 1rem); /* Maximum width for larger screens */
+    }
+  }
+  
+  .ranking-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    background-color: #00a09be4;
+  }
   

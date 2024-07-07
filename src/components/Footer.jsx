@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaTwitter, FaFigma } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className="relative">
+    <div className="relative mt-14">
       
       <div className="relative z-10 text-center p-6 md:flex md:justify-around md:text-left text-white " style={{backgroundColor:'#00A09A'}}>
         {/* First Div: Logo and Social Icons */}

@@ -11,6 +11,7 @@ const Navbar = () => {
         { name: 'Tournament', link: '/tournament' },
         { name: 'Matches', link: '/matches' },
         { name: 'Ranking', link: '/ranking' },
+        { name: 'Comparison', link: '/comparison' },
     ];
 
     const [isRankingHovered, setIsRankingHovered] = useState(false);

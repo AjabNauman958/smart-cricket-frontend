@@ -14,6 +14,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Tournament from './components/Tournament';
 import Ranking from './components/Ranking';
+import Comparison from './components/Comparison';
 import Matches from './components/Matches';
 import MatchCardList from './components/MatchCardList'; // Correct import path for MatchCard
 import RankingCard from './components/RankingCard'; // Correct import path for MatchCard
@@ -30,6 +31,7 @@ function App() {
           <Route path="/tournament" element={<Tournament />} />
           <Route path="/matches" element={<Matches />} />
           <Route path="/ranking" element={<Ranking />} />
+          <Route path="/comparison" element={<Comparison />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/playerlogin" element={<PlayerLogin />} />
