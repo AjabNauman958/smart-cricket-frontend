@@ -7,7 +7,7 @@ const Comparison = () => {
     <div>
         <Navbar/>
 comparison
-
+saasd
 
         <Footer/>
     </div>
