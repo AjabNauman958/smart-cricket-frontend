@@ -16,8 +16,8 @@ import Tournament from './components/Tournament';
 import Ranking from './components/Ranking';
 import Comparison from './components/Comparison';
 import Matches from './components/Matches';
-import MatchCardList from './components/MatchCardList'; // Correct import path for MatchCard
-import RankingCard from './components/RankingCard'; // Correct import path for MatchCard
+import MatchCardList from './components/MatchCardList'; 
+import RankingCard from './components/RankingCard'; 
 
 import './App.css';
 
