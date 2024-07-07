@@ -6,7 +6,7 @@ const Comparison = () => {
   return (
     <div>
         <Navbar/>
-
+comparison
 
 
         <Footer/>
