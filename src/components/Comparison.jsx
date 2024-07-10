@@ -6,7 +6,7 @@ import babarhero from '../components/images/babar.png';
 import williamson from '../components/images/williamson.png';
 import '../components/css/comparison.css';
 
-// Dummy player data
+// Dummy player data name and country
 const players = [
   { name: "Babar Azam", country: "Pakistan" },
   { name: "Virat Kohli", country: "India" },
