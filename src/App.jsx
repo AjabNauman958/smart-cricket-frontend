@@ -18,6 +18,7 @@ import Comparison from './components/Comparison';
 import Matches from './components/Matches';
 import MatchCardList from './components/MatchCardList'; 
 import RankingCard from './components/RankingCard'; 
+import TeamProfile from './components/TeamProfile'; 
 
 import './App.css';
 // 111
@@ -44,6 +45,7 @@ function App() {
           <Route path="/otpcode" element={<Otpcode />} />
           <Route path="/MatchCardList" element={<MatchCardList />} />
           <Route path="/RankingCard" element={<RankingCard />} />
+          <Route path="/TeamProfile" element={<TeamProfile />} />
         </Routes>
       </Router>
     </>
