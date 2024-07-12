@@ -14,7 +14,7 @@ const Signup = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('');
     const [animation, setAnimation] = useState(false);
-
+// sueeffect 
     useEffect(() => {
         setAnimation(true);
     }, []);
