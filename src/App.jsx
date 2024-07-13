@@ -19,6 +19,8 @@ import Matches from './components/Matches';
 import MatchCardList from './components/MatchCardList'; 
 import RankingCard from './components/RankingCard'; 
 import TeamProfile from './components/TeamProfile'; 
+import MatchAnalysis from './components/MatchAnalysis'; 
+import Contact from './components/Contact'; 
 
 import './App.css';
 // 111
@@ -46,6 +48,8 @@ function App() {
           <Route path="/MatchCardList" element={<MatchCardList />} />
           <Route path="/RankingCard" element={<RankingCard />} />
           <Route path="/TeamProfile" element={<TeamProfile />} />
+          <Route path="/MatchAnalysis" element={<MatchAnalysis />} />
+          <Route path="/Contact" element={<Contact />} />
         </Routes>
       </Router>
     </>

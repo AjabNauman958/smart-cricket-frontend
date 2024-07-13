@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa'; // Import FaChevronDown for dropdown icon
-
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import '../components/css/navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection }) => {
     let Links = [
         { name: 'Home', link: '/' },
         { name: 'About Us', link: '/about' },
@@ -46,10 +45,10 @@ const Navbar = () => {
                                     {isRankingHovered && (
                                         <ul className='absolute top-full left-0 mt-1 bg-white text-gray-800 shadow-md rounded-md md:block'>
                                             <li>
-                                                <Link to='/mens-ranking' className='block py-2 px-4 hover:bg-gray-200'>Men's Ranking</Link>
+                                                <Link to='/ranking' className='block py-2 px-4 hover:bg-gray-200' onClick={() => scrollToSection('mensSection')}>Men's Ranking</Link>
                                             </li>
                                             <li>
-                                                <Link to='/womens-ranking' className='block py-2 px-4 hover:bg-gray-200'>Women's Ranking</Link>
+                                                <Link to='/ranking' className='block py-2 px-4 hover:bg-gray-200' onClick={() => scrollToSection('womensSection')}>Women's Ranking</Link>
                                             </li>
                                         </ul>
                                     )}

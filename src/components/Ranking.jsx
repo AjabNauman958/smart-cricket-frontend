@@ -8,7 +8,7 @@
 
 
 
-  import React from 'react';
+  import React, { useRef } from 'react';
   import RankingCard from './RankingCard';
   import PAK from '../components/images/pak.png';
   import AUS from '../components/images/aus.png';
@@ -116,14 +116,23 @@
   ];
 
   const Ranking = () => {
+    const mensSectionRef = useRef(null);
+    const womensSectionRef = useRef(null);
 
+    const scrollToSection = (section) => {
+        if (section === 'mensSection' && mensSectionRef.current) {
+            mensSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        } else if (section === 'womensSection' && womensSectionRef.current) {
+            womensSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
 
 
     return (
       <div>
 
-  <Navbar />
+  <Navbar scrollToSection={scrollToSection} />
         <div className="hero-section" style={{ backgroundImage: `url(${backgroundImage})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
           <div className="dark-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="content" style={{ width: '50%', textAlign: 'center', color: '#fff' }}>
@@ -134,8 +143,8 @@
             </div>
           </div>
         </div>
-
         <div className="ranking-page">
+<section ref={mensSectionRef} id='mensSection'>
         <h1 className='text-4xl font-semibold text-center mt-10'>
           <span className='text-green-500'>Men's</span> Team Ranking
         </h1>
@@ -171,7 +180,10 @@
           <RankingCard title="ODI - All-Rounder Ranking" teams={mensAllRounder} />
           <RankingCard title="T20 - All-Rounder Ranking" teams={mensAllRounder} />
         </div>
+        </section>
 
+        {/* Women's Section  */}
+        <section ref={womensSectionRef} id='womensSection'>
         <h1 className='text-4xl font-semibold text-center mt-10'>
           <span className='text-green-500'>Women's</span> Team Ranking
         </h1>
@@ -195,7 +207,7 @@
           <RankingCard title="ODI - Bowling Ranking" teams={womensBowling} />
           <RankingCard title="T20 - Bowling Ranking" teams={womensBowling} />
         </div>
-
+     
         <h1 className='text-4xl font-semibold text-center mt-10'>
           <span className='text-green-500'>Women's</span> All-Rounder Ranking
         </h1>
@@ -203,6 +215,7 @@
           <RankingCard title="ODI - All-Rounder Ranking" teams={womensAllRounder} />
           <RankingCard title="T20 - All-Rounder Ranking" teams={womensAllRounder} />
         </div>
+        </section>
       </div>
         <Footer/>
       </div>

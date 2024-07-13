@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar'; 
 import Footer from './Footer'; 
 import backgroundImage from '../components/images/matches.jpg'; 
@@ -67,6 +68,7 @@ const Matches = () => {
       )}
 
 {/* match analysis */}
+<div>
 <h1 className='text-4xl font-semibold text-center mt-5'>
         Match<span className='text-yellow-500'> Analysis</span>
       </h1>
@@ -105,7 +107,8 @@ const Matches = () => {
     <div className="batting-average-content">
       <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
     </div>
-    <button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button>
+   <Link to='/MatchAnalysis'><button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button></Link> 
+  </div>
   </div>
   </div>
 
