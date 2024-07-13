@@ -63,7 +63,7 @@ const Login = () => {
                                     <label className='flex items-center text-xs'>
                                         <input type='checkbox' name='remember' className='mr-1' /> Remember me
                                     </label>
-                                    <a href='#' className='text-xs'> Forgot Password?</a>
+                                   <Link to='/forget'> <a href='#' className='text-xs'> Forgot Password?</a></Link>
                                 </div>
                                 <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign In</button>
                                 {/* "Don't have an account?" text */}
