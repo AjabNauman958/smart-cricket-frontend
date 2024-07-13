@@ -12,7 +12,7 @@ const Contact = () => {
       </div>
       <div className="right-side">
         <div className="contact-form">
-          <h2>Contact Us</h2>
+          <h2 className='text-4xl text-green-500'>Contact Us</h2>
           <form>
             <div className="form-group">
               <label htmlFor="fullName">Full Name</label>
