@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import backgroundImage from '../components/images/babar.png'; // Replace with your actual image path
-import '../styles/contactForm.css'; // Replace with your actual CSS file path
+import '../components/css/contact.css'; // Import your CSS file
 
 const Contact = () => {
   return (
