@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import { FaGithub, FaInstagram, FaTwitter, FaFigma } from 'react-icons/fa';
 
 const Footer = () => {
@@ -31,7 +32,7 @@ const Footer = () => {
 
         {/* Third Div: Contact Us and Policies */}
         <div className="mb-6 md:mb-0">
-          <a href="#" className="bg-yellow-300 text-black py-2 px-4 rounded hover:bg-yellow-400 transition duration-300">Contact Us</a>
+        <Link to='/contact'>  <a href="#" className="bg-yellow-300 text-black py-2 px-4 rounded hover:bg-yellow-400 transition duration-300">Contact Us</a></Link>
           <ul className="mt-4">
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Privacy Policy</a></li>
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Terms of Use</a></li>
