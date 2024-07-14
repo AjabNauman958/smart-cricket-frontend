@@ -21,6 +21,7 @@ import RankingCard from './components/RankingCard';
 import TeamProfile from './components/TeamProfile'; 
 import MatchAnalysis from './components/MatchAnalysis'; 
 import Contact from './components/Contact'; 
+import FAQS from './components/FAQS'; 
 
 import './App.css';
 // 111
@@ -50,6 +51,7 @@ function App() {
           <Route path="/TeamProfile" element={<TeamProfile />} />
           <Route path="/MatchAnalysis" element={<MatchAnalysis />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/FAQS" element={<FAQS />} />
         </Routes>
       </Router>
     </>
