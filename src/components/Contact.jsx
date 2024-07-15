@@ -19,24 +19,24 @@ const Contact = () => {
           <form >
             <div className="form-group">
               <label htmlFor="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
+              <input type="text" id="fullName" name="fullName" className='fullName' placeholder="Enter your full name" required />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required />
+              <input type="email" id="email" name="email" className='email' placeholder="Enter your email" required />
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+              <textarea id="message" name="message" rows="4" className='message' placeholder="Enter your message" required></textarea>
             </div>
-            <button type="submit" className='p-3 bg-green-300 hover:bg-green-400'>Submit</button>
+            <button type="submit btnSubmit" className='p-3 bg-green-300 hover:bg-green-400 rounded-md'>Submit</button>
           </form>
         </div>
         <div className="contact-info">
           <h3>Contact Information</h3>
           <div className="info">
             <FaEnvelope className="icon" />
-            <p>smartcricket@gmail.com</p>
+            <p className='text-green-500'>smartcricket@gmail.com</p>
           </div>
         </div>
         <div className="social-icons">

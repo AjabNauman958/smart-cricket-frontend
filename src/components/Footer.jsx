@@ -22,11 +22,14 @@ const Footer = () => {
         {/* Second Div: Navigation Links */}
         <div className="mb-6 md:mb-0">
           <ul>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">Home</a></li>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">About</a></li>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">Tournament</a></li>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">Matches</a></li>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">Ranking</a></li>
+            <li className="my-2">
+             <Link to='/'><a href="#" className="hover:underline transition duration-300">Home</a></Link> </li>
+            <li className="my-2">
+              <Link to='/about'>              <a href="#" className="hover:underline transition duration-300">About</a></Link>
+              </li>
+            <li className="my-2"><Link to='/tournament'><a href="#" className="hover:underline transition duration-300">Tournament</a></Link></li>
+            <li className="my-2"><Link to='/matches'><a href="#" className="hover:underline transition duration-300">Matches</a></Link></li>
+            <li className="my-2"><Link to='/ranking'><a href="#" className="hover:underline transition duration-300">Ranking</a></Link></li>
           </ul>
         </div>
 
@@ -36,7 +39,9 @@ const Footer = () => {
           <ul className="mt-4">
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Privacy Policy</a></li>
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Terms of Use</a></li>
-            <li className="my-2"><a href="#" className="hover:underline transition duration-300">FAQs</a></li>
+            <li className="my-2"> 
+              <Link to='/faqs'>
+              <a href="#" className="hover:underline transition duration-300">FAQs</a></Link></li>
           </ul>
         </div>
       </div>

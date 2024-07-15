@@ -1,7 +1,6 @@
 .contact-container {
   display: flex;
-  /* width: 100vw; */
-  /* height: 100vh; */
+
 }
 
 .left-side {
@@ -9,11 +8,22 @@
   overflow: hidden;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .animated-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeIn 2s ease-in-out;
 }
+
 
 .right-side {
   flex: 1;
@@ -44,40 +54,40 @@
   margin-bottom: 0.5rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.fullName,
+.email,
+.message {
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition properties */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border-color: #007bff; /* Change border color on focus */
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Add box shadow on focus */
+.fullName:focus,
+.email:focus,
+.message:focus {
+  border-color: #007bff; 
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); 
 }
 
-textarea {
+.message {
   resize: vertical;
 }
 
-button {
+.btnSubmit {
   color: white;
   border: none;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease; /* Add transition property */
+  transition: background-color 0.3s ease; 
 }
 
-button:hover {
-  background-color: #0056b3; /* Change background color on hover */
+.btnSubmit:hover {
+  background-color: #0056b3; 
 }
 
 .contact-info {

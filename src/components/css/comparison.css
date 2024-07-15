@@ -20,14 +20,14 @@
     align-items: center;
   }
   
-  .animated-image {
+  .animated-babarimage {
     width: 400px; /* Increased size */
     height: auto;
     animation: move infinite 5s linear;
     transition: transform 0.3s ease-in-out;
   }
   
-  .animated-image:hover {
+  .animated-babarimage:hover {
     transform: scale(1.1); /* Scale image on hover */
   }
   

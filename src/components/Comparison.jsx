@@ -214,7 +214,7 @@ const Comparison = () => {
           <img
             src={babarhero}
             alt="Player Comparison"
-            className="animated-image"
+            className="animated-babarimage"
           />
         </div>
       </div>
