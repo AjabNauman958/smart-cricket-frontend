@@ -72,7 +72,7 @@ const Topheader = ({ scrollToSection }) => {
                     {isSignedIn ? (
                         <li className='font-semibold my-7 md:my-0 md:ml-8 relative'>
                             <div className='relative flex items-center' onMouseEnter={toggleProfileHover} onMouseLeave={toggleProfileHover}>
-                                <img src={user.profileImage} alt='Profile' className='w-8 h-8 rounded-full cursor-pointer' />
+                                <img src={user.profileImage} alt='Profile' className='w-8 h-8 rounded-full cursor-pointer' style={{border:'1px solid yellow'}}/>
                                 <FaChevronDown className='ml-1 mt-1 cursor-pointer' />
                                 {isProfileHovered && (
                                     <div className='absolute top-full right-0 mt-1 bg-white text-gray-800 shadow-md rounded-md w-48'>
