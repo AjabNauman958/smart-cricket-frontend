@@ -3,22 +3,26 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash, FaEdit } from 'react-icons/fa';
 import Topheader from './Topheader';
 import Footer from './Footer';
-import '../components/css/userProfile.css';
-import userprofile from '../components/images/userprofile.jpg'; // Replace with your actual image path
+import '../components/css/userProfile.css'; // Import your CSS file
+import userprofile from '../components/images/userprofile.jpg';
 
 const UserProfile = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState({ oldPassword: false, newPassword: false, confirmNewPassword: false });
   const [profileImage, setProfileImage] = useState('https://via.placeholder.com/150');
+  const [showPasswordFields, setShowPasswordFields] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const user = {
     email: 'userprofile@gmail.com',
   };
 
-  const toggleShowPassword = () => setShowPassword(!showPassword);
+  const toggleShowPassword = field => setShowPassword(prevState => ({ ...prevState, [field]: !prevState[field] }));
+  const togglePasswordFields = () => setShowPasswordFields(!showPasswordFields);
 
   const onSubmit = data => {
     console.log(data);
+    setShowPopup(true); // Show popup on save
   };
 
   const handleImageChange = (e) => {
@@ -27,19 +31,21 @@ const UserProfile = () => {
     }
   };
 
+  const closePopup = () => setShowPopup(false);
+
   return (
     <div>
       <Topheader />
 
-      <div className="user-profile-container">
-        <div className="left-div">
+      <div className="user-profile-container mt-10">
+        <div className="left-div ">
           <h2>Welcome,</h2>
           <p>{user.email}</p>
           <img src={userprofile} alt="Welcome Illustration" className="welcome-image" />
         </div>
 
         <div className="right-div">
-          <h2>Edit Player Profile</h2>
+          <h2>Edit <span className='text-green-600 font-semibold'>Player</span> Profile</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label>Profile Picture</label>
             <div className="profile-picture-container">
@@ -54,9 +60,7 @@ const UserProfile = () => {
             </div>
 
             <div className="form-group">
-              <label>
-                Full Name
-              </label>
+              <label>Full Name</label>
               <div className="input-row">
                 <input type="text" {...register('firstName')} placeholder="First Name" />
                 <input type="text" {...register('lastName')} placeholder="Last Name" />
@@ -81,20 +85,46 @@ const UserProfile = () => {
             <div className="form-group">
               <label>
                 Password
-                <FaEdit className="edit-icon" />
+                <FaEdit className="edit-icon" onClick={togglePasswordFields} />
               </label>
-              <div className="password-container">
-                <input type={showPassword ? 'text' : 'password'} {...register('password')} placeholder="Password" />
-                <button type="button" onClick={toggleShowPassword}>
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
+              {showPasswordFields && (
+                <>
+                  <div className="password-container my-2">
+                    <input type={showPassword.oldPassword ? 'text' : 'password'} {...register('oldPassword')} placeholder="Old Password" />
+                    <button type="button" className="eye-icon" onClick={() => toggleShowPassword('oldPassword')}>
+                      {showPassword.oldPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                  </div>
+                  <div className="password-container my-2">
+                    <input type={showPassword.newPassword ? 'text' : 'password'} {...register('newPassword')} placeholder="New Password" />
+                    <button type="button" className="eye-icon" onClick={() => toggleShowPassword('newPassword')}>
+                      {showPassword.newPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                  </div>
+                  <div className="password-container my-2">
+                    <input type={showPassword.confirmNewPassword ? 'text' : 'password'} {...register('confirmNewPassword')} placeholder="Confirm New Password" />
+                    <button type="button" className="eye-icon" onClick={() => toggleShowPassword('confirmNewPassword')}>
+                      {showPassword.confirmNewPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
 
             <button type="submit" className="save-button">Save</button>
           </form>
         </div>
       </div>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Your data has been saved!</p>
+            <button onClick={closePopup} className="popup-button1">OK</button>
+            <button onClick={closePopup} className="popup-button2">Cancel</button>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
