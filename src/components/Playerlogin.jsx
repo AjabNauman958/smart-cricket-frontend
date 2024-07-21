@@ -29,10 +29,10 @@ const Playerlogin = () => {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 bodycolor'>
-            <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center">
-                <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl'>
+            <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center ">
+                <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Right side */}
-                    <div className='w-full md:w-3/5 p-5'>
+                    <div className='w-full md:w-3/5 p-5 leftdiv'>
                         <div className='text-left font-bold'>
                             <span className='text-green-500'> Smart</span>Cricket
                         </div>
@@ -112,7 +112,7 @@ const Playerlogin = () => {
                     </div>
                     
                     {/* Left side */}
-                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col justify-center items-center'>
+                    <div className=' w-full md:w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col justify-center items-center'>
                         <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
                         <div className='border-2 w-10 border-white inline-block mb-2'></div>
                         <img src={playerLoginpic} alt="Cricket Image" className="w-60 h-60 mb-4" />
