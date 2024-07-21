@@ -62,7 +62,7 @@ const Otpcode = () => {
             <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl'>
                     {/* Left side */}
-                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2- flex items-center justify-center'>
+                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl  flex items-center justify-center'>
                         <div>
                             <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
                             <img src={forget} alt="forget Image" className="w-56 h-56 mb-4" />
@@ -74,7 +74,7 @@ const Otpcode = () => {
                             <span className='text-green-500'> Smart</span>Cricket
                         </div>
                         {isSetupCompleted ? (
-                            <div className="flex flex-col items-center justify-center my-4">
+                            <div className="flex flex-col items-center justify-center my-4 h-96">
                                 <h2 className='text-3xl font-bold text-green-500 mb-2'>Setup Completed</h2>
                                 <p>Your account is now protected with two-factor authentication.</p>
                                 <button
