@@ -35,3 +35,25 @@
     border-radius: 100px;
   }
 }
+
+/* signup.css */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ensure the input fields have the right styling */
+.input-field {
+  padding: 0.75rem; /* Adjust padding as needed */
+  width: 100%; /* Full width */
+}
+
+/* Optional: Add styles for focus effect */
+.input-field:focus {
+  border-color: #34D399; /* Tailwind's green-400 color */
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.5); /* Optional shadow */
+}

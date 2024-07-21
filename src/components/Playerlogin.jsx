@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md'; // Import of icons
@@ -10,6 +10,11 @@ const Playerlogin = () => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const [error, setError] = useState('');
+    const [animation, setAnimation] = useState(false);
+
+    useEffect(() => {
+        setAnimation(true);
+    }, []);
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -28,7 +33,7 @@ const Playerlogin = () => {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 bodycolor'>
+        <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}`}>
             <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center ">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Right side */}
