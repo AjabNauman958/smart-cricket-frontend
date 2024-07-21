@@ -11,7 +11,7 @@ const Forget = () => {
 
     const handleResetPassword = () => {
         // Perform any validation or API call here if needed
-        navigate('/twofactor'); // Navigate to the NewPassword screen
+        navigate('/twofactor'); 
     };
 
    
