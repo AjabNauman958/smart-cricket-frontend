@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import cricketImage from '../components/images/signup.png';
-import '../components/css/signup.css'; // Import your CSS file
+import '../components/css/signup.css'; 
 
 const Signup = () => {
     const [userName, setuserName] = useState('');
@@ -33,11 +33,11 @@ const Signup = () => {
     };
 
     return (
-        <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}` } >
+        <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}` }  >
             <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center" >
                 <div className='maindiv bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl '>
                     {/* Left side */}
-                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col items-center leftdivv'>
+                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col items-center justify-center leftdivv'>
                         <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
                         <img src={cricketImage} alt="Cricket Image" className="w-56 h-56 mb-4" />
                     </div>

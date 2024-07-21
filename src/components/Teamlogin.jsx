@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegEnvelope } from 'react-icons/fa';
+import { FaRegEnvelope, FaGoogle } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import managementloginpic from '../components/images/managementlogin.png';
 import '../components/css/login.css'; // Ensure your CSS file is imported
@@ -69,6 +69,12 @@ const Teamlogin = () => {
                                 <div className="mt-4">
                                     <p className="text-sm">Don't have an account? <Link to="/TeamSignup" className="text-green-500">Sign Up</Link></p>
                                 </div>
+                                <div className="flex justify-center flex-col items-center">
+                                <button className="flex items-center border-2 border-green-500 rounded-lg px-6 py-2 mt-6 font-semibold hover:bg-green-500 hover:text-white">
+                                    <FaGoogle className="text-orange-500 mr-2" /> {/* Google icon */}
+                                    Login with Google
+                                </button>
+                            </div>
                             </div>
                         </form>
                     </div>
