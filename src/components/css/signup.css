@@ -13,7 +13,7 @@
 
 .input-container:hover,
 .input-container:focus-within {
-    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); /* Green shadow */
+    /* box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); Green shadow */
     transform: translateY(-2px); /* Slight lift effect */
 }
 
@@ -24,4 +24,14 @@
 
 .input-field:focus {
     background-color: #f0fff4; /* Light green background on focus */
+}
+@media (max-width: 768px) {
+  .maindivv{
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 10px;
+  }
+  .leftdivv{
+    border-radius: 100px;
+  }
 }

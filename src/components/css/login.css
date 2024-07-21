@@ -28,3 +28,19 @@
 .input-field:focus {
     background-color: #f0fff4; /* Light green background on focus */
 }
+
+@media (max-width: 768px) {
+    .maindiv{
+      flex-direction: column;
+      flex-wrap: wrap;
+      border-radius: 10px;
+    }
+    .leftdiv{
+      /* border-radius: 100px; */
+      order: 1;
+    }
+    .rightdiv{
+        order: 2;
+
+    }
+  }
