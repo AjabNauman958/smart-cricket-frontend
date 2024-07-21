@@ -37,7 +37,7 @@ const Otpcode = () => {
     };
 
     const handleGoBack = () => {
-        navigate('/login'); // Adjust the path as needed to point to your login screen
+        navigate('/newpassword'); // Adjust the path as needed to point to your login screen
     };
 
     const handleResendCode = () => {
