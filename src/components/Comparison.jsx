@@ -202,15 +202,15 @@ const Comparison = () => {
     <div>
       <Navbar />
       <div className="comparison-container flex mt-24 transition-opacity duration-1000 ease-in-out">
-      <div className="left-div p-4 transition-transform duration-1000 ease-in-out">
-      <h2 className=" md:text-5xl sm:text-2xl font-bold mb-4 main-heading"> Ultimate Cricket  <span className='text-green-600'>Player Comparison:</span> Stats, Skills, and Records</h2>
+      <div className="left-divv p-4 transition-transform duration-1000 ease-in-out">
+      <h1 className=" md:text-5xl sm:text-3xl font-bold mb-4 main-heading text-black"> Ultimate Cricket  <span className='text-green-600'>Player Comparison:</span> Stats, Skills, and Records</h1>
 
           <p className="text-gray-700">
             Compare the batting and bowling statistics of your favorite players.
             Analyze their performance over different matches and see who comes out on top!
           </p>
         </div>
-        <div className="right-div p-4">
+        <div className="right-divv p-4">
           <img
             src={babarhero}
             alt="Player Comparison"

@@ -1,73 +1,72 @@
 .comparison-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 64px; /* Adjusted margin-top */
-    flex-wrap: wrap-reverse;
-  }
-  .main-heading{
-    text-shadow: 2px 2px 4px rgba(83, 82, 82, 0.3);
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 64px; /* Adjusted margin-top */
+  flex-wrap: wrap-reverse;
 }
-  .left-div {
-    flex: 1;
-  }
-  
-  .right-div {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .animated-babarimage {
-    width: 400px; /* Increased size */
-    height: auto;
-    animation: move infinite 5s linear;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .animated-babarimage:hover {
-    transform: scale(1.1); /* Scale image on hover */
-  }
-  
-  @keyframes move {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(20px);
-      
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  .player-inputs {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .comparison-result .player-info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .player-card {
-    max-width: 200px;
-    text-align: center;
-  }
-  
-  .player-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 8px;
-  }
-  
 
-  /* Example CSS for Autosuggest options */
+.main-heading {
+  text-shadow: 2px 2px 4px rgba(83, 82, 82, 0.3);
+}
+
+.left-divv {
+  flex: 1;
+}
+
+.right-divv {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-babarimage {
+  width: 400px; /* Increased size */
+  height: auto;
+  animation: move infinite 5s linear;
+  transition: transform 0.3s ease-in-out;
+}
+
+.animated-babarimage:hover {
+  transform: scale(1.1); /* Scale image on hover */
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.player-inputs {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.comparison-result .player-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-card {
+  max-width: 200px;
+  text-align: center;
+}
+
+.player-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+/* Example CSS for Autosuggest options */
 .react-autosuggest__suggestions-container {
   position: absolute;
   background: white;
@@ -93,4 +92,27 @@
 
 .react-autosuggest__suggestion--highlighted {
   background-color: #f0f0f0;
+}
+
+/* Media query for screens narrower than 768px */
+@media (max-width: 768px) {
+  .comparison-container {
+    flex-wrap: wrap-reverse;
+    flex-direction: column;
+  }
+  .left-divv {
+    text-align: center;
+    order: 2; /* Show left div content after right div */
+    width: 100%;
+  }
+  .left-divv h1{
+    font-size: 25px;
+  }
+
+  .right-divv {
+    order: 1; /* Show right div content first */
+    width: 100%;
+    margin-bottom: 20px; /* Add margin to separate the divs */
+  }
+
 }
