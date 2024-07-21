@@ -14,9 +14,7 @@ const Forget = () => {
         navigate('/newpassword'); // Navigate to the NewPassword screen
     };
 
-    const handleTryAnotherOption = () => {
-        navigate('/twofactor'); // Navigate to the TwoFactor screen
-    };
+   
 
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100`}>
@@ -37,21 +35,13 @@ const Forget = () => {
                             <div className='border-2 border-green-500 inline-block mb-2 w-80'></div>
                         </div>
                         <div className='flex justify-center'>
-                            <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                <input 
-                                    required 
-                                    type='email' 
-                                    name='email' 
-                                    value={email} 
-                                    onChange={(e) => setEmail(e.target.value)} 
-                                    placeholder='Enter your Email Address' 
-                                    className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' 
-                                />
-                            </div>
+                        <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-4 rounded-lg input-container'>
+                                    <FaRegEnvelope className="text-gray-400 m-2" />
+                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Id' className='bg-gray-100 outline-none text-sm flex-1 p-2 rounded-lg input-field' />
+                                </div>
                         </div>
                         <div className="flex flex-col items-center justify-center my-4">
-                            <div className="mt-4">
+                            <div className="">
                                 <button 
                                     onClick={handleResetPassword} 
                                     className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white"
@@ -63,15 +53,7 @@ const Forget = () => {
                             <div className="mt-4">
                                 <p className="text-sm">Back to login <Link to="/login" className="text-green-500">Sign In</Link></p>
                             </div>
-                            <div className='flex flex-col md:flex-row mt-4'>
-                                <button 
-                                    onClick={handleTryAnotherOption} 
-                                    type="button" 
-                                    className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 mb-2 md:mb-0 md:mr-2'
-                                >
-                                    Try another option
-                                </button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

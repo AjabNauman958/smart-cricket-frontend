@@ -65,8 +65,8 @@ const NewPassword = () => {
                         </div>
                         <form onSubmit={handleSubmit}>
                             <div className='flex flex-col items-center'>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2" />
+                            <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-4 rounded-lg input-container'>
+                            <MdLockOutline className="text-gray-400 m-2" />
                                     <input
                                         type={showPassword ? 'text' : 'password'}
                                         name='password'
@@ -84,7 +84,7 @@ const NewPassword = () => {
                                         )}
                                     </div>
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-64 p-2 flex items-center mb-3 rounded-lg input-container'>
+                                <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-4 rounded-lg input-container'>
                                     <MdLockOutline className="text-gray-400 m-2" />
                                     <input
                                         type={showConfirmPassword ? 'text' : 'password'}
