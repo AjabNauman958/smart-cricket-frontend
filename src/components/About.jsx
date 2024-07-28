@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
 import Footer from './Footer'; // Import the Footer component
 import backgroundImage from '../components/images/about.jpg'; // Adjust the path as necessary
