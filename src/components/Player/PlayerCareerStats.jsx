@@ -117,12 +117,12 @@ const PlayerCareerStats = () => {
       </div>
 
       {Object.values(playerStats).map((section) => (
-        <div key={section.title} className="mb-8 text-black">
+        <div key={section.title} className="mb-8 dark:text-white text-black">
           <h3 className="text-xl font-bold mb-4">{section.title}</h3>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white text-black rounded-md">
+          <div className="overflow-x-auto ">
+            <table className="min-w-full bg-white text-black rounded-md ">
               <thead>
-                <tr>
+                <tr >
                   {Object.keys(section.stats[0]).map((key) => (
                     <th key={key} className="px-4 py-2 text-left bg-gray-100">{key.toUpperCase()}</th>
                   ))}

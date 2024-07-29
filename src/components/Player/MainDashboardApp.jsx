@@ -6,6 +6,7 @@ import WelcomeMessage from './WelcomeMessage';
 import PlayerProfileCard from './PlayerProfileCard';
 import PlayerProfileDetails from './PlayerProfileDetails';
 import PlayerCareerStats from './PlayerCareerStats';
+import AverageGraph from './AverageGraph';
 
 const MainDashboardApp = () => {
   return (
@@ -24,6 +25,9 @@ const MainDashboardApp = () => {
         </div>
         <div>
           <PlayerCareerStats/>
+        </div>
+        <div>
+          <AverageGraph/>
         </div>
 </div>
 </div>
