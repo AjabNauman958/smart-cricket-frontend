@@ -26,6 +26,7 @@ import Topheader from './components/Topheader';
 import UserProfile from './components/UserProfile'; 
 
 import './App.css';
+import MainDashboardApp from './components/Player/MainDashboardApp';
 // 111
 function App() {
   return (
@@ -56,6 +57,8 @@ function App() {
           <Route path="/FAQS" element={<FAQS />} />
           <Route path="/Topheader" element={<Topheader />} />
           <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/MainDashboardApp" element={<MainDashboardApp />} />
+
         </Routes>
       </Router>
     </>
