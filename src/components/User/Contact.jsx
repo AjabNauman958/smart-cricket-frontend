@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import backgroundImage from '../components/images/contact.jpg'; // Replace with your actual image path
-import '../components/css/contact.css'; // Import your CSS file
+import backgroundImage from '../images/contact.jpg'; // Replace with your actual image path
+import '../css/contact.css'; // Import your CSS file
 import Navbar from './Navbar'; // Import the Navbar component
 import Footer from './Footer'; // Import the Footer component
 const Contact = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import forget from '../components/images/forget.png';
+import forget from '../images/forget.png';
 import { FaRegEnvelope } from 'react-icons/fa';
-import '../components/css/signup.css'; // Assuming your CSS file is correctly imported
+import '../css/signup.css'; // Assuming your CSS file is correctly imported
 
 const TwoFactor = () => {
     const navigate = useNavigate();

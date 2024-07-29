@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaChevronDown, FaUser } from 'react-icons/fa';
-import '../components/css/navbar.css';
-import profile from '../components/images/babar.png'; // Replace with your actual image path
+import '../css/navbar.css';
+import profile from '../images/babar.png'; // Replace with your actual image path
 
 const Topheader = ({ scrollToSection }) => {
     const Links = [

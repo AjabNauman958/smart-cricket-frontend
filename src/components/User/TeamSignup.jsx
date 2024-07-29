@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import managementloginpic from '../components/images/managementlogin.png';
-import '../components/css/signup.css';
+import managementloginpic from '../images/managementlogin.png';
+import '../css/signup.css';
 
 const TeamSignup = () => {
     const [firstName, setFirstName] = useState('');

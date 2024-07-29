@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
 import { Link } from 'react-router-dom';
 import Card from './Card'; // Import the Card component
-import backgroundImage from '../components/images/bgimage.jpg';
-import cardImage1 from '../components/images/psl.jpg';
-import cardImage2 from '../components/images/ipl.png';
-import cardImage3 from '../components/images/icc.jpg';
-import cardImage4 from '../components/images/bigbash.png';
-import '../components/css/home.css';
+import backgroundImage from '../images/bgimage.jpg';
+import cardImage1 from '../images/psl.jpg';
+import cardImage2 from '../images/ipl.png';
+import cardImage3 from '../images/icc.jpg';
+import cardImage4 from '../images/bigbash.png';
+import '../css/home.css';
 import CricketRankings from './CricketRankings';
 import Footer from './Footer';
 import MatchCardList from './MatchCardList';

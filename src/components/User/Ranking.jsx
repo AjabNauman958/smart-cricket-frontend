@@ -1,8 +1,8 @@
   import Navbar from './Navbar'; 
   import Footer from './Footer'; 
-  import backgroundImage from '../components/images/ranking.jpg'; 
-  import '../components/css/home.css'; 
-  import '../components/css/matches.css'; 
+  import backgroundImage from '../images/ranking.jpg'; 
+  import '../css/home.css'; 
+  import '../css/matches.css'; 
 
   import CricketRankings from './CricketRankings';
 
@@ -10,13 +10,13 @@
 
   import React, { useRef } from 'react';
   import RankingCard from './RankingCard';
-  import PAK from '../components/images/pak.png';
-  import AUS from '../components/images/aus.png';
-  import IND from '../components/images/india.png';
-  import SA from '../components/images/SA.png';
-  import NZ from '../components/images/newzealand.png';
-  import ENG from '../components/images/eng.png';
-  import WI from '../components/images/westindies.png';
+  import PAK from '../images/pak.png';
+  import AUS from '../images/aus.png';
+  import IND from '../images/india.png';
+  import SA from '../images/SA.png';
+  import NZ from '../images/newzealand.png';
+  import ENG from '../images/eng.png';
+  import WI from '../images/westindies.png';
 
   // Men's team ranking
   // Men's team ranking

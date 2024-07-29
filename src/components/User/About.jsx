@@ -5,7 +5,7 @@ import backgroundImage from '../images/about.jpg'; // Adjust the path as necessa
 import whoweare from '../images/whoweare.png'; // Adjust the path as necessary
 import whatwedo from '../images/whatwedo.png'; // Adjust the path as necessary
 import vision from '../images/vision.jpg'; // Adjust the path as necessary
-import '../css/about'; // Import your CSS file
+import '../css/home.css'; // Import your CSS file
 
 const About = () => {
   const sections = [

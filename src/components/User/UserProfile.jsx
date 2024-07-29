@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash, FaEdit } from 'react-icons/fa';
 import Topheader from './Topheader';
 import Footer from './Footer';
-import '../components/css/userProfile.css'; // Import your CSS file
-import userprofile from '../components/images/userprofile.jpg';
+import '../css/userProfile.css'; // Import your CSS file
+import userprofile from '../images/userprofile.jpg';
 
 const UserProfile = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();

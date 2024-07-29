@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/RankingCard.css';
+import '../css/RankingCard.css';
 
 const RankingCard = ({ title, teams }) => {
   return (

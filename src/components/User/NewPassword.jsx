@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import '../components/css/signup.css'; // Assuming your CSS file is correctly imported
-import forget from '../components/images/forget.png';
+import '../css/signup.css'; // Assuming your CSS file is correctly imported
+import forget from '../images/forget.png';
 
 const NewPassword = () => {
     const [password, setPassword] = useState('');

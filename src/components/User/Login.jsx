@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import cricketImage from '../components/images/login.png';
-import '../components/css/login.css'; // Ensure your CSS file is imported
+import cricketImage from '../images/login.png';
+import '../css/login.css'; // Ensure your CSS file is imported
 
 const Login = () => {
     const [email, setEmail] = useState('');

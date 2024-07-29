@@ -2,8 +2,8 @@ import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope } from 'react-icons/fa';
-import forget from '../components/images/forget.png';
-import '../components/css/signup.css';
+import forget from '../images/forget.png';
+import '../css/signup.css';
 
 const Forget = () => {
     const [email, setEmail] = useState('');

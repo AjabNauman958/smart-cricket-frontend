@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import PAK from '../components/images/pak.png';
-import IND from '../components/images/india.png';
-import record from '../components/images/record.png';
-import playerperformancce from '../components/images/playerperformancce.png';
+import PAK from '../images/pak.png';
+import IND from '../images/india.png';
+import record from '../images/record.png';
+import playerperformancce from '../images/playerperformancce.png';
 
 const MatchAnalysis = () => {
     const data = {

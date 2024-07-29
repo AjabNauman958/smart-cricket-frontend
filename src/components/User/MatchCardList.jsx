@@ -1,11 +1,11 @@
 import React from 'react';
-import '../components/css/MatchCard.css';
-import pz from '../components/images/pz.png';
-import lq from '../components/images/lq.png';
-import IND from '../components/images/india.png';
-import AUS from '../components/images/aus.png';
-import PAK from '../components/images/pak.png';
-import ENG from '../components/images/eng.png';
+import '../css/MatchCard.css';
+import pz from '../images/pz.png';
+import lq from '../images/lq.png';
+import IND from '../images/india.png';
+import AUS from '../images/aus.png';
+import PAK from '../images/pak.png';
+import ENG from '../images/eng.png';
 import PropTypes from 'prop-types';
 
 

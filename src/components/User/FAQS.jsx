@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../components/css/faqs.css'; // Import your CSS file
-import faq from '../components/images/faq.jpg'; // Replace with your actual image path
+import '../css/faqs.css'; // Import your CSS file
+import faq from '../images/faq.jpg'; // Replace with your actual image path
 import Footer from './Footer';
 import Navbar from './Navbar';
 

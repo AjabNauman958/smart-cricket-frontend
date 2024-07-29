@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import forget from '../components/images/forget.png';
-import '../components/css/signup.css'; // Assuming your CSS file is correctly imported
+import forget from '../images/forget.png';
+import '../css/signup.css'; // Assuming your CSS file is correctly imported
 
 const Otpcode = () => {
     const [isSetupCompleted, setIsSetupCompleted] = useState(false);

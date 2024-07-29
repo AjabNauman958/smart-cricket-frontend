@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import cricketImage from '../components/images/signup.png';
-import '../components/css/signup.css'; 
+import cricketImage from '../images/signup.png';
+import '../css/signup.css'; 
 
 const Signup = () => {
     const [userName, setuserName] = useState('');

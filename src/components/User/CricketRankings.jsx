@@ -1,11 +1,11 @@
 import React from 'react';
 import RankingCard from './RankingCard';
-import PAK from '../components/images/pak.png';
-import AUS from '../components/images/aus.png';
-import IND from '../components/images/india.png';
-import SA from '../components/images/SA.png';
-import NZ from '../components/images/newzealand.png';
-import ENG from '../components/images/eng.png';
+import PAK from '../images/pak.png';
+import AUS from '../images/aus.png';
+import IND from '../images/india.png';
+import SA from '../images/SA.png';
+import NZ from '../images/newzealand.png';
+import ENG from '../images/eng.png';
 
 
 // Mens team ranking 

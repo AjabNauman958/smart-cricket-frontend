@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar'; 
 import Footer from './Footer'; 
-import backgroundImage from '../components/images/matches.jpg'; 
-import '../components/css/home.css'; 
-import '../components/css/matches.css'; 
+import backgroundImage from '../images/matches.jpg'; 
+import '../css/home.css'; 
+import '../css/matches.css'; 
 import MatchCardList from './MatchCardList';
-import PAK from '../components/images/pak.png';
-import IND from '../components/images/india.png';
-import record from '../components/images/record.png';
+import PAK from '../images/pak.png';
+import IND from '../images/india.png';
+import record from '../images/record.png';
 
 
 const Matches = () => {
