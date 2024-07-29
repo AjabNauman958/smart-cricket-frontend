@@ -16,14 +16,14 @@ const MainDashboardApp = () => {
 <div className="flex ">
     <Sidebar/>
     <div className='grow ml-16 md:ml-64  bg-gray-100 text-gray-900
-      dark:bg-gray-900 dark:text-white'>
+      dark:bg-gray-900 dark:text-white flex-wrap'>
         <DashboardNavbar/>
         <WelcomeMessage/>
         <div className='mt-9 ml-6 flex flex-wrap'>
           <PlayerProfileCard/> 
           <PlayerProfileDetails/>
         </div>
-        <div>
+        <div className='flex-dr'>
           <PlayerCareerStats/>
         </div>
         <div>
