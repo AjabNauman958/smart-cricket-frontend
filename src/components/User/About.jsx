@@ -1,11 +1,11 @@
 // import React from 'react';
 import Navbar from './Navbar'; // Import the Navbar component
 import Footer from './Footer'; // Import the Footer component
-import backgroundImage from '../components/images/about.jpg'; // Adjust the path as necessary
-import whoweare from '../components/images/whoweare.png'; // Adjust the path as necessary
-import whatwedo from '../components/images/whatwedo.png'; // Adjust the path as necessary
-import vision from '../components/images/vision.jpg'; // Adjust the path as necessary
-import '../components/css/home.css'; // Import your CSS file
+import backgroundImage from '../images/about.jpg'; // Adjust the path as necessary
+import whoweare from '../images/whoweare.png'; // Adjust the path as necessary
+import whatwedo from '../images/whatwedo.png'; // Adjust the path as necessary
+import vision from '../images/vision.jpg'; // Adjust the path as necessary
+import '../css/about'; // Import your CSS file
 
 const About = () => {
   const sections = [
