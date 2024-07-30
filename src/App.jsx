@@ -28,6 +28,7 @@ import UserProfile from './components/User/UserProfile';
 import './App.css';
 import MainDashboardApp from './components/Player/MainDashboardApp';
 import PlayerTeamSchedule from './components/Player/PlayerTeamSchedule';
+import PlayerPerformancePrediction from './components/Player/PlayerPerformancePrediction';
 // 111
 function App() {
   return (
@@ -58,8 +59,10 @@ function App() {
           <Route path="/FAQS" element={<FAQS />} />
           <Route path="/Topheader" element={<Topheader />} />
           <Route path="/UserProfile" element={<UserProfile />} />
+          {/* player dashboard  */}
           <Route path="/Player/MainDashboardApp" element={<MainDashboardApp />} />
           <Route path="/Player/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
+          <Route path="/Player/PlayerPerformancePrediction" element={<PlayerPerformancePrediction />} />
           <Route path="*" element={<> not found</>} />
 
         </Routes>

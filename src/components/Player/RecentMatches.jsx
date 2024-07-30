@@ -36,8 +36,8 @@ const RecentMatches = () => {
     <div className="flex mt-4" style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '20px',  }}>
        
       {recentMatches.map((matchDetails, index) => (
-          <div key={index} className="match-card">
-          <div className="header">
+          <div key={index} className="match-card ">
+          <div className="header ">
             <h2>{matchDetails.matchNumber} . {matchDetails.league}, 2024</h2>
             <div className="badge">{matchDetails.format}</div>
           </div>

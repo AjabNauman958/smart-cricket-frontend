@@ -32,7 +32,7 @@ const Sidebar = () => {
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaChartLine className='text-2xl'/>
-          <Link to="/users" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Prediction </Link>
+          <Link to="/Player/PlayerPerformancePrediction" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Prediction </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaChartBar className='text-2xl'/>
