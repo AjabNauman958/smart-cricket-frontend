@@ -27,18 +27,18 @@ const PlayerProfileCard = () => {
         <p className="text-gray-300">INTL CAREER 2018 - 2024</p>
        
       </div>
-      <div className="flex justify-end mt-4 space-x-2">
+      <div className="flex justify-end mt-4 space-x-2 ml-2">
       <p className="text-lg  flex items-center justify-center">
           <FaMapMarkerAlt className="mr-2" /> Pakistan | Bowler
         </p>
         <button 
-          className=" text-white py-2 px-4 rounded flex items-center justify-center "
+          className=" text-white py-2 text-2xl rounded flex items-center justify-center "
           onClick={handleAddToFavorites}
         >
           <FaHeart className="mr-2" /> 
         </button>
         <button 
-          className=" text-white py-2 px-4 rounded flex items-center justify-center "
+          className=" text-white py-2 text-2xl rounded flex items-center justify-center "
         >
           <FaShareAlt className="mr-2" /> 
         </button>

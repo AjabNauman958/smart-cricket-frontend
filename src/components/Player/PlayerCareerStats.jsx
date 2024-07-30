@@ -111,9 +111,9 @@ const playerStats = {
 
 const PlayerCareerStats = () => {
   return (
-    <div className="max-w-6xl mx-auto rounded overflow-hidden shadow-inner text-white p-8 mt-8">
+    <div className="max-w-6xl mx-auto rounded overflow-hidden shadow-inner text-white p-8 mt-8  ">
       <div className='bg-[#00A09A] p-2 rounded-xl'>
-        <h2 className="text-2xl font-bold mb-4">Shaheen Shah Afridi Career Stats</h2>
+        <h2 className="text-2xl font-bold flex items-center justify-center">Shaheen Shah Afridi Career Stats</h2>
       </div>
 
       {Object.values(playerStats).map((section) => (

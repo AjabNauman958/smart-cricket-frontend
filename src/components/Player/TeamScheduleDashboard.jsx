@@ -1,15 +1,19 @@
 import React from 'react';
 import MatchCardList from '../User/MatchCardList';
+import RecentMatches from './RecentMatches';
+import PropTypes from 'prop-types';
+import UpcomingMatches from './UpcomingMatches';
 
-const TeamScheduleDashboard = () => {
+const TeamScheduleDashboard = ({ league = 'recent' }) => {
   return (
     <div>
-        <h1 className='text-4xl font-semibold text-center mt-5'>
-        <span className='text-green-500'>Team </span> Schedule
-      </h1>
-<MatchCardList/>
+       
+      {league === 'recent' && <RecentMatches />}
+      {league === 'upcoming' && <UpcomingMatches />}
     </div>
   );
 }
-
+TeamScheduleDashboard.propTypes = {
+  league: PropTypes.oneOf(['recent', 'upcoming']).isRequired,
+};
 export default TeamScheduleDashboard;
