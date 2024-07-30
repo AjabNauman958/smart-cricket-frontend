@@ -22,7 +22,7 @@ const MainDashboardApp = () => {
           >
             <DashboardNavbar />
             <WelcomeMessage />
-            <div className="mt-9 ml-6 flex flex-wrap">
+            <div className="mt-9 ml-6 flex flex-wrap justify-center items-center">
               <PlayerProfileCard />
               <PlayerProfileDetails />
             </div>
