@@ -1,0 +1,9 @@
+/* Add to DashboardNavbar.css */
+.dropdown-content {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dropdown-content li {
+    list-style-type: none;
+  }
+  

@@ -8,6 +8,7 @@ import PlayerProfileDetails from "./PlayerProfileDetails";
 import PlayerCareerStats from "./PlayerCareerStats";
 import AverageGraph from "./AverageGraph";
 import TeamScheduleDashboard from "./TeamScheduleDashboard";
+import Footer from "./Footer";
 
 const MainDashboardApp = () => {
   return (
@@ -38,6 +39,7 @@ const MainDashboardApp = () => {
               <TeamScheduleDashboard league="recent" />
               <TeamScheduleDashboard league="upcoming" />
             </div>
+          <Footer/>
           </div>
         </div>
       </ThemeContextProvider>
