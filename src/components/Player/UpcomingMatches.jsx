@@ -33,10 +33,9 @@ const upcomingMatches = [
 const UpcomingMatches = () => {
   return (
     <>
-        <h1 className=' mt-7 text-2xl w-[18rem] text-center rounded m-auto bg-yellow-400 p-1 text-white font-semibold' >Upcoming Matches</h1>
 
     <div
-      className="flex mt-10"
+      className="flex mt-4"
       style={{
           display: "flex",
           justifyContent: "center",

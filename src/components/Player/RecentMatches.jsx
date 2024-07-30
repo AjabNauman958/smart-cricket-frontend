@@ -32,8 +32,8 @@ const recentMatches = [
 const RecentMatches = () => {
   return (
     <>
-    <h1 className=' mt-7 text-2xl w-[13rem] rounded text-center m-auto bg-yellow-400 p-1 text-white font-semibold' >Recent Matches</h1>
-    <div className="flex mt-10" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}>
+   
+    <div className="flex mt-4" style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '20px',  }}>
        
       {recentMatches.map((matchDetails, index) => (
           <div key={index} className="match-card">

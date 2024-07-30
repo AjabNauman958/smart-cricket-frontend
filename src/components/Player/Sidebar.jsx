@@ -24,11 +24,11 @@ const Sidebar = () => {
       <ul className="flex flex-col text-xl mt-4">
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaHome className='text-2xl'/>
-          <Link to="/dashboard" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</Link>
+          <Link to="/Player/MainDashboardApp" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaRegClock className='text-2xl'/>
-          <Link to="/team-schedule" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</Link>
+          <Link to="/Player/PlayerTeamSchedule" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaChartLine className='text-2xl'/>

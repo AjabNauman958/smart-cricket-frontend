@@ -14,7 +14,7 @@ const MainDashboardApp = () => {
   return (
     <div>
       <ThemeContextProvider>
-        <div className="">
+        <div >
           <Sidebar />
           <div
             className="grow ml-16 md:ml-64  bg-gray-100 text-gray-900
@@ -26,7 +26,7 @@ const MainDashboardApp = () => {
               <PlayerProfileCard />
               <PlayerProfileDetails />
             </div>
-            <div className="flex-dr">
+            <div className="flex-wrap">
               <PlayerCareerStats />
             </div>
             <div>
