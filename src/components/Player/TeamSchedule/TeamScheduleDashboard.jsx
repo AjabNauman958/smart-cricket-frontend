@@ -1,5 +1,5 @@
 import React from 'react';
-import MatchCardList from '../User/MatchCardList';
+import MatchCardList from '../../User/MatchCardList';
 import RecentMatches from './RecentMatches';
 import PropTypes from 'prop-types';
 import UpcomingMatches from './UpcomingMatches';

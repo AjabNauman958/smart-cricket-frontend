@@ -1,10 +1,10 @@
 // RecentMatches.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/MatchCard.css';
+import '../../css/MatchCard.css';
 
-import AUS from '../images/aus.png';
-import IND from '../images/india.png';
+import AUS from '../../images/aus.png';
+import IND from '../../images/india.png';
 
 const recentMatches = [
   {

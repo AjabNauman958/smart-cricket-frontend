@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import playerProfileImage from '../images/shaheen.jpeg';
-import countryFlag from '../images/pak.png';
+import playerProfileImage from '../../images/shaheen.jpeg';
+import countryFlag from '../../images/pak.png';
 import { FaMapMarkerAlt, FaHeart, FaShareAlt } from 'react-icons/fa';
 
 const PlayerProfileCard = () => {

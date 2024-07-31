@@ -1,6 +1,6 @@
 import React from 'react';
-import Graph from '../images/playerperformancce.png';
-import Graph2 from '../images/record.png';
+import Graph from '../../images/playerperformancce.png';
+import Graph2 from '../../images/record.png';
 
 
 const AverageGraph = () => {

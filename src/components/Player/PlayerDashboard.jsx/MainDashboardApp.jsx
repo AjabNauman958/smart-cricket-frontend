@@ -1,14 +1,14 @@
 import React from "react";
-import ThemeContextProvider from "../context/ThemeContextProvider";
-import Sidebar from "./Sidebar";
-import DashboardNavbar from "./DashboardNavbar";
+import ThemeContextProvider from "../../context/ThemeContextProvider";
+import Sidebar from "../Sidebar";
+import DashboardNavbar from "../DashboardNavbar";
 import WelcomeMessage from "./WelcomeMessage";
 import PlayerProfileCard from "./PlayerProfileCard";
 import PlayerProfileDetails from "./PlayerProfileDetails";
 import PlayerCareerStats from "./PlayerCareerStats";
 import AverageGraph from "./AverageGraph";
-import TeamScheduleDashboard from "./TeamScheduleDashboard";
-import Footer from "./Footer";
+import TeamScheduleDashboard from "../TeamSchedule/TeamScheduleDashboard";
+import Footer from "../Footer";
 
 const MainDashboardApp = () => {
   return (

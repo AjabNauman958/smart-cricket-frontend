@@ -26,9 +26,9 @@ import Topheader from './components/User/Topheader';
 import UserProfile from './components/User/UserProfile'; 
 
 import './App.css';
-import MainDashboardApp from './components/Player/MainDashboardApp';
-import PlayerTeamSchedule from './components/Player/PlayerTeamSchedule';
-import PlayerPerformancePrediction from './components/Player/PlayerPerformancePrediction';
+import MainDashboardApp from './components/Player/PlayerDashboard.jsx/MainDashboardApp';
+import PlayerTeamSchedule from './components/Player/TeamSchedule/PlayerTeamSchedule';
+import PlayerPerformancePrediction from './components/Player/PerformancePrediction/PlayerPerformancePrediction';
 // 111
 function App() {
   return (

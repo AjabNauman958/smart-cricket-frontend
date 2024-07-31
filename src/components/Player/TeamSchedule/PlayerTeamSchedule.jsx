@@ -1,11 +1,11 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import ThemeContextProvider from '../context/ThemeContextProvider';
-import DashboardNavbar from './DashboardNavbar';
+import Sidebar from '../Sidebar';
+import ThemeContextProvider from '../../context/ThemeContextProvider';
+import DashboardNavbar from '../DashboardNavbar';
 import RecentMatches from './RecentMatches';
 import UpcomingMatches from './UpcomingMatches';
-import Footer from './Footer';
-import Pakistan from '../images/pak.png'
+import Footer from '../Footer';
+import Pakistan from '../../images/pak.png'
 
 const PlayerTeamSchedule = () => {
     return (

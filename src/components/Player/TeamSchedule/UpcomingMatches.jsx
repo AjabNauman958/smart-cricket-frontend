@@ -1,11 +1,11 @@
 // UpcomingMatches.jsx
 import React from "react";
-import "../css/MatchCard.css";
+import "../../css/MatchCard.css";
 
-import AUS from "../images/aus.png";
-import PAK from "../images/pak.png";
-import ENG from "../images/eng.png";
-import IND from "../images/india.png";
+import AUS from "../../images/aus.png";
+import PAK from "../../images/pak.png";
+import ENG from "../../images/eng.png";
+import IND from "../../images/india.png";
 
 const upcomingMatches = [
   {
@@ -35,16 +35,17 @@ const UpcomingMatches = () => {
     <>
 
     <div
-      className="flex mt-4"
+      className="flex mt-4 "
       style={{
           display: "flex",
           justifyContent: "center",
           flexWrap: "wrap",
           padding: "20px",
+          // alignItems:'center',
         }}
         >
       {upcomingMatches.map((matchDetails, index) => (
-        <div key={index} className="match-card">
+        <div key={index} className="match-card shadow-2xl">
           <div className="header">
             <h2>
               {matchDetails.matchNumber} . {matchDetails.league}, 2024

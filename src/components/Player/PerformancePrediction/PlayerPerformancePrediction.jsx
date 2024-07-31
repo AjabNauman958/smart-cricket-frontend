@@ -1,8 +1,7 @@
 import React from 'react';
-import ThemeContextProvider from '../context/ThemeContextProvider';
-import DashboardNavbar from './DashboardNavbar';
-import Sidebar from './Sidebar';
-import Pakistan from '../images/pak.png'
+import ThemeContextProvider from '../../context/ThemeContextProvider';
+import DashboardNavbar from '../DashboardNavbar';
+import Sidebar from '../Sidebar';
 import PredictionForm from './PredictionForm';
 
 const PlayerPerformancePrediction = () => {

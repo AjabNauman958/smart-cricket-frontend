@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSmile } from 'react-icons/fa';
-import welcomeImage from '../images/welcomeimage.png';
+import welcomeImage from '../../images/welcomeimage.png';
 
 const WelcomeMessage = () => {
   // Hardcoded user data
