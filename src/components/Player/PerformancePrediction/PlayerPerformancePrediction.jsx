@@ -18,7 +18,7 @@ const PlayerPerformancePrediction = () => {
                                 <h1 className='  p-3 text-2xl '><span className='text-green-500 font-semibold'> Player </span>Performance Prediction</h1>
                             </div>
                         </div>
-                        <PredictionForm/>
+                        <PredictionForm />
                     </div>
                 </div>
             </ThemeContextProvider>
