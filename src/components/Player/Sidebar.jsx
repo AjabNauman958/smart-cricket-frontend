@@ -40,7 +40,7 @@ const Sidebar = () => {
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaFistRaised className='text-2xl'/>
-          <Link to="/settings" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Analysis</Link>
+          <Link to="/Player/PlayerOpponentComparison" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Analysis</Link>
         </li> <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
           <FaCog className='text-2xl'/>
           <Link to="/faq" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Faqs </Link>

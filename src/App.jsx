@@ -30,12 +30,14 @@ import MainDashboardApp from './components/Player/PlayerDashboard/MainDashboardA
 import PlayerTeamSchedule from './components/Player/TeamSchedule/PlayerTeamSchedule';
 import PlayerPerformancePrediction from './components/Player/PerformancePrediction/PlayerPerformancePrediction';
 import PlayerPerformanceAnalysis from './components/Player/PerformanceAnalysis/PlayerPerformanceAnalysis';
+import PlayerOpponentComparison from './components/Player/OpponentComparison/PlayerOpponentComparison';
 // 111
 function App() {
   return (
     <>
       <Router>
         <Routes>
+          {/* user or registered user  */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/tournament" element={<Tournament />} />
@@ -65,6 +67,7 @@ function App() {
           <Route path="/Player/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
           <Route path="/Player/PlayerPerformancePrediction" element={<PlayerPerformancePrediction />} />
           <Route path="/Player/PlayerPerformanceAnalysis" element={<PlayerPerformanceAnalysis />} />
+          <Route path="/Player/PlayerOpponentComparison" element={<PlayerOpponentComparison />} />
           <Route path="*" element={<> not found</>} />
 
         </Routes>

@@ -1,0 +1,79 @@
+
+  
+  .animated-babarimage {
+    width: 400px; /* Increased size */
+    height: auto;
+    animation: move infinite 5s linear;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .animated-babarimage:hover {
+    transform: scale(1.1); /* Scale image on hover */
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .player-inputs {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .comparison-result .player-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .player-card {
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  .player-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  
+  /* Example CSS for Autosuggest options */
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    /* background: white; */
+    background-color: black;
+    color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    transition: opacity 0.3s ease, max-height 0.3s ease-in-out;
+    opacity: 0;
+    max-height: 0;
+  }
+  
+  .react-autosuggest__suggestions-container--open {
+    opacity: 1;
+    max-height: 200px; /* Adjust height as needed */
+  }
+  
+  .react-autosuggest__suggestion {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .react-autosuggest__suggestion--highlighted {
+    background-color: #4d4a4a;
+  }
+  
+  /* Media query for screens narrower than 768px */
+ 
