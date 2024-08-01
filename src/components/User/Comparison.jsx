@@ -302,58 +302,58 @@
 
             {/* Format Buttons */}
             <div className="format-buttons flex justify-center mt-4">
-              <button
-                onClick={() => setActiveFormat('Test')}
-                className={`p-2 m-2 ${activeFormat === 'Test' ? 'bg-yellow-300' : 'bg-gray-200'}`}
-              >
-                Test
-              </button>
-              <button
-                onClick={() => setActiveFormat('ODI')}
-                className={`p-2 m-2 ${activeFormat === 'ODI' ? 'bg-yellow-300' : 'bg-gray-200'}`}
-              >
-                ODI
-              </button>
-              <button
-                onClick={() => setActiveFormat('T20')}
-                className={`p-2 m-2 ${activeFormat === 'T20' ? 'bg-yellow-300' : 'bg-gray-200'}`}
-              >
-                T20
-              </button>
-            </div>
-            
-            {/* Displaying Stats */}
-            <div className="stats mt-4">
-    <h4 className="text-xl font-bold mb-4">{activeFormat} Stats</h4>
-    <div className="flex justify-around">
-      <div className="player-stats p-4 m-4 transition-opacity duration-700 ease-in-out">
-        <h5 className="text-lg font-bold">{playerOneInfo.name} ({playerOneInfo.country})</h5>
-        <p>Matches: {playerOneInfo.stats[activeFormat].matches}</p>
-        <p>Innings: {playerOneInfo.stats[activeFormat].innings}</p>
-        <p>Runs: {playerOneInfo.stats[activeFormat].runs}</p>
-        <p>Highest Score: {playerOneInfo.stats[activeFormat].highestScore}</p>
-        <p>Hundreds: {playerOneInfo.stats[activeFormat].hundreds}</p>
-        <p>Fifties: {playerOneInfo.stats[activeFormat].fifties}</p>
-        <p>Fours: {playerOneInfo.stats[activeFormat].fours}</p>
-        <p>Average: {playerOneInfo.stats[activeFormat].average}</p>
-        <p>Strike Rate: {playerOneInfo.stats[activeFormat].strikeRate}</p>
-        <p>Not Outs: {playerOneInfo.stats[activeFormat].notOuts}</p>
-      </div>
-      <div className="player-stats p-4 m-4 transition-opacity duration-700 ease-in-out">
-        <h5 className="text-lg font-bold">{playerTwoInfo.name} ({playerTwoInfo.country})</h5>
-        <p>Matches: {playerTwoInfo.stats[activeFormat].matches}</p>
-        <p>Innings: {playerTwoInfo.stats[activeFormat].innings}</p>
-        <p>Runs: {playerTwoInfo.stats[activeFormat].runs}</p>
-        <p>Highest Score: {playerTwoInfo.stats[activeFormat].highestScore}</p>
-        <p>Hundreds: {playerTwoInfo.stats[activeFormat].hundreds}</p>
-        <p>Fifties: {playerTwoInfo.stats[activeFormat].fifties}</p>
-        <p>Fours: {playerTwoInfo.stats[activeFormat].fours}</p>
-        <p>Average: {playerTwoInfo.stats[activeFormat].average}</p>
-        <p>Strike Rate: {playerTwoInfo.stats[activeFormat].strikeRate}</p>
-        <p>Not Outs: {playerTwoInfo.stats[activeFormat].notOuts}</p>
-      </div>
-    </div>
-  </div>
+                        <button
+                            onClick={() => setActiveFormat('Test')}
+                            className={`font-semibold px-5 py-2 m-2 rounded-md dark:text-black hover:bg-[#44b8b2] duration-300 ${activeFormat === 'Test' ? 'bg-[#00A09A] ' : 'bg-gray-200'}`}
+                        >
+                            Test
+                        </button>
+                        <button
+                            onClick={() => setActiveFormat('ODI')}
+                            className={`font-semibold px-5 py-2 m-2 rounded-md dark:text-black hover:bg-[#44b8b2] duration-300  ${activeFormat === 'ODI' ? 'bg-[#00A09A]   ' : 'bg-gray-200'}`}
+                        >
+                            ODI
+                        </button>
+                        <button
+                            onClick={() => setActiveFormat('T20')}
+                            className={`font-semibold px-5 py-2 m-2 rounded-md dark:text-black hover:bg-[#44b8b2] duration-300 ${activeFormat === 'T20' ? 'bg-[#00A09A] ' : 'bg-gray-200'}`}
+                        >
+                            T20
+                        </button>
+                    </div>
+
+                    {/* Displaying Stats */}
+                    <div className="mt-4">
+                        <h4 className="text-2xl font-bold mb-4 text-center ">{activeFormat} Stats</h4>
+                        <div className="flex justify-around flex-wrap ">
+                            <div className="player-stats  p-6 m-4 rounded-lg  transition-transform duration-500 ease-in-out transform hover:scale-105 ">
+                                <h5 className="text-lg text-[#00A09A] font-bold mb-2 ">{playerOneInfo.name} ({playerOneInfo.country})</h5>
+                                <p className="mb-1">Matches: {playerOneInfo.stats[activeFormat].matches}</p>
+                                <p className="mb-1">Innings: {playerOneInfo.stats[activeFormat].innings}</p>
+                                <p className="mb-1">Runs: {playerOneInfo.stats[activeFormat].runs}</p>
+                                <p className="mb-1">Highest Score: {playerOneInfo.stats[activeFormat].highestScore}</p>
+                                <p className="mb-1">Hundreds: {playerOneInfo.stats[activeFormat].hundreds}</p>
+                                <p className="mb-1">Fifties: {playerOneInfo.stats[activeFormat].fifties}</p>
+                                <p className="mb-1">Fours: {playerOneInfo.stats[activeFormat].fours}</p>
+                                <p className="mb-1">Average: {playerOneInfo.stats[activeFormat].average}</p>
+                                <p className="mb-1">Strike Rate: {playerOneInfo.stats[activeFormat].strikeRate}</p>
+                                <p className="mb-1">Not Outs: {playerOneInfo.stats[activeFormat].notOuts}</p>
+                            </div>
+                            <div className="player-stats  p-6 m-4 rounded-lg  transition-transform duration-500 ease-in-out transform hover:scale-105 ">
+                                <h5 className="text-lg font-bold mb-2 text-[#00A09A]">{playerTwoInfo.name} ({playerTwoInfo.country})</h5>
+                                <p className="mb-1">Matches: {playerTwoInfo.stats[activeFormat].matches}</p>
+                                <p className="mb-1">Innings: {playerTwoInfo.stats[activeFormat].innings}</p>
+                                <p className="mb-1">Runs: {playerTwoInfo.stats[activeFormat].runs}</p>
+                                <p className="mb-1">Highest Score: {playerTwoInfo.stats[activeFormat].highestScore}</p>
+                                <p className="mb-1">Hundreds: {playerTwoInfo.stats[activeFormat].hundreds}</p>
+                                <p className="mb-1">Fifties: {playerTwoInfo.stats[activeFormat].fifties}</p>
+                                <p className="mb-1">Fours: {playerTwoInfo.stats[activeFormat].fours}</p>
+                                <p className="mb-1">Average: {playerTwoInfo.stats[activeFormat].average}</p>
+                                <p className="mb-1">Strike Rate: {playerTwoInfo.stats[activeFormat].strikeRate}</p>
+                                <p className="mb-1">Not Outs: {playerTwoInfo.stats[activeFormat].notOuts}</p>
+                            </div>
+                        </div>
+                    </div>
 
           </div>
         )}

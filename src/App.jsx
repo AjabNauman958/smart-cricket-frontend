@@ -32,6 +32,7 @@ import PlayerPerformancePrediction from './components/Player/PerformancePredicti
 import PlayerPerformanceAnalysis from './components/Player/PerformanceAnalysis/PlayerPerformanceAnalysis';
 import PlayerOpponentComparison from './components/Player/OpponentComparison/PlayerOpponentComparison';
 import PlayerFaqs from './components/Player/FAQS/PlayerFaqs';
+import MainProfile from './components/Player/RegisterPlayerProfile/MainProfile';
 // 111
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
           <Route path="/Player/PlayerPerformanceAnalysis" element={<PlayerPerformanceAnalysis />} />
           <Route path="/Player/PlayerOpponentComparison" element={<PlayerOpponentComparison />} />
           <Route path="/Player/PlayerFaq" element={<PlayerFaqs />} />
+          <Route path="/PlayerProfile" element={<MainProfile />} />
           <Route path="*" element={<> not found</>} />
 
         </Routes>

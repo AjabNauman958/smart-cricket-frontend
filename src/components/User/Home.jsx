@@ -26,7 +26,8 @@ const Home = () => {
         Dive into the thrilling world of cricket with insightful analysis,
         in-depth statistics, and captivating stories from the sport's rich history.
       </p>
-      <Link to="/about" className="btn-overlay bg-yellow-400 cursor-pointer font-semibold hover:bg-yellow-500" style={{cursor:'pointer'}}>About Us</Link>
+      <Link to="/about" className="btn-overlay bg-yellow-400 cursor-pointer font-semibold hover:bg-yellow-500" 
+    >About Us</Link>
     </div>
   </div>
 </div>
