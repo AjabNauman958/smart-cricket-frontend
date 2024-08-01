@@ -47,7 +47,7 @@ const ShowPerformanceGraph = () => {
     };
 
     return (
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-wrap mx-4">
             <div className="w-full md:w-1/2 p-4">
                 <h3 className="text-center text-lg font-bold mb-2">Graph 1: Match Performance</h3>
                 <div className="bg-white shadow p-4 rounded">

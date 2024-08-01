@@ -36,7 +36,7 @@ const Sidebar = () => {
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaChartBar className='text-2xl'/>
-          <Link to="/products" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Analysis </Link>
+          <Link to="/Player/PlayerPerformanceAnalysis" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Analysis </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
         <FaFistRaised className='text-2xl'/>

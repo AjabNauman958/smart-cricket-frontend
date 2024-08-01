@@ -29,6 +29,7 @@ import './App.css';
 import MainDashboardApp from './components/Player/PlayerDashboard/MainDashboardApp';
 import PlayerTeamSchedule from './components/Player/TeamSchedule/PlayerTeamSchedule';
 import PlayerPerformancePrediction from './components/Player/PerformancePrediction/PlayerPerformancePrediction';
+import PlayerPerformanceAnalysis from './components/Player/PerformanceAnalysis/PlayerPerformanceAnalysis';
 // 111
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route path="/Player/MainDashboardApp" element={<MainDashboardApp />} />
           <Route path="/Player/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
           <Route path="/Player/PlayerPerformancePrediction" element={<PlayerPerformancePrediction />} />
+          <Route path="/Player/PlayerPerformanceAnalysis" element={<PlayerPerformanceAnalysis />} />
           <Route path="*" element={<> not found</>} />
 
         </Routes>
