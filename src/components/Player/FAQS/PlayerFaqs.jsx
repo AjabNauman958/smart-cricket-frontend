@@ -3,11 +3,13 @@ import ThemeContextProvider from '../../context/ThemeContextProvider';
 import Sidebar from '../Sidebar';
 import DashboardNavbar from '../DashboardNavbar';
 import Footer from '../Footer';
-import ComparisonDetails from './ComparisonDetails'
-const PlayerOpponentComparison = () => {
+import FaqsDetail from './FaqsDetail';
+
+
+const PlayerFaqs = () => {
     return (
         <>
-            <ThemeContextProvider>
+             <ThemeContextProvider>
                 <div>
                     <Sidebar />
                     <div className='grow ml-16 md:ml-64  bg-gray-100 text-gray-900
@@ -16,13 +18,13 @@ const PlayerOpponentComparison = () => {
                        
                             <div>
                                 <h1 className="dark:text-white dark:bg-gray-900 bg-white p-3 text-2xl text-center">
-                                    <span className="text-green-500 font-semibold"> Player </span>
-                                    Opponent <span className='text-yellow-500 font-semibold'>Analysis</span>
+                                    <span className="text-green-500 font-semibold"> Frequently   </span>
+                                    Asked <span className='text-yellow-500 font-semibold'>Questions</span>
                                 </h1>
                            
                         </div>
                         <div className='min-h-screen'>
-<ComparisonDetails/>
+<FaqsDetail/>
                         </div>
                         <div>
                             <Footer/>
@@ -35,4 +37,4 @@ const PlayerOpponentComparison = () => {
     );
 }
 
-export default PlayerOpponentComparison;
+export default PlayerFaqs;
