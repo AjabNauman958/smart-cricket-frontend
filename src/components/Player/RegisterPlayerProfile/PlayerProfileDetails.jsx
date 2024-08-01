@@ -81,9 +81,9 @@ const PlayerProfileDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8 flex-wrap mt-7 rounded-3xl">
-      <div className="flex space-x-8 justify-center items-start">
-        <div className="flex flex-col items-center dark:bg-gray-900 dark:text-white">
+    <div className="max-w-xl mx-auto p-8 flex-wrap  rounded-3xl">
+      <div className="flex space-x-8 justify-center items-start flex-wrap ">
+        <div className="flex flex-col items-center dark:bg-gray-900 dark:text-white mb-7">
           <img
             src={profileImage}
             alt=""
@@ -122,7 +122,7 @@ const PlayerProfileDetails = () => {
                 {...register("name", { required: true })}
                 defaultValue={name}
                 disabled={!isEditing}
-                className={`mt-1 pl-8 p-2 rounded border ${errors.name ? "border-red-500" : "border-gray-300"
+                className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.name ? "border-red-500" : "border-gray-300"
                   } focus:outline-none focus:ring-2 focus:ring-green-400`}
               />
               {errors.name && (
@@ -139,7 +139,7 @@ const PlayerProfileDetails = () => {
                 {...register("email", { required: true })}
                 defaultValue="yourname@gmail.com"
                 disabled={!isEditing}
-                className={`mt-1 pl-8 p-2 rounded border ${errors.email ? "border-red-500" : "border-gray-300"
+                className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.email ? "border-red-500" : "border-gray-300"
                   } focus:outline-none focus:ring-2 focus:ring-green-400`}
               />
               {errors.email && (
@@ -156,7 +156,7 @@ const PlayerProfileDetails = () => {
                 {...register("mobile", { required: true })}
                 placeholder="Add number"
                 disabled={!isEditing}
-                className={`mt-1 pl-8 p-2 rounded border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.mobile ? "border-red-500" : "border-gray-300"
                   } focus:outline-none focus:ring-2 focus:ring-green-400`}
               />
               {errors.mobile && (
@@ -175,7 +175,7 @@ const PlayerProfileDetails = () => {
                 {...register("location", { required: true })}
                 defaultValue="AUS"
                 disabled={!isEditing}
-                className={`mt-1 pl-8 p-2 rounded border ${errors.location ? "border-red-500" : "border-gray-300"
+                className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.location ? "border-red-500" : "border-gray-300"
                   } focus:outline-none focus:ring-2 focus:ring-green-400`}
               />
               {errors.location && (
@@ -195,7 +195,7 @@ const PlayerProfileDetails = () => {
                   {...register("password", { required: true })}
                   placeholder="Your Password"
                   disabled={!isEditing}
-                  className={`mt-1 pl-8 p-2 rounded border ${errors.password ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.password ? "border-red-500" : "border-gray-300"
                     } focus:outline-none w-full focus:ring-2 focus:ring-green-400`}
                 />
                 <span
@@ -223,7 +223,7 @@ const PlayerProfileDetails = () => {
                       type={showNewPassword ? "text" : "password"}
                       {...register("newPassword")}
                       placeholder="New Password"
-                      className={`mt-1 pl-8 p-2 rounded border ${errors.newPassword
+                      className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.newPassword
                           ? "border-red-500"
                           : "border-gray-300"
                         } focus:outline-none w-full focus:ring-2 focus:ring-green-400`}
@@ -253,7 +253,7 @@ const PlayerProfileDetails = () => {
                         validate: validatePasswordMatch,
                       })}
                       placeholder="Confirm New Password"
-                      className={`mt-1 pl-8 p-2 rounded border ${errors.confirmNewPassword
+                      className={`mt-1 pl-8 p-2 rounded border dark:bg-gray-900 dark:text-white ${errors.confirmNewPassword
                           ? "border-red-500"
                           : "border-gray-300"
                         } focus:outline-none w-full focus:ring-2 focus:ring-green-400`}
