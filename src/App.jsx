@@ -33,6 +33,7 @@ import PlayerPerformanceAnalysis from './components/Player/PerformanceAnalysis/P
 import PlayerOpponentComparison from './components/Player/OpponentComparison/PlayerOpponentComparison';
 import PlayerFaqs from './components/Player/FAQS/PlayerFaqs';
 import MainProfile from './components/Player/RegisterPlayerProfile/MainProfile';
+import MainDashboard from './components/TeamManagement/TeamDashboard/MainDashboard';
 // 111
 function App() {
   return (
@@ -72,6 +73,12 @@ function App() {
           <Route path="/Player/PlayerOpponentComparison" element={<PlayerOpponentComparison />} />
           <Route path="/Player/PlayerFaq" element={<PlayerFaqs />} />
           <Route path="/PlayerProfile" element={<MainProfile />} />
+
+{/* Team Dashboard  */}
+<Route path="/TeamManagement/MainDashboard" element={<MainDashboard />} />
+
+
+
           <Route path="*" element={<> not found</>} />
 
         </Routes>
