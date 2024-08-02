@@ -54,7 +54,7 @@ const RecentMatches = () => {
         {recentMatches.map((matchDetails, index) => (
           <div 
             key={index} 
-            className={`border match-card dark:text-white dark:bg-gray-900 `} 
+            className={`hover:border-yellow-400 duration-300 border match-card dark:text-white dark:bg-gray-900 `} 
             onClick={() => handleMatchSelect(index)}
           >
             <div className="header">
@@ -75,7 +75,7 @@ const RecentMatches = () => {
               <strong>Status: </strong>{matchDetails.status}
               <p>{matchDetails.result}</p>
             </div>
-            <button className="action-button">Match Center &gt;</button>
+            <button className="action-button dark:bg-gray-900 dark:text-white hover:dark:bg-gray-900 hover:dark:text-green-500 duration-300">Match Center &gt;</button>
           </div>
         ))}
       </div>

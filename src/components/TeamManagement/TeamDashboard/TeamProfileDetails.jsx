@@ -20,48 +20,47 @@ const TeamProfileDetails = () => {
   };
 
   return (
-    <div className="p-4 rounded-lg bg-teal-600 shadow-lg text-white mb-10 dark:bg-gray-900 dark:text-white ">
+    <div className="p-4 rounded-lg bg-teal-600 shadow-lg text-white mb-10  ">
       <div className="flex flex-col sm:flex-row sm:justify-between items-center ">
-        <img src={pakistanFlag} alt="Pakistan Flag" className="w-28 h-28 rounded-full mb-4 sm:mb-0" />
+        <img src={pakistanFlag} alt="Pakistan Flag" className="w-28 h-28 rounded-md mb-4 sm:mb-0" />
         <div className="flex-grow text-center sm:text-left sm:ml-4">
-          <h2 className="text-xl font-semibold">ICC Rankings</h2>
+          <h2 className="text-2xl font-semibold text-center mb-6 text-yellow-400">ICC Rankings</h2>
           <div className="flex justify-around mt-2">
             <div>
-              <p className="font-bold">Test</p>
-              <p>4</p>
+              <p className="font-bold text-center">Test</p>
+              <p className="text-center">4</p>
             </div>
             <div>
-              <p className="font-bold">ODI</p>
-              <p>3</p>
+              <p className="font-bold text-center">ODI</p>
+              <p className="text-center">3</p>
             </div>
             <div>
-              <p className="font-bold">T20</p>
-              <p>6</p>
+              <p className="font-bold text-center">T20</p>
+              <p className="text-center">6</p>
             </div>
           </div>
-          <h3 className="mt-4 font-semibold">PAKISTAN TEAM CAPTAINS</h3>
+          <h3 className="text-2xl font-semibold text-center m-6 text-yellow-400">PAKISTAN TEAM CAPTAINS</h3>
           <div className="flex justify-around mt-2">
             <div>
-              <p className="font-bold">Test</p>
-              <p>Shan Masood</p>
+              <p className="font-bold text-center ">Test</p>
+              <p className="text-center">Shan Masood</p>
             </div>
             <div>
-              <p className="font-bold">ODI</p>
-              <p>Shan Masood</p>
+              <p className="font-bold text-center">ODI</p>
+              <p className="text-center">Babar Azam</p>
             </div>
             <div>
-              <p className="font-bold">T20</p>
-              <p>Shan Masood</p>
+              <p className="font-bold text-center">T20</p>
+              <p className="text-center">Babar Azam</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-4">
-        <button className="bg-gray-800 text-white py-1 px-4 rounded-full">Pakistan</button>
-        <div className="flex space-x-4">
-          <FaHeart className="text-white cursor-pointer" onClick={handleHeartClick} />
-          <FaShareAlt className="text-white" />
-        </div>
+      <div className="flex justify-betwceeen items-center mt-4 sm:text-center">
+        <button className=" text-green-900 py-1 px-4 rounded-md hover:text-yellow-500 duration-200">Pakistan</button>
+        <FaHeart className="text-white cursor-pointer mr-4" onClick={handleHeartClick} />
+        <FaShareAlt className="text-white" />
+      
       </div>
 
       <Modal

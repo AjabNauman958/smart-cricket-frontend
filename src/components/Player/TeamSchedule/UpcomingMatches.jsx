@@ -55,23 +55,23 @@ const UpcomingMatches = () => {
         }}
         >
       {upcomingMatches.map((matchDetails, index) => (
-        <div key={index} className="match-card shadow-2xl">
+        <div key={index} className="border match-card dark:text-white dark:bg-gray-900 hover:border-yellow-400 duration-300">
           <div className="header">
-            <h2>
+            <h3 className="text-lg dark:text-white">
               {matchDetails.matchNumber} . {matchDetails.league}, 2024
-            </h2>
+            </h3>
             <div className="badge">{matchDetails.format}</div>
           </div>
           <div className="teams">
             {matchDetails.teams.map((team, teamIndex) => (
-                <div className="team" key={teamIndex}>
-                <img src={team.logo} alt={team.name} />
-                <span>{team.name}</span>
+                <div className="flex justify-center items-center flex-col text-center mb-2" key={teamIndex}>
+                <img src={team.logo} alt={team.name} className="w-10 h-10 mr-3 rounded-full shadow-lg"/>
+                <span className='font-semibold'>{team.name}</span>
               </div>
             ))}
           </div>
-          <div className="time">{matchDetails.time}</div>
-          <button className="action-button">Match Center &gt;</button>
+          <div className="time dark:text-white">{matchDetails.time}</div>
+          
         </div>
       ))}
     </div>
