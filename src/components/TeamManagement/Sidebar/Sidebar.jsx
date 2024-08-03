@@ -62,7 +62,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Team/OpponentTeamAnalysis" className="flex items-center w-full">
+          <Link to="/TeamManagement/TeamOpponentAnalysis" className="flex items-center w-full">
             <FaFistRaised className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Team Analysis</span>
           </Link>
