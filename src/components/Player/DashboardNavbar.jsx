@@ -27,7 +27,7 @@ const DashboardNavbar = () => {
   }, []);
 
   return (
-    <div className='bg-gray-100 text-gray-900 border-b border-gray-300 p-4 flex justify-between items-center dark:border-gray-600 dark:bg-gray-900 dark:text-white'>
+    <div className='bg-gray-100  text-gray-900 border-b border-gray-300 p-4 flex justify-between items-center dark:border-gray-600 dark:bg-gray-900 dark:text-white'>
       <h1 className='text-2xl font-bold'></h1>
       <div className="flex items-center space-x-4 relative">
         <button className='text-3xl' onClick={toggleTheme}>

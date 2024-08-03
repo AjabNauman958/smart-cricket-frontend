@@ -28,7 +28,7 @@ const PlayerPerformancePrediction = () => {
               <PredictionForm />
             </div>
           </div>
-          <div>
+          <div >
             <Footer />
           </div>
         </div>

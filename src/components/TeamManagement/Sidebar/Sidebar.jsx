@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaHome, FaRegClock, FaChartLine, FaChartBar, FaFistRaised, FaUser, FaBox, FaCog, FaBars, FaTimes } from 'react-icons/fa';
+import {
+  FaHome, FaRegClock, FaChartLine, FaChartBar, FaFistRaised, FaUser, FaBars, FaTimes, FaUsers, FaQuestionCircle, FaUserFriends, FaPlay, FaTrophy, FaListAlt
+} from 'react-icons/fa';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
-
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
@@ -13,7 +14,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-64' : 'w-16'} md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 rounded-lg shadow-lg z-50`}>
+    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-64' : 'w-16'} md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300  shadow-lg z-50`}>
       <div className="flex items-center justify-between mt-4">
         <h1 className={`text-2xl font-bold ml-2 italic ${isOpen ? 'block' : 'hidden'} md:block`}>SmartCricket</h1>
         <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
@@ -21,31 +22,56 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="flex justify-center mt-4">
-        <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} />
+        {/* <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} /> */}
       </div>
       <ul className="flex flex-col text-xl mt-4">
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <FaHome className='text-2xl' />
-          <Link to="/Player/MainDashboardApp" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</Link>
+          <Link to="/TeamManagement/MainDashboard" className="flex items-center w-full">
+            <FaHome className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
+          </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <FaRegClock className='text-2xl' />
-          <Link to="/Player/PlayerTeamSchedule" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</Link>
+          <Link to="/TeamManagement/PlayerStatistics" className="flex items-center w-full">
+            <FaUsers className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Player Stats</span>
+          </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <FaChartLine className='text-2xl' />
-          <Link to="/Player/PlayerPerformancePrediction" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Prediction </Link>
+          <Link to="/TeamManagement/TeamSchedule" className="flex items-center w-full">
+            <FaRegClock className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</span>
+          </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <FaChartBar className='text-2xl' />
-          <Link to="/Player/PlayerPerformanceAnalysis" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Analysis </Link>
+          <Link to="/Player/PlayerPerformancePrediction" className="flex items-center w-full">
+            <FaChartLine className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Prediction</span>
+          </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <FaFistRaised className='text-2xl' />
-          <Link to="/Player/PlayerOpponentComparison" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Analysis</Link>
-        </li> <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <AiOutlineQuestionCircle className='text-2xl' />
-          <Link to="/Player/PlayerFaq" className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Faqs </Link>
+          <Link to="/Player/PlayerPerformanceAnalysis" className="flex items-center w-full">
+            <FaChartBar className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Analysis</span>
+          </Link>
+        </li>
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
+          <Link to="/Team/SuggestPlayingXI" className="flex items-center w-full">
+            <FaListAlt className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Suggest Playing XI</span>
+          </Link>
+        </li>
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
+          <Link to="/Team/OpponentTeamAnalysis" className="flex items-center w-full">
+            <FaFistRaised className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Team Analysis</span>
+          </Link>
+        </li>
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
+          <Link to="/Player/PlayerFaq" className="flex items-center w-full">
+            <AiOutlineQuestionCircle className='text-2xl' />
+            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Faqs</span>
+          </Link>
         </li>
       </ul>
       <div className={`absolute bottom-0 left-0 w-full p-4 bg-gradient-to-r from-blue-500 to-green-500 text-white ${isOpen ? 'block' : 'hidden'} md:block`}>

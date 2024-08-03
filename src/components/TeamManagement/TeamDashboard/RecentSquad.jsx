@@ -63,37 +63,37 @@ const RecentSquad = () => {
     <div className="container mx-auto p-4 text-center">
       <div className="mb-6 flex justify-center space-x-4">
         <button
-          className={`px-4 py-2 ${selectedFormat === 'test' ? 'bg-blue-500 text-white' : 'bg-gray-300'} rounded transition duration-300`}
+          className={`px-4 py-2 ${selectedFormat === 'test' ? 'bg-[#00A09A] text-white' : 'bg-gray-300'} rounded transition duration-300`}
           onClick={() => setSelectedFormat('test')}
         >
           Test
         </button>
         <button
-          className={`px-4 py-2 ${selectedFormat === 'odi' ? 'bg-blue-500 text-white' : 'bg-gray-300'} rounded transition duration-300`}
+          className={`px-4 py-2 ${selectedFormat === 'odi' ? 'bg-[#00A09A] text-white' : 'bg-gray-300'} rounded transition duration-300`}
           onClick={() => setSelectedFormat('odi')}
         >
           ODI
         </button>
         <button
-          className={`px-4 py-2 ${selectedFormat === 't20' ? 'bg-blue-500 text-white' : 'bg-gray-300'} rounded transition duration-300`}
+          className={`px-4 py-2 ${selectedFormat === 't20' ? 'bg-[#00A09A] text-white' : 'bg-gray-300'} rounded transition duration-300`}
           onClick={() => setSelectedFormat('t20')}
         >
           T20
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6" >
         {players.map((player, index) => (
           <div
             key={index}
-            className=" flex items-center bg-white border border-gray-300 rounded-lg p-4 transform transition-transform duration-300 hover:scale-105 shadow-lg "
+            className=" flex items-center bg-white border border-gray-300 rounded-lg  transform transition-transform duration-300 hover:scale-105 shadow-lg dark:bg-gray-900 dark:text-white"
           >
             <img src={player.image} alt={player.name} className="w-14 h-14 rounded-full mr-4" />
             <div className="text-left">
-              <h3 className="text-xl font-semibold">{player.name}</h3>
-              <p>{player.role}</p>
-              <p>Age: {player.age}</p>
-              <p>Batting: <strong>{player.batting}</strong></p>
-              <p>Bowling: <strong>{player.bowling}</strong></p>
+              <h3 className="text-md font-semibold">{player.name}</h3>
+              <p className='text-sm'>{player.role}</p>
+              <p className='text-sm'>Age: {player.age}</p>
+              <p className='text-sm'>Batting: <strong>{player.batting}</strong></p>
+              <p className='text-sm'>Bowling: <strong>{player.bowling}</strong></p>
             </div>
           </div>
         ))}

@@ -34,6 +34,8 @@ import PlayerOpponentComparison from './components/Player/OpponentComparison/Pla
 import PlayerFaqs from './components/Player/FAQS/PlayerFaqs';
 import MainProfile from './components/Player/RegisterPlayerProfile/MainProfile';
 import MainDashboard from './components/TeamManagement/TeamDashboard/MainDashboard';
+import TeamSchedule from './components/TeamManagement/TeamSchedule/TeamSchedule';
+import MainPlayerStat from './components/TeamManagement/PlayerStat/MainPlayerStat';
 // 111
 function App() {
   return (
@@ -76,6 +78,8 @@ function App() {
 
 {/* Team Dashboard  */}
 <Route path="/TeamManagement/MainDashboard" element={<MainDashboard />} />
+<Route path="/TeamManagement/TeamSchedule" element={<TeamSchedule />} />
+<Route path="/TeamManagement/PlayerStatistics" element={<MainPlayerStat />} />
 
 
 
