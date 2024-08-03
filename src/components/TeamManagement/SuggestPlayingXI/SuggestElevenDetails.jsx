@@ -198,16 +198,26 @@ function SuggestPlayingXI() {
             <h2 className="text-2xl font-bold mb-4">Selected Players:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {selectedPlayers.map((player, index) => (
-                <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center">
+                <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center transition-transform transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                   <button
-                    className="absolute top-2 right-2 text-red-500"
+                    className="absolute top-2 right-2 text-red-500 transition-colors hover:text-red-700 duration-300"
                     onClick={() => handleRemovePlayer(player)}
                   >
                     &times;
                   </button>
-                  <img src={player.image} alt={player.name} className="w-24 h-24 rounded-full mb-2" />
-                  <span className="text-lg font-medium">{player.name}</span>
-                  <span className="text-sm text-gray-500">{player.role}</span>
+                  <div className='flex items-start'>
+                    <div className='leftcard'>
+                      <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full mb-2 transition-transform transform hover:scale-110 duration-300" />
+                    </div>
+                    <div className='rightcard'>
+
+
+
+                      <span className="text-lg font-medium">{player.name}</span>
+                      <br />
+                      <span className="text-sm text-gray-500">{player.role}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -217,7 +227,7 @@ function SuggestPlayingXI() {
           {selectedPlayers.length === 15 && (
             <div className="text-center mt-6">
               <button
-                className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 duration-300 text-white font-semibold rounded-lg"
+                className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 transition-colors duration-300 text-white font-semibold rounded-lg"
                 onClick={suggestBestXI}
               >
                 Suggest Best XI
@@ -231,46 +241,55 @@ function SuggestPlayingXI() {
               <h2 className="text-2xl font-bold mb-4">Suggested Best XI:</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {suggestedXI.map((player, index) => (
-                  <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center">
-                    <img src={player.image} alt={player.name} className="w-24 h-24 rounded-full mb-2" />
-                    <span className="text-lg font-medium">{player.name}</span>
-                    <span className="text-sm text-gray-500">{player.role}</span>
+                  <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center transition-transform transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+                    <div className='flex items-start'>
+                      <div>
+                        <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full mb-2 transition-transform transform hover:scale-110 duration-300" />
+                      </div>
+                      <div>
+                        <span className="text-lg font-medium">{player.name}</span>
+                        <br />
+                        <span className="text-sm text-gray-500">{player.role}</span>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-<div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4'>
 
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+                <div className="transition-shadow hover:shadow-xl duration-300 ease-in-out">
+                  <h2 className="text-xl font-bold mb-4">Winning Probability:</h2>
+                  <Bar data={data} />
+                </div>
 
-              <div className="mt-6">
-                <h2 className="text-xl font-bold mb-4">Winning Probability:</h2>
-                <Bar data={data} />
+                <div className="transition-shadow hover:shadow-xl duration-300 ease-in-out">
+                  <h2 className="text-xl font-bold mb-4">Total Score:</h2>
+                  <Bar data={data} />
+                </div>
               </div>
 
-              <div className="mt-6">
-                <h2 className="text-xl font-bold mb-4">Total Score:</h2>
-                <Bar data={data} />
-              </div>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+                <div className="transition-shadow hover:shadow-xl duration-300 ease-in-out">
+                  <h2 className="text-xl font-bold mb-4">Performance:</h2>
+                  <Bar data={data} />
+                </div>
 
-              <div className="mt-6">
-                <h2 className="text-xl font-bold mb-4">Performance:</h2>
-                <Bar data={data} />
+                <div className="transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                  <h2 className="text-xl font-bold mb-4">Impact Player:</h2>
+                  {impactPlayer && (
+                    <div className="flex flex-col items-center">
+                      <img src={impactPlayer.image} alt={impactPlayer.name} className="w-24 h-24 rounded-full mb-2 transition-transform transform hover:scale-110 duration-300" />
+                      <span className="text-lg font-medium">{impactPlayer.name}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-
-              <div className="mt-6">
-                <h2 className="text-xl font-bold mb-4">Impact Player:</h2>
-                {impactPlayer && (
-                  <div className="flex flex-col items-center">
-                    <img src={impactPlayer.image} alt={impactPlayer.name} className="w-24 h-24 rounded-full mb-2" />
-                    <span className="text-lg font-medium">{impactPlayer.name}</span>
-                  </div>
-                )}
-              </div>
-            </div>
             </div>
           )}
         </div>
       </div>
     </div>
+
   );
 }
 
