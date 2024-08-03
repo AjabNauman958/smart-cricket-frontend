@@ -1333,23 +1333,28 @@ const playersData = [
 
             const PlayerDetails = () => {
                 const [selectedPlayer, setSelectedPlayer] = useState(playersData[0]);
-                const [isModalOpen, setIsModalOpen] = useState(false);
 
                 const handlePlayerChange = (event) => {
                     const player = playersData.find(player => player.fullName === event.target.value);
                     setSelectedPlayer(player);
                 };
 
-                const handleAddToFavorites = () => {
-                    setIsModalOpen(true);
-                };
-
-                const closeModal = () => {
-                    setIsModalOpen(false);
-                };
+              
 
                 return (
                     <>
+                    <div className="max-w-sm m-auto mt-10 dark:bg-gray-900 dark:text-white p-4 rounded shadow-lg">
+                            <label htmlFor="player-select" className="block mb-2">Select Player:</label>
+                            <select
+                                id="player-select"
+                                className="block w-full p-2 border dark:bg-gray-900 dark:text-white border-gray-300 rounded"
+                                onChange={handlePlayerChange}
+                            >   
+                                {playersData.map(player => (
+                                    <option className='dark:bg-gray-900 dark:text-white' key={player.fullName} value={player.fullName}>{player.fullName}</option>
+                                ))}
+                            </select>
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
                             <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-4 transform transition-transform hover:scale-105 duration-400 m-auto">
                                 <div className="flex items-center mb-4">
@@ -1381,35 +1386,35 @@ const playersData = [
                              
                             </div>
 
-                            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-8">
+                            <div className="grid justify-start items-start max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-8">
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     <div>
                                         <h3 className="text-lg font-bold">FULL NAME</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.fullName}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.fullName}</p>
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold">PLAYING ROLE</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.playingRole}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.playingRole}</p>
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold">Country</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.country}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.country}</p>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
                                     <div>
                                         <h3 className="text-lg font-bold">BATTING STYLE</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.battingStyle}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.battingStyle}</p>
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold">BOWLING STYLE</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.bowlingStyle}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.bowlingStyle}</p>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
                                     <div>
                                         <h3 className="text-lg font-bold">AGE</h3>
-                                        <p className="text-xl mt-2">{selectedPlayer.age}</p>
+                                        <p className="text-md mt-2">{selectedPlayer.age}</p>
                                     </div>
                                     <div className="col-span-1 md:col-span-3">
                                         <h3 className="text-lg font-bold">ICC Rankings</h3>
@@ -1470,18 +1475,7 @@ const playersData = [
                             ))}
                         </div>
 
-                        <div className="fixed bottom-4 right-4 dark:bg-gray-900 dark:text-white p-4 rounded shadow-lg">
-                            <label htmlFor="player-select" className="block mb-2">Select Player:</label>
-                            <select
-                                id="player-select"
-                                className="block w-full p-2 border dark:bg-gray-900 dark:text-white border-gray-300 rounded"
-                                onChange={handlePlayerChange}
-                            >   
-                                {playersData.map(player => (
-                                    <option className='dark:bg-gray-900 dark:text-white' key={player.fullName} value={player.fullName}>{player.fullName}</option>
-                                ))}
-                            </select>
-                        </div>
+                        
                         <AverageGraph/>
                     </>
                 );
