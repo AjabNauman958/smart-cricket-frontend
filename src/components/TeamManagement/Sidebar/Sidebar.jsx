@@ -56,7 +56,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Team/SuggestPlayingXI" className="flex items-center w-full">
+          <Link to="/TeamManagement/SuggestPlayingXI" className="flex items-center w-full">
             <FaListAlt className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Suggest Playing XI</span>
           </Link>
