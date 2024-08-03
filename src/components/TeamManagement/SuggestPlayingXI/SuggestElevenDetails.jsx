@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import images from '../../images/babar.png'
+import { Bar } from 'react-chartjs-2';
+import images from '../../images/babar.png';
+import 'chart.js/auto';
+
 const teams = [
   'India', 'Australia', 'England', 'New Zealand', 'South Africa',
   'Sri Lanka', 'West Indies', 'Bangladesh', 'Afghanistan',
@@ -56,6 +59,9 @@ function SuggestPlayingXI() {
   const [selectedFormat, setSelectedFormat] = useState('');
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [availablePlayers, setAvailablePlayers] = useState(players);
+  const [suggestedXI, setSuggestedXI] = useState([]);
+  const [showCharts, setShowCharts] = useState(false);
+  const [impactPlayer, setImpactPlayer] = useState(null);
 
   const handlePlayerSelect = (e) => {
     const selectedPlayerName = e.target.value;
@@ -71,8 +77,37 @@ function SuggestPlayingXI() {
     setAvailablePlayers([...availablePlayers, playerToRemove]);
   };
 
+  const suggestBestXI = () => {
+    const shuffled = selectedPlayers.sort(() => 0.5 - Math.random());
+    const bestXI = shuffled.slice(0, 11);
+    setSuggestedXI(bestXI);
+    setShowCharts(true);
+    setImpactPlayer(bestXI[Math.floor(Math.random() * bestXI.length)]);
+  };
+
+  const data = {
+    labels: suggestedXI.map(player => player.name),
+    datasets: [
+      {
+        label: 'Winning Probability',
+        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+      },
+      {
+        label: 'Total Score',
+        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+      },
+      {
+        label: 'Performance',
+        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        backgroundColor: 'rgba(255, 159, 64, 0.6)',
+      },
+    ],
+  };
+
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center ">
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold mb-6 text-center">Cricket Team Selector</h1>
         <div className="space-y-4">
@@ -81,7 +116,7 @@ function SuggestPlayingXI() {
             <div>
               <label className="block text-lg font-medium">Opponent Team:</label>
               <select
-                className="w-full p-2 border border-gray-300 rounded-lg"
+                className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
                 value={opponentTeam}
                 onChange={(e) => setOpponentTeam(e.target.value)}
               >
@@ -96,7 +131,7 @@ function SuggestPlayingXI() {
             <div>
               <label className="block text-lg font-medium">Select Format:</label>
               <select
-                className="w-full p-2 border border-gray-300 rounded-lg"
+                className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
                 value={selectedFormat}
                 onChange={(e) => setSelectedFormat(e.target.value)}
               >
@@ -111,7 +146,7 @@ function SuggestPlayingXI() {
             <div>
               <label className="block text-lg font-medium">Stadium Country:</label>
               <select
-                className="w-full p-2 border border-gray-300 rounded-lg"
+                className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
                 value={stadiumCountry}
                 onChange={(e) => setStadiumCountry(e.target.value)}
               >
@@ -126,7 +161,7 @@ function SuggestPlayingXI() {
             <div>
               <label className="block text-lg font-medium">Stadium:</label>
               <select
-                className="w-full p-2 border border-gray-300 rounded-lg"
+                className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
                 value={stadium}
                 onChange={(e) => setStadium(e.target.value)}
                 disabled={!stadiumCountry}
@@ -147,7 +182,7 @@ function SuggestPlayingXI() {
           <div>
             <label className="block text-lg font-medium">Select Players:</label>
             <select
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
               onChange={handlePlayerSelect}
               disabled={selectedPlayers.length >= 15}
             >
@@ -162,22 +197,77 @@ function SuggestPlayingXI() {
           <div className="mt-6">
             <h2 className="text-2xl font-bold mb-4">Selected Players:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-  {selectedPlayers.map((player, index) => (
-    <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center">
-      <button
-        className="absolute top-2 right-2 text-red-500"
-        onClick={() => handleRemovePlayer(player)}
-      >
-        &times;
-      </button>
-      <img src={player.image} alt={player.name} className="w-24 h-24 rounded-full mb-2" />
-      <span className="text-lg font-medium">{player.name}</span>
-      <span className="text-sm text-gray-500">{player.role}</span>
-    </div>
-  ))}
-</div>
-
+              {selectedPlayers.map((player, index) => (
+                <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center">
+                  <button
+                    className="absolute top-2 right-2 text-red-500"
+                    onClick={() => handleRemovePlayer(player)}
+                  >
+                    &times;
+                  </button>
+                  <img src={player.image} alt={player.name} className="w-24 h-24 rounded-full mb-2" />
+                  <span className="text-lg font-medium">{player.name}</span>
+                  <span className="text-sm text-gray-500">{player.role}</span>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Suggest Best XI Button */}
+          {selectedPlayers.length === 15 && (
+            <div className="text-center mt-6">
+              <button
+                className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 duration-300 text-white font-semibold rounded-lg"
+                onClick={suggestBestXI}
+              >
+                Suggest Best XI
+              </button>
+            </div>
+          )}
+
+          {/* Suggested XI and Charts */}
+          {showCharts && (
+            <div className="mt-6">
+              <h2 className="text-2xl font-bold mb-4">Suggested Best XI:</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {suggestedXI.map((player, index) => (
+                  <div key={index} className="relative p-4 border border-gray-300 rounded-lg flex flex-col justify-between items-center">
+                    <img src={player.image} alt={player.name} className="w-24 h-24 rounded-full mb-2" />
+                    <span className="text-lg font-medium">{player.name}</span>
+                    <span className="text-sm text-gray-500">{player.role}</span>
+                  </div>
+                ))}
+              </div>
+<div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4'>
+
+
+              <div className="mt-6">
+                <h2 className="text-xl font-bold mb-4">Winning Probability:</h2>
+                <Bar data={data} />
+              </div>
+
+              <div className="mt-6">
+                <h2 className="text-xl font-bold mb-4">Total Score:</h2>
+                <Bar data={data} />
+              </div>
+
+              <div className="mt-6">
+                <h2 className="text-xl font-bold mb-4">Performance:</h2>
+                <Bar data={data} />
+              </div>
+
+              <div className="mt-6">
+                <h2 className="text-xl font-bold mb-4">Impact Player:</h2>
+                {impactPlayer && (
+                  <div className="flex flex-col items-center">
+                    <img src={impactPlayer.image} alt={impactPlayer.name} className="w-24 h-24 rounded-full mb-2" />
+                    <span className="text-lg font-medium">{impactPlayer.name}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
