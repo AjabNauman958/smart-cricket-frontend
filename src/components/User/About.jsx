@@ -43,17 +43,14 @@ const About = () => {
   }}
 >
   {/* Your content here */}
-
-
         <div className="hero-overlay "></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">About US</h1>
-            <p className="mb-5">
+            <p className="mb-5 text-md">
             Welcome to Smart Cricket, your go-to platform for AI-powered cricket analysis and prediction.
 
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>

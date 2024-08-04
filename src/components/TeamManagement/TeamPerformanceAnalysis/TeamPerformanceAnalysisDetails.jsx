@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import SA from '../../images/SA.png';
 import PAK from '../../images/pak.png';
 import IND from '../../images/india.png';
-import record from '../../images/record.png';
-import playerperformancce from '../../images/playerperformancce.png';
+import ChartComponent from './ChartComponent';
+import { battingAverageData, chartOptions } from './ChartData';
 
 const TeamPerformanceAnalysisDetails = () => {
   const data = {
@@ -150,155 +150,159 @@ const TeamPerformanceAnalysisDetails = () => {
 
 
 
-      {/* Match analysis details */}
       <div>
-        <h1 className='text-4xl font-semibold text-center mt-5'>
-          Match<span className='text-yellow-500'> Analysis</span>
-        </h1>
-        <div className="match-analysis">
-          <div className="match-date">
-            <h3>Tuesday, 12th March 2024, 11:00</h3>
-          </div>
-          <div className="match-details">
-            <h1>Hong Kong, China T20 Tri-Series, 2024 - March 3</h1>
-          </div>
-          <div className="ground">
-            <p>Tin Kwong Road Recreation Ground</p>
-          </div>
-          <div className="teams">
-            <div className="team">
-              <img src={PAK} alt="Pakistan Flag" className="team-flag" />
-              <h1>Pakistan</h1>
-              <p className="team-score">339-5 (50)</p>
+
+
+        {/* Match analysis details */}
+        <div>
+          <h1 className='text-4xl font-semibold text-center mt-5'>
+            Match<span className='text-yellow-500'> Analysis</span>
+          </h1>
+          <div className="match-analysis">
+            <div className="match-date">
+              <h3>Tuesday, 12th March 2024, 11:00</h3>
             </div>
-            <div className="match-result">
-              <p>Pakistan beat India, by 180 runs</p>
+            <div className="match-details">
+              <h1>Hong Kong, China T20 Tri-Series, 2024 - March 3</h1>
             </div>
-            <div className="team">
-              <img src={IND} alt="India Flag" className="team-flag" />
-              <h1>India</h1>
-              <p className="team-score">158-10 (41.2)</p>
+            <div className="ground">
+              <p>Tin Kwong Road Recreation Ground</p>
+            </div>
+            <div className="teams">
+              <div className="team">
+                <img src={PAK} alt="Pakistan Flag" className="team-flag" />
+                <h1>Pakistan</h1>
+                <p className="team-score">339-5 (50)</p>
+              </div>
+              <div className="match-result">
+                <p>Pakistan beat India, by 180 runs</p>
+              </div>
+              <div className="team">
+                <img src={IND} alt="India Flag" className="team-flag" />
+                <h1>India</h1>
+                <p className="team-score">158-10 (41.2)</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="scorecard p-4 sm:p-6 md:p-8 lg:p-10">
+          <div className="team-buttons flex flex-col sm:flex-row sm:justify-between mb-4">
+            <button onClick={() => handleTeamChange('pakistan')} className='bg-green-500 rounded-lg text-white py-2 px-4 mb-2 sm:mb-0'>PAK INNINGS</button>
+            <button onClick={() => handleTeamChange('india')} className='bg-yellow-500 rounded-lg text-white py-2 px-4'>INDIA INNINGS</button>
+          </div>
+
+          <div className="team-info flex flex-col items-center sm:items-start mb-4">
+            <img src={team === 'pakistan' ? PAK : IND} alt={`${team} flag`} className="team-flag w-24 h-auto mb-2 sm:w-32" />
+            <h2 className="text-xl font-semibold">{team.toUpperCase()}</h2>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200 ">
+              <thead className="bg-gray-50 ">
+                <tr className='dark:bg-gray-900 dark:text-white '>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">BATSMAN</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Runs</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Balls</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">4S</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">6S</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">S/R</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Dismissal</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Fielder/Bowler</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {data[team].batsmen.map((player, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:bg-gray-900 dark:text-white">{player.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.runs}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.balls}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.fours}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.sixes}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.strikeRate}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.out}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{player.fielder || player.bowler}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="overflow-x-auto mt-4">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">BOWLER</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Overs</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Maidens</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Runs</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Wickets</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:bg-gray-900 dark:text-white">Economy</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {data[team].bowlers.map((bowler, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:bg-gray-900 dark:text-white">{bowler.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{bowler.overs}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{bowler.maidens}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{bowler.runs}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{bowler.wickets}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:bg-gray-900 dark:text-white">{bowler.economy}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="total-score bg-green-500 p-4 rounded-lg text-white mt-4">
+            <p className="text-sm md:text-base">Total: {totalScore} ({team === 'pakistan' ? '50 overs' : '41.2 overs'})</p>
+          </div>
+        </div>
+
+
+        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+          <div className="">
+            <p className='text-center'>Average on both team batting</p>
+            <ChartComponent data={battingAverageData} options={chartOptions} />
+          </div>
+          <div className="">
+            <div className="batting-average-content">
+              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
+              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
             </div>
           </div>
         </div>
 
-      </div>
-
-      {/* Scorecard */}
-      <div className="scorecard">
-        <div className="team-buttons">
-          <button onClick={() => handleTeamChange('pakistan')} className='bg-green-500 rounded-lg'>PAK INNINGS</button>
-          <button onClick={() => handleTeamChange('india')} className='bg-yellow-500 rounded-lg'>INDIA INNINGS</button>
-        </div>
-        <div className="team-info">
-          <img src={team === 'pakistan' ? PAK : IND} alt={`${team} flag`} className="team-flag" />
-          <h2>{team.toUpperCase()}</h2>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>BATSMAN</th>
-              <th>Runs</th>
-              <th>Balls</th>
-              <th>4S</th>
-              <th>6S</th>
-              <th>S/R</th>
-              <th>Dismissal</th>
-              <th>Fielder/Bowler</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data[team].batsmen.map((player, index) => (
-              <tr key={index}>
-                <td>{player.name}</td>
-                <td>{player.runs}</td>
-                <td>{player.balls}</td>
-                <td>{player.fours}</td>
-                <td>{player.sixes}</td>
-                <td>{player.strikeRate}</td>
-                <td>{player.out}</td>
-                <td>{player.fielder || player.bowler}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Bowlers section */}
-        <table>
-          <thead>
-            <tr>
-              <th>BOWLER</th>
-              <th>Overs</th>
-              <th>Maidens</th>
-              <th>Runs</th>
-              <th>Wickets</th>
-              <th>Economy</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data[team].bowlers.map((bowler, index) => (
-              <tr key={index}>
-                <td>{bowler.name}</td>
-                <td>{bowler.overs}</td>
-                <td>{bowler.maidens}</td>
-                <td>{bowler.runs}</td>
-                <td>{bowler.wickets}</td>
-                <td>{bowler.economy}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="total-score bg-green-500 p-4 rounded-lg">
-          <p>Total: {totalScore} ({team === 'pakistan' ? '50 overs' : '41.2 overs'})</p>
-        </div>
-      </div>
-
-      <div className='graph flex'>
-        <div className="left-div">
-          <p>Average on both team batting</p>
-          <img src={record} alt="Graph Image" />
-        </div>
-        <div className="right-div">
-          <div className="batting-average-content">
-            <h2 className='text-3xl font-bold tex'>Batting Average</h2>
-            <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+          <div className="">
+            <div className="batting-average-content">
+              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
+              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+            </div>
           </div>
-
-        </div>
-      </div>
-
-      <div className='graph flex'>
-
-        <div className="right-div">
-          <div className="batting-average-content">
-            <h2 className='text-3xl font-bold tex'>Batting Average</h2>
-            <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+          <div className="">
+            <p className='text-center'>Average on both team batting</p>
+            <ChartComponent data={battingAverageData} options={chartOptions} />
           </div>
-
         </div>
-        <div className="left-div">
-          <p>Average on both team batting</p>
-          <img src={playerperformancce} alt="Graph Image" />
-        </div>
-      </div>
 
-
-      <div className='graph flex'>
-        <div className="left-div">
-          <p>Average on both team batting</p>
-          <img src={record} alt="Graph Image" />
-        </div>
-        <div className="right-div">
-          <div className="batting-average-content">
-            <h2 className='text-3xl font-bold tex'>Batting Average</h2>
-            <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+          <div className="">
+            <p className='text-center'>Average on both team batting</p>
+            <ChartComponent data={battingAverageData} options={chartOptions} />
           </div>
-
+          <div className="">
+            <div className="batting-average-content">
+              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
+              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+            </div>
+          </div>
         </div>
+
+
       </div>
-
-
 
     </div>
   );
