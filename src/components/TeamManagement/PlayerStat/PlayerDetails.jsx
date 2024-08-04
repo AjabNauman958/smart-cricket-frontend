@@ -1343,7 +1343,7 @@ const playersData = [
 
                 return (
                     <>
-                    <div className="max-w-sm m-auto mt-10 dark:bg-gray-900 dark:text-white p-4 rounded shadow-lg">
+                    <div className="max-w-sm m-auto mt-10 dark:bg-gray-900 dark:text-white p-4 rounded-lg shadow-lg">
                             <label htmlFor="player-select" className="block mb-2">Select Player:</label>
                             <select
                                 id="player-select"

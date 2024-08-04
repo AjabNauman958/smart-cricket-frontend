@@ -38,6 +38,8 @@ import TeamSchedule from './components/TeamManagement/TeamSchedule/TeamSchedule'
 import MainPlayerStat from './components/TeamManagement/PlayerStat/MainPlayerStat';
 import TeamOpponentAnalysis from './components/TeamManagement/TeamOpponentAnalysis/TeamOpponentAnalysis';
 import SuggestPlayingXI from './components/TeamManagement/SuggestPlayingXI/SuggestPlayingXI';
+import ManagementCheckPlayerPerformanceAnalysis from './components/TeamManagement/PlayerPerformanceAnalysis/ManagementCheckPlayerPerformanceAnalysis';
+import ManagementCheckPlayerPerformancePrediction from './components/TeamManagement/PlayerPerformancePrediction/ManagementCheckPlayerPerformancePrediction';
 // 111
 function App() {
   return (
@@ -84,6 +86,8 @@ function App() {
 <Route path="/TeamManagement/PlayerStatistics" element={<MainPlayerStat />} />
 <Route path="/TeamManagement/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />
 <Route path="/TeamManagement/SuggestPlayingXI" element={<SuggestPlayingXI />} />
+<Route path="/TeamManagement/PlayerPerformanceAnalysis" element={<ManagementCheckPlayerPerformanceAnalysis />} />
+<Route path="/TeamManagement/ManagementCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
 
 
 

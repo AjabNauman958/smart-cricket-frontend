@@ -51,7 +51,7 @@ const Sidebar = () => {
               <FaChartLine className='text-2xl' />
               <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base`}>Performance Prediction</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800">
-                <li > <Link to="/Player/PlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
+                <li > <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
 
                 <li><Link to="/Player/PlayerPerformancePredictionn" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link> </li>
               </ul>
@@ -65,7 +65,7 @@ const Sidebar = () => {
               <FaChartBar className='text-2xl' />
               <span className={` ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base`}>Performance Analysis</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 ">
-                <li > <Link to="/Player/PlayerPerformancePrediction" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link></li>
+                <li > <Link to="/TeamManagement/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link></li>
 
                 <li><Link to="/Player/PlayerPerformancePredictionn" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link> </li>
               </ul>

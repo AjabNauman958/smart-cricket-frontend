@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import images from '../../images/babar.png';
 import 'chart.js/auto';
 
@@ -64,6 +66,10 @@ function SuggestPlayingXI() {
   const [impactPlayer, setImpactPlayer] = useState(null);
 
   const handlePlayerSelect = (e) => {
+    if (!opponentTeam || !stadiumCountry || !stadium || !selectedFormat) {
+      toast.error('Please select all options before selecting players.');
+      return;
+    }
     const selectedPlayerName = e.target.value;
     const selectedPlayer = availablePlayers.find(player => player.name === selectedPlayerName);
     if (selectedPlayer && !selectedPlayers.includes(selectedPlayer)) {
@@ -78,11 +84,16 @@ function SuggestPlayingXI() {
   };
 
   const suggestBestXI = () => {
+    if (selectedPlayers.length < 15) {
+      toast.error('Please select 15 players before suggesting the best XI.');
+      return;
+    }
     const shuffled = selectedPlayers.sort(() => 0.5 - Math.random());
     const bestXI = shuffled.slice(0, 11);
     setSuggestedXI(bestXI);
     setShowCharts(true);
     setImpactPlayer(bestXI[Math.floor(Math.random() * bestXI.length)]);
+    toast.success('Best XI suggested successfully!');
   };
 
   const data = {
@@ -109,6 +120,7 @@ function SuggestPlayingXI() {
   return (
     <div className="flex justify-center items-center ">
       <div className="container mx-auto p-6">
+        <ToastContainer />
         <h1 className="text-3xl font-bold mb-6 text-center">Cricket Team Selector</h1>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -210,9 +222,6 @@ function SuggestPlayingXI() {
                       <img src={player.image} alt={player.name} className="w-12 h-12 rounded-full mb-2 transition-transform transform hover:scale-110 duration-300" />
                     </div>
                     <div className='rightcard'>
-
-
-
                       <span className="text-lg font-medium">{player.name}</span>
                       <br />
                       <span className="text-sm text-gray-500">{player.role}</span>
@@ -289,7 +298,6 @@ function SuggestPlayingXI() {
         </div>
       </div>
     </div>
-
   );
 }
 
