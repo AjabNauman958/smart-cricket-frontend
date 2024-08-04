@@ -53,7 +53,7 @@ const Sidebar = () => {
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800">
                 <li > <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
 
-                <li><Link to="/Player/PlayerPerformancePredictionn" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link> </li>
+                <li><Link to="/TeamManagement/TeamPerformancePrediction" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link> </li>
               </ul>
             </Link>
           </div>
@@ -67,7 +67,7 @@ const Sidebar = () => {
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 ">
                 <li > <Link to="/TeamManagement/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link></li>
 
-                <li><Link to="/Player/PlayerPerformancePredictionn" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link> </li>
+                <li><Link to="/TeamManagement/TeamPerformanceAnalysis" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link> </li>
               </ul>
             </Link>
           </div>
