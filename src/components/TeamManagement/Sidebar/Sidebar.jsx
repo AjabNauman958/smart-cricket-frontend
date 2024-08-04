@@ -14,7 +14,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-64' : 'w-16'} md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300  shadow-lg z-50`}>
+    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-16'} md:w-64 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300  shadow-lg z-50`}>
       <div className="flex items-center justify-between mt-4">
         <h1 className={`text-2xl font-bold ml-2 italic ${isOpen ? 'block' : 'hidden'} md:block`}>SmartCricket</h1>
         <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
@@ -47,9 +47,9 @@ const Sidebar = () => {
 
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
           <div className="dropdown dropdown-right">
-            <Link className="flex items-center w-full">
-              <FaChartLine className='text-2xl' />
-              <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base`}>Performance Prediction</span>
+            <Link className="flex items-center w-full hover:text-white">
+              <FaChartLine className='text-2xl ' />
+              <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base `}>Performance Prediction</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800">
                 <li > <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
 
@@ -61,7 +61,7 @@ const Sidebar = () => {
 
         <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
           <div className="dropdown dropdown-right  ">
-            <Link className="flex items-center w-full">
+            <Link className="flex items-center w-full hover:text-white">
               <FaChartBar className='text-2xl' />
               <span className={` ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base`}>Performance Analysis</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 ">
@@ -91,12 +91,12 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
-      <div className={`absolute bottom-0 left-0 w-full p-4 bg-gradient-to-r from-blue-500 to-green-500 text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
+      <div className={`absolute bottom-0 left-0 w-full p-4 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
         <div className="flex items-center justify-center">
           <FaUser className="w-8 h-8" />
           <div className="ml-2">
-            <p className="text-lg font-bold">User Name</p>
-            <p className="text-sm">user@example.com</p>
+            <p className="text-lg font-bold">Your Manager</p>
+            <p className="text-sm">manager@gmail.com</p>
           </div>
         </div>
       </div>

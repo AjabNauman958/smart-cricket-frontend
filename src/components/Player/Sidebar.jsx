@@ -12,10 +12,12 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-64' : 'w-16'} md:w-64  border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300    shadow-lg z-50`}>
-      <div className="flex items-center justify-between mt-4">
-        <h1 className={`text-2xl font-bold ml-2 italic ${isOpen ? 'block' : 'hidden'} md:block`}>SmartCricket</h1>
-        <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
+    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-16'} md:w-64 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
+      <div className="flex items-center justify-center mt-4 text-center relative">
+        <h1 className={`text-2xl font-bold italic ${isOpen ? 'block' : 'hidden'} md:block`}>
+          Smart <span className='text-green-600'>Cricket</span>
+        </h1>
+        <div className="cursor-pointer md:hidden absolute right-0" onClick={toggleSidebar}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </div>
       </div>
@@ -23,44 +25,23 @@ const Sidebar = () => {
         <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} />
       </div>
       <ul className="flex flex-col text-xl mt-4">
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/MainDashboardApp" className="flex items-center w-full">
-            <FaHome className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
-          </Link>
-        </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/PlayerTeamSchedule" className="flex items-center w-full">
-            <FaRegClock className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</span>
-          </Link>
-        </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/PlayerPerformancePrediction" className="flex items-center w-full">
-            <FaChartLine className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Prediction</span>
-          </Link>
-        </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/PlayerPerformanceAnalysis" className="flex items-center w-full">
-            <FaChartBar className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Performance Analysis</span>
-          </Link>
-        </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/PlayerOpponentComparison" className="flex items-center w-full">
-            <FaFistRaised className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Analysis</span>
-          </Link>
-        </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
-          <Link to="/Player/PlayerFaq" className="flex items-center w-full">
-            <AiOutlineQuestionCircle className='text-2xl' />
-            <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Faqs</span>
-          </Link>
-        </li>
+        {[
+          { to: "/Player/MainDashboardApp", icon: <FaHome />, label: "Dashboard" },
+          { to: "/Player/PlayerTeamSchedule", icon: <FaRegClock />, label: "Team Schedule" },
+          { to: "/Player/PlayerPerformancePrediction", icon: <FaChartLine />, label: "Performance Prediction" },
+          { to: "/Player/PlayerPerformanceAnalysis", icon: <FaChartBar />, label: "Performance Analysis" },
+          { to: "/Player/PlayerOpponentComparison", icon: <FaFistRaised />, label: "Opponent Analysis" },
+          { to: "/Player/PlayerFaq", icon: <AiOutlineQuestionCircle />, label: "Faqs" }
+        ].map((item, index) => (
+          <li key={index} className="flex items-center justify-center md:justify-start py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
+            <Link to={item.to} className="flex items-center w-full">
+              {React.cloneElement(item.icon, { className: `${isOpen ? 'text-2xl' : 'text-3xl'} md:text-2xl` })}
+              <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>{item.label}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
-      <div className={`absolute bottom-0 left-0 w-full p-4 bg-gradient-to-r from-blue-500 to-green-500 text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
+      <div className={`absolute bottom-0 left-0 w-full p-4 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
         <div className="flex items-center justify-center">
           <FaUser className="w-8 h-8" />
           <div className="ml-2">
@@ -70,6 +51,8 @@ const Sidebar = () => {
         </div>
       </div>
     </div>
+
+
   );
 };
 
