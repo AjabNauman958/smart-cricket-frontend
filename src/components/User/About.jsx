@@ -6,6 +6,7 @@ import whoweare from '../images/whoweare.png'; // Adjust the path as necessary
 import whatwedo from '../images/whatwedo.png'; // Adjust the path as necessary
 import vision from '../images/vision.jpg'; // Adjust the path as necessary
 import '../css/home.css'; // Import your CSS file
+import OurTeam from './OurTeam';
 
 const About = () => {
   const sections = [
@@ -33,37 +34,49 @@ const About = () => {
   ];
 
   return (
-    <div>
+    <div >
       <Navbar /> {/* Include the Navbar component */}
-      <div className="hero-section" style={{ backgroundImage: `url(${backgroundImage})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-        <div className="dark-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div className="content" style={{ width: '50%', textAlign: 'center', color: '#fff' }}>
-            <h1 className="hero-heading" style={{ fontWeight: 'bold' }}>About Us</h1>
-            <p className="hero-text">
-              Welcome to Smart Cricket, your go-to platform for AI-powered cricket analysis and prediction.
+      <div
+  className="hero min-h-screen"
+  style={{
+    backgroundImage: `url(${backgroundImage})`
+  }}
+>
+  {/* Your content here */}
+
+
+        <div className="hero-overlay "></div>
+        <div className="hero-content text-neutral-content text-center">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">About US</h1>
+            <p className="mb-5">
+            Welcome to Smart Cricket, your go-to platform for AI-powered cricket analysis and prediction.
+
             </p>
+            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
-
       {sections.map((section, index) => (
-        <div key={index} className={`flex flex-col md:flex-row ${section.reverse ? 'md:flex-row-reverse' : ''} items-center my-8 p-4`}>
+        <div key={index} className={`flex flex-col md:flex-row ${section.reverse ? 'md:flex-row-reverse' : ''} items-center  p-4`}>
           <div className="md:w-1/2 p-4">
             <h2 className="text-4xl font-bold mb-4">{section.heading}</h2>
             <p className="mb-4">{section.text}</p>
             <button className="bg-yellow-300 text-white py-2 px-4 rounded hover:bg-yellow-500 transition duration-300">{section.buttonText}</button>
           </div>
           <div className="md:w-1/2 p-4 flex justify-center">
-            <img 
-              src={section.imgSrc} 
-              alt={section.heading} 
-              className="w-full max-w-lg h-auto object-cover rounded transform transition-transform duration-500 hover:scale-105 hover:translate-y-1" 
+            <img
+              src={section.imgSrc}
+              alt={section.heading}
+              className="w-full max-w-lg h-auto object-cover rounded transform transition-transform duration-500 hover:scale-105 hover:translate-y-1"
 
-          
+
             />
           </div>
         </div>
       ))}
+
+      <OurTeam />
 
       <Footer /> {/* Include the Footer component */}
     </div>
