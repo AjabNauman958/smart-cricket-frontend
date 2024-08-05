@@ -1,11 +1,12 @@
 import React from 'react';
 import '../css/RankingCard.css';
+import { Link } from 'react-router-dom';
 
 const RankingCard = ({ title, teams }) => {
   return (
     <div className="ranking-card">
       <div className="ranking-card-header">
-        <h2>{title}</h2>
+        <h2 className='mx-4 '>{title}</h2>
       </div>
       <div className="ranking-card-content">
         {teams.map((team, index) => (
@@ -27,8 +28,8 @@ const RankingCard = ({ title, teams }) => {
           </div>
         ))}
       </div>
-      <div className="text-center mt-2">
-        <button className="ranking-full-button">Full Ranking</button>
+      <div className="text-center mt-2 ">
+      <Link to='/fullranking' > <button className="text-white hover:text-yellow-300">Full Ranking</button></Link> 
       </div>
     </div>
   );

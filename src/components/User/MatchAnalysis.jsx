@@ -72,7 +72,7 @@ const MatchAnalysis = () => {
 
       {/* Match analysis details */}
       <div>
-        <h1 className='text-4xl font-semibold text-center mt-5'>
+        <h1 className='text-4xl font-semibold text-center mt-20'>
           Match<span className='text-yellow-500'> Analysis</span>
         </h1>
         <div className="match-analysis">

@@ -107,13 +107,13 @@ const Matches = () => {
             </div>
           </div>
         </div>
-        <div className='graph flex'>
-          <div className="left-div">
-            <p>Average on both team batting</p>
+        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
+          <div className="">
+            <p className='text-center font-semibold'>Average on both team batting</p>
             <img src={record} alt="Graph Image" />
           </div>
-          <div className="right-div">
-            <div className="batting-average-content">
+          <div className="p-4">
+            <div className="batting-average-content" >
               <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
             </div>
             <Link to='/MatchAnalysis'><button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button></Link>

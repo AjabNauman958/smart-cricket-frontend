@@ -42,6 +42,7 @@ import ManagementCheckPlayerPerformanceAnalysis from './components/TeamManagemen
 import ManagementCheckPlayerPerformancePrediction from './components/TeamManagement/PlayerPerformancePrediction/ManagementCheckPlayerPerformancePrediction';
 import TeamPerformancePrediction from './components/TeamManagement/TeamPerformancePrediction/TeamPerformancePrediction';
 import TeamPerformanceAnalysis from './components/TeamManagement/TeamPerformanceAnalysis/TeamPerformanceAnalysis';
+import FullRanking from './components/User/FullRanking';
 // 111
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
           <Route path="/FAQS" element={<FAQS />} />
           <Route path="/Topheader" element={<Topheader />} />
           <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/FullRanking" element={<FullRanking />} />
           {/* player dashboard  */}
           <Route path="/Player/MainDashboardApp" element={<MainDashboardApp />} />
           <Route path="/Player/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
