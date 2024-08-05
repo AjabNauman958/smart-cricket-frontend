@@ -4,9 +4,8 @@ import '../../css/MatchCard.css';
 
 import PAK from '../../images/pak.png';
 import SA from '../../images/SA.png';
-import ShowPerformanceGraph from '../PlayerPerformancePrediction/PredictionForm';
 import playerImages from '../../images/babar.png'; // Assuming you have player images in this directory
-
+import ShowPerformanceGraph from '../PlayerPerformancePrediction/ShowPerformanceGraph'
 const recentMatches = [
   {
     matchNumber: '25th Match',
@@ -101,9 +100,9 @@ const SelectRecentMatches = () => {
       </div>
       <div className="flex mt-4" style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '20px' }}>
         {recentMatches.map((matchDetails, index) => (
-          <div 
-            key={index} 
-            className={`border match-card dark:text-white dark:bg-gray-900 ${selectedMatch === index ? 'border-blue-500' : 'border-gray-300'}`} 
+          <div
+            key={index}
+            className={`border match-card dark:text-white dark:bg-gray-900 ${selectedMatch === index ? 'border-blue-500' : 'border-gray-300'}`}
             onClick={() => handleMatchSelect(index)}
           >
             <div className="header">
@@ -161,6 +160,7 @@ const SelectRecentMatches = () => {
 
           {selectedPlayer && (
             <div className="mt-4 duration-300 sm:w-2/4 lg:w-3/4">
+         
               <ShowPerformanceGraph player={selectedPlayer} />
             </div>
           )}

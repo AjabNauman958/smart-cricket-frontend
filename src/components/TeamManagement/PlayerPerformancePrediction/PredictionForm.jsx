@@ -51,7 +51,6 @@ const players = {
 
 const PredictionForm = () => {
   const [team1, setTeam1] = useState('');
-  const [team2, setTeam2] = useState('');
   const [format, setFormat] = useState('');
   const [country, setCountry] = useState('');
   const [ground, setGround] = useState('');

@@ -34,6 +34,9 @@ const MainDashboard = () => {
             <TeamScheduleDashboard league="upcoming" />
           </div>
           <div>
+          <h1 className="text-4xl font-semibold text-center mt-5">
+              <span className="text-green-500">Recent</span> Squad
+            </h1>
             <RecentSquad/>
           </div>
           <Footer />

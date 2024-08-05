@@ -25,19 +25,19 @@ const Sidebar = () => {
         {/* <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} /> */}
       </div>
       <ul className="flex flex-col text-xl mt-4">
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white  rounded transition-all duration-300">
           <Link to="/TeamManagement/MainDashboard" className="flex items-center w-full">
             <FaHome className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
           </Link>
         </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
           <Link to="/TeamManagement/PlayerStatistics" className="flex items-center w-full">
             <FaUsers className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Player Stats</span>
           </Link>
         </li>
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
           <Link to="/TeamManagement/TeamSchedule" className="flex items-center w-full ">
             <FaRegClock className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</span>
@@ -45,29 +45,29 @@ const Sidebar = () => {
         </li>
 
 
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
-          <div className="dropdown dropdown-right">
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300">
+          <div className="dropdown dropdown-right flex items-center w-full">
             <Link className="flex items-center w-full ">
               <FaChartLine className='text-2xl ' />
-              <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base `}>Performance Prediction</span>
+              <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn "  md:inline text-base `}>Performance Prediction</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800">
-                <li > <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
+                <li className='hover:text-black text-black'> <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link></li>
 
-                <li><Link to="/TeamManagement/TeamPerformancePrediction" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link> </li>
+                <li className='hover:text-black text-black'> <Link to="/TeamManagement/TeamPerformancePrediction" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link> </li>
               </ul>
             </Link>
           </div>
         </li>
 
-        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A]  rounded transition-all duration-300">
-          <div className="dropdown dropdown-right  ">
+        <li className="flex items-center py-3 px-2 space-x-4 hover:bg-[rgb(0,160,154)] hover:text-white rounded transition-all duration-300">
+          <div className="dropdown dropdown-right flex items-center w-full ">
             <Link className="flex items-center w-full ">
               <FaChartBar className='text-2xl' />
-              <span className={` ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn m-1"  md:inline text-base`}>Performance Analysis</span>
+              <span className={` ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn "  md:inline text-base`}>Performance Analysis</span>
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 ">
-                <li > <Link to="/TeamManagement/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link></li>
+                <li className='hover:text-black text-black' > <Link to="/TeamManagement/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link></li>
 
-                <li><Link to="/TeamManagement/TeamPerformanceAnalysis" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link> </li>
+                <li className='hover:text-black text-black'><Link to="/TeamManagement/TeamPerformanceAnalysis" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link> </li>
               </ul>
             </Link>
           </div>
