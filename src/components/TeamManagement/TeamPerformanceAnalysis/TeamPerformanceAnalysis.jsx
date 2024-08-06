@@ -4,11 +4,10 @@ import Sidebar from '../Sidebar/Sidebar';
 import DashboardNavbar from '../../Player/DashboardNavbar';
 import Footer from '../Footer/Footer';
 import TeamPerformanceAnalysisDetails from './TeamPerformanceAnalysisDetails';
-
 const TeamPerformanceAnalysis = () => {
   return (
     <ThemeContextProvider>
-    <div className="flex">
+    <div>
         <Sidebar />
         <div className="grow ml-16 md:ml-64 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white flex-wrap">
             <DashboardNavbar />
@@ -18,8 +17,10 @@ const TeamPerformanceAnalysis = () => {
                         <span className='text-green-500 font-semibold'> Team </span> Performance <span className='text-yellow-400 font-semibold'>Prediction</span> 
                     </h1>
                 </div>
-<div className='min-h-screen'>
+<div className='min-h-screen '>
+
 <TeamPerformanceAnalysisDetails/>
+
     </div>                
             </div>
             <Footer />

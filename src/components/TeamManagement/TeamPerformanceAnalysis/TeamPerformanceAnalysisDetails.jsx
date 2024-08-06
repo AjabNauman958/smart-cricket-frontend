@@ -112,7 +112,7 @@ const TeamPerformanceAnalysisDetails = () => {
   const totalScore = data[team].batsmen.reduce((total, player) => total + player.runs, 0);
 
   return (
-    <div>
+    <div className=''>
       <div className='mt-10'>
         <h1 className='text-xl text-center'>Select a Match from the Recent Matches</h1>
       </div>
@@ -144,6 +144,9 @@ const TeamPerformanceAnalysisDetails = () => {
             <button className="action-button">Match Center &gt;</button>
           </div>
         ))}
+      </div>
+      <div className='flex items-center justify-center'>
+
         <button className='btn btn-success text-white'>View Match Analysis</button>
       </div>
 
@@ -263,20 +266,20 @@ const TeamPerformanceAnalysisDetails = () => {
 
 
         <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl overflow-hidden mx-auto">
             <p className='text-center'>Average on both team batting</p>
             <ChartComponent data={battingAverageData} options={chartOptions} />
           </div>
           <div className="">
             <div className="batting-average-content">
-              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
+              <h2 className='text-3xl font-bold text-center mt-3'>Batting Average</h2>
               <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
             </div>
           </div>
         </div>
 
         <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl overflow-hidden mx-auto">
             <div className="batting-average-content">
               <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
               <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
@@ -289,7 +292,7 @@ const TeamPerformanceAnalysisDetails = () => {
         </div>
 
         <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl overflow-hidden mx-auto">
             <p className='text-center'>Average on both team batting</p>
             <ChartComponent data={battingAverageData} options={chartOptions} />
           </div>
