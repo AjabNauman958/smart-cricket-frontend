@@ -40,7 +40,7 @@
       order: 1;
     }
     .rightdiv{
-        order: 2;
+       display: hidden;
 
     }
   }

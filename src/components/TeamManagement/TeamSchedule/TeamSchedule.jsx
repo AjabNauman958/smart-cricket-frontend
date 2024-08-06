@@ -18,7 +18,7 @@ const TeamSchedule = () => {
                         <div className='flex justify-center items-center bg-white dark:bg-gray-900 dark:text-white dark:shadow-2xl'>
                             <img src={Pakistan} className='w-10 h-auto' alt="Pakistan flag" />
                             <h1 className='p-3 text-2xl'>
-                                <span className='text-green-500 font-semibold'> Pakistan </span> Cricket Schedule
+                                <span className='text-green-500 font-semibold'>Pakistan </span> Cricket <span className='text-yellow-400 font-semibold'> Schedule</span>
                             </h1>
                         </div>
                         <h1 className='mt-7 text-2xl w-[18rem] rounded text-center m-auto bg-yellow-400 p-1 text-white font-semibold'>Upcoming Matches</h1>

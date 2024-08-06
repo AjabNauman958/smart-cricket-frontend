@@ -14,7 +14,7 @@ const TeamPerformanceAnalysis = () => {
             <div>
                 <div className='flex justify-center items-center bg-white dark:bg-gray-900 dark:text-white dark:shadow-2xl'>
                     <h1 className='p-3 text-2xl'>
-                        <span className='text-green-500 font-semibold'> Team </span> Performance <span className='text-yellow-400 font-semibold'>Prediction</span> 
+                        <span className='text-green-500 font-semibold'> Team </span> Performance <span className='text-yellow-400 font-semibold'>Analysis</span> 
                     </h1>
                 </div>
 <div className='min-h-screen '>

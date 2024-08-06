@@ -4,6 +4,8 @@ import { FaRegEnvelope, FaGoogle, FaUser } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import cricketImage from '../images/signup.png';
 import '../css/signup.css'; // Import your CSS file
+import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
 const PlayerSignup = () => {
     const [firstName, setFirstName] = useState('');
@@ -24,52 +26,85 @@ const PlayerSignup = () => {
         e.preventDefault();
         if (!firstName || !email || !password || !confirmPassword) {
             setError('Please fill in all fields.');
+            toast.error('Please fill in all fields.'); // Show error toast
             return;
         }
         if (password !== confirmPassword) {
             setError('Passwords do not match.');
+            toast.error('Passwords do not match.'); // Show error toast
             return;
         }
         // Add your sign-up logic here (e.g., Firebase authentication)
-        alert(`Signup successful with first name: ${firstName}, email: ${email}`);
+        toast.success(`Signup successful with first name: ${firstName}`); // Show success toast
+        // Redirect to login page or other action
     };
 
     return (
-        <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}`}>
-            <main className="flex flex-col items-center justify-center w-full h-full px-20 text-center">
-                <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-5xl'>
+        <div className={`flex flex-col  items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}`}>
+            <main className="flex flex-col  items-center justify-center w-full h-full px-4 md:px-20 text-center ">
+                <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-5xl maindiv'>
                     {/* Left side */}
-                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-36 px-4 md:px-12 flex flex-col justify-center items-center'>
-                        <h2 className='text-3xl font-bold mb-2'>SmartCricket</h2>
-                        <img src={cricketImage} alt="Cricket Image" className="w-56 h-56 mb-4" />
+                    <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-16 px-4 md:px-12 flex flex-col justify-center items-center'>
+                        <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold mb-2'>SmartCricket</h2>
+                        <img src={cricketImage} alt="Cricket Image" className="w-40 md:w-56 lg:w-72 xl:w-96 h-40 md:h-56 lg:h-72 xl:h-96 mb-4" />
                     </div>
                     {/* Right side */}
                     <div className='w-full md:w-3/5 p-5'>
-                        <div className='text-right font-bold'>
+                        <div className='text-right font-bold text-sm md:text-base lg:text-lg xl:text-xl'>
                             <span className='text-green-500'> Smart</span>Cricket
                         </div>
                         <div className='py-10'>
-                            <h2 className='text-3xl font-bold text-green-500 mb-2'>Player SignUp</h2>
-                            <div className='border-2 w-52 border-green-500 inline-block mb-2'></div>
+                            <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-green-500 mb-2'>Player SignUp</h2>
+                            <div className='border-2 w-52 md:w-72 border-green-500 inline-block mb-2'></div>
                         </div>
                         <form onSubmit={handleSignUp}>
                             <div className='flex flex-col items-center'>
                                 <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <FaUser className="text-gray-400 m-2" />
-                                    <input required type='text' name='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Enter your First Name' className='bg-gray-100 outline-none text-sm flex-1 p-2 rounded-lg input-field' />
+                                    <FaUser className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+                                    <input
+                                        required
+                                        type='text'
+                                        name='firstName'
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        placeholder='Enter your First Name'
+                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 p-2 rounded-lg input-field'
+                                    />
                                 </div>
                                 <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <FaRegEnvelope className="text-gray-400 m-2" />
-                                    <input required type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email Address' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
+                                    <FaRegEnvelope className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+                                    <input
+                                        required
+                                        type='email'
+                                        name='email'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder='Enter your Email Address'
+                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
+                                    />
                                 </div>
                                 <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <FaRegEnvelope className="text-gray-400 m-2" />
-                                    <input required type='text' name='country' value={country} onChange={(e) => setCountry(e.target.value)} placeholder='Enter your Country Name' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
+                                    <FaRegEnvelope className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+                                    <input
+                                        required
+                                        type='text'
+                                        name='country'
+                                        value={country}
+                                        onChange={(e) => setCountry(e.target.value)}
+                                        placeholder='Enter your Country Name'
+                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
+                                    />
                                 </div>
-
                                 <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2" />
-                                    <input type={showPassword ? 'text' : 'password'} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
+                                    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        name='password'
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder='Enter your Password'
+                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
+                                    />
                                     {showPassword ? (
                                         <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
                                     ) : (
@@ -77,28 +112,39 @@ const PlayerSignup = () => {
                                     )}
                                 </div>
                                 <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2" />
-                                    <input type={showConfirmPassword ? 'text' : 'password'} name='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm your Password' className='bg-gray-100 outline-none text-sm flex-1 rounded-lg input-field' />
+                                    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+                                    <input
+                                        type={showConfirmPassword ? 'text' : 'password'}
+                                        name='confirmPassword'
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        placeholder='Confirm your Password'
+                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
+                                    />
                                     {showConfirmPassword ? (
                                         <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
                                     ) : (
                                         <MdVisibility className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
                                     )}
                                 </div>
-                                {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-                                <button type="submit" className='border-2 border-green-500 text-green-500 rounded-lg px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300'> Sign Up</button>
-                                
-                                {/* "Already have an account?" text */}
+                                {error && <p className="text-red-500 text-xs md:text-sm lg:text-base xl:text-lg mb-3">{error}</p>}
+                                <button
+                                    type="submit"
+                                    className='border-2 border-green-500 text-green-500 rounded-lg px-8 md:px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 text-xs md:text-sm lg:text-base xl:text-lg'
+                                >
+                                    Sign Up
+                                </button>
+
                                 <div className="mt-4">
-                                    <p className="text-sm">Already have an account? <Link to="/Playerlogin" className="text-green-500">Sign In</Link></p>
+                                    <p className="text-xs md:text-sm lg:text-base xl:text-md">Already have an account? <Link to="/Playerlogin" className="text-green-500">Sign In</Link></p>
                                 </div>
                             </div>
                         </form>
                         <div className="flex flex-col items-center justify-center my-4">
-                            <span className="text-black-900">-----Or-----</span>
+                            <span className="text-xs md:text-sm lg:text-base xl:text-md">-----Or-----</span>
                             <div className="mt-4">
-                                <button className="flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white">
-                                    <FaGoogle className="text-orange-500 mr-2" /> {/* Google icon */}
+                                <button className="flex items-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white text-xs md:text-sm lg:text-base xl:text-base">
+                                    <FaGoogle className="text-orange-500 mr-2 text-xs md:text-sm lg:text-base xl:text-base" /> {/* Google icon */}
                                     Sign Up with Google
                                 </button>
                             </div>
@@ -106,6 +152,7 @@ const PlayerSignup = () => {
                     </div>
                 </div>
             </main>
+            <ToastContainer /> {/* Add ToastContainer for toasts */}
         </div>
     );
 }

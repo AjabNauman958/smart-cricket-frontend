@@ -63,7 +63,7 @@ const RecentSquad = () => {
     <div className="container mx-auto p-4 text-center">
       <div className="mb-6 flex justify-center space-x-4">
         <button
-          className={`px-4 py-2 ${selectedFormat === 'test' ? 'bg-[#00A09A] text-white' : 'bg-gray-300'} rounded transition duration-300`}
+          className={`px-4 py-2 ${selectedFormat === 'test' ? 'bg-[#00A09A] text-white' : 'bg-gray-300'} rounded transition duration-300 `}
           onClick={() => setSelectedFormat('test')}
         >
           Test
@@ -85,7 +85,7 @@ const RecentSquad = () => {
         {players.map((player, index) => (
           <div
             key={index}
-            className=" flex items-center bg-white border border-gray-300 rounded-lg  transform transition-transform duration-300 hover:scale-105 shadow-lg dark:bg-gray-900 dark:text-white"
+            className=" flex items-center bg-white border border-gray-300 rounded-lg  transform transition-transform duration-300 hover:scale-105 shadow-lg dark:bg-gray-900 dark:text-white hover:border-warning"
           >
             <img src={player.image} alt={player.name} className="w-14 h-14 rounded-full mr-4" />
             <div className="text-left">
