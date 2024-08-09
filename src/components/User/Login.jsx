@@ -47,9 +47,7 @@ const Login = () => {
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Right side */}
                     <div className='w-full md:w-3/5 p-5 rightdiv'>
-                        <div className='text-left font-bold text-sm md:text-base lg:text-lg xl:text-2xl'>
-                            <span className='text-green-500'> Smart</span>Cricket
-                        </div>
+                       
                         <div className='py-10'>
                             <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-green-500 mb-2'>Sign in to Account</h2>
                             <div className='border-2 w-72 border-green-500 inline-block mb-2'></div>

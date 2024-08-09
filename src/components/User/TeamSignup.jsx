@@ -48,9 +48,7 @@ const TeamSignup = () => {
                     </div>
                     {/* Right side */}
                     <div className='w-full md:w-3/5 p-5'>
-                        <div className='text-right font-bold text-xs md:text-sm lg:text-base xl:text-lg'>
-                            <span className='text-green-500'> Smart</span>Cricket
-                        </div>
+                            
                         <div className='py-10'>
                             <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-green-500 mb-2'>Team SignUp</h2>
                             <div className='border-2 w-40 md:w-52 lg:w-72 xl:w-80 border-green-500 inline-block mb-2'></div>
