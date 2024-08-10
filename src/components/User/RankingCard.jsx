@@ -12,17 +12,19 @@ const RankingCard = ({ title, teams }) => {
         {teams.map((team, index) => (
           <div
             key={team.rank}
-            className={`ranking-team ${index < teams.length - 1 ? "border-b" : ""}`}
+            className={`ranking-team ${index < teams.length - 1 ? "border-b" : ""} ${index === 0 ? "text-xl font-bold p-6 bg-slate-100 rounded" : ""}`}
+
           >
             <span className="flex items-center">
              
-              <span className="mr-2">{String(team.rank).padStart(2, '0')}</span>
+            <span className={`mr-2 ${index === 0 ? "text-2xl" : "text-base"}`}>
+              {String(team.rank).padStart(2, '0')}</span>
               <img
                 src={team.flag}
                 className="ranking-team-flag"
                 alt={`${team.country} flag`}
               />
-              <span className="ranking-team-name">{team.country}</span>
+              <span className="ranking-team-name">{team.player}</span>
             </span>
             <span>{team.points}</span>
           </div>
