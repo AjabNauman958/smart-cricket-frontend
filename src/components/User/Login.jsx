@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaRegEnvelope, FaGoogle } from 'react-icons/fa';
 import { MdLockOutline, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import cricketImage from '../images/login.png';
-import '../css/login.css'; // Ensure your CSS file is imported
+import '../css/login.css'; 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
