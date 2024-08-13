@@ -74,8 +74,8 @@ const FullRanking = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-1 gap-4 p-4 mt-20">
-                <div className="bg-white p-4 rounded-lg shadow-lg transition-all duration-500">
+            <div className="grid sm:grid-cols-1 gap-4 p-4 mt-20 ">
+                <div className="bg-white p-4 rounded-lg shadow-lg transition-all duration-500 overflow-x-auto">
                     <div className="mb-4">
                         <label className="block mb-2 text-yellow-500 font-bold text-2xl">Select Ranking Type</label>
                         <select
@@ -198,7 +198,7 @@ const FullRanking = () => {
                             <h2 className="text-2xl font-bold text-blue-900 mb-2">{`${format.toUpperCase()} TEAM RANKINGS`}</h2>
                             <p className="text-gray-600 mb-4">Last Updated - 26 July 2024</p>
                             <div className="overflow-x-auto">
-                                <table className="min-w-full bg-white">
+                                <table className="min-w-full bg-white ">
                                     <thead>
                                         <tr>
                                             <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Pos</th>
