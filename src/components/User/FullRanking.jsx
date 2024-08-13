@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import fullranking from '../images/fullranking.png';
 import '../css/comparison.css';
 import Footer from './Footer';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 const FullRanking = () => {
     const [rankingType, setRankingType] = useState('');
@@ -226,6 +227,8 @@ const FullRanking = () => {
                 </div>
                 <ToastContainer />
             </div>
+            {/* Scroll-to-top button */}
+            <ScrollToTopButton />
             <Footer />
         </div>
     );
