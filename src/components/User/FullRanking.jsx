@@ -54,7 +54,7 @@ const FullRanking = () => {
     return (
         <div>
             <Navbar />
-            <div className="hero bg-white mt-16">
+            <div className="hero  mt-16">
                 <div className="hero-content flex-col lg:flex-row-reverse sm:text-center lg:text-start">
                     <img
                         src={fullranking}
