@@ -60,7 +60,7 @@ const Otpcode = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen py-2 ">
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Left side */}
@@ -78,7 +78,7 @@ const Otpcode = () => {
                         {isSetupCompleted ? (
                             <div className="flex flex-col items-center justify-center my-4 h-96">
                                 <h2 className='text-2xl md:text-3xl font-bold text-green-500 mb-2'>Setup Completed</h2>
-                                <p className='text-sm md:text-base'>Your account is now protected with two-factor authentication.</p>
+                                <p className='text-sm md:text-base'>Your account is now protected with changing your password.</p>
                                 <button
                                     className="mt-4 bg-green-500 text-white rounded-lg px-6 py-2 font-semibold hover:bg-green-600 transition-all duration-300"
                                     onClick={handleGoBack}
@@ -89,16 +89,16 @@ const Otpcode = () => {
                         ) : (
                             <>
                                 <div className='py-10'>
-                                    <h2 className='text-2xl md:text-3xl font-bold text-green-500 mb-2'>Two-Factor Authentication</h2>
+                                    <h2 className='text-2xl md:text-3xl font-bold text-green-500 mb-2'>Forget Your Password</h2>
                                     <div className='border-2 border-green-500 inline-block mb-2 w-32 md:w-52 lg:w-72 xl:w-96'></div>
                                 </div>
                                 <div className="flex flex-col items-center justify-center my-4">
                                     <p className='font-bold text-sm md:text-base lg:text-lg xl:text-xl'>Email Setup</p>
-                                    <p className='text-sm md:text-base lg:text-lg xl:text-xl'>We have sent a verification code to player@gmail.com</p>
+                                    <p className='text-sm md:text-base lg:text-base xl:text-base'>We have sent a verification code to player@gmail.com</p>
                                     <p className='font-bold text-sm md:text-base lg:text-lg xl:text-xl'>1. Go to your inbox</p>
-                                    <p className='text-sm md:text-base lg:text-lg xl:text-xl'>Can't find a verification code? Make sure to check the spam folder.</p>
+                                    <p className='text-sm md:text-base lg:text-base xl:text-base'>Can't find a verification code? Make sure to check the spam folder.</p>
                                     <p className='font-bold text-sm md:text-base lg:text-lg xl:text-xl'>2. Finish setup</p>
-                                    <p className='text-sm md:text-base lg:text-lg xl:text-xl'>Enter the verification code we sent to your email.</p>
+                                    <p className='text-sm md:text-base lg:text-base xl:text-base'>Enter the verification code we sent to your email.</p>
                                     <div className="flex space-x-2 mt-4">
                                         {verificationCode.map((digit, index) => (
                                             <input

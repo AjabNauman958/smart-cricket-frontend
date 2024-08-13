@@ -17,7 +17,7 @@ const TwoFactor = () => {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100'>
+        <div className='flex flex-col items-center justify-center min-h-screen py-2 '>
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Left side */}
@@ -31,12 +31,12 @@ const TwoFactor = () => {
                             <span className='text-green-500'> Smart</span>Cricket
                         </div>
                         <div className='py-10'>
-                            <h2 className='text-2xl md:text-3xl lg:text-3xl font-bold text-green-500 mb-2'>Two-Factor Authentication</h2>
+                            <h2 className='text-2xl md:text-3xl lg:text-3xl font-bold text-green-500 mb-2'>Forget Password?</h2>
                             <div className='border-2 border-green-500 inline-block mb-2 w-40 md:w-52 lg:w-72 xl:w-96'></div>
                         </div>
                         <div className="flex flex-col items-center justify-center my-4">
-                            <p className='text-sm md:text-base lg:text-lg xl:text-xl'>
-                                SmartCricket requires you to protect your account with 2FA
+                            <p className='text-sm md:text-base lg:text-base xl:text-base'>
+                                SmartCricket requires you to protect your account with updating your password
                             </p>
                             <button 
                                 className="mt-4 flex items-center align-center border-2 border-green-500 rounded-lg px-6 py-2 font-semibold hover:bg-green-500 hover:text-white transition-all duration-300 text-xs md:text-sm lg:text-base xl:text-base"

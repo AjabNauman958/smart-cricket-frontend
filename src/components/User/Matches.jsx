@@ -114,7 +114,7 @@ const Matches = () => {
             <img src={record} alt="Graph Image" />
           </div>
           <div className="p-4">
-            <div className="batting-average-content" >
+            <div className= "batting-average-content" >
               <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
             </div>
             <Link to='/MatchAnalysis'><button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button></Link>

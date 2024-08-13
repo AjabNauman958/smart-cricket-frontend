@@ -40,7 +40,7 @@ const Teamlogin = () => {
     };
 
     return (
-        <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}`}>
+        <div className={`flex flex-col items-center justify-center min-h-screen py-2  ${animation ? 'fade-in active' : ''}`}>
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-5xl maindiv'>
                     {/* Left Side */}
