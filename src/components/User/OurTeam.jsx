@@ -31,13 +31,13 @@ const teamMembers = [
     linkedin: '#',
     instagram: '#',
   },
-  // Add more team members as needed
+
 ];
 
 const OurTeam = () => {
   return (
     <div className="py-12 px-4">
-      <h2 className="text-3xl font-bold text-center mb-6">Our Team</h2>
+      <h2 className="text-4xl font-bold text-center mb-6">Our <span className='text-green-500'> Team</span></h2>
       <p className="text-center mb-12">Meet our amazing team members who make everything possible.</p>
 
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">

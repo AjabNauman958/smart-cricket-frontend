@@ -4,6 +4,7 @@ import Footer from './Footer';
 import backgroundImage from '../images/tournament.jpg';
 import '../css/home.css';
 import MatchCardList from './MatchCardList';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 const Tournament = () => {
   const [showMoreSeries, setShowMoreSeries] = useState(false);
@@ -127,7 +128,8 @@ const Tournament = () => {
           <MatchCardList league="bigbash" />
         </>
       )}
-
+        {/* Scroll-to-top button */}
+        <ScrollToTopButton />
       <Footer />
     </div>
   );

@@ -5,6 +5,7 @@ import Footer from './Footer';
 import babarhero from '../images/babar.png';
 import williamson from '../images/williamson.png';
 import '../css/comparison.css';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 // Dummy player data name and country
 const players = [
@@ -357,6 +358,9 @@ const Comparison = () => {
 
         </div>
       )}
+
+      {/* Scroll-to-top button */}
+      <ScrollToTopButton />
       <Footer />
     </div>
   );

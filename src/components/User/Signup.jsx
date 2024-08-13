@@ -24,12 +24,11 @@ const Signup = () => {
     const handleSignUp = (e) => {
         e.preventDefault();
         if (!userName || !email || !password || !confirmPassword) {
-            setError('Please fill in all fields.');
             toast.error('Please fill in all fields.');
             return;
         }
         if (password !== confirmPassword) {
-            setError('Passwords do not match.');
+           
             toast.error('Passwords do not match.');
             return;
         }

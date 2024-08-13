@@ -9,6 +9,7 @@ import MatchCardList from './MatchCardList';
 import PAK from '../images/pak.png';
 import IND from '../images/india.png';
 import record from '../images/record.png';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 
 const Matches = () => {
@@ -121,7 +122,8 @@ const Matches = () => {
         </div>
       </div>
 
-
+  {/* Scroll-to-top button */}
+  <ScrollToTopButton />
 
       <Footer />
     </div>

@@ -7,27 +7,27 @@ import whatwedo from '../images/whatwedo.png'; // Adjust the path as necessary
 import vision from '../images/vision.jpg'; // Adjust the path as necessary
 import '../css/home.css'; // Import your CSS file
 import OurTeam from './OurTeam';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 const About = () => {
   const sections = [
     {
       heading: "Who We Are",
       text: "At Smart Cricket, we are a passionate team of cricket enthusiasts, data scientists, and technology experts dedicated to bringing the latest advancements in AI and machine learning to the cricketing world. Our goal is to offer a seamless, user-friendly experience for cricket lovers worldwide.",
-      buttonText: "Read More",
+     
       imgSrc: whoweare, // Use imported image path
       reverse: false
     },
     {
       heading: "Our Mission",
       text: "Our mission is to revolutionize the way cricket is experienced and analyzed. We strive to provide cutting-edge insights and predictions that enhance the understanding and enjoyment of the game for fans, players, and analysts alike.",
-      buttonText: "Learn More",
+     
       imgSrc: whatwedo, // Use imported image path
       reverse: true
     },
     {
       heading: "Our Vision",
       text: "We envision a future where AI-driven analytics are an integral part of cricket strategy and fan engagement. By leveraging the power of data, we aim to uncover hidden patterns and trends that can transform the sport.",
-      buttonText: "Discover More",
       imgSrc: vision, // Use imported image path
       reverse: false
     }
@@ -59,7 +59,6 @@ const About = () => {
           <div className="md:w-1/2 p-4">
             <h2 className="text-4xl font-bold mb-4">{section.heading}</h2>
             <p className="mb-4">{section.text}</p>
-            <button className="bg-yellow-300 text-white py-2 px-4 rounded hover:bg-yellow-500 transition duration-300">{section.buttonText}</button>
           </div>
           <div className="md:w-1/2 p-4 flex justify-center">
             <img
@@ -74,7 +73,7 @@ const About = () => {
       ))}
 
       <OurTeam />
-
+<ScrollToTopButton/>
       <Footer /> {/* Include the Footer component */}
     </div>
   );

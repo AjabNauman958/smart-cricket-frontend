@@ -22,7 +22,6 @@ const Login = () => {
         e.preventDefault();
         // Add validation logic
         if (!email || !password) {
-            setError('Please enter both email and password.');
             toast.error('Please enter both email and password.');
             return;
         }
@@ -36,12 +35,13 @@ const Login = () => {
                 window.location.href = '/';
             }, 2000); // Delay in milliseconds (2000 ms = 2 seconds)
         } else {
-            setError('Invalid email or password.');
             toast.error('Invalid email or password.');
         }
     };
 
     return (
+        <>
+    
         <div className={`flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 ${animation ? 'fade-in active' : ''}`}>
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
@@ -140,6 +140,7 @@ const Login = () => {
             </main>
             <ToastContainer />
         </div>
+        </>
     );
 }
 

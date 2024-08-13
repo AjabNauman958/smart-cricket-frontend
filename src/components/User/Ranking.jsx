@@ -13,6 +13,7 @@ import SA from '../images/SA.png';
 import NZ from '../images/newzealand.png';
 import ENG from '../images/eng.png';
 import WI from '../images/westindies.png';
+import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 
 // Men's team ranking
 // Men's team ranking
@@ -222,6 +223,10 @@ const Ranking = () => {
           </div>
         </section>
       </div>
+
+
+        {/* Scroll-to-top button */}
+        <ScrollToTopButton />
       <Footer />
     </div>
   )

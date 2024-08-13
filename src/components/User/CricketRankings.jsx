@@ -10,45 +10,45 @@ import ENG from '../images/eng.png';
 
 // Mens team ranking 
 const menstestTeams = [
-  { rank: 1, country: "Australia", points: 117, flag: AUS },
-  { rank: 2, country: "India", points: 117, flag: IND },
-  { rank: 3, country: "Pakistan", points: 117, flag: PAK},
-  { rank: 4, country: "South Africa", points: 117, flag: SA },
-  { rank: 5, country: "New Zealand", points: 117, flag: NZ },
+  { rank: 1, player : "Australia", points: 117, flag: AUS },
+  { rank: 2, player : "India", points: 117, flag: IND },
+  { rank: 3, player : "Pakistan", points: 117, flag: PAK},
+  { rank: 4, player : "South Africa", points: 117, flag: SA },
+  { rank: 5, player : "New Zealand", points: 117, flag: NZ },
 ];
 
 const mensodiTeams = [
-  { rank: 1, country: "England", points: 125, flag: ENG },
-  { rank: 2, country: "India", points: 124, flag: IND },
-  { rank: 3, country: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, country: "Australia", points: 111, flag: AUS },
-  { rank: 5, country: "Pakistan", points: 106, flag: PAK },
+  { rank: 1, player : "England", points: 125, flag: ENG },
+  { rank: 2, player : "India", points: 124, flag: IND },
+  { rank: 3, player : "New Zealand", points: 112, flag: NZ },
+  { rank: 4, player : "Australia", points: 111, flag: AUS },
+  { rank: 5, player : "Pakistan", points: 106, flag: PAK },
 ];
 
 const menst20Teams = [
-  { rank: 1, country: "India", points: 270, flag: IND },
-  { rank: 2, country: "England", points: 265, flag: ENG },
-  { rank: 3, country: "Pakistan", points: 261, flag:PAK },
-  { rank: 4, country: "South Africa", points: 253, flag: SA },
-  { rank: 5, country: "Australia", points: 249, flag:AUS },
+  { rank: 1, player : "India", points: 270, flag: IND },
+  { rank: 2, player : "England", points: 265, flag: ENG },
+  { rank: 3, player : "Pakistan", points: 261, flag:PAK },
+  { rank: 4, player : "South Africa", points: 253, flag: SA },
+  { rank: 5, player : "Australia", points: 249, flag:AUS },
 ];
 
 
 // womens team ranking 
 const womensodiTeams = [
-  { rank: 1, country: "England", points: 125, flag: ENG },
-  { rank: 2, country: "India", points: 124, flag: IND },
-  { rank: 3, country: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, country: "Australia", points: 111, flag: AUS },
-  { rank: 5, country: "Pakistan", points: 106, flag: PAK },
+  { rank: 1, player : "England", points: 125, flag: ENG },
+  { rank: 2, player : "India", points: 124, flag: IND },
+  { rank: 3, player : "New Zealand", points: 112, flag: NZ },
+  { rank: 4, player : "Australia", points: 111, flag: AUS },
+  { rank: 5, player : "Pakistan", points: 106, flag: PAK },
 ];
 
 const womenst20Teams = [
-  { rank: 1, country: "India", points: 270, flag: IND },
-  { rank: 2, country: "England", points: 265, flag: ENG },
-  { rank: 3, country: "Pakistan", points: 261, flag:PAK },
-  { rank: 4, country: "South Africa", points: 253, flag: SA },
-  { rank: 5, country: "Australia", points: 249, flag:AUS },
+  { rank: 1, player : "India", points: 270, flag: IND },
+  { rank: 2, player : "England", points: 265, flag: ENG },
+  { rank: 3, player : "Pakistan", points: 261, flag:PAK },
+  { rank: 4, player : "South Africa", points: 253, flag: SA },
+  { rank: 5, player : "Australia", points: 249, flag:AUS },
 ];
 
 
