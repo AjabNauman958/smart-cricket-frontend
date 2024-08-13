@@ -18,17 +18,12 @@ const NewPassword = () => {
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
-        if (e.target.value.length < 8) {
-            setError('Password must be at least 8 characters long.');
-        } else {
-            setError('');
-        }
+
     };
 
     const handleConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
         if (e.target.value !== password) {
-            setError('Passwords do not match.');
         } else {
             setError('');
         }
@@ -37,7 +32,6 @@ const NewPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            setError('Passwords do not match.');
             toast.error('Passwords do not match.');
             return;
         }

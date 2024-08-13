@@ -21,7 +21,6 @@ const Teamlogin = () => {
     const handleSignIn = (e) => {
         e.preventDefault();
         if (!email || !password) {
-            setError('Please enter both email and password.');
             toast.error('Please enter both email and password.'); // Show error toast
             return;
         }
@@ -34,7 +33,6 @@ const Teamlogin = () => {
                 window.location.href = '/TeamManagement/MainDashboard';
             }, 2000); // Redirect after 2 seconds
         } else {
-            setError('Invalid email or password.');
             toast.error('Invalid email or password.'); // Show error toast
         }
     };
@@ -65,21 +63,26 @@ const Teamlogin = () => {
                                         className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 p-2 rounded-lg input-field'
                                     />
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-4 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
-                                    <input
-                                        type={showPassword ? 'text' : 'password'}
-                                        name='password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder='Enter your Password'
-                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 p-2 rounded-lg input-field'
-                                    />
-                                    {showPassword ? (
-                                        <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
-                                    ) : (
-                                        <MdVisibility className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
-                                    )}
+                               {/* Password input field with icon and toggle */}
+                               <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
+                                    <MdLockOutline className="text-gray-400 m-2 text-sm md:text-base lg:text-md xl:text-md" />
+                                    <div className="relative flex-1">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            name='password'
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            placeholder='Enter your Password'
+                                            className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md w-full rounded-lg input-field pr-10'
+                                        />
+                                        <button
+                                            type="button"
+                                            className="absolute inset-y-0 right-0 px-3 flex items-center"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            {showPassword ? <MdVisibilityOff className="text-xs md:text-sm lg:text-base xl:text-base" /> : <MdVisibility className="text-xs md:text-sm lg:text-base xl:text-base" />}
+                                        </button>
+                                    </div>
                                 </div>
                                 {error && <p className="text-red-500 text-xs md:text-sm lg:text-base xl:text-lg mb-3">{error}</p>}
                                 <div className='flex justify-between w-full md:w-80 mb-5'>

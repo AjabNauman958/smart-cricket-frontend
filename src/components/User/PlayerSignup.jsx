@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
 const PlayerSignup = () => {
-    const [firstName, setFirstName] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [country, setCountry] = useState('');
@@ -24,7 +24,7 @@ const PlayerSignup = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        if (!firstName || !email || !password || !confirmPassword) {
+        if (!name || !email || !password || !confirmPassword) {
             setError('Please fill in all fields.');
             toast.error('Please fill in all fields.'); // Show error toast
             return;
@@ -35,7 +35,7 @@ const PlayerSignup = () => {
             return;
         }
         // Add your sign-up logic here (e.g., Firebase authentication)
-        toast.success(`Signup successful with first name: ${firstName}`); // Show success toast
+        toast.success(`Signup successful with first name: ${name}`); // Show success toast
         // Redirect to login page or other action
     };
 
@@ -62,10 +62,10 @@ const PlayerSignup = () => {
                                     <input
                                         required
                                         type='text'
-                                        name='firstName'
-                                        value={firstName}
-                                        onChange={(e) => setFirstName(e.target.value)}
-                                        placeholder='Enter your First Name'
+                                        name='name'
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        placeholder='Enter your Name'
                                         className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 p-2 rounded-lg input-field'
                                     />
                                 </div>
@@ -93,38 +93,47 @@ const PlayerSignup = () => {
                                         className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
                                     />
                                 </div>
-                                <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
-                                    <input
-                                        type={showPassword ? 'text' : 'password'}
-                                        name='password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder='Enter your Password'
-                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
-                                    />
-                                    {showPassword ? (
-                                        <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
-                                    ) : (
-                                        <MdVisibility className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
-                                    )}
-                                </div>
-                                <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
-                                    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
-                                    <input
-                                        type={showConfirmPassword ? 'text' : 'password'}
-                                        name='confirmPassword'
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                        placeholder='Confirm your Password'
-                                        className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 rounded-lg input-field'
-                                    />
-                                    {showConfirmPassword ? (
-                                        <MdVisibilityOff className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
-                                    ) : (
-                                        <MdVisibility className="text-gray-400 m-2 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)} />
-                                    )}
-                                </div>
+                               <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
+    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+    <div className="relative flex-1">
+        <input
+            type={showPassword ? 'text' : 'password'}
+            name='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Enter your Password'
+            className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md w-full rounded-lg input-field pr-10'
+        />
+        <button
+            type="button"
+            className="absolute inset-y-0 right-0 px-3 flex items-center"
+            onClick={() => setShowPassword(!showPassword)}
+        >
+            {showPassword ? <MdVisibilityOff className="text-xs md:text-sm lg:text-base xl:text-base" /> : <MdVisibility className="text-xs md:text-sm lg:text-base xl:text-base" />}
+        </button>
+    </div>
+</div>
+{/* // Confirm Password input field for Signup */}
+<div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
+    <MdLockOutline className="text-gray-400 m-2 text-xs md:text-sm lg:text-md xl:text-md" />
+    <div className="relative flex-1">
+        <input
+            type={showConfirmPassword ? 'text' : 'password'}
+            name='confirmPassword'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder='Confirm your Password'
+            className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md w-full rounded-lg input-field pr-10'
+        />
+        <button
+            type="button"
+            className="absolute inset-y-0 right-0 px-3 flex items-center"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+        >
+            {showConfirmPassword ? <MdVisibilityOff className="text-xs md:text-sm lg:text-base xl:text-base" /> : <MdVisibility className="text-xs md:text-sm lg:text-base xl:text-base" />}
+        </button>
+    </div>
+</div>
                                 {error && <p className="text-red-500 text-xs md:text-sm lg:text-base xl:text-lg mb-3">{error}</p>}
                                 <button
                                     type="submit"
