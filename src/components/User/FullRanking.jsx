@@ -1,56 +1,55 @@
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
-import fullranking from '../images/fullranking.png';
-import '../css/comparison.css';
-import Footer from './Footer';
-import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./Navbar.jsx";
+import { Link } from "react-router-dom";
+import fullranking from "../images/fullranking.png";
+import "../css/comparison.css";
+import Footer from "./Footer.jsx";
+import { teamRankings, playerRankings } from "./data.js"; // Import the dummy data
 
 const FullRanking = () => {
-    const [rankingType, setRankingType] = useState('');
-    const [gender, setGender] = useState('');
-    const [format, setFormat] = useState('');
-    const [category, setCategory] = useState('');
-    const [players, setPlayers] = useState([]);
-    const [teams, setTeams] = useState([]);
+    const [rankingType, setRankingType] = useState("");
+    const [gender, setGender] = useState("");
+    const [format, setFormat] = useState("");
+    const [category, setCategory] = useState("");
 
     const handleRankingTypeChange = (e) => {
         setRankingType(e.target.value);
-        setGender('');
-        setFormat('');
-        setCategory('');
-        setPlayers([]);
-        setTeams([]);
+        setGender("");
+        setFormat("");
+        setCategory("");
         toast.success(`Selected ranking type: ${e.target.value}`);
     };
 
     const handleGenderChange = (e) => {
         setGender(e.target.value);
-        setFormat('');
-        setCategory('');
-        setPlayers([]);
+        setFormat("");
+        setCategory("");
         toast.success(`Selected gender: ${e.target.value}`);
     };
 
     const handleFormatChange = (e) => {
         setFormat(e.target.value);
-        setCategory('');
-        setPlayers([]);
-        setTeams(generateTeams(10));
+        setCategory("");
         toast.success(`Selected format: ${e.target.value}`);
     };
 
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
-        setPlayers(generatePlayers(20, gender));
         toast.success(`Selected category: ${e.target.value}`);
     };
 
-    const loadMorePlayers = () => {
-        setPlayers(prevPlayers => [...prevPlayers, ...generatePlayers(20, gender)]);
+    const getRankingData = () => {
+        if (rankingType === "team") {
+            return teamRankings[format];
+        } else if (rankingType === "player") {
+            return playerRankings[gender]?.[format]?.[category] || [];
+        }
+        return [];
     };
+
+    const rankings = getRankingData();
 
     return (
         <div>
@@ -64,209 +63,178 @@ const FullRanking = () => {
                     />
                     <div>
                         <h1 className="text-5xl font-bold">
-                            <span className='text-green-900'>ICC</span> World <span className='text-green-900'>Rankings</span>
+                            <span className="text-green-900">ICC</span> World{" "}
+                            <span className="text-green-900">Rankings</span>
                         </h1>
                         <p className="py-6">
-                            The ICC World Rankings provide an official measure of the performance of cricket teams and players across different formats, including Test, ODI, and T20I.
+                            The ICC World Rankings provide an official measure of the
+                            performance of cricket teams and players across different formats,
+                            including Test, ODI, and T20I.
                         </p>
-                        <Link to='/ranking'>
-                            <button className="btn btn-warning text-white">Get Started</button>
+                        <Link to="/ranking">
+                            <button className="btn btn-warning text-white">
+                                Get Started
+                            </button>
                         </Link>
                     </div>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-1 gap-4 p-4 mt-20 ">
-                <div className="bg-white p-4 rounded-lg shadow-lg transition-all duration-500 overflow-x-auto">
+            <div className="grid sm:grid-cols-1 gap-4 p-4 mt-20">
+                <div className="bg-white p-4 rounded-lg shadow-lg transition-all duration-500">
                     <div className="mb-4">
-                        <label className="block mb-2 text-yellow-500 font-bold text-2xl">Select Ranking Type</label>
+                        <label className="block mb-2 text-yellow-500 font-bold text-2xl">
+                            Select Ranking Type
+                        </label>
                         <select
                             className="w-full p-2 border rounded-lg"
                             value={rankingType}
                             onChange={handleRankingTypeChange}
                         >
-                            <option value="" disabled>Select Ranking Type</option>
+                            <option value="" disabled>
+                                Select Ranking Type
+                            </option>
                             <option value="player">Player Ranking</option>
                             <option value="team">Team Ranking</option>
                         </select>
                     </div>
 
-                    {rankingType === 'player' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 transition-all duration-500">
-                            <div>
-                                <label className="block mb-2">Select Gender</label>
+                    {rankingType === "player" && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="mb-4">
+                                <label className="block mb-2 text-yellow-500 font-bold text-2xl">
+                                    Select Gender
+                                </label>
                                 <select
                                     className="w-full p-2 border rounded-lg"
                                     value={gender}
                                     onChange={handleGenderChange}
-                                    disabled={!rankingType}
                                 >
-                                    <option value="" disabled>Select Gender</option>
+                                    <option value="" disabled>
+                                        Select Gender
+                                    </option>
                                     <option value="men">Men</option>
                                     <option value="women">Women</option>
                                 </select>
                             </div>
 
-                            <div>
-                                <label className="block mb-2">Select Format</label>
+                            <div className="mb-4">
+                                <label className="block mb-2 text-yellow-500 font-bold text-2xl">
+                                    Select Format
+                                </label>
                                 <select
                                     className="w-full p-2 border rounded-lg"
                                     value={format}
                                     onChange={handleFormatChange}
-                                    disabled={!gender}
                                 >
-                                    <option value="" disabled>Select Format</option>
+                                    <option value="" disabled>
+                                        Select Format
+                                    </option>
                                     <option value="test">Test</option>
                                     <option value="odi">ODI</option>
-                                    <option value="t20i">T20I</option>
+                                    <option value="t20">T20I</option>
                                 </select>
                             </div>
 
-                            <div>
-                                <label className="block mb-2">Select Category</label>
+                            <div className="mb-4">
+                                <label className="block mb-2 text-yellow-500 font-bold text-2xl">
+                                    Select Category
+                                </label>
                                 <select
                                     className="w-full p-2 border rounded-lg"
                                     value={category}
                                     onChange={handleCategoryChange}
-                                    disabled={!format}
                                 >
-                                    <option value="" disabled>Select Category</option>
+                                    <option value="" disabled>
+                                        Select Category
+                                    </option>
                                     <option value="batting">Batting</option>
                                     <option value="bowling">Bowling</option>
-                                    <option value="all-rounder">All-Rounder</option>
+                                    <option value="AllRounder">All-rounder</option>
                                 </select>
                             </div>
                         </div>
                     )}
 
-                    {rankingType === 'team' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 transition-all duration-500">
-                            <div>
-                                <label className="block mb-2">Select Format</label>
-                                <select
-                                    className="w-full p-2 border rounded-lg"
-                                    value={format}
-                                    onChange={handleFormatChange}
-                                    disabled={!rankingType}
-                                >
-                                    <option value="" disabled>Select Format</option>
-                                    <option value="test">Test</option>
-                                    <option value="odi">ODI</option>
-                                    <option value="t20i">T20I</option>
-                                </select>
-                            </div>
-                        </div>
-                    )}
-
-                    {category && rankingType === 'player' && (
-                        <>
-                            <h2 className="text-2xl font-bold text-blue-900 mb-2">{`${gender.toUpperCase()} ${format.toUpperCase()} ${category.toUpperCase()} RANKINGS`}</h2>
-                            <p className="text-gray-600 mb-4">Last Updated - 26 July 2024</p>
-                            <div className="overflow-x-auto">
-                                <table className="min-w-full bg-white">
-                                    <thead>
-                                        <tr>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Pos</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Player</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Matches</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Pts</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Rating</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {players.map((player, index) => (
-                                            <tr key={index} className="border-b overflow-auto">
-                                                <td className="py-2 px-4">{player.pos}</td>
-                                                <td className="py-2 px-4">{player.name}</td>
-                                                <td className="py-2 px-4">{player.matches}</td>
-                                                <td className="py-2 px-4">{player.points}</td>
-                                                <td className="py-2 px-4">{player.rating}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <button
-                                className="mt-4 p-2 bg-blue-900 text-white rounded-lg"
-                                onClick={loadMorePlayers}
+                    {rankingType === "team" && (
+                        <div className="mb-4">
+                            <label className="block mb-2 text-yellow-500 font-bold text-2xl">
+                                Select Format
+                            </label>
+                            <select
+                                className="w-full p-2 border rounded-lg"
+                                value={format}
+                                onChange={handleFormatChange}
                             >
-                                Load More
-                            </button>
-                        </>
-                    )}
-
-                    {format && rankingType === 'team' && (
-                        <>
-                            <h2 className="text-2xl font-bold text-blue-900 mb-2">{`${format.toUpperCase()} TEAM RANKINGS`}</h2>
-                            <p className="text-gray-600 mb-4">Last Updated - 26 July 2024</p>
-                            <div className="overflow-x-auto">
-                                <table className="min-w-full bg-white ">
-                                    <thead>
-                                        <tr>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Pos</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Team</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Matches</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Pts</th>
-                                            <th className="py-2 px-4 bg-gray-100 font-semibold text-gray-700">Rating</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {teams.map((team, index) => (
-                                            <tr key={index} className="border-b">
-                                                <td className="py-2 px-4">{team.pos}</td>
-                                                <td className="py-2 px-4">{team.name}</td>
-                                                <td className="py-2 px-4">{team.matches}</td>
-                                                <td className="py-2 px-4">{team.points}</td>
-                                                <td className="py-2 px-4">{team.rating}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </>
+                                <option value="" disabled>
+                                    Select Format
+                                </option>
+                                <option value="test">Test</option>
+                                <option value="odi">ODI</option>
+                                <option value="t20i">T20I</option>
+                            </select>
+                        </div>
                     )}
                 </div>
-                <ToastContainer />
             </div>
-            {/* Scroll-to-top button */}
-            <ScrollToTopButton />
+
+            <div className="mt-10 p-4  overflow-x-auto">
+                {rankings && rankings.length > 0 ? (
+                    <table className="min-w-full bg-white border  border-gray-200 rounded-lg shadow-lg">
+                        <thead className="bg-green-500 text-yellow-400">
+                            <tr >
+                                <th className=" py-3 px-4 uppercase font-semibold text-base">
+                                    Position
+                                </th>
+                                <th className=" py-3 px-4 uppercase font-semibold text-base">
+                                    Name
+                                </th>
+                                <th className=" py-3 px-4 uppercase font-semibold text-base">
+                                    Matches
+                                </th>
+                                <th className=" py-3 px-4 uppercase font-semibold text-base">
+                                    Points
+                                </th>
+                                <th className=" py-3 px-4 uppercase font-semibold text-base">
+                                    Rating
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rankings.map((ranking, index) => (
+                                <tr
+                                    key={index}
+                                    className="hover:bg-gray-100 transition-all duration-300"
+                                >
+                                    <td className="py-3 px-4 border-b border-gray-200">
+                                        {ranking.pos}
+                                    </td>
+                                    <td className="py-3 px-4 border-b border-gray-200">
+                                        {ranking.name}
+                                    </td>
+                                    <td className="py-3 px-4 border-b border-gray-200">
+                                        {ranking.matches}
+                                    </td>
+                                    <td className="py-3 px-4 border-b border-gray-200">
+                                        {ranking.points}
+                                    </td>
+                                    <td className="py-3 px-4 border-b border-gray-200">
+                                        {ranking.rating}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p className="text-gray-500 text-center">
+                        No rankings data available. Please select the correct options.
+                    </p>
+                )}
+            </div>
+
             <Footer />
+            <ToastContainer position="top-right" autoClose={3000} />
         </div>
     );
-};
-
-const generatePlayers = (num, gender) => {
-    const maleNames = ["Virat Kohli", "Joe Root", "Kane Williamson", "Steve Smith", "David Warner", "AB de Villiers", "Chris Gayle", "Rohit Sharma", "Babar Azam", "Faf du Plessis"];
-    const femaleNames = ["Mithali Raj", "Ellyse Perry", "Meg Lanning", "Suzie Bates", "Stafanie Taylor", "Harmanpreet Kaur", "Smriti Mandhana", "Heather Knight", "Sophie Devine", "Amelia Kerr"];
-    const players = [];
-    const names = gender === 'men' ? maleNames : femaleNames;
-
-    for (let i = 1; i <= num; i++) {
-        const nameIndex = (i - 1) % names.length;
-        players.push({
-            pos: i.toString().padStart(2, '0'),
-            name: names[nameIndex],
-            matches: Math.floor(Math.random() * 50) + 1,
-            points: Math.floor(Math.random() * 5000) + 1000,
-            rating: Math.floor(Math.random() * 200) + 50
-        });
-    }
-    return players;
-};
-
-const generateTeams = (num) => {
-    const teams = ['India', 'Australia', 'South Africa', 'Pakistan', 'New Zealand', 'England'];
-    const teamRankings = [];
-    for (let i = 1; i <= num; i++) {
-        const teamIndex = (i - 1) % teams.length;
-        teamRankings.push({
-            pos: i.toString().padStart(2, '0'),
-            name: teams[teamIndex],
-            matches: Math.floor(Math.random() * 50) + 1,
-            points: Math.floor(Math.random() * 5000) + 1000,
-            rating: Math.floor(Math.random() * 200) + 50
-        });
-    }
-    return teamRankings;
 };
 
 export default FullRanking;
