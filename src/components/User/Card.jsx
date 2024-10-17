@@ -18,4 +18,5 @@ const Card = ({ image, title, description }) => {
     );
 };
 
+// card
 export default Card;
