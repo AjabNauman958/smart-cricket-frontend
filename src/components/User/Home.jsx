@@ -55,34 +55,30 @@ const Home = () => {
           padding: "20px",
         }}
       >
-        <Link to="/tournament">
-          <Card
-            image={cardImage1}
-            title="Pakistan Super League"
-            description="Power-packed cricket action unleashed!."
-          />
-        </Link>
-        <Link to="/tournament">
-          <Card
-            image={cardImage2}
-            title="Indian Premier league"
-            description="Cricket's biggest stars light up the stage.."
-          />
-        </Link>
-        <Link to="/tournament">
-          <Card
-            image={cardImage3}
-            title="International Cricket Council"
-            description="Where cricket legends create history.."
-          />
-        </Link>
-        <Link to="/tournament">
-          <Card
-            image={cardImage4}
-            title="Big Bash League"
-            description="Explosive cricket entertainment at its best4."
-          />
-        </Link>
+        <Card
+          image={cardImage1}
+          title="Pakistan Super League"
+          description="Power-packed cricket action unleashed!."
+        />
+
+        <Card
+          image={cardImage2}
+          title="Indian Premier league"
+          description="Cricket's biggest stars light up the stage.."
+        />
+
+        <Card
+          image={cardImage3}
+          title="International Cricket Council"
+          description="Where cricket legends create history.."
+        />
+
+        <Card
+          image={cardImage4}
+          title="Big Bash League"
+          description="Explosive cricket entertainment at its best4."
+        />
+
       </div>
 
       {/* Matches section */}
