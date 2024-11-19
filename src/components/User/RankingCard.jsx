@@ -16,22 +16,24 @@ const RankingCard = ({ title, teams }) => {
 
           >
             <span className="flex items-center">
-             
-            <span className={`mr-2 ${index === 0 ? "text-2xl" : "text-base"}`}>
-              {String(team.rank).padStart(2, '0')}</span>
+
+              <span className={`mr-2 ${index === 0 ? "text-2xl" : "text-base"}`}>
+                {String(team.rank).padStart(2, '0')}</span>
               <img
                 src={team.flag}
                 className="ranking-team-flag"
                 alt={`${team.country} flag`}
               />
-              <span className="ranking-team-name">{team.player}</span>
+              <span className="ranking-team-name">
+                {team.player || team.teamName}
+              </span>
             </span>
             <span>{team.points}</span>
           </div>
         ))}
       </div>
       <div className="text-center mt-2 ">
-      <Link to='/fullranking' > <button className="text-white hover:text-yellow-300">Full Ranking</button></Link> 
+        <Link to='/fullranking' > <button className="text-white hover:text-yellow-300">Full Ranking</button></Link>
       </div>
     </div>
   );
