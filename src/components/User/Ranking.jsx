@@ -1,9 +1,3 @@
-import Navbar from './Navbar';
-import Footer from './Footer';
-import backgroundImage from '../images/ranking.jpg';
-import '../css/home.css';
-import '../css/matches.css';
-
 import React, { useRef } from 'react';
 import RankingCard from './RankingCard';
 import PAK from '../images/pak.png';
@@ -14,31 +8,35 @@ import NZ from '../images/newzealand.png';
 import ENG from '../images/eng.png';
 import WI from '../images/westindies.png';
 import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import backgroundImage from '../images/ranking.jpg';
+import '../css/home.css';
+import '../css/matches.css';
 
 // Men's team ranking
-// Men's team ranking
 const menstestTeams = [
-  { rank: 1, player: "Australia", points: 117, flag: AUS },
-  { rank: 2, player: "India", points: 115, flag: IND },
-  { rank: 3, player: "Pakistan", points: 110, flag: PAK },
-  { rank: 4, player: "South Africa", points: 107, flag: SA },
-  { rank: 5, player: "New Zealand", points: 102, flag: NZ },
+  { rank: 1, teamName: "Australia", points: 117, flag: AUS },
+  { rank: 2, teamName: "India", points: 115, flag: IND },
+  { rank: 3, teamName: "Pakistan", points: 110, flag: PAK },
+  { rank: 4, teamName: "South Africa", points: 107, flag: SA },
+  { rank: 5, teamName: "New Zealand", points: 102, flag: NZ },
 ];
 
 const mensodiTeams = [
-  { rank: 1, player: "England", points: 125, flag: ENG },
-  { rank: 2, player: "India", points: 124, flag: IND },
-  { rank: 3, player: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, player: "Australia", points: 111, flag: AUS },
-  { rank: 5, player: "Pakistan", points: 106, flag: PAK },
+  { rank: 1, teamName: "England", points: 125, flag: ENG },
+  { rank: 2, teamName: "India", points: 124, flag: IND },
+  { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
+  { rank: 4, teamName: "Australia", points: 111, flag: AUS },
+  { rank: 5, teamName: "Pakistan", points: 106, flag: PAK },
 ];
 
 const menst20Teams = [
-  { rank: 1, player: "India", points: 270, flag: IND },
-  { rank: 2, player: "England", points: 265, flag: ENG },
-  { rank: 3, player: "Pakistan", points: 261, flag: PAK },
-  { rank: 4, player: "South Africa", points: 253, flag: SA },
-  { rank: 5, player: "Australia", points: 249, flag: AUS },
+  { rank: 1, teamName: "India", points: 270, flag: IND },
+  { rank: 2, teamName: "England", points: 265, flag: ENG },
+  { rank: 3, teamName: "Pakistan", points: 261, flag: PAK },
+  { rank: 4, teamName: "South Africa", points: 253, flag: SA },
+  { rank: 5, teamName: "Australia", points: 249, flag: AUS },
 ];
 
 // Men's batting ranking
@@ -70,19 +68,19 @@ const mensAllRounder = [
 
 // Women's team ranking
 const womensodiTeams = [
-  { rank: 1, player: "Australia", points: 125, flag: AUS },
-  { rank: 2, player: "India", points: 124, flag: IND },
-  { rank: 3, player: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, player: "England", points: 111, flag: ENG },
-  { rank: 5, player: "South Africa", points: 106, flag: SA },
+  { rank: 1, teamName: "Australia", points: 125, flag: AUS },
+  { rank: 2, teamName: "India", points: 124, flag: IND },
+  { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
+  { rank: 4, teamName: "England", points: 111, flag: ENG },
+  { rank: 5, teamName: "South Africa", points: 106, flag: SA },
 ];
 
 const womenst20Teams = [
-  { rank: 1, player: "Australia", points: 270, flag: AUS },
-  { rank: 2, player: "England", points: 265, flag: ENG },
-  { rank: 3, player: "India", points: 261, flag: IND },
-  { rank: 4, player: "New Zealand", points: 253, flag: NZ },
-  { rank: 5, player: "South Africa", points: 249, flag: SA },
+  { rank: 1, teamName: "Australia", points: 270, flag: AUS },
+  { rank: 2, teamName: "England", points: 265, flag: ENG },
+  { rank: 3, teamName: "India", points: 261, flag: IND },
+  { rank: 4, teamName: "New Zealand", points: 253, flag: NZ },
+  { rank: 5, teamName: "South Africa", points: 249, flag: SA },
 ];
 
 // Women's batting ranking
@@ -136,8 +134,6 @@ const Ranking = () => {
           backgroundImage: `url(${backgroundImage})`
         }}
       >
-        {/* Your content here */}
-
 
         <div className="hero-overlay "></div>
         <div className="hero-content text-neutral-content text-center">
@@ -225,8 +221,8 @@ const Ranking = () => {
       </div>
 
 
-        {/* Scroll-to-top button */}
-        <ScrollToTopButton />
+      {/* Scroll-to-top button */}
+      <ScrollToTopButton />
       <Footer />
     </div>
   )
