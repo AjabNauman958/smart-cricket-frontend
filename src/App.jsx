@@ -23,7 +23,7 @@ import Contact from './components/User/Contact';
 import FAQS from './components/User/FAQS';
 import Topheader from './components/User/Topheader';
 import UserProfile from './components/User/UserProfile';
-
+import ScrollToTop from './components/User/ScrollToTop/ScrollToTop';
 
 import './App.css';
 import MainDashboardApp from './components/Player/PlayerDashboard/MainDashboardApp';
@@ -48,6 +48,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Routes>
           {/* user or registered user  */}
           <Route path="/" element={<Home />} />
