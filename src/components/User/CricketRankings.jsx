@@ -44,7 +44,7 @@ const womensodiTeams = [
 ];
 
 const womenst20Teams = [
-  { rank: 1, teamName: "India", points: 2700, flag: IND },
+  { rank: 1, teamName: "India", points: 270, flag: IND },
   { rank: 2, teamName: "England", points: 265, flag: ENG },
   { rank: 3, teamName: "Pakistan", points: 261, flag: PAK },
   { rank: 4, teamName: "South Africa", points: 253, flag: SA },
