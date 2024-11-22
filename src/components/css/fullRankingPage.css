@@ -1,0 +1,36 @@
+.full-ranking-page {
+  padding: 20px;
+}
+
+.categories-nav button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categories-nav button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.ranking-table {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-spacing: 0;
+}
+
+.ranking-table th,
+.ranking-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.ranking-table th {
+  background-color: #00a09a;
+  color: white;
+}
+
+.ranking-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
