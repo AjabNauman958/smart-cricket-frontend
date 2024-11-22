@@ -47,7 +47,7 @@ const FullRankingPage = () => {
 
 
                 {/* Rankings Table */}
-                <div className="ranking-table-container mt-6 overflow-x-scroll">
+                <div className="ranking-table-container mt-6 overflow-x-hidden">
                     <table className="ranking-table w-full border-collapse border border-gray-300">
                         <thead>
                             <tr className="bg-teal-600 text-white">
