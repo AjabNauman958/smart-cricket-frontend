@@ -9,14 +9,11 @@ const RankingCard = ({ title, teams }) => {
         <h2 className='mx-4 '>{title}</h2>
       </div>
       <div className="ranking-card-content">
-        {teams.map((team, index) => (
+        {teams.slice(0, 5).map((team, index) => (
           <div
             key={team.rank}
-            className={`ranking-team ${index < teams.length - 1 ? "border-b" : ""} ${index === 0 ? "text-xl font-bold p-6 bg-slate-100 rounded" : ""}`}
-
-          >
+            className={`ranking-team ${index < teams.length - 1 ? "border-b" : ""} ${index === 0 ? "text-xl font-bold p-6 bg-slate-100 rounded" : ""}`}>
             <span className="flex items-center">
-
               <span className={`mr-2 ${index === 0 ? "text-2xl" : "text-base"}`}>
                 {String(team.rank).padStart(2, '0')}</span>
               <img
@@ -33,7 +30,7 @@ const RankingCard = ({ title, teams }) => {
         ))}
       </div>
       <div className="text-center mt-2 ">
-        <Link to='/fullranking' > <button className="text-white hover:text-yellow-300">Full Ranking</button></Link>
+        <Link to='/fullranking' state={{ title, teams }}> <button className="text-white hover:text-yellow-300">Full Ranking</button></Link>
       </div>
     </div>
   );
