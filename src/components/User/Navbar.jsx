@@ -22,7 +22,7 @@ const Navbar = ({ scrollToSection }) => {
         <div className='shadow-md w-full fixed top-0 left-0 z-50'>
             <div className='md:px-10 py-4 px-7 md:flex justify-between items-center opacity-90' style={{ backgroundColor: '#00A09A' }}>
                 {/* logo here */}
-                <div className='flex text-2xl cursor-pointer items-center gap-2 justify-center'>
+                <div className='flex text-2xl cursor-pointer items-center gap-2 '>
                     <span className='text-white font-bold '>Smart<span className=' text-yellow-300'>Cricket</span></span>
                     <img src="/src/components/images/favicon.png" className='w-10 h-10' alt="" />
                 </div>
