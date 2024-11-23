@@ -59,7 +59,7 @@ const FullRankingPage = () => {
                         </thead>
                         <tbody>
                             {teams.map((team, index) => (
-                                <tr key={team.rank} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+                                <tr key={team.rank} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} >
                                     <td className="px-4 py-2 text-center font-bold">{team.rank}</td>
                                     <td className="px-4 py-2 flex items-center">
                                         <img src={team.flag} alt={`${team.country} flag`} className="w-6 h-4 mr-2" />
