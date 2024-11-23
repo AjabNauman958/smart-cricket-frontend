@@ -24,7 +24,6 @@ const Navbar = ({ scrollToSection }) => {
                 {/* logo here */}
                 <div className='flex text-2xl cursor-pointer items-center gap-2 '>
                     <span className='text-white font-bold '>Smart<span className=' text-yellow-300'>Cricket</span></span>
-                    <img src="/src/components/images/favicon.png" className='w-10 h-10' alt="" />
                 </div>
 
                 {/* menu icons */}
