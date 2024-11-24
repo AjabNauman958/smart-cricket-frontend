@@ -375,7 +375,7 @@ const MatchCardList = ({ league }) => {
           >
             {isFavourite(matchDetails.matchNumber) ? (
               <>
-                <FaHeart style={{ color: 'red' }} /> <span>Remove from Favourites</span>
+                <FaHeart style={{ color: 'red' }} />  <span>Remove from Favourites</span>
               </>
             ) : (
               <>
