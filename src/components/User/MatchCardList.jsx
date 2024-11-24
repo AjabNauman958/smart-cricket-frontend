@@ -1,4 +1,10 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavourite, removeFavourite } from '../store/favouritesSlice';
+import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../css/MatchCard.css';
 import pz from '../images/pz.png';
 import lq from '../images/lq.png';
@@ -33,7 +39,7 @@ const MatchCardList = ({ league }) => {
         time: 'Tomorrow, 7:00 PM'
       },
       {
-        matchNumber: '25th Match',
+        matchNumber: '29th January',
         league: 'International Series',
         format: 'ODI',
         teams: [
@@ -43,7 +49,7 @@ const MatchCardList = ({ league }) => {
         time: 'Today, 7:00 PM'
       },
       {
-        matchNumber: '26th Match',
+        matchNumber: '12th December',
         league: 'International Series',
         format: 'ODI',
         teams: [
@@ -55,7 +61,7 @@ const MatchCardList = ({ league }) => {
     ],
     upcoming: [
       {
-        matchNumber: '1st Match',
+        matchNumber: '2nd Match',
         league: 'ICC World Cup',
         format: 'ODI',
         teams: [
@@ -65,7 +71,7 @@ const MatchCardList = ({ league }) => {
         time: 'July 5, 7:00 PM'
       },
       {
-        matchNumber: '2nd Match',
+        matchNumber: '1st Match',
         league: 'ICC World Cup',
         format: 'ODI',
         teams: [
@@ -75,7 +81,7 @@ const MatchCardList = ({ league }) => {
         time: 'July 6, 7:00 PM'
       },
       {
-        matchNumber: '1st Match',
+        matchNumber: '4th Match',
         league: 'ICC World Cup',
         format: 'ODI',
         teams: [
@@ -85,7 +91,7 @@ const MatchCardList = ({ league }) => {
         time: 'July 5, 7:00 PM'
       },
       {
-        matchNumber: '2nd Match',
+        matchNumber: '2nd July',
         league: 'ICC World Cup',
         format: 'ODI',
         teams: [
@@ -97,7 +103,7 @@ const MatchCardList = ({ league }) => {
     ],
     series: [
       {
-        matchNumber: '25th Match',
+        matchNumber: '22nd Match',
         league: 'International Series',
         format: 'ODI',
         teams: [
@@ -221,7 +227,7 @@ const MatchCardList = ({ league }) => {
         ],
         time: 'Tomorrow, 7:00 PM'
       }
-      
+
     ],
     ipl: [
       {
@@ -308,15 +314,40 @@ const MatchCardList = ({ league }) => {
       }
     ]
   };
+
+  const dispatch = useDispatch();
+  const favourites = useSelector((state) => state.favourites.favourites);
+  console.log('Favourites in UserProfile:', favourites);
+
+  const isFavourite = (matchNumber) =>
+    favourites.some((fav) => fav.matchNumber === matchNumber);
+
+  const handleFavouriteClick = (matchDetails) => {
+    if (isFavourite(matchDetails.matchNumber)) {
+      dispatch(removeFavourite(matchDetails));
+
+    } else {
+      dispatch(addFavourite(matchDetails));
+    }
+  };
+
   if (!matchData[league]) {
     return <div>No matches available for the selected league.</div>;
   }
   return (
-    <div className="flex mt-10" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}>
+    <div
+      className="flex mt-10"
+      style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}
+    >
+      <ToastContainer position="top-right" autoClose={3000} />
+
       {matchData[league].map((matchDetails, index) => (
         <div key={index} className="match-card">
           <div className="header">
-            <h2>{matchDetails.matchNumber} . {matchDetails.league}, 2024</h2>
+            <h2>
+              {matchDetails.matchNumber}. {matchDetails.league}, 2024
+            </h2>
+
             <div className="badge">{matchDetails.format}</div>
           </div>
           <div className="teams">
@@ -328,19 +359,46 @@ const MatchCardList = ({ league }) => {
             ))}
           </div>
           <div className="time">{matchDetails.time}</div>
+
+          {/* Favourite Icon */}
+          <button
+            className="favourite-button "
+            onClick={() => handleFavouriteClick(matchDetails)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px',
+            }}
+          >
+            {isFavourite(matchDetails.matchNumber) ? (
+              <>
+                <FaHeart style={{ color: 'red' }} /> <span>Remove from Favourites</span>
+              </>
+            ) : (
+              <>
+                <FaRegHeart style={{ color: 'grey' }} /> <span>Add to Favourites</span>
+              </>
+            )}
+          </button>
+
           <button className="action-button">Match Center &gt;</button>
         </div>
       ))}
+
     </div>
   );
 };
 
-MatchCardList.propTypes = {
-  league: PropTypes.oneOf(['recent', 'upcoming', 'series', 'worldcup', 'psl', 'ipl', 'bigbash']).isRequired,
-};
+// MatchCardList.propTypes = {
+//   league: PropTypes.oneOf(['recent', 'upcoming', 'series', 'worldcup', 'psl', 'ipl', 'bigbash']).isRequired,
+// };
 
-MatchCardList.defaultProps = {
-  league: 'recent',
+MatchCardList.propTypes = {
+  league: PropTypes.string.isRequired,
+  matchData: PropTypes.object.isRequired,
 };
 
 export default MatchCardList;
