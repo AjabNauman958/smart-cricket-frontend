@@ -1,86 +1,90 @@
 .match-card {
-    padding: 1rem;
-    max-width: 22rem;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-  
-    /* Flex container styles */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 1rem; /* Add margin between cards */
-  }
-  
-  .match-card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .match-card .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-  }
-  
-  .match-card .header h2 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #333;
-  }
-  
-  .match-card .badge {
-    background-color: #f0f0f0;
-    color: #333;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 999px;
-  }
-  
-  .match-card .teams {
-    margin-top: 0.75rem;
-  }
-  
-  .match-card .teams .team {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .match-card .teams .team img {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.5rem;
-    border-radius: 50%;
-  }
-  
-  .match-card .teams .team span {
-    color: #555;
-  }
-  
-  .match-card .time {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: #888;
-  }
-  
-  .match-card .action-button {
-    margin-top: 1rem;
-    background-color: #ffffff;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .match-card .action-button:hover {
-    background-color: #f0f0f0;
-  }
-  
+  padding: 1rem;
+  max-width: 22rem;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  /* Flex container styles */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem; /* Add margin between cards */
+}
+
+.match-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.match-card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.match-card .header h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.match-card .badge {
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.match-card .teams {
+  margin-top: 0.75rem;
+}
+
+.match-card .teams .team {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.match-card .teams .team img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+.match-card .teams .team span {
+  color: #555;
+}
+
+.match-card .time {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.match-card .action-button {
+  margin-top: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.match-card .action-button:hover {
+  background-color: #f0f0f0;
+}
+.favourite-button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
