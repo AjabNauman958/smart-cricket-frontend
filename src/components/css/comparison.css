@@ -105,7 +105,7 @@
     order: 2; /* Show left div content after right div */
     width: 100%;
   }
-  .left-divv h1{
+  .left-divv h1 {
     font-size: 25px;
   }
 
@@ -114,5 +114,4 @@
     width: 100%;
     margin-bottom: 20px; /* Add margin to separate the divs */
   }
-
 }
