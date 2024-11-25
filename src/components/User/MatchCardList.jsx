@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, removeFavourite } from '../store/favouritesSlice';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import '../css/MatchCard.css';
 import pz from '../images/pz.png';
 import lq from '../images/lq.png';
@@ -314,6 +313,8 @@ const MatchCardList = ({ league }) => {
       }
     ]
   };
+  // authentication
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.favourites.favourites);
@@ -323,11 +324,19 @@ const MatchCardList = ({ league }) => {
     favourites.some((fav) => fav.matchNumber === matchNumber);
 
   const handleFavouriteClick = (matchDetails) => {
-    if (isFavourite(matchDetails.matchNumber)) {
-      dispatch(removeFavourite(matchDetails));
+    // Check if the user is logged in
+    if (!isLoggedIn) {
+      toast.error('Please log in to add matches to favourites!');
+      return; // Exit the function if the user is not logged in
+    }
 
+    // Handle adding or removing favorites
+    if (isFavourite(matchDetails.matchNumber)) {
+      dispatch(removeFavourite(matchDetails)); // Dispatch remove action
+      toast.info('Removed from favourites.');
     } else {
-      dispatch(addFavourite(matchDetails));
+      dispatch(addFavourite(matchDetails)); // Dispatch add action
+      toast.success('Added to favourites!');
     }
   };
 
@@ -335,60 +344,65 @@ const MatchCardList = ({ league }) => {
     return <div>No matches available for the selected league.</div>;
   }
   return (
-    <div
-      className="flex mt-10"
-      style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}
-    >
-      <ToastContainer position="top-right" autoClose={3000} />
 
-      {matchData[league].map((matchDetails, index) => (
-        <div key={index} className="match-card">
-          <div className="header">
-            <h2>
-              {matchDetails.matchNumber}. {matchDetails.league}, 2024
-            </h2>
+    <>
+      <ToastContainer /> {/* Toast container for notifications */}
 
-            <div className="badge">{matchDetails.format}</div>
+      <div
+        className="flex mt-10"
+        style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}
+      >
+        <ToastContainer position="top-right" autoClose={3000} />
+
+        {matchData[league].map((matchDetails, index) => (
+          <div key={index} className="match-card">
+            <div className="header">
+              <h2>
+                {matchDetails.matchNumber}. {matchDetails.league}, 2024
+              </h2>
+
+              <div className="badge">{matchDetails.format}</div>
+            </div>
+            <div className="teams">
+              {matchDetails.teams.map((team, teamIndex) => (
+                <div className="team" key={teamIndex}>
+                  <img src={team.logo} alt={team.name} />
+                  <span>{team.name}</span>
+                </div>
+              ))}
+            </div>
+            <div className="time">{matchDetails.time}</div>
+
+            {/* Favourite Icon */}
+            <button
+              className="favourite-button "
+              onClick={() => handleFavouriteClick(matchDetails)}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              {isFavourite(matchDetails.matchNumber) ? (
+                <>
+                  <FaHeart style={{ color: 'red' }} />  <span>Remove from Favourites</span>
+                </>
+              ) : (
+                <>
+                  <FaRegHeart style={{ color: 'grey' }} /> <span>Add to Favourites</span>
+                </>
+              )}
+            </button>
+
+            <button className="action-button">Match Center &gt;</button>
           </div>
-          <div className="teams">
-            {matchDetails.teams.map((team, teamIndex) => (
-              <div className="team" key={teamIndex}>
-                <img src={team.logo} alt={team.name} />
-                <span>{team.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="time">{matchDetails.time}</div>
+        ))}
 
-          {/* Favourite Icon */}
-          <button
-            className="favourite-button "
-            onClick={() => handleFavouriteClick(matchDetails)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px',
-            }}
-          >
-            {isFavourite(matchDetails.matchNumber) ? (
-              <>
-                <FaHeart style={{ color: 'red' }} />  <span>Remove from Favourites</span>
-              </>
-            ) : (
-              <>
-                <FaRegHeart style={{ color: 'grey' }} /> <span>Add to Favourites</span>
-              </>
-            )}
-          </button>
-
-          <button className="action-button">Match Center &gt;</button>
-        </div>
-      ))}
-
-    </div>
+      </div>
+    </>
   );
 };
 
