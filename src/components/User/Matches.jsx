@@ -39,43 +39,77 @@ const Matches = () => {
         </div>
       </div>
 
-      <h1 className='text-4xl font-semibold text-center mt-5'>
-        <span className='text-green-500'>Recent</span> Matches
+      <h1 className="text-4xl font-semibold text-center mt-5">
+        <span className="text-green-500">Recent</span> Matches
       </h1>
+
+      {/* Initial MatchCardList */}
       <MatchCardList league="recent" />
-      <div className="flex justify-center mt-5">
-        <button
-          onClick={() => setShowMoreRecent(prev => !prev)}
-          className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
-        >
-          {showMoreRecent ? 'Hide Matches' : 'View More Matches'}
-        </button>
-      </div>
-      {showMoreRecent && (
+
+      {/* Render additional matches and button conditionally */}
+      {showMoreRecent ? (
         <>
+          {/* Additional MatchCardLists */}
           <MatchCardList league="recent" />
           <MatchCardList league="recent" />
+
+          {/* Button appears below newly loaded cards */}
+          <div className="flex justify-center mt-5">
+            <button
+              onClick={() => setShowMoreRecent(false)}
+              className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
+            >
+              Hide Matches
+            </button>
+          </div>
         </>
+      ) : (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => setShowMoreRecent(true)}
+            className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
+          >
+            View More Matches
+          </button>
+        </div>
       )}
 
-      <h1 className='text-4xl font-semibold text-center mt-5'>
-        <span className='text-yellow-500'>Upcoming</span> Matches
+
+      <h1 className="text-4xl font-semibold text-center mt-5">
+        <span className="text-yellow-500">Upcoming</span> Matches
       </h1>
+
+      {/* Initial MatchCardList */}
       <MatchCardList league="upcoming" />
-      <div className="flex justify-center mt-5">
-        <button
-          onClick={() => setShowMoreUpcoming(prev => !prev)}
-          className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
-        >
-          {showMoreUpcoming ? 'Hide Matches' : 'View More Matches'}
-        </button>
-      </div>
-      {showMoreUpcoming && (
+
+      {/* Render additional matches and button conditionally */}
+      {showMoreUpcoming ? (
         <>
+          {/* Additional MatchCardLists */}
           <MatchCardList league="upcoming" />
           <MatchCardList league="upcoming" />
+
+          {/* Button appears below newly loaded cards */}
+          <div className="flex justify-center mt-5">
+            <button
+              onClick={() => setShowMoreUpcoming(false)}
+              className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
+            >
+              Hide Matches
+            </button>
+          </div>
         </>
+      ) : (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => setShowMoreUpcoming(true)}
+            className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
+          >
+            View More Matches
+          </button>
+        </div>
       )}
+
 
       {/* match analysis */}
       <div>
