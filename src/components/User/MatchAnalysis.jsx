@@ -4,8 +4,8 @@ import Footer from './Footer';
 import PAK from '../images/pak.png';
 import IND from '../images/india.png';
 import ChartComponent from '../TeamManagement/TeamPerformanceAnalysis/ChartComponent';
-
-import { battingAverageData, chartOptions } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
+import { battingAverageData, bowlingPerformanceData, chartOptions } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
+import { matchData } from "./matchData";
 
 const MatchAnalysis = () => {
   const data = {
@@ -59,6 +59,7 @@ const MatchAnalysis = () => {
 
 
   const [team, setTeam] = useState('pakistan');
+  const { title, matchDate, venue, teams, result } = matchData;
 
   const handleTeamChange = (team) => {
     setTeam(team);
@@ -77,27 +78,29 @@ const MatchAnalysis = () => {
         </h1>
         <div className="match-analysis">
           <div className="match-date">
-            <h3>Tuesday, 12th March 2024, 11:00</h3>
+            <h3>{matchDate}</h3>
           </div>
           <div className="match-details">
-            <h1>Hong Kong, China T20 Tri-Series, 2024 - March 3</h1>
+            <h1>{title}</h1>
           </div>
           <div className="ground">
-            <p>Tin Kwong Road Recreation Ground</p>
+            <p>{venue}</p>
           </div>
           <div className="teams">
             <div className="team">
-              <img src={PAK} alt="Pakistan Flag" className="team-flag" />
-              <h1>Pakistan</h1>
-              <p className="team-score">339-5 (50)</p>
+              <img src={teams[0].flag}
+                alt={`${teams[0].name} Flag`} className="team-flag" />
+              <h1>{teams[0].name}</h1>
+              <p className="team-score">{teams[0].score}</p>
             </div>
             <div className="match-result">
-              <p>Pakistan beat India, by 180 runs</p>
+              <p>{result}</p>
             </div>
             <div className="team">
-              <img src={IND} alt="India Flag" className="team-flag" />
-              <h1>India</h1>
-              <p className="team-score">158-10 (41.2)</p>
+              <img src={teams[1].flag}
+                alt={`${teams[1].name} Flag`} className="team-flag" />
+              <h1>{teams[1].name}</h1>
+              <p className="team-score">{teams[1].score}</p>
             </div>
           </div>
         </div>
@@ -179,45 +182,36 @@ const MatchAnalysis = () => {
       </div>
 
 
-     
+
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
-            <p className='text-center'>Average on both team batting</p>
-            <ChartComponent data={battingAverageData} options={chartOptions} />
-          </div>
-          <div className="">
-            <div className="batting-average-content">
-              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
-              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-            </div>
+        <div className="">
+          <p className='text-center'>Average on both team batting</p>
+          <ChartComponent data={battingAverageData} options={chartOptions} title="Batting Performance Comparison"
+          />
+        </div>
+        <div className="">
+          <div className="batting-average-content">
+            <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
+            <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
+      </div>
 
-        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
-            <div className="batting-average-content">
-              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
-              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-            </div>
-          </div>
-          <div className="">
-            <p className='text-center'>Average on both team batting</p>
-            <ChartComponent data={battingAverageData} options={chartOptions} />
+      <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+        <div className="">
+          <div className="batting-average-content">
+            <h2 className='text-3xl font-bold text-center'>Bowling Performance</h2>
+            <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
+        <div className="">
+          <p className='text-center'>Average on both team batting</p>
+          <ChartComponent data={bowlingPerformanceData} options={chartOptions} title="Bowling Performance Comparison"
+          />
+        </div>
+      </div>
 
-        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-          <div className="">
-            <p className='text-center'>Average on both team batting</p>
-            <ChartComponent data={battingAverageData} options={chartOptions} />
-          </div>
-          <div className="">
-            <div className="batting-average-content">
-              <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
-              <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-            </div>
-          </div>
-        </div>
+
 
 
       <Footer />
