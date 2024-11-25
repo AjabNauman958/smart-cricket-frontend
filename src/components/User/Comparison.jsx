@@ -6,6 +6,9 @@ import babarhero from '../images/babar.png';
 import williamson from '../images/williamson.png';
 import '../css/comparison.css';
 import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
+import { toast, ToastContainer } from 'react-toastify';
+import { Bars } from 'react-loader-spinner'; // Import the loader
+
 
 // Dummy player data name and country
 const players = [
@@ -136,10 +139,11 @@ const Comparison = () => {
   const [comparisonType, setComparisonType] = useState('');
   const [playerOneInfo, setPlayerOneInfo] = useState(null);
   const [playerTwoInfo, setPlayerTwoInfo] = useState(null);
-  const [error, setError] = useState('');
   const [suggestionsOne, setSuggestionsOne] = useState([]);
   const [suggestionsTwo, setSuggestionsTwo] = useState([]);
   const [activeFormat, setActiveFormat] = useState('Test'); // State to track active format
+  const [isLoading, setIsLoading] = useState(true); // Track the loading state
+
 
 
 
@@ -147,59 +151,71 @@ const Comparison = () => {
     const comparisonContainer = document.querySelector('.comparison-container');
     const leftDiv = document.querySelector('.left-div');
 
+    // Add animation class with delay
     setTimeout(() => {
-      comparisonContainer.classList.add('show');
-      leftDiv.classList.add('show');
-    }, 100); // Small delay to ensure the transition is noticeable
+      if (comparisonContainer) comparisonContainer.classList.add('show');
+      if (leftDiv) leftDiv.classList.add('show');
+    }, 100); // Small delay to ensure transition is noticeable
+
+    // Simulate a delay for loader, replace this with actual API call logic
+    setTimeout(() => setIsLoading(false), 2000); // Adjust the delay as needed
   }, []);
+
   const handleCompare = () => {
-    // Validate player names against the list of players
+    // Validate player inputs
     const playerOneData = players.find(player => player.name === playerOne);
     const playerTwoData = players.find(player => player.name === playerTwo);
 
     if (!playerOneData) {
-      setError('Please enter a valid name for Player One.');
+      toast.error('Please enter a valid name for Player One.');
       return;
     }
     if (!playerTwoData) {
-      setError('Please enter a valid name for Player Two.');
+      toast.error('Please enter a valid name for Player Two.');
       return;
     }
     if (!comparisonType) {
-      setError('Please select a comparison type.');
+      toast.error('Please select a comparison type.');
       return;
     }
 
-    setError('');
+    // Start loading spinner
+    setIsLoading(true);
 
-    // Fetch player information based on names (this is dummy data)
-    setPlayerOneInfo({
-      name: playerOneData.name,
-      role: comparisonType === 'Bat vs Bowl' ? 'Batter' : comparisonType,
-      country: playerOneData.country,
-      image: babarhero, // Replace with the actual image path
-      stats: {
-        Test: { matches: 50, innings: 92, runs: 798, highestScore: 95, hundreds: 0, fifties: 3, fours: 50, average: 17.34, strikeRate: 140.00, notOuts: 4 },
-        ODI: { matches: 90, innings: 88, runs: 4321, highestScore: 139, hundreds: 14, fifties: 22, fours: 350, average: 53.72, strikeRate: 92.37, notOuts: 8 },
-        T20: { matches: 95, innings: 94, runs: 3955, highestScore: 122, hundreds: 3, fifties: 36, fours: 423, average: 41.19, strikeRate: 129.97, notOuts: 9 }
-      }
-    });
-    setPlayerTwoInfo({
-      name: playerTwoData.name,
-      role: comparisonType === 'Bat vs Bowl' ? 'Bowler' : comparisonType,
-      country: playerTwoData.country,
-      image: williamson, // Replace with the actual image path
-      stats: {
-        Test: { matches: 85, innings: 150, runs: 7289, highestScore: 251, hundreds: 23, fifties: 34, fours: 580, average: 52.47, strikeRate: 51.21, notOuts: 15 },
-        ODI: { matches: 151, innings: 148, runs: 6213, highestScore: 148, hundreds: 13, fifties: 39, fours: 400, average: 47.86, strikeRate: 88.15, notOuts: 10 },
-        T20: { matches: 74, innings: 73, runs: 2021, highestScore: 95, hundreds: 0, fifties: 13, fours: 180, average: 33.69, strikeRate: 121.65, notOuts: 7 }
-      }
-    });
+    // Simulate fetching player information
+    setTimeout(() => {
+      setPlayerOneInfo({
+        name: playerOneData.name,
+        role: comparisonType === 'Bat vs Bowl' ? 'Batter' : comparisonType,
+        country: playerOneData.country,
+        image: babarhero,
+        stats: {
+          Test: { matches: 50, innings: 92, runs: 798, highestScore: 95, hundreds: 0, fifties: 3, fours: 50, average: 17.34, strikeRate: 140.00, notOuts: 4 },
+          ODI: { matches: 90, innings: 88, runs: 4321, highestScore: 139, hundreds: 14, fifties: 22, fours: 350, average: 53.72, strikeRate: 92.37, notOuts: 8 },
+          T20: { matches: 95, innings: 94, runs: 3955, highestScore: 122, hundreds: 3, fifties: 36, fours: 423, average: 41.19, strikeRate: 129.97, notOuts: 9 },
+        },
+      });
+      setPlayerTwoInfo({
+        name: playerTwoData.name,
+        role: comparisonType === 'Bat vs Bowl' ? 'Bowler' : comparisonType,
+        country: playerTwoData.country,
+        image: williamson,
+        stats: {
+          Test: { matches: 85, innings: 150, runs: 7289, highestScore: 251, hundreds: 23, fifties: 34, fours: 580, average: 52.47, strikeRate: 51.21, notOuts: 15 },
+          ODI: { matches: 151, innings: 148, runs: 6213, highestScore: 148, hundreds: 13, fifties: 39, fours: 400, average: 47.86, strikeRate: 88.15, notOuts: 10 },
+          T20: { matches: 74, innings: 73, runs: 2021, highestScore: 95, hundreds: 0, fifties: 13, fours: 180, average: 33.69, strikeRate: 121.65, notOuts: 7 },
+        },
+      });
+
+      // Stop loading spinner
+      setIsLoading(false);
+    }, 2000); // Simulate a 2-second API call
   };
 
 
   return (
     <div>
+      <ToastContainer />
       <Navbar />
       <div className="comparison-container flex mt-20 transition-opacity duration-1000 ease-in-out 
        ">
@@ -221,7 +237,6 @@ const Comparison = () => {
       </div>
 
       <div className="player-inputs mt-8 p-4">
-        {error && <p className="text-red-500 mb-4">{error}</p>}
 
         {/* Player One and Player Two inputs */}
         <div className="mb-4 flex flex-wrap text-center justify-center">
@@ -282,8 +297,21 @@ const Comparison = () => {
           </button>
         </div>
       </div>
+      {/* Loader */}
+      {isLoading && (
+        <div className=" flex justify-center mt-8">
+          <Bars
+            height="80"
+            width="80"
+            color="#00A09A"
+            ariaLabel="bars-loading"
+            visible={true}
+          />
+        </div>
+      )}
 
-      {playerOneInfo && playerTwoInfo && (
+      {/* Comparison Result */}
+      {!isLoading && playerOneInfo && playerTwoInfo && (
         <div className="comparison-result mt-8 p-4 text-center ">
           <h3 className="text-2xl font-bold mb-4">Comparison Result</h3>
           <div className="player-info flex justify-center items-center">
