@@ -1,3 +1,4 @@
+// Match Data for Chart
 export const matchData = {
     title: "Hong Kong, China T20 Tri-Series, 2024",
     matchDate: "Tuesday, 12th March 2024, 11:00",
@@ -15,4 +16,36 @@ export const matchData = {
         },
     ],
     result: "Pakistan beat India by 180 runs",
+};
+
+// Chart Data Preparation
+const pakistanScore = 339; // Pakistan's total score
+const indiaScore = 158;    // India's total score
+
+// Data for Chart.js (Bar chart)
+export const chartData = {
+    labels: ['Pakistan', 'India'],  // Teams
+    datasets: [
+        {
+            label: 'Total Score',
+            data: [pakistanScore, indiaScore],  // Scores for each team
+            backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)'],
+            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+            borderWidth: 1,
+        },
+    ],
+};
+
+// Chart Options
+export const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        tooltip: {
+            enabled: true,
+        },
+    },
 };
