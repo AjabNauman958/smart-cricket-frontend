@@ -185,7 +185,6 @@ const MatchAnalysis = () => {
 
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
         <div className="">
-          <p className='text-center'>Average on both team batting</p>
           <ChartComponent data={battingAverageData} options={chartOptions} title="Batting Performance Comparison"
           />
         </div>
@@ -205,7 +204,6 @@ const MatchAnalysis = () => {
           </div>
         </div>
         <div className="">
-          <p className='text-center'>Average on both team batting</p>
           <ChartComponent data={bowlingPerformanceData} options={chartOptions} title="Bowling Performance Comparison"
           />
         </div>
