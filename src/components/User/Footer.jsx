@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FaGithub, FaInstagram, FaTwitter, FaFigma } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <div className="relative mt-14">
-      
-      <div className="relative z-10 text-center p-6 md:flex md:justify-around md:text-left text-white " style={{backgroundColor:'#00A09A'}}>
+
+      <div className="relative z-10 text-center p-6 md:flex md:justify-around md:text-left text-white " style={{ backgroundColor: '#00A09A' }}>
         {/* First Div: Logo and Social Icons */}
         <div className="mb-6 md:mb-0">
           <span className="mx-auto md:mx-0 text-yellow-300 text-3xl">SmartCricket</span>
@@ -22,26 +22,25 @@ const Footer = () => {
         {/* Second Div: Navigation Links */}
         <div className="mb-6 md:mb-0">
           <ul>
-            <li className="my-2">
-             <Link to='/'><a href="#" className="hover:underline transition duration-300">Home</a></Link> </li>
-            <li className="my-2">
-              <Link to='/about'>              <a href="#" className="hover:underline transition duration-300">About</a></Link>
-              </li>
-            <li className="my-2"><Link to='/tournament'><a href="#" className="hover:underline transition duration-300">Tournament</a></Link></li>
-            <li className="my-2"><Link to='/matches'><a href="#" className="hover:underline transition duration-300">Matches</a></Link></li>
-            <li className="my-2"><Link to='/ranking'><a href="#" className="hover:underline transition duration-300">Ranking</a></Link></li>
+
+            <li className="my-2"><Link to='/' className="hover:underline transition duration-300">Home</Link></li>
+            <li className="my-2"><Link to='/about' className="hover:underline transition duration-300">About Us</Link></li>
+            <li className="my-2"><Link to='/tournament' className="hover:underline transition duration-300">Tournament</Link></li>
+            <li className="my-2"><Link to='/matches' className="hover:underline transition duration-300">Matches</Link></li>
+            <li className="my-2"><Link to='/ranking' className="hover:underline transition duration-300">Ranking</Link></li>
+            <li className="my-2"><Link to='/comparison' className="hover:underline transition duration-300">Comparison</Link></li>
           </ul>
         </div>
 
         {/* Third Div: Contact Us and Policies */}
         <div className="mb-6 md:mb-0">
-        <Link to='/contact'>  <a href="#" className="bg-yellow-300 text-black py-2 px-4 rounded hover:bg-yellow-400 transition duration-300">Contact Us</a></Link>
+          <Link to='/contact'>  <a href="#" className="bg-yellow-300 text-black py-2 px-4 rounded hover:bg-yellow-400 transition duration-300">Contact Us</a></Link>
           <ul className="mt-4">
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Privacy Policy</a></li>
             <li className="my-2"><a href="#" className="hover:underline transition duration-300">Terms of Use</a></li>
-            <li className="my-2"> 
+            <li className="my-2">
               <Link to='/faqs'>
-              <a href="#" className="hover:underline transition duration-300">FAQs</a></Link></li>
+                <a href="#" className="hover:underline transition duration-300">FAQs</a></Link></li>
           </ul>
         </div>
       </div>
