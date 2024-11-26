@@ -10,6 +10,12 @@ import PAK from '../images/pak.png';
 import IND from '../images/india.png';
 import record from '../images/record.png';
 import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
+import { Bar } from 'react-chartjs-2';
+import { matchData, chartData, chartOptions } from './matchData';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+
+// Registering necessary Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 
 const Matches = () => {
@@ -145,8 +151,10 @@ const Matches = () => {
         <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
           <div className="">
             <p className='text-center font-semibold'>Average on both team batting</p>
-            <img src={record} alt="Graph Image" />
-          </div>
+            <div>
+
+              <Bar data={chartData} options={chartOptions} />
+            </div>          </div>
           <div className="p-4">
             <div className="batting-average-content" >
               <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
