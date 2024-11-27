@@ -7,22 +7,23 @@ const FaqsDetail = () => {
 
     const faqs = [
         {
-            question: "Do you accept Paypal?",
-            answer: "Yes, we do, along with AliPay, PayTM, and Payoneer."
+            question: "How is the Player of the Match decided?",
+            answer: "The Player of the Match is chosen based on outstanding performance, such as scoring the most runs, taking crucial wickets, or making significant contributions to the team's success."
         },
         {
-            question: "What is your SLA Guarantee?",
-            answer: "We ensure a 99.9% uptime SLA guarantee."
+            question: "What happens in case of a tied match?",
+            answer: "In case of a tie, a Super Over is played to determine the winner. If the Super Over is also tied, the match may end as a draw or based on tournament-specific rules."
         },
         {
-            question: "Are there more Tailwind templates?",
-            answer: "Yes, we do, along with AliPay, PayTM, and Payoneer."
+            question: "How are ICC team rankings calculated?",
+            answer: "Team rankings are calculated based on the performance of teams in international matches over a fixed period, with points awarded for wins and draws."
         },
         {
-            question: "Is this template free for commercial use?",
-            answer: "Yes, you can use it for commercial purposes."
+            question: "What is the Duckworth-Lewis-Stern (DLS) method?",
+            answer: "The DLS method is used in rain-affected matches to adjust targets based on the number of overs and wickets remaining for the chasing team."
         }
     ];
+
 
     const toggleFAQ = (index) => {
         setActiveIndex(activeIndex === index ? null : index);

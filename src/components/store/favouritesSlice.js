@@ -23,6 +23,6 @@ const favouritesSlice = createSlice({
   },
 });
 
-export const { addFavourite, removeFavourite } = favouritesSlice.actions;
+export const { addFavourite, removeFavourite } = favouritesSlice.actions;// destructuring concept
 
 export default favouritesSlice.reducer;
