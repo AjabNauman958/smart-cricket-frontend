@@ -101,21 +101,22 @@ function SuggestPlayingXI() {
     datasets: [
       {
         label: 'Winning Probability',
-        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        data: suggestedXI.map(() => Math.floor(Math.random() * 30) + 50), // Random values between 50 and 80
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
       },
       {
         label: 'Total Score',
-        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        data: suggestedXI.map(() => Math.floor(Math.random() * 50) + 100), // Random values between 100 and 150
         backgroundColor: 'rgba(153, 102, 255, 0.6)',
       },
       {
         label: 'Performance',
-        data: suggestedXI.map(() => Math.floor(Math.random() * 100)),
+        data: suggestedXI.map(() => Math.floor(Math.random() * 20) + 80), // Random values between 80 and 100
         backgroundColor: 'rgba(255, 159, 64, 0.6)',
       },
     ],
   };
+
 
   return (
     <div className="flex justify-center items-center ">
