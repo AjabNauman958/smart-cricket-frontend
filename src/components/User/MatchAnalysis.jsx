@@ -4,7 +4,7 @@ import Footer from './Footer';
 import PAK from '../images/pak.png';
 import IND from '../images/india.png';
 import ChartComponent from '../TeamManagement/TeamPerformanceAnalysis/ChartComponent';
-import { battingAverageData, bowlingPerformanceData, chartOptions } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
+import { battingAverageData, bowlingPerformanceData, chartOptions, economyRateData, strikeRateData } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
 import { matchData } from "./matchData";
 
 const MatchAnalysis = () => {
@@ -204,13 +204,40 @@ const MatchAnalysis = () => {
           </div>
         </div>
         <div className="">
-          <ChartComponent data={bowlingPerformanceData} options={chartOptions} title="Bowling Performance Comparison"
-          />
+          <ChartComponent data={bowlingPerformanceData} options={chartOptions} title="Bowling Performance Comparison" />
+
         </div>
       </div>
 
+      {/* StrikeRate */}
+
+      <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+        <div className="">
+          <ChartComponent data={strikeRateData} options={chartOptions} title="Strike Rate Comparison" />
+        </div>
+        <div className="">
+          <div className="batting-average-content">
+            <h2 className='text-3xl font-bold text-center'>StrikeRate Comparsion</h2>
+            <p className='p-3'>
+              Our analysis leverages advanced AI algorithms to provide an insightful comparison of the strike rates between both teams. The graph below illustrates the striking performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
+        <div className="">
+          <div className="batting-average-content">
+            <h2 className='text-3xl font-bold text-center'>Bowler's Economy Comparison</h2>
+            <p className='p-3'>
+              Our analysis leverages advanced AI algorithms to provide an insightful comparison of the bowlers' economies between both teams. The graph below illustrates the bowling performance, highlighting key trends and differences in economy rates. This data-driven approach allows fans and analysts to understand the effectiveness and consistency of bowlers at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+          </div>
+        </div>
+        <div className="">
+          <ChartComponent data={economyRateData} options={chartOptions} title="Bowling Performance Comparison" />
 
 
+        </div>
+      </div>
 
       <Footer />
     </div>
