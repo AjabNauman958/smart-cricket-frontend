@@ -6,12 +6,12 @@ export const matchData = {
     teams: [
         {
             name: "Pakistan",
-            flag: "/src/components/images/pak.png", // Replace with actual flag image path
+            flag: "/src/components/images/pak.png",
             score: "339-5 (50)",
         },
         {
             name: "India",
-            flag: "/src/components/images/india.png", // Replace with actual flag image path
+            flag: "/src/components/images/india.png",
             score: "158-10 (41.2)",
         },
     ],
@@ -19,8 +19,8 @@ export const matchData = {
 };
 
 // Chart Data Preparation
-const pakistanScore = 339; // Pakistan's total score
-const indiaScore = 158;    // India's total score
+const pakistanScore = 339; // First team total score
+const indiaScore = 158;    // Second Team total score
 
 // Data for Chart.js (Bar chart)
 export const chartData = {
