@@ -9,7 +9,8 @@ import { matchData } from "./matchData";
 
 const MatchAnalysis = () => {
   const data = {
-    pakistan: {
+    team_1: {
+      name: "Pakistan",
       batsmen: [
         { name: 'Babar Azam', runs: 112, balls: 85, fours: 11, sixes: 2, strikeRate: 131.76, out: 'not out' },
         { name: 'Fakhar Zaman', runs: 75, balls: 58, fours: 7, sixes: 1, strikeRate: 129.31, out: 'bowled', bowler: 'Bumrah' },
@@ -31,8 +32,23 @@ const MatchAnalysis = () => {
         { name: 'Imad Wasim', overs: 5, maidens: 0, runs: 20, wickets: 0, economy: 4.00 },
         { name: 'Shoaib Malik', overs: 2, maidens: 0, runs: 12, wickets: 0, economy: 6.00 },
       ],
+      partnershipsData: {
+        pat_1: { bat1Name: "Babar Azam", bat1Runs: 60, bat2Name: "Fakhar Zaman", bat2Runs: 30, totalRuns: 90, totalBalls: 75 },
+        pat_2: { bat1Name: "Rizwan", bat1Runs: 45, bat2Name: "Shoaib Malik", bat2Runs: 25, totalRuns: 70, totalBalls: 50 }
+      },
+      wicketsData: {
+        wkt_1: { "batName": "Simi Singh", "wktNbr": 1, "wktOver": 16.5, "wktRuns": 128 },
+        wkt_2: { "batName": "Balbirnie", "wktNbr": 2, "wktOver": 1.6, "wktRuns": 20 }
+      },
+      scoreDetails: {
+        overs: 50,
+        runRate: 6.80,
+        runs: 340,
+        wickets: 8
+      }
     },
-    india: {
+    team_2: {
+      name: "India",
       batsmen: [
         { name: 'Virat Kohli', runs: 45, balls: 40, fours: 5, sixes: 1, strikeRate: 112.50, out: 'caught', fielder: 'Rizwan', bowler: 'Shaheen' },
         { name: 'Rohit Sharma', runs: 30, balls: 27, fours: 4, sixes: 1, strikeRate: 111.11, out: 'run out', fielder: 'Rizwan' },
@@ -54,19 +70,34 @@ const MatchAnalysis = () => {
         { name: 'Kuldeep Yadav', overs: 6, maidens: 0, runs: 25, wickets: 0, economy: 4.17 },
         { name: 'Ravindra Jadeja', overs: 5, maidens: 0, runs: 20, wickets: 0, economy: 4.00 },
       ],
+      partnershipsData: {
+        pat_1: { bat1Name: "Virat Kohli", bat1Runs: 50, bat2Name: "Rohit Sharma", bat2Runs: 40, totalRuns: 90, totalBalls: 70 },
+        pat_2: { bat1Name: "Dhawan", bat1Runs: 25, bat2Name: "KL Rahul", bat2Runs: 30, totalRuns: 55, totalBalls: 45 }
+      },
+      wicketsData: {
+        wkt_1: { "batName": "Simi Singh", "wktNbr": 1, "wktOver": 16.5, "wktRuns": 128 },
+        wkt_2: { "batName": "Balbirnie", "wktNbr": 2, "wktOver": 1.6, "wktRuns": 20 }
+      },
+      scoreDetails: {
+        overs: 37.3,
+        runRate: 4.80,
+        runs: 158,
+        wickets: 10
+      }
     },
   };
 
 
-  const [team, setTeam] = useState('pakistan');
+  const [team, setTeam] = useState(data.team_1);
   const { title, matchDate, venue, teams, result } = matchData;
 
-  const handleTeamChange = (team) => {
-    setTeam(team);
+  const handleTeamChange = (selectedTeam) => {
+    setTeam(selectedTeam);
   };
 
-  const totalScore = data[team].batsmen.reduce((total, player) => total + player.runs, 0);
-
+  // Determine total score and overs based on selected team
+  const totalScore = data.team_1.scoreDetails.runs;
+  const totalOvers = data.team_1.scoreDetails.overs;
   return (
     <div>
       <Navbar />
@@ -109,13 +140,13 @@ const MatchAnalysis = () => {
 
       <div className="scorecard p-4 sm:p-6 md:p-8 lg:p-10">
         <div className="team-buttons flex flex-col sm:flex-row sm:justify-between mb-4">
-          <button onClick={() => handleTeamChange('pakistan')} className='bg-green-500 rounded-lg text-white py-2 px-4 mb-2 sm:mb-0'>PAK INNINGS</button>
-          <button onClick={() => handleTeamChange('india')} className='bg-yellow-500 rounded-lg text-white py-2 px-4'>INDIA INNINGS</button>
+          <button onClick={() => handleTeamChange(data.team_1)} className='bg-green-500 rounded-lg text-white py-2 px-4 mb-2 sm:mb-0'>{data.team_1.name}</button>
+          <button onClick={() => handleTeamChange(data.team_2)} className='bg-yellow-500 rounded-lg text-white py-2 px-4'>{data.team_2.name}</button>
         </div>
 
         <div className="team-info flex flex-col items-center sm:items-start mb-4">
-          <img src={team === 'pakistan' ? PAK : IND} alt={`${team} flag`} className="team-flag w-24 h-auto mb-2 sm:w-32" />
-          <h2 className="text-xl font-semibold">{team.toUpperCase()}</h2>
+          <img src={team.name} alt={`${team.name} flag`} className="team-flag w-24 h-auto mb-2 sm:w-32" />
+          <h2 className="text-xl font-semibold">{data.team_2.name.toUpperCase()}</h2>
         </div>
 
         <div className="overflow-x-auto">
@@ -133,7 +164,7 @@ const MatchAnalysis = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {data[team].batsmen.map((player, index) => (
+              {team.batsmen.map((player, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{player.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{player.runs}</td>
@@ -162,7 +193,7 @@ const MatchAnalysis = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {data[team].bowlers.map((bowler, index) => (
+              {team.bowlers.map((bowler, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{bowler.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{bowler.overs}</td>
@@ -177,7 +208,7 @@ const MatchAnalysis = () => {
         </div>
 
         <div className="total-score bg-green-500 p-4 rounded-lg text-white mt-4">
-          <p className="text-sm md:text-base">Total: {totalScore} ({team === 'pakistan' ? '50 overs' : '41.2 overs'})</p>
+          <p className="text-sm md:text-base">{`Total: ${totalScore} (${totalOvers})`} </p>
         </div>
       </div>
 

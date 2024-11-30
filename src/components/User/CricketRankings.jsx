@@ -1,57 +1,6 @@
 import React from 'react';
 import RankingCard from './RankingCard';
-import PAK from '../images/pak.png';
-import AUS from '../images/aus.png';
-import IND from '../images/india.png';
-import SA from '../images/SA.png';
-import NZ from '../images/newzealand.png';
-import ENG from '../images/eng.png';
-
-
-// Mens team ranking 
-const menstestTeams = [
-  { rank: 1, teamName: "Australia", points: 117, flag: AUS },
-  { rank: 2, teamName: "India", points: 117, flag: IND },
-  { rank: 3, teamName: "Pakistan", points: 117, flag: PAK },
-  { rank: 4, teamName: "South Africa", points: 117, flag: SA },
-  { rank: 5, teamName: "New Zealand", points: 117, flag: NZ },
-];
-
-const mensodiTeams = [
-  { rank: 1, teamName: "England", points: 125, flag: ENG },
-  { rank: 2, teamName: "India", points: 124, flag: IND },
-  { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, teamName: "Australia", points: 111, flag: AUS },
-  { rank: 5, teamName: "Pakistan", points: 106, flag: PAK },
-];
-
-const menst20Teams = [
-  { rank: 1, teamName: "India", points: 270, flag: IND },
-  { rank: 2, teamName: "England", points: 265, flag: ENG },
-  { rank: 3, teamName: "Pakistan", points: 261, flag: PAK },
-  { rank: 4, teamName: "South Africa", points: 253, flag: SA },
-  { rank: 5, teamName: "Australia", points: 249, flag: AUS },
-];
-
-
-// womens team ranking 
-const womensodiTeams = [
-  { rank: 1, teamName: "England", points: 125, flag: ENG },
-  { rank: 2, teamName: "India", points: 124, flag: IND },
-  { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
-  { rank: 4, teamName: "Australia", points: 111, flag: AUS },
-  { rank: 5, teamName: "Pakistan", points: 106, flag: PAK },
-];
-
-const womenst20Teams = [
-  { rank: 1, teamName: "India", points: 270, flag: IND },
-  { rank: 2, teamName: "England", points: 265, flag: ENG },
-  { rank: 3, teamName: "Pakistan", points: 261, flag: PAK },
-  { rank: 4, teamName: "South Africa", points: 253, flag: SA },
-  { rank: 5, teamName: "Australia", points: 249, flag: AUS },
-];
-
-
+import { mensodiTeams, menst20Teams, menstestTeams, womensodiTeams, womenst20Teams } from './Ranking';
 const CricketRankings = () => {
   return (
     <>

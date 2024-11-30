@@ -42,11 +42,12 @@ const PredictionForm = () => {
   const [player, setPlayer] = useState('');
   const [showGraph, setShowGraph] = useState(false);
 
-  const handlePredictClick = () => {
-    // Logic to handle prediction
-    setShowGraph(true); // Show the performance graph
+  const handlePredictClick = (e) => {
+    e.preventDefault(); // Prevent form submission behavior
+    console.log(`Prediction made for ${team1} vs ${country} in ${format} format at ${ground}`);
+    setShowGraph(true); // Show the performance graph after prediction
   };
-  
+
   const isButtonDisabled = !(team1 && format && country && ground && player);
 
   return (
@@ -155,7 +156,7 @@ const PredictionForm = () => {
 
         {/* Predict Button */}
         <button
-          type="button"
+          type="submit"
           onClick={handlePredictClick}
           className={`w-32 mr-auto ml-auto py-3 px-5 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#00A09A] hover:bg-[#2dada9]'} text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           disabled={isButtonDisabled}

@@ -57,17 +57,21 @@ const PredictionForm = () => {
   const [player, setPlayer] = useState('');
   const [showGraph, setShowGraph] = useState(false);
 
-  const handlePredictClick = () => {
-    // Logic to handle prediction
-    setShowGraph(true); // Show the performance graph
+  const handlePredictClick = (e) => {
+    e.preventDefault(); // Prevent form submission behavior
+    console.log(`Prediction made for ${team1} vs ${country} in ${format} format at ${ground}`);
+    setShowGraph(true); // Show the performance graph after prediction
   };
+
   const isButtonDisabled = !(team1 && format && country && ground && player);
+
+
 
   return (
     <div className="max-w-3xl mx-auto p-6 rounded-lg dark:bg-gray-900 dark:text-white mt-10 justify-center items-center">
+
       <div className="space-y-6 text-center">
         <div className='flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4'>
-
           {/* Opponent Team Select */}
           <div className="flex flex-col w-full md:flex-row md:items-center md:w-auto md:gap-2">
             <label htmlFor="team1" className="text-lg font-medium md:w-auto">Opponent Team:</label>
@@ -106,7 +110,6 @@ const PredictionForm = () => {
         </div>
 
         <div className='flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4'>
-
           {/* Country Select */}
           <div className="flex flex-col w-full md:flex-row md:items-center md:w-auto md:gap-2">
             <label htmlFor="country" className="text-lg font-medium dark:text-white md:w-auto">Select Country:</label>
@@ -170,7 +173,7 @@ const PredictionForm = () => {
 
         {/* Predict Button */}
         <button
-          type="button"
+          type="submit" // Use submit for form submission
           onClick={handlePredictClick}
           className={`w-32 mr-auto ml-auto py-3 px-5 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#00A09A] hover:bg-[#2dada9]'} text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:duration-300`}
           disabled={isButtonDisabled}
@@ -183,13 +186,10 @@ const PredictionForm = () => {
           {showGraph && <ShowPerformanceGraph />}
         </div>
       </div>
+
     </div>
-
-
-
-
-
   );
 };
 
 export default PredictionForm;
+

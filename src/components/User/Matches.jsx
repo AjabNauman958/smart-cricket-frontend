@@ -21,6 +21,8 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const Matches = () => {
   const [showMoreRecent, setShowMoreRecent] = useState(false);
   const [showMoreUpcoming, setShowMoreUpcoming] = useState(false);
+  const { title, matchDate, venue, teams, result } = matchData;
+
 
   return (
     <div>
@@ -124,40 +126,42 @@ const Matches = () => {
         </h1>
         <div className="match-analysis">
           <div className="match-date">
-            <h3>Tuesday, 12th March 2024, 11:00</h3>
+            <h3>{matchDate}</h3>
           </div>
           <div className="match-details">
-            <h1>Hong Kong, China T20 Tri-Series, 2024 - March 3</h1>
+            <h1>{title}</h1>
           </div>
           <div className="ground">
-            <p >Tin Kwong Road Recreation Ground</p>
+            <p>{venue}</p>
           </div>
           <div className="teams">
             <div className="team">
-              <img src={PAK} alt="Pakistan Flag" className="team-flag" />
-              <h1>Pakistan</h1>
-              <p className="team-score">339-5 (50)</p>
+              <img src={teams[0].flag}
+                alt={`${teams[0].name} Flag`} className="team-flag" />
+              <h1>{teams[0].name}</h1>
+              <p className="team-score">{teams[0].score}</p>
             </div>
             <div className="match-result">
-              <p>Pakistan beat India, by 180 runs</p>
+              <p>{result}</p>
             </div>
             <div className="team">
-              <img src={IND} alt="India Flag" className="team-flag" />
-              <h1>India</h1>
-              <p className="team-score">158-10 (41.2)</p>
+              <img src={teams[1].flag}
+                alt={`${teams[1].name} Flag`} className="team-flag" />
+              <h1>{teams[1].name}</h1>
+              <p className="team-score">{teams[1].score}</p>
             </div>
           </div>
         </div>
-        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
+        <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 p-10 '>
           <div className="">
             <p className='text-center font-semibold'>Average on both team batting</p>
             <div>
 
               <Bar data={chartData} options={chartOptions} />
             </div>          </div>
-          <div className="p-4">
+          <div className="p-10">
             <div className="batting-average-content" >
-              <p>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+              <p className='text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
             </div>
             <Link to='/MatchAnalysis'><button className="watch-analysis-btn bg-yellow-300 hover:bg-yellow-500">Watch Full Analysis</button></Link>
           </div>

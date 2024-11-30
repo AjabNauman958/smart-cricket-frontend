@@ -7,7 +7,7 @@ const Navbar = ({ scrollToSection }) => {
     let Links = [
         { name: 'Home', link: '/' },
         { name: 'About Us', link: '/about' },
-        { name: 'Tournament', link: '/tournament' },
+        // { name: 'Tournament', link: '/tournament' },
         { name: 'Matches', link: '/matches' },
         { name: 'Ranking', link: '/ranking' },
         { name: 'Comparison', link: '/comparison' },

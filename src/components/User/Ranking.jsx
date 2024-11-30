@@ -15,7 +15,7 @@ import '../css/home.css';
 import '../css/matches.css';
 
 // Men's team ranking
-const menstestTeams = [
+export const menstestTeams = [
   { rank: 1, teamName: "Australia", points: 117, flag: AUS },
   { rank: 2, teamName: "India", points: 115, flag: IND },
   { rank: 3, teamName: "Pakistan", points: 110, flag: PAK },
@@ -28,7 +28,7 @@ const menstestTeams = [
   { rank: 5, teamName: "New Zealand", points: 102, flag: NZ },
 ];
 
-const mensodiTeams = [
+export const mensodiTeams = [
   { rank: 1, teamName: "England", points: 125, flag: ENG },
   { rank: 2, teamName: "India", points: 124, flag: IND },
   { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
@@ -41,7 +41,7 @@ const mensodiTeams = [
   { rank: 5, teamName: "Pakistan", points: 106, flag: PAK },
 ];
 
-const menst20Teams = [
+export const menst20Teams = [
   { rank: 1, teamName: "India", points: 270, flag: IND },
   { rank: 2, teamName: "England", points: 265, flag: ENG },
   { rank: 3, teamName: "Pakistan", points: 261, flag: PAK },
@@ -219,7 +219,7 @@ const mensT20AllRounder = [
 ];
 
 // Women's team ranking
-const womensodiTeams = [
+export const womensodiTeams = [
   { rank: 1, teamName: "Australia", points: 125, flag: AUS },
   { rank: 2, teamName: "India", points: 124, flag: IND },
   { rank: 3, teamName: "New Zealand", points: 112, flag: NZ },
@@ -237,7 +237,7 @@ const womensodiTeams = [
   { rank: 5, teamName: "South Africa", points: 106, flag: SA },
 ];
 
-const womenst20Teams = [
+export const womenst20Teams = [
   { rank: 1, teamName: "Australia", points: 270, flag: AUS },
   { rank: 2, teamName: "England", points: 265, flag: ENG },
   { rank: 3, teamName: "India", points: 261, flag: IND },

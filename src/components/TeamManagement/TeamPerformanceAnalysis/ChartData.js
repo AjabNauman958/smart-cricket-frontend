@@ -126,6 +126,8 @@ export const economyRateData = {
   ],
 };
 
+
+
 // Chart Options
 export const chartOptions = {
   responsive: true,

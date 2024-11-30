@@ -1,6 +1,6 @@
 // Match Data for Chart
 export const matchData = {
-    title: "Hong Kong, China T20 Tri-Series, 2024",
+    title: "Hong Kong, China T20 Tri-Series, 2024", //series name
     matchDate: "Tuesday, 12th March 2024, 11:00",
     venue: "Tin Kwong Road Recreation Ground",
     teams: [
