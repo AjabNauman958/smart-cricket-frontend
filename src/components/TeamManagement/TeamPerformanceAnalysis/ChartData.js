@@ -146,23 +146,23 @@ export const chartOptions = {
       bodyFont: { size: 12 },
     },
   },
-  scales: {
-    y: {
-      beginAtZero: true,
-      title: {
-        display: true,
-        text: 'Performance Metrics',
-        color: '#666',
-        font: { size: 14 },
-      },
-    },
-    x: {
-      title: {
-        display: true,
-        text: 'Players',
-        color: '#666',
-        font: { size: 14 },
-      },
-    },
-  },
+  // scales: {
+  //   y: {
+  //     beginAtZero: true,
+  //     title: {
+  //       display: true,
+  //       text: 'Performance Metrics',
+  //       color: '#666',
+  //       font: { size: 14 },
+  //     },
+  //   },
+  //   x: {
+  //     title: {
+  //       display: true,
+  //       text: 'Players',
+  //       color: '#666',
+  //       font: { size: 14 },
+  //     },
+  //   },
+  // },
 };
