@@ -152,10 +152,7 @@ const TeamPerformanceAnalysisDetails = () => {
         ))}
       </div>
       {selectedMatch && !showAnalysis && (
-
         <div>
-
-
           {/* Match analysis details */}
           <div>
             <h1 className='text-4xl font-semibold text-center mt-5'>
