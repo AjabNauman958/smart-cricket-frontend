@@ -1,367 +1,69 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, removeFavourite } from '../store/favouritesSlice';
-import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../css/MatchCard.css';
-import pz from '../images/pz.png';
-import lq from '../images/lq.png';
-import IND from '../images/india.png';
-import AUS from '../images/aus.png';
-import PAK from '../images/pak.png';
-import ENG from '../images/eng.png';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
+import { matchCardData } from './matchData';
 
 const MatchCardList = ({ league }) => {
-  const matchData = {
-    recent: [
-      {
-        matchNumber: '25th Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '26th Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-      {
-        matchNumber: '29th January',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '12th December',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      }
-    ],
-    upcoming: [
-      {
-        matchNumber: '2nd Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Pakistan', logo: PAK },
-        ],
-        time: 'July 5, 7:00 PM'
-      },
-      {
-        matchNumber: '1st Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'Australia', logo: AUS },
-          { name: 'England', logo: ENG },
-        ],
-        time: 'July 6, 7:00 PM'
-      },
-      {
-        matchNumber: '4th Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Pakistan', logo: PAK },
-        ],
-        time: 'July 5, 7:00 PM'
-      },
-      {
-        matchNumber: '2nd July',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'Australia', logo: AUS },
-          { name: 'England', logo: ENG },
-        ],
-        time: 'July 6, 7:00 PM'
-      }
-    ],
-    series: [
-      {
-        matchNumber: '22nd Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '26th Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-      {
-        matchNumber: '25th Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '26th Match',
-        league: 'International Series',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Australia', logo: AUS },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-    ],
-    worldcup: [
-      {
-        matchNumber: '1st Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Pakistan', logo: PAK },
-        ],
-        time: 'July 5, 7:00 PM'
-      },
-      {
-        matchNumber: '2nd Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'Australia', logo: AUS },
-          { name: 'England', logo: ENG },
-        ],
-        time: 'July 6, 7:00 PM'
-      },
-      {
-        matchNumber: '1st Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'India', logo: IND },
-          { name: 'Pakistan', logo: PAK },
-        ],
-        time: 'July 5, 7:00 PM'
-      },
-      {
-        matchNumber: '2nd Match',
-        league: 'ICC World Cup',
-        format: 'ODI',
-        teams: [
-          { name: 'Australia', logo: AUS },
-          { name: 'England', logo: ENG },
-        ],
-        time: 'July 6, 7:00 PM'
-      }
-
-    ],
-    psl: [
-      {
-        matchNumber: '25th Match',
-        league: 'Pakistan Super League',
-        format: 'T20',
-        teams: [
-          { name: 'Peshawar Zalmi', logo: pz },
-          { name: 'Lahore Qalandars', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '26th Match',
-        league: 'Pakistan Super League',
-        format: 'T20',
-        teams: [
-          { name: 'Peshawar Zalmi', logo: pz },
-          { name: 'Lahore Qalandars', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-      {
-        matchNumber: '25th Match',
-        league: 'Pakistan Super League',
-        format: 'T20',
-        teams: [
-          { name: 'Peshawar Zalmi', logo: pz },
-          { name: 'Lahore Qalandars', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '26th Match',
-        league: 'Pakistan Super League',
-        format: 'T20',
-        teams: [
-          { name: 'Peshawar Zalmi', logo: pz },
-          { name: 'Lahore Qalandars', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      }
-
-    ],
-    ipl: [
-      {
-        matchNumber: '30th Match',
-        league: 'Indian Premier League',
-        format: 'T20',
-        teams: [
-          { name: 'Mumbai Indians', logo: pz },
-          { name: 'Chennai Super Kings', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '31st Match',
-        league: 'Indian Premier League',
-        format: 'T20',
-        teams: [
-          { name: 'Royal Challengers Bangalore', logo: pz },
-          { name: 'Kolkata Knight Riders', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-      {
-        matchNumber: '30th Match',
-        league: 'Indian Premier League',
-        format: 'T20',
-        teams: [
-          { name: 'Mumbai Indians', logo: pz },
-          { name: 'Chennai Super Kings', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '31st Match',
-        league: 'Indian Premier League',
-        format: 'T20',
-        teams: [
-          { name: 'Royal Challengers Bangalore', logo: pz },
-          { name: 'Kolkata Knight Riders', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      }
-    ],
-    bigbash: [
-      {
-        matchNumber: '35th Match',
-        league: 'Big Bash League',
-        format: 'T20',
-        teams: [
-          { name: 'Melbourne Stars', logo: pz },
-          { name: 'Sydney Sixers', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '36th Match',
-        league: 'Big Bash League',
-        format: 'T20',
-        teams: [
-          { name: 'Perth Scorchers', logo: pz },
-          { name: 'Adelaide Strikers', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      },
-      {
-        matchNumber: '35th Match',
-        league: 'Big Bash League',
-        format: 'T20',
-        teams: [
-          { name: 'Melbourne Stars', logo: pz },
-          { name: 'Sydney Sixers', logo: lq },
-        ],
-        time: 'Today, 7:00 PM'
-      },
-      {
-        matchNumber: '36th Match',
-        league: 'Big Bash League',
-        format: 'T20',
-        teams: [
-          { name: 'Perth Scorchers', logo: pz },
-          { name: 'Adelaide Strikers', logo: lq },
-        ],
-        time: 'Tomorrow, 7:00 PM'
-      }
-    ]
-  };
-  // authentication
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [visibleMatches, setVisibleMatches] = useState(8); // Initially, 8 matches are visible
+  const [showMore, setShowMore] = useState(true); // State to track if more matches are visible
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.favourites.favourites);
-  console.log('Favourites in UserProfile:', favourites);
 
   const isFavourite = (matchNumber) =>
     favourites.some((fav) => fav.matchNumber === matchNumber);
 
   const handleFavouriteClick = (matchDetails) => {
-    // Check if the user is logged in
     if (!isLoggedIn) {
       toast.error('Please log in to add matches to favourites!');
-      return; // Exit the function if the user is not logged in
+      return;
     }
 
-    // Handle adding or removing favorites
     if (isFavourite(matchDetails.matchNumber)) {
-      dispatch(removeFavourite(matchDetails)); // Dispatch remove action
+      dispatch(removeFavourite(matchDetails));
       toast.info('Removed from favourites.');
     } else {
-      dispatch(addFavourite(matchDetails)); // Dispatch add action
+      dispatch(addFavourite(matchDetails));
       toast.success('Added to favourites!');
     }
   };
 
-  if (!matchData[league]) {
+  const showMoreMatches = () => {
+    setVisibleMatches((prevCount) => prevCount + 8); // Load next 8 matches
+  };
+
+  const hideMatches = () => {
+    setVisibleMatches(8); // Reset back to only 8 matches
+    setShowMore(true); // Show "View More Matches" button again
+  };
+
+  const matches = matchCardData[league] || [];
+
+  if (matches.length === 0) {
     return <div>No matches available for the selected league.</div>;
   }
+
   return (
-
     <>
-      <ToastContainer /> {/* Toast container for notifications */}
-
+      <ToastContainer position="top-right" autoClose={3000} />
       <div
         className="flex mt-10"
         style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}
       >
-        <ToastContainer position="top-right" autoClose={3000} />
-
-        {matchData[league].map((matchDetails, index) => (
+        {matches.slice(0, visibleMatches).map((matchDetails, index) => (
           <div key={index} className="match-card">
             <div className="header">
               <h2>
                 {matchDetails.matchNumber}. {matchDetails.league}, 2024
               </h2>
-
               <div className="badge">{matchDetails.format}</div>
+            </div>
+            <div className="time">Venue: {matchDetails.venue}
+
             </div>
             <div className="teams">
               {matchDetails.teams.map((team, teamIndex) => (
@@ -371,11 +73,11 @@ const MatchCardList = ({ league }) => {
                 </div>
               ))}
             </div>
-            <div className="time">{matchDetails.time}</div>
-
-            {/* Favourite Icon */}
+            <div className="time">
+              {matchDetails.time}
+            </div>
             <button
-              className="favourite-button "
+              className="favourite-button"
               onClick={() => handleFavouriteClick(matchDetails)}
               style={{
                 background: 'none',
@@ -387,32 +89,47 @@ const MatchCardList = ({ league }) => {
               }}
             >
               {isFavourite(matchDetails.matchNumber) ? (
-                <>
-                  <FaHeart style={{ color: 'red' }} />  <span>Remove from Favourites</span>
-                </>
+                <FaHeart style={{ color: 'red' }} />
               ) : (
-                <>
-                  <FaRegHeart style={{ color: 'grey' }} /> <span>Add to Favourites</span>
-                </>
+                <FaRegHeart style={{ color: 'grey' }} />
               )}
+              <span>{isFavourite(matchDetails.matchNumber) ? 'Remove from Favourites' : 'Add to Favourites'}</span>
             </button>
 
-            <button className="action-button">Match Center &gt;</button>
+            {/* Conditionally render the 'View Analysis' button based on the league */}
+            {league !== 'upcoming' && (
+              <Link to="/MatchAnalysis" className="action-button">
+                View Analysis &gt;
+              </Link>
+            )}
           </div>
         ))}
-
       </div>
+
+      {/* Button to toggle "View More" or "Hide Matches" */}
+      {matches.length > visibleMatches && (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => {
+              if (showMore) {
+                showMoreMatches();  // Load more matches
+                setShowMore(false);  // Hide "View More Matches" button
+              } else {
+                hideMatches();  // Hide additional matches and show "View More"
+              }
+            }}
+            className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
+          >
+            {showMore ? "View More Matches" : "Hide Matches"}
+          </button>
+        </div>
+      )}
     </>
   );
 };
 
-// MatchCardList.propTypes = {
-//   league: PropTypes.oneOf(['recent', 'upcoming', 'series', 'worldcup', 'psl', 'ipl', 'bigbash']).isRequired,
-// };
-
 MatchCardList.propTypes = {
   league: PropTypes.string.isRequired,
-  matchData: PropTypes.object.isRequired,
 };
 
 export default MatchCardList;
