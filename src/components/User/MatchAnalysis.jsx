@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import PAK from '../images/pak.png';
-import IND from '../images/india.png';
 import ChartComponent from '../TeamManagement/TeamPerformanceAnalysis/ChartComponent';
 import { battingAverageData, bowlingPerformanceData, chartOptions, economyRateData, strikeRateData } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
-import { matchData } from "./matchData";
+import { chartData, matchData } from "./matchData";
+
+import { Bar } from 'react-chartjs-2';
+
 
 const MatchAnalysis = () => {
   const data = {
@@ -135,8 +136,8 @@ const MatchAnalysis = () => {
             </div>
           </div>
         </div>
-
       </div>
+
 
       <div className="scorecard p-4 sm:p-6 md:p-8 lg:p-10">
         <div className="team-buttons flex flex-col sm:flex-row sm:justify-between mb-4">
@@ -212,6 +213,22 @@ const MatchAnalysis = () => {
         </div>
       </div>
 
+      <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10 '>
+
+        <div className="p-10">
+          <h2 className='text-3xl font-bold text-center '>Total Score</h2>
+
+          <div className="batting-average-content" >
+            <p className='text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+          </div>
+        </div>
+        <div className="">
+          <p className='text-center font-semibold'>Average on both team batting</p>
+          <div>
+
+            <Bar data={chartData} options={chartOptions} />
+          </div>          </div>
+      </div>
 
 
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
