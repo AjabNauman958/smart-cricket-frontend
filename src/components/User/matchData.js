@@ -539,8 +539,15 @@ export const matchScoreDetails = {
         ],
         partnershipsData: {
             pat_1: { bat1Name: "Virat Kohli", bat1Runs: 50, bat2Name: "Rohit Sharma", bat2Runs: 40, totalRuns: 90, totalBalls: 70 },
-            pat_2: { bat1Name: "Dhawan", bat1Runs: 25, bat2Name: "KL Rahul", bat2Runs: 30, totalRuns: 55, totalBalls: 45 }
-        },
+            pat_2: { bat1Name: "Shikhar Dhawan", bat1Runs: 25, bat2Name: "KL Rahul", bat2Runs: 30, totalRuns: 55, totalBalls: 45 },
+            pat_3: { bat1Name: "Suryakumar Yadav", bat1Runs: 35, bat2Name: "Hardik Pandya", bat2Runs: 15, totalRuns: 50, totalBalls: 40 },
+            pat_4: { bat1Name: "Rishabh Pant", bat1Runs: 20, bat2Name: "Deepak Hooda", bat2Runs: 10, totalRuns: 30, totalBalls: 25 },
+            pat_5: { bat1Name: "Shubman Gill", bat1Runs: 45, bat2Name: "Ishan Kishan", bat2Runs: 30, totalRuns: 75, totalBalls: 60 },
+            pat_6: { bat1Name: "Ravindra Jadeja", bat1Runs: 15, bat2Name: "Bhuvneshwar Kumar", bat2Runs: 10, totalRuns: 25, totalBalls: 20 },
+            pat_7: { bat1Name: "Yuzvendra Chahal", bat1Runs: 5, bat2Name: "Mohammad Shami", bat2Runs: 8, totalRuns: 13, totalBalls: 12 }
+        }
+        ,
+
         wicketsData: {
             wkt_1: { "batName": "Simi Singh", "wktNbr": 1, "wktOver": 16.5, "wktRuns": 128 },
             wkt_2: { "batName": "Balbirnie", "wktNbr": 2, "wktOver": 1.6, "wktRuns": 20 }

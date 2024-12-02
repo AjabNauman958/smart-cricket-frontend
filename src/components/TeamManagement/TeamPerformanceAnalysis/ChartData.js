@@ -198,7 +198,7 @@ export const partnershipData = {
   labels: [
     ...team1TopPartnerships.map(
       (partnership) =>
-        `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_1.name})`
+        `${partnership.bat1Name} & ${partnership.bat2Name} ${matchScoreDetails.team_1.name}`
     ),
     ...team2TopPartnerships.map(
       (partnership) =>
@@ -208,13 +208,19 @@ export const partnershipData = {
   datasets: [
     {
       label: `${matchScoreDetails.team_1.name} Top Partnerships`,
-      data: team1TopPartnerships.map((partnership) => partnership.totalRuns), // Runs as array
+      data: team1TopPartnerships.map((partnership) => ({
+        x: `${partnership.name} ${matchScoreDetails.team_1.name}`,
+        y: partnership.totalRuns,
+      })), // Runs as array
       borderColor: 'rgba(75, 192, 192, 1)',
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
     },
     {
       label: `${matchScoreDetails.team_2.name} Top Partnerships`,
-      data: team2TopPartnerships.map((partnership) => partnership.totalRuns), // Runs as array
+      data: team2TopPartnerships.map((partnership) => ({
+        x: `${partnership.name} ${matchScoreDetails.team_2.name}`,
+        y: partnership.totalRuns,
+      })), // Runs as array
       borderColor: 'rgba(255, 99, 132, 1)',
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
     },
