@@ -1,130 +1,228 @@
-// Batting Average Data
+import { matchScoreDetails } from "../../User/matchData";
+
+// Function to get top 5 batsmen based on runs
+const getTopBatsmen = (team) => {
+  return team.batsmen
+    .sort((a, b) => b.runs - a.runs)  // Sort by runs in descending order
+    .slice(0, 5);  // Take top 5
+};
+
+// Extract top 5 batsmen for Pakistan and India
+const team1TopBatsmen = getTopBatsmen(matchScoreDetails.team_1);
+const team2TopBatsmen = getTopBatsmen(matchScoreDetails.team_2);
+
+// Prepare data for Batting Average Chart
 export const battingAverageData = {
   labels: [
-    'Babar Azam (PAK)',
-    'Fakhar Zaman (PAK)',
-    'Imam-ul-Haq (PAK)',
-    'Mohammad Rizwan (PAK)',
-    'Shoaib Malik (PAK)',
-    'Virat Kohli (IND)',
-    'Rohit Sharma (IND)',
-    'KL Rahul (IND)',
-    'Shikhar Dhawan (IND)',
-    'Hardik Pandya (IND)',
+    ...team1TopBatsmen.map(player => `${player.name} ${matchScoreDetails.team_1.name}`),
+    ...team2TopBatsmen.map(player => `${player.name} ${matchScoreDetails.team_2.name}`),
   ],
   datasets: [
     {
-      label: 'Pakistan Batsmen Runs',
-      data: [112, 75, 34, 45, 22, null, null, null, null, null],
+      label: `${matchScoreDetails.team_1.name} Batsman Runs`,
+      data: team1TopBatsmen.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_1.name}`,  // Player name on X-axis
+        y: player.runs,  // Player runs on Y-axis
+      })),
       borderColor: 'rgba(75, 192, 192, 1)',
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      backgroundColor: 'rgba(75, 192, 192, 0.6)',
+      showLine: true,  // To prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8,   // Point size
     },
     {
-      label: 'India Batsmen Runs',
-      data: [null, null, null, null, null, 45, 30, 40, 25, 18],
+      label: `${matchScoreDetails.team_2.name} Batsmen Runs`,
+      data: team2TopBatsmen.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_2.name}`,  // Player name on X-axis
+        y: player.runs,  // Player runs on Y-axis
+      })),
       borderColor: 'rgba(153, 102, 255, 1)',
-      backgroundColor: 'rgba(153, 102, 255, 0.2)',
+      backgroundColor: 'rgba(153, 102, 255, 0.6)',
+      showLine: true,  // To prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8,   // Point size
     },
   ],
 };
 
-// Bowling Performance Data
+
+// Function to get top 5 bowlers based on wickets
+const getTopBowlers = (team) => {
+  return team.bowlers
+    .sort((a, b) => b.wickets - a.wickets)  // Sort by wickets in descending order
+    .slice(0, 5);  // Take top 5 bowlers
+};
+
+// Extract top 5 bowlers for Pakistan and India
+const team1TopBowlers = getTopBowlers(matchScoreDetails.team_1);
+const team2TopBowlers = getTopBowlers(matchScoreDetails.team_2);
+
+// Prepare data for Bowling Performance Scatter Chart
 export const bowlingPerformanceData = {
   labels: [
-    'Shaheen Afridi (PAK)',
-    'Mohammad Amir (PAK)',
-    'Shadab Khan (PAK)',
-    'Hasan Ali (PAK)',
-    'Imad Wasim (PAK)',
-    'Shoaib Malik (PAK)',
-    'Jasprit Bumrah (IND)',
-    'Mohammed Shami (IND)',
-    'Ravindra Jadeja (IND)',
-    'Kuldeep Yadav (IND)',
+    ...team1TopBowlers.map(player => `${player.name} ${matchScoreDetails.team_1.name}`),
+    ...team2TopBowlers.map(player => `${player.name} ${matchScoreDetails.team_2.name}`),
   ],
   datasets: [
     {
-      label: 'Pakistan Bowlers Wickets',
-      data: [2, 1, 0, 1, 0, 0, null, null, null, null],
-      borderColor: 'rgba(255, 99, 132, 1)',
+      label: `${matchScoreDetails.team_1.name} Bowlers Wickets`,
+      data: team1TopBowlers.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_1.name}`,  // Position on the x-axis (multiply by 2 to create a gap between points)
+        y: player.wickets,  // Wickets count as the y value
+      })),
+      borderColor: 'rgba(255, 99, 132, 1)',  // Red for Pakistan
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      fill: true,
+      showLine: true,  // Show line connecting points
+      fill: true,  // Fill the area under the curve
+      pointRadius: 8,  // Size of the scatter points
     },
     {
-      label: 'India Bowlers Wickets',
-      data: [null, null, null, null, null, null, 3, 1, 1, 0],
-      borderColor: 'rgba(54, 162, 235, 1)',
+      label: `${matchScoreDetails.team_2.name} Bowlers Wickets`,
+      data: team2TopBowlers.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_2.name}`,  // Multiply by 2 to ensure a wider gap from Pakistan's points
+        y: player.wickets,  // Wickets count as the y value
+      })),
+      borderColor: 'rgba(54, 162, 235, 1)',  // Blue for India
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      fill: true,
+      showLine: true,  // Show line connecting points
+      fill: true,  // Fill the area under the curve
+      pointRadius: 8,  // Size of the scatter points
     },
   ],
 };
 
-// Strike Rate Data
+
+
+
+// Function to get top 5 batsmen based on strike rate for any team
+const getTopBatsmenByStrikeRate = (team) => {
+  return team.batsmen
+    .sort((a, b) => b.strikeRate - a.strikeRate) // Sort by strike rate in descending order
+    .slice(0, 5); // Take top 5 batsmen
+};
+// Extract top 5 batsmen for both teams based on strike rate
+const team1TopBatsmenStrikeRate = getTopBatsmenByStrikeRate(matchScoreDetails.team_1);
+const team2TopBatsmenStrikeRate = getTopBatsmenByStrikeRate(matchScoreDetails.team_2);
+
+// Prepare dynamic data for the strike rate comparison chart
 export const strikeRateData = {
   labels: [
-    'Babar Azam (PAK)',
-    'Fakhar Zaman (PAK)',
-    'Imam-ul-Haq (PAK)',
-    'Mohammad Rizwan (PAK)',
-    'Shoaib Malik (PAK)',
-    'Virat Kohli (IND)',
-    'Rohit Sharma (IND)',
-    'KL Rahul (IND)',
-    'Shikhar Dhawan (IND)',
-    'Hardik Pandya (IND)',
+    ...team1TopBatsmenStrikeRate.map(player => `${player.name} ${matchScoreDetails.team_1.name}`),
+    ...team2TopBatsmenStrikeRate.map(player => `${player.name} ${matchScoreDetails.team_2.name}`),
   ],
   datasets: [
     {
-      label: 'Pakistan Batsmen Strike Rates',
-      data: [131.76, 129.31, 72.34, 118.42, 110.0, null, null, null, null, null],
-      borderColor: 'rgba(255, 206, 86, 1)',
-      backgroundColor: 'rgba(255, 206, 86, 0.2)',
+      label: `${matchScoreDetails.team_1.name} Batsmen Strike Rates`,
+      data: team1TopBatsmenStrikeRate.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_1.name}`, // Player name on X-axis
+        y: player.strikeRate, // Strike rate on Y-axis
+      })),
+      borderColor: 'rgba(255, 99, 132, 1)', // Color for team 1
+      backgroundColor: 'rgba(255, 99, 132, 0.6)',
+      showLine: true, // Prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8, // Point size
     },
     {
-      label: 'India Batsmen Strike Rates',
-      data: [null, null, null, null, null, 112.50, 111.11, 88.89, 71.43, 120.0],
-      borderColor: 'rgba(75, 192, 192, 1)',
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      label: `${matchScoreDetails.team_2.name} Batsmen Strike Rates`,
+      data: team2TopBatsmenStrikeRate.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_2.name}`, // Player name on X-axis
+        y: player.strikeRate, // Strike rate on Y-axis
+      })),
+      borderColor: 'rgba(54, 162, 235, 1)', // Color for team 2
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+      showLine: true, // Prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8, // Point size
     },
   ],
 };
 
+// Function to get top bowlers based on economy rate for any team
+const getTopBowlersByEconomyRate = (team) => {
+  return team.bowlers
+    .sort((a, b) => a.economy - b.economy) // Sort by economy rate in ascending order
+    .slice(0, 5); // Take top 5 bowlers
+};
+// Extract top 5 bowlers for both teams based on economy rate
+const team1TopBowlersEconomyRate = getTopBowlersByEconomyRate(matchScoreDetails.team_1);
+const team2TopBowlersEconomyRate = getTopBowlersByEconomyRate(matchScoreDetails.team_2);
+
+// Prepare dynamic data for the economy rate comparison chart
 // Economy Rate Data
 export const economyRateData = {
   labels: [
-    'Shaheen Afridi (PAK)',
-    'Mohammad Amir (PAK)',
-    'Shadab Khan (PAK)',
-    'Hasan Ali (PAK)',
-    'Imad Wasim (PAK)',
-    'Shoaib Malik (PAK)',
-    'Jasprit Bumrah (IND)',
-    'Mohammed Shami (IND)',
-    'Deepak Chahar (IND)',
-    'Bhuvneshwar Kumar (IND)',
+    ...team1TopBowlersEconomyRate.map(player => `${player.name} ${matchScoreDetails.team_1.name}`),
+    ...team2TopBowlersEconomyRate.map(player => `${player.name} ${matchScoreDetails.team_2.name}`),
   ],
   datasets: [
     {
-      label: 'Pakistan Bowlers Economy Rate',
-      data: [4.50, 4.38, 4.17, 4.57, 4.00, 6.00, null, null, null, null],
-      borderColor: 'rgba(54, 162, 235, 1)',
+      label: `${matchScoreDetails.team_1.name} Bowlers Economy Rate`,
+      data: team1TopBowlersEconomyRate.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_1.name}`,
+        y: player.economy,
+      })), // Economy rates as array
+      borderColor: 'rgba(54, 162, 235, 1)', // Color for team 1
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      showLine: true, // Prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8, // Point size
     },
     {
-      label: 'India Bowlers Economy Rate',
-      data: [null, null, null, null, null, null, 5.50, 4.67, 4.57, 4.38],
-      borderColor: 'rgba(255, 159, 64, 1)',
+      label: `${matchScoreDetails.team_2.name} Bowlers Economy Rate`,
+      data: team2TopBowlersEconomyRate.map(player => ({
+        x: `${player.name} ${matchScoreDetails.team_2.name}`,
+        y: player.economy
+      })), // Economy rates as array
+      borderColor: 'rgba(255, 159, 64, 1)', // Color for team 2
       backgroundColor: 'rgba(255, 159, 64, 0.2)',
+      showLine: true, // Prevent connecting lines in scatter
       fill: true,
+      pointRadius: 8, // Point size
+
     },
   ],
 };
+
+// Function to extract top partnerships based on runs
+const getTopPartnershipsByRuns = (team) => {
+  return Object.values(team?.partnershipsData || {})
+    .sort((a, b) => b.totalRuns - a.totalRuns)
+    .slice(0, 5);
+};
+
+const team1TopPartnerships = getTopPartnershipsByRuns(matchScoreDetails.team_1);
+const team2TopPartnerships = getTopPartnershipsByRuns(matchScoreDetails.team_2);
+
+export const partnershipData = {
+  labels: [
+    ...team1TopPartnerships.map(
+      (partnership) =>
+        `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_1.name})`
+    ),
+    ...team2TopPartnerships.map(
+      (partnership) =>
+        `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_2.name})`
+    ),
+  ],
+  datasets: [
+    {
+      label: `${matchScoreDetails.team_1.name} Top Partnerships`,
+      data: team1TopPartnerships.map((partnership) => partnership.totalRuns), // Runs as array
+      borderColor: 'rgba(75, 192, 192, 1)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    },
+    {
+      label: `${matchScoreDetails.team_2.name} Top Partnerships`,
+      data: team2TopPartnerships.map((partnership) => partnership.totalRuns), // Runs as array
+      borderColor: 'rgba(255, 99, 132, 1)',
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    },
+  ],
+};
+
+
+
 
 
 
