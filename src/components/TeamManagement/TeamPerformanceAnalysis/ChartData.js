@@ -1,5 +1,34 @@
 import { matchScoreDetails } from "../../User/matchData";
 
+// Extract total scores for both teams
+const team1TotalScore = matchScoreDetails.team_1.batsmen.reduce((total, player) => total + player.runs, 0);
+const team2TotalScore = matchScoreDetails.team_2.batsmen.reduce((total, player) => total + player.runs, 0);
+
+// Prepare data for Total Score Chart
+export const totalScoreData = {
+  labels: [matchScoreDetails.team_1.name, matchScoreDetails.team_2.name], // Team Names on X-axis
+  datasets: [
+    {
+      label: 'Total Scores',
+      data: [
+        { x: matchScoreDetails.team_1.name, y: team1TotalScore }, // Team 1's total score
+        { x: matchScoreDetails.team_2.name, y: team2TotalScore }, // Team 2's total score
+      ],
+      backgroundColor: [
+        'rgba(75, 192, 192, 0.6)', // Background color for Team 1
+        'rgba(153, 102, 255, 0.6)', // Background color for Team 2
+      ],
+      borderColor: [
+        'rgba(75, 192, 192, 1)', // Border color for Team 1
+        'rgba(153, 102, 255, 1)', // Border color for Team 2
+      ],
+      borderWidth: 2, // Border thickness
+      pointRadius: 10, // Size of data points
+      pointHoverRadius: 12, // Size on hover
+      showLine: false, // Disable lines between points
+    },
+  ],
+};
 // Function to get top 5 batsmen based on runs
 const getTopBatsmen = (team) => {
   return team.batsmen
@@ -188,7 +217,7 @@ export const economyRateData = {
 const getTopPartnershipsByRuns = (team) => {
   return Object.values(team?.partnershipsData || {})
     .sort((a, b) => b.totalRuns - a.totalRuns)
-    .slice(0, 5);
+    .slice(0, 5); // Get the top 5 partnerships
 };
 
 const team1TopPartnerships = getTopPartnershipsByRuns(matchScoreDetails.team_1);
@@ -198,7 +227,7 @@ export const partnershipData = {
   labels: [
     ...team1TopPartnerships.map(
       (partnership) =>
-        `${partnership.bat1Name} & ${partnership.bat2Name} ${matchScoreDetails.team_1.name}`
+        `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_1.name})`
     ),
     ...team2TopPartnerships.map(
       (partnership) =>
@@ -209,18 +238,18 @@ export const partnershipData = {
     {
       label: `${matchScoreDetails.team_1.name} Top Partnerships`,
       data: team1TopPartnerships.map((partnership) => ({
-        x: `${partnership.name} ${matchScoreDetails.team_1.name}`,
+        x: `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_1.name})`,
         y: partnership.totalRuns,
-      })), // Runs as array
+      })),
       borderColor: 'rgba(75, 192, 192, 1)',
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
     },
     {
       label: `${matchScoreDetails.team_2.name} Top Partnerships`,
       data: team2TopPartnerships.map((partnership) => ({
-        x: `${partnership.name} ${matchScoreDetails.team_2.name}`,
+        x: `${partnership.bat1Name} & ${partnership.bat2Name} (${matchScoreDetails.team_2.name})`,
         y: partnership.totalRuns,
-      })), // Runs as array
+      })),
       borderColor: 'rgba(255, 99, 132, 1)',
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
     },
@@ -228,7 +257,76 @@ export const partnershipData = {
 };
 
 
+/// Function to prepare fall of wickets data
+// const getFallOfWicketsData = (team) => {
+//   // Check if team.wicketsData is an object
+//   if (team.wicketsData && typeof team.wicketsData === 'object') {
+//     // If it's an object, use Object.values to get an array and then map through it
+//     return Object.values(team.wicketsData).map((wicket) => ({
+//       over: wicket.wktOver,  // Over where the wicket fell
+//       score: wicket.wktRuns,  // Runs at that moment
+//     }));
+//   } else {
+//     // If it's not an object, return an empty array
+//     return [];
+//   }
+// };
 
+
+// Get fall of wickets data for both teams
+// const team1WicketsData = getFallOfWicketsData(matchScoreDetails.team_1);
+// const team2WicketsData = getFallOfWicketsData(matchScoreDetails.team_2);
+
+// // Data for Fall of Wickets Chart
+// export const fallOfWicketsData = {
+//   labels: [...Array(51).keys()], // Labels for overs from 0 to 50
+//   datasets: [
+//     {
+//       label: `${matchScoreDetails.team_1.name} Total Runs`,
+//       data: matchScoreDetails.team_1.totalScoreByOver.map((score, index) => ({
+//         x: index, // Over number
+//         y: score, // Score at that over
+//       })),
+//       borderColor: 'rgba(75, 192, 192, 1)',  // Blue line
+//       backgroundColor: 'rgba(75, 192, 192, 0.2)',
+//       fill: false,
+//       pointRadius: 0,
+//     },
+//     {
+//       label: `${matchScoreDetails.team_2.name} Total Runs`,
+//       data: matchScoreDetails.team_2.totalScoreByOver.map((score, index) => ({
+//         x: index,
+//         y: score,
+//       })),
+//       borderColor: 'rgba(255, 159, 64, 1)',  // Orange line
+//       backgroundColor: 'rgba(255, 159, 64, 0.2)',
+//       fill: false,
+//       pointRadius: 0,
+//     },
+//     {
+//       label: `${matchScoreDetails.team_1.name} Fall of Wickets`,
+//       data: team1WicketsData.map((wicket) => ({
+//         x: wicket.over,  // Over number
+//         y: wicket.score, // Runs at the wicket
+//       })),
+//       borderColor: 'red',  // Red color for wickets
+//       backgroundColor: 'red',
+//       showLine: false,  // No line, just dots
+//       pointRadius: 6,  // Dot size
+//     },
+//     {
+//       label: `${matchScoreDetails.team_2.name} Fall of Wickets`,
+//       data: team2WicketsData.map((wicket) => ({
+//         x: wicket.over,
+//         y: wicket.score,
+//       })),
+//       borderColor: 'blue',  // Blue color for wickets
+//       backgroundColor: 'blue',
+//       showLine: false,  // No line, just dots
+//       pointRadius: 6,
+//     },
+//   ],
+// };
 
 
 

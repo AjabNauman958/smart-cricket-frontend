@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ChartComponent from '../TeamManagement/TeamPerformanceAnalysis/ChartComponent';
-import { battingAverageData, bowlingPerformanceData, chartOptions, economyRateData, partnershipData, strikeRateData } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
-import { chartData, matchData, matchScoreDetails } from "./matchData";
-
+import { battingAverageData, bowlingPerformanceData, chartOptions, economyRateData, partnershipData, strikeRateData, totalScoreData } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
+import { matchData, matchScoreDetails } from "./matchData";
 import { Bar } from 'react-chartjs-2';
 
 
@@ -146,7 +145,7 @@ const MatchAnalysis = () => {
           <p className='text-center font-semibold'>Average on both team batting</p>
           <div>
 
-            <Bar data={chartData} options={chartOptions} />
+            <Bar data={totalScoreData} options={chartOptions} />
           </div>          </div>
       </div>
 
@@ -159,7 +158,7 @@ const MatchAnalysis = () => {
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
-            <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+            <p className='p-3 text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
       </div>
@@ -168,7 +167,7 @@ const MatchAnalysis = () => {
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>Bowling Performance</h2>
-            <p className='p-3'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
+            <p className='p-3 text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
         <div className="">
@@ -186,7 +185,7 @@ const MatchAnalysis = () => {
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>StrikeRate Comparsion</h2>
-            <p className='p-3'>
+            <p className='p-3 text-justify'>
               Our analysis leverages advanced AI algorithms to provide an insightful comparison of the strike rates between both teams. The graph below illustrates the striking performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
@@ -196,7 +195,7 @@ const MatchAnalysis = () => {
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>Bowler's Economy Comparison</h2>
-            <p className='p-3'>
+            <p className='p-3 text-justify'>
               Our analysis leverages advanced AI algorithms to provide an insightful comparison of the bowlers' economies between both teams. The graph below illustrates the bowling performance, highlighting key trends and differences in economy rates. This data-driven approach allows fans and analysts to understand the effectiveness and consistency of bowlers at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>
@@ -215,7 +214,7 @@ const MatchAnalysis = () => {
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>Partnership Comparsion</h2>
-            <p className='p-3'>
+            <p className='p-3 text-justify'>
               Our analysis leverages advanced AI algorithms to provide an insightful comparison of the strike rates between both teams. The graph below illustrates the striking performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
           </div>
         </div>

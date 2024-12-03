@@ -22,24 +22,6 @@ export const matchData = {
     result: "Pakistan beat India by 180 runs",
 };
 
-// Chart Data Preparation
-const pakistanScore = 339; // First team total score
-const indiaScore = 158;    // Second Team total score
-
-// Data for Chart.js (Bar chart)
-export const chartData = {
-    labels: ['Pakistan', 'India'],  // Teams
-    datasets: [
-        {
-            label: 'Total Score',
-            data: [pakistanScore, indiaScore],  // Scores for each team
-            backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)'],
-            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
-            borderWidth: 1,
-        },
-    ],
-};
-
 // Chart Options
 export const chartOptions = {
     responsive: true,
@@ -504,9 +486,18 @@ export const matchScoreDetails = {
         }
         ,
         wicketsData: {
-            wkt_1: { "batName": "Simi Singh", "wktNbr": 1, "wktOver": 16.5, "wktRuns": 128 },
-            wkt_2: { "batName": "Balbirnie", "wktNbr": 2, "wktOver": 1.6, "wktRuns": 20 }
-        },
+            wkt_1: { "batName": "Fakhar Zaman", "wktNbr": 1, "wktOver": 12.3, "wktRuns": 75 },
+            wkt_2: { "batName": "Imam-ul-Haq", "wktNbr": 2, "wktOver": 15.2, "wktRuns": 34 },
+            wkt_3: { "batName": "Mohammad Rizwan", "wktNbr": 3, "wktOver": 18.4, "wktRuns": 45 },
+            wkt_4: { "batName": "Shoaib Malik", "wktNbr": 4, "wktOver": 22.1, "wktRuns": 22 },
+            wkt_5: { "batName": "Imad Wasim", "wktNbr": 5, "wktOver": 25.0, "wktRuns": 15 },
+            wkt_6: { "batName": "Shadab Khan", "wktNbr": 6, "wktOver": 28.3, "wktRuns": 8 },
+            wkt_7: { "batName": "Hasan Ali", "wktNbr": 7, "wktOver": 30.4, "wktRuns": 5 },
+            wkt_8: { "batName": "Shaheen Afridi", "wktNbr": 8, "wktOver": 32.1, "wktRuns": 3 },
+            wkt_9: { "batName": "Mohammad Amir", "wktNbr": 9, "wktOver": 35.2, "wktRuns": 2 },
+            wkt_10: { "batName": "Junaid Khan", "wktNbr": 10, "wktOver": 37.1, "wktRuns": 1 },
+        }
+        ,
         scoreDetails: {
             overs: 50,
             runRate: 6.80,
@@ -549,8 +540,16 @@ export const matchScoreDetails = {
         ,
 
         wicketsData: {
-            wkt_1: { "batName": "Simi Singh", "wktNbr": 1, "wktOver": 16.5, "wktRuns": 128 },
-            wkt_2: { "batName": "Balbirnie", "wktNbr": 2, "wktOver": 1.6, "wktRuns": 20 }
+            wkt_1: { "batName": "Rohit Sharma", "wktNbr": 1, "wktOver": 14.3, "wktRuns": 55 },
+            wkt_2: { "batName": "Shubman Gill", "wktNbr": 2, "wktOver": 9.2, "wktRuns": 24 },
+            wkt_3: { "batName": "Virat Kohli", "wktNbr": 3, "wktOver": 12.4, "wktRuns": 38 },
+            wkt_4: { "batName": "KL Rahul", "wktNbr": 4, "wktOver": 16.1, "wktRuns": 33 },
+            wkt_5: { "batName": "Hardik Pandya", "wktNbr": 5, "wktOver": 19.2, "wktRuns": 18 },
+            wkt_6: { "batName": "Suryakumar Yadav", "wktNbr": 6, "wktOver": 21.3, "wktRuns": 27 },
+            wkt_7: { "batName": "Rishabh Pant", "wktNbr": 7, "wktOver": 23.4, "wktRuns": 42 },
+            wkt_8: { "batName": "Axar Patel", "wktNbr": 8, "wktOver": 25.5, "wktRuns": 11 },
+            wkt_9: { "batName": "Jasprit Bumrah", "wktNbr": 9, "wktOver": 28.6, "wktRuns": 5 },
+            wkt_10: { "batName": "Mohammad Shami", "wktNbr": 10, "wktOver": 30.1, "wktRuns": 3 },
         },
         scoreDetails: {
             overs: 37.3,
