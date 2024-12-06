@@ -39,8 +39,10 @@ const Navbar = ({ scrollToSection }) => {
                                 <div className='relative flex items-center' onMouseEnter={toggleRankingHover} onMouseLeave={toggleRankingHover}>
                                     <Link to={link.link} className='flex items-center'>
                                         {link.name}
-                                        <FaChevronDown className='ml-1 mt-1' />
-                                    </Link>
+                                        <FaChevronDown
+                                            className={`ml-1 mt-1 transform duration-300 ${isRankingHovered ? 'rotate-0' : 'rotate-180'
+                                                }`}
+                                        />                                    </Link>
                                     {/* Dropdown for 'Ranking' */}
                                     {isRankingHovered && (
                                         <ul className='absolute top-full left-0 mt-1 bg-white text-gray-800 shadow-md rounded-md md:block'>

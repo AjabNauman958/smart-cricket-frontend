@@ -41,53 +41,17 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Tournament section */}
-      <h1 className="text-4xl font-semibold text-center mt-5">
-        {" "}
-        Tournaments & <span className="text-green-500">Leagues</span>
-      </h1>
-      <div
-        className="cards-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          padding: "20px",
-        }}
-      >
-        <Card
-          image={cardImage1}
-          title="Pakistan Super League"
-          description="Power-packed cricket action unleashed!."
-        />
-
-        <Card
-          image={cardImage2}
-          title="Indian Premier league"
-          description="Cricket's biggest stars light up the stage.."
-        />
-
-        <Card
-          image={cardImage3}
-          title="International Cricket Council"
-          description="Where cricket legends create history.."
-        />
-
-        <Card
-          image={cardImage4}
-          title="Big Bash League"
-          description="Explosive cricket entertainment at its best4."
-        />
-
-      </div>
-
       {/* Matches section */}
       <div className="mb-52">
         <h1 className="text-4xl font-semibold text-center mt-5">
-          <span className=" text-green-500"> Recent</span> &{" "}
-          <span className="text-yellow-500"> Upcoming</span> Matches
+          <span className=" text-green-500"> Recent</span>
+          <span className="text-yellow-500"> Matches</span>
         </h1>
         <MatchCardList league="recent" />
+
+        <div>
+          <Card />
+        </div>
         <h1 className="text-4xl font-semibold text-center mt-10 mb-10">
           <span className="text-green-500">Men's</span> Team Ranking
         </h1>

@@ -5,7 +5,12 @@ const ScrollToTop = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0); // Scroll to the top
+        // Add smooth scrolling effect
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth", // Enables smooth scrolling
+        });
     }, [pathname]); // Trigger on route change
 
     return null;

@@ -2,7 +2,29 @@ import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaHeart, FaShareAlt } from 'react-icons/fa';
 import playerProfileImage from '../../images/shaheen.jpeg';
 import countryFlag from '../../images/pak.png';
-import AverageGraph from '../../Player/PlayerDashboard/AverageGraph';
+import { Bar, Line } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+    LineElement,
+    PointElement,
+} from "chart.js";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+    LineElement,
+    PointElement
+);
 
 const playersData = [
     {
@@ -1341,7 +1363,39 @@ const PlayerDetails = () => {
         const player = playersData.find(player => player.fullName === event.target.value);
         setSelectedPlayer(player);
     };
+    const generateGraphData = (statType, format) => {
+        const stats = selectedPlayer.stats[statType].stats;
+        const formatStats = stats.find(s => s.format === format);
 
+        return {
+            labels: ["Matches", "Innings", "Runs", "Wickets", "Average", "Economy"],
+            datasets: [
+                {
+                    label: `${format} ${statType}`,
+                    data: statType === "bowling"
+                        ? [
+                            formatStats.mat,
+                            formatStats.inns,
+                            formatStats.runs,
+                            formatStats.wkts,
+                            formatStats.ave,
+                            formatStats.econ,
+                        ]
+                        : [
+                            formatStats.mat,
+                            formatStats.inns,
+                            formatStats.runs,
+                            formatStats.hs, // High score
+                            formatStats.ave,
+                            formatStats.sr,  // Strike rate
+                        ],
+                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40"],
+                    borderColor: "#000",
+                    borderWidth: 1,
+                },
+            ],
+        };
+    };
 
 
     return (
@@ -1476,10 +1530,25 @@ const PlayerDetails = () => {
                         </div>
                     </div>
                 ))}
+                {/* Generate Graphs */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {["Tests", "ODIs", "T20Is"].map(format => (
+                        <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                            <h3 className="text-lg font-bold mb-2">{format} Bowling</h3>
+                            <Bar data={generateGraphData("bowling", format)} />
+                        </div>
+                    ))}
+                    {["Tests", "ODIs", "T20Is"].map(format => (
+                        <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                            <h3 className="text-lg font-bold mb-2">{format} Batting</h3>
+                            <Line data={generateGraphData("batting", format)} />
+                        </div>
+                    ))}
+                </div>
             </div>
 
 
-            <AverageGraph />
+            {/* <AverageGraph /> */}
         </>
     );
 };

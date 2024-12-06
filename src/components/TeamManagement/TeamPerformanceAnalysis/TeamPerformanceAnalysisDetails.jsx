@@ -4,7 +4,8 @@ import SA from '../../images/SA.png';
 import PAK from '../../images/pak.png';
 import IND from '../../images/india.png';
 import ChartComponent from './ChartComponent';
-import { battingAverageData, chartOptions } from './ChartData';
+
+import { battingAverageData, chartOptions, bowlingPerformanceData, economyRateData, partnershipData, strikeRateData, } from './ChartData';
 
 const TeamPerformanceAnalysisDetails = () => {
   const data = {
@@ -284,7 +285,7 @@ const TeamPerformanceAnalysisDetails = () => {
             </div>
             <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl overflow-hidden mx-auto">
               <p className='text-center'>Average on both team batting</p>
-              <ChartComponent data={battingAverageData} options={chartOptions} />
+              <ChartComponent data={bowlingPerformanceData} options={chartOptions} />
             </div>
           </div>
 
