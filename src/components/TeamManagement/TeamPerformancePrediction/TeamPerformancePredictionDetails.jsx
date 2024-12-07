@@ -68,8 +68,8 @@ function TeamPerformancePredictionDetails() {
   };
 
   const viewPrediction = () => {
-    if (selectedPlayers.length < 12) {
-      toast.error('Please select 12 players before viewing prediction.');
+    if (selectedPlayers.length < 11) {
+      toast.error('Please select 11 players before viewing prediction.');
       return;
     }
     if (!country) {
@@ -121,7 +121,7 @@ function TeamPerformancePredictionDetails() {
     <div className="flex justify-center items-center ">
       <div className="container mx-auto p-6">
         <ToastContainer />
-        <h1 className="text-3xl font-bold mb-6 text-center">Select 12 Players</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">Select 11 Players</h1>
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Country Selection */}
@@ -195,7 +195,7 @@ function TeamPerformancePredictionDetails() {
             <select
               className="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-900"
               onChange={handlePlayerSelect}
-              disabled={selectedPlayers.length >= 12}
+              disabled={selectedPlayers.length >= 11}
             >
               <option value="">Select player</option>
               {availablePlayers.map((player, index) => (
@@ -232,7 +232,7 @@ function TeamPerformancePredictionDetails() {
           </div>
 
           {/* View Prediction Button */}
-          {selectedPlayers.length === 12 && (
+          {selectedPlayers.length === 11 && (
             <div className="text-center mt-6">
               <button
                 className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 transition-colors duration-300 text-white font-semibold rounded-lg"
