@@ -8,6 +8,7 @@ import '../css/comparison.css';
 import ScrollToTopButton from './scrollupbtn/ScrollToTopButton';
 import { toast, ToastContainer } from 'react-toastify';
 import { Bars } from 'react-loader-spinner'; // Import the loader
+import { motion } from 'framer-motion'; // Import framer-motion
 
 
 // Dummy player data name and country
@@ -220,18 +221,30 @@ const Comparison = () => {
       <div className="comparison-container flex mt-20 transition-opacity duration-1000 ease-in-out 
        ">
         <div className="left-divv p-4 transition-transform duration-1000 ease-in-out">
-          <h1 className=" md:text-5xl sm:text-3xl font-bold mb-4 main-heading text-black text-center"> Ultimate Cricket  <span className='text-green-600'>Player Comparison:</span> Stats, Skills, and Records</h1>
+          <motion.h1 className=" md:text-5xl sm:text-3xl font-bold mb-4 main-heading text-black text-center" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          > Ultimate Cricket  <span className='text-green-600'>Player Comparison:</span> Stats, Skills, and Records</motion.h1>
 
-          <p className="text-gray-700 text-center">
+          <motion.p className="text-gray-700 text-center" initial={{ opacity: 0, y: 30 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the paragraph is in view
+            transition={{ duration: 0.6, delay: 0.2 }} // Duration and delay of animation
+          >
             Compare the batting and bowling statistics of your favorite players.
             Analyze their performance over different matches and see who comes out on top!
-          </p>
+          </motion.p>
         </div>
         <div className="right-divv p-4">
-          <img
+          <motion.img
             src={babarhero}
             alt="Player Comparison"
             className="animated-babarimage"
+            initial={{ opacity: 0, x: 100 }} // Start with opacity 0 and moved to the right
+            whileInView={{ opacity: 1, x: 0 }} // Fade in and move to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the image is in view
+            transition={{ duration: 0.6 }} // Duration of animation
           />
         </div>
       </div>
@@ -239,7 +252,11 @@ const Comparison = () => {
       <div className="player-inputs mt-8 p-4">
 
         {/* Player One and Player Two inputs */}
-        <div className="mb-4 flex flex-wrap text-center justify-center">
+        <motion.div className="mb-4 flex flex-wrap text-center justify-center" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="mr-4">
             <label className="block text-gray-700 mb-2 font-bold">Player One:</label>
             <Autosuggest
@@ -270,7 +287,7 @@ const Comparison = () => {
               }}
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Comparison Type dropdown */}
         <div className="mb-4">
@@ -312,7 +329,11 @@ const Comparison = () => {
 
       {/* Comparison Result */}
       {!isLoading && playerOneInfo && playerTwoInfo && (
-        <div className="comparison-result mt-8 p-4 text-center ">
+        <motion.div className="comparison-result mt-8 p-4 text-center " initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+        >
           <h3 className="text-2xl font-bold mb-4">Comparison Result</h3>
           <div className="player-info flex justify-center items-center">
             <div className="player-card p-4 m-4">
@@ -384,7 +405,7 @@ const Comparison = () => {
             </div>
           </div>
 
-        </div>
+        </motion.div>
       )}
 
       {/* Scroll-to-top button */}

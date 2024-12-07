@@ -5,6 +5,7 @@ import ChartComponent from '../TeamManagement/TeamPerformanceAnalysis/ChartCompo
 import { battingAverageData, bowlingPerformanceData, chartOptions, economyRateData, partnershipData, strikeRateData, totalScoreData } from '../TeamManagement/TeamPerformanceAnalysis/ChartData';
 import { matchData, matchScoreDetails } from "./matchData";
 import { Bar } from 'react-chartjs-2';
+import { motion } from 'framer-motion'; // Import framer-motion
 
 
 const MatchAnalysis = () => {
@@ -23,7 +24,11 @@ const MatchAnalysis = () => {
       <Navbar />
 
       {/* Match analysis details */}
-      <div>
+      <motion.div initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+        whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+        transition={{ duration: 0.6 }} // Duration of animation
+      >
         <h1 className='text-4xl font-semibold text-center mt-20'>
           Match<span className='text-yellow-500'> Analysis</span>
         </h1>
@@ -55,7 +60,7 @@ const MatchAnalysis = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
 
       <div className="scorecard p-4 sm:p-6 md:p-8 lg:p-10">
@@ -69,7 +74,11 @@ const MatchAnalysis = () => {
           <h2 className="text-xl font-semibold">{matchScoreDetails.team_2.name.toUpperCase()}</h2>
         </div>
 
-        <div className="overflow-x-auto">
+        <motion.div className="overflow-x-auto" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -98,9 +107,13 @@ const MatchAnalysis = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
 
-        <div className="overflow-x-auto mt-4">
+        <motion.div className="overflow-x-auto mt-4" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -125,7 +138,7 @@ const MatchAnalysis = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
 
         <div className="total-score bg-green-500 p-4 rounded-lg text-white mt-4">
           <p className="text-sm md:text-base">{`Total: ${totalScore} (${totalOvers})`} </p>
@@ -137,80 +150,124 @@ const MatchAnalysis = () => {
         <div className="p-10">
           <h2 className='text-3xl font-bold text-center '>Total Score</h2>
 
-          <div className="batting-average-content" >
+          <motion.div className="batting-average-content" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
             <p className='text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-          </div>
+          </motion.div>
         </div>
         <div className="">
           <p className='text-center font-semibold'>Average on both team batting</p>
-          <div>
+          <motion.div initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
 
             <Bar data={totalScoreData} options={chartOptions} />
-          </div>          </div>
+          </motion.div>          </div>
       </div>
 
 
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-        <div className="">
+        <motion.div className="" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <ChartComponent data={battingAverageData} options={chartOptions} title="Batting Performance Comparison"
           />
-        </div>
+        </motion.div>
         <div className="">
-          <div className="batting-average-content">
+          <motion.div className="batting-average-content" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
             <h2 className='text-3xl font-bold text-center'>Batting Average</h2>
             <p className='p-3 text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
         <div className="">
-          <div className="batting-average-content">
+          <motion.div className="batting-average-content" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
             <h2 className='text-3xl font-bold text-center'>Bowling Performance</h2>
             <p className='p-3 text-justify'>Our analysis leverages advanced AI algorithms to provide an insightful comparison of the batting averages between both teams. The graph below illustrates the batting performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-          </div>
+          </motion.div>
         </div>
-        <div className="">
+        <motion.div className="" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <ChartComponent data={bowlingPerformanceData} options={chartOptions} title="Bowling Performance Comparison" />
 
-        </div>
+        </motion.div>
       </div>
 
       {/* StrikeRate */}
 
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-        <div className="">
+        <motion.div className="" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <ChartComponent data={strikeRateData} options={chartOptions} title="Strike Rate Comparison" />
-        </div>
+        </motion.div>
         <div className="">
-          <div className="batting-average-content">
+          <motion.div className="batting-average-content" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
             <h2 className='text-3xl font-bold text-center'>StrikeRate Comparsion</h2>
             <p className='p-3 text-justify'>
               Our analysis leverages advanced AI algorithms to provide an insightful comparison of the strike rates between both teams. The graph below illustrates the striking performance, highlighting key trends and differences. This data-driven approach allows fans and analysts to understand team strengths and areas for improvement at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* economyRateData */}
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
         <div className="">
-          <div className="batting-average-content">
+          <motion.div className="batting-average-content" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          >
             <h2 className='text-3xl font-bold text-center'>Bowler's Economy Comparison</h2>
             <p className='p-3 text-justify'>
               Our analysis leverages advanced AI algorithms to provide an insightful comparison of the bowlers' economies between both teams. The graph below illustrates the bowling performance, highlighting key trends and differences in economy rates. This data-driven approach allows fans and analysts to understand the effectiveness and consistency of bowlers at a glance. Explore our full analysis to uncover deeper insights and strategic recommendations.</p>
-          </div>
+          </motion.div>
         </div>
-        <div className="">
+        <motion.div className="" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <ChartComponent data={economyRateData} options={chartOptions} title="Bowling Performance Comparison" />
 
 
-        </div>
+        </motion.div>
       </div>
 
       {/* partnershipdata */}
       <div className='graph grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center p-10'>
-        <div className="">
+        <motion.div className="" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           <ChartComponent data={partnershipData} options={chartOptions} title="Partnership  Comparison" />
-        </div>
+        </motion.div>
         <div className="">
           <div className="batting-average-content">
             <h2 className='text-3xl font-bold text-center'>Partnership Comparsion</h2>

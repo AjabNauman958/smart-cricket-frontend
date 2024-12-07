@@ -13,7 +13,7 @@ import Footer from './Footer';
 import backgroundImage from '../images/ranking.jpg';
 import '../css/home.css';
 import '../css/matches.css';
-
+import { motion } from 'framer-motion';
 // Men's team ranking
 export const menstestTeams = [
   { rank: 1, teamName: "Australia", points: 117, flag: AUS },
@@ -381,23 +381,35 @@ const Ranking = () => {
     <div>
 
       <Navbar scrollToSection={scrollToSection} />
-      <div
+      <motion.div
         className="hero min-h-screen"
         style={{
           backgroundImage: `url(${backgroundImage})`
         }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
       >
 
         <div className="hero-overlay "></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">ICC world Rankings </h1>
-            <p className="mb-5">
+            <motion.h1 className="mb-5 text-5xl font-bold" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+              whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+              transition={{ duration: 0.6 }} // Duration of animation
+            >ICC world Rankings </motion.h1>
+            <motion.p className="mb-5" initial={{ opacity: 0, y: 30 }} // Start with opacity 0 and moved down
+              whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the paragraph is in view
+              transition={{ duration: 0.6, delay: 0.2 }} // Duration and delay of animation
+            >
               Track the top-performing teams and players in T20, ODI, and Test formats. Stay updated with the latest global standings
-            </p>
+            </motion.p>
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="ranking-page">
         <section ref={mensSectionRef} id='mensSection'>
           <h1 className='text-4xl font-semibold text-center mt-10'>

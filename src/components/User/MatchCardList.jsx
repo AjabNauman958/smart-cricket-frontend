@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { matchCardData } from './matchData';
+import { motion } from 'framer-motion'; // Import framer-motion for scroll animation
 
 const MatchCardList = ({ league }) => {
   const [visibleMatches, setVisibleMatches] = useState(8); // Initially, 8 matches are visible
@@ -55,16 +56,21 @@ const MatchCardList = ({ league }) => {
         style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '20px' }}
       >
         {matches.slice(0, visibleMatches).map((matchDetails, index) => (
-          <div key={index} className="match-card">
+          <motion.div
+            key={index}
+            className="match-card"
+            initial={{ opacity: 0, y: 50 }} // Initially hidden and slightly shifted
+            whileInView={{ opacity: 1, y: 0 }} // Fade and slide up
+            transition={{ duration: 0.6, ease: 'easeOut' }} // Smooth transition
+            viewport={{ once: true, amount: 0.2 }} // Trigger animation once when 20% of the section is in view
+          >
             <div className="header">
               <h2>
                 {matchDetails.matchNumber}. {matchDetails.league}, 2024
               </h2>
               <div className="badge">{matchDetails.format}</div>
             </div>
-            <div className="time">Venue: {matchDetails.venue}
-
-            </div>
+            <div className="time">Venue: {matchDetails.venue}</div>
             <div className="teams">
               {matchDetails.teams.map((team, teamIndex) => (
                 <div className="team" key={teamIndex}>
@@ -73,9 +79,7 @@ const MatchCardList = ({ league }) => {
                 </div>
               ))}
             </div>
-            <div className="time">
-              {matchDetails.time}
-            </div>
+            <div className="time">{matchDetails.time}</div>
             <button
               className="favourite-button"
               onClick={() => handleFavouriteClick(matchDetails)}
@@ -102,7 +106,7 @@ const MatchCardList = ({ league }) => {
                 View Analysis &gt;
               </Link>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -112,15 +116,15 @@ const MatchCardList = ({ league }) => {
           <button
             onClick={() => {
               if (showMore) {
-                showMoreMatches();  // Load more matches
-                setShowMore(false);  // Hide "View More Matches" button
+                showMoreMatches(); // Load more matches
+                setShowMore(false); // Hide "View More Matches" button
               } else {
-                hideMatches();  // Hide additional matches and show "View More"
+                hideMatches(); // Hide additional matches and show "View More"
               }
             }}
             className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-500 mb-10"
           >
-            {showMore ? "View More Matches" : "Hide Matches"}
+            {showMore ? 'View More Matches' : 'Hide Matches'}
           </button>
         </div>
       )}
