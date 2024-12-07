@@ -65,7 +65,7 @@ const MatchAnalysis = () => {
         </div>
 
         <div className="team-info flex flex-col items-center sm:items-start mb-4">
-          <img src={team.name} alt={`${team.name} flag`} className="team-flag w-24 h-auto mb-2 sm:w-32" />
+          <img src={team.flag} alt={`${team.name} flag`} className="team-flag w-24 h-auto mb-2 sm:w-32" />
           <h2 className="text-xl font-semibold">{matchScoreDetails.team_2.name.toUpperCase()}</h2>
         </div>
 
