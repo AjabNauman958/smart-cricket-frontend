@@ -3,6 +3,7 @@ import '../css/faqs.css'; // Import your CSS file
 import faq from '../images/faq.jpg'; // Replace with your actual image path
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { motion } from 'framer-motion'; // Import framer-motion
 
 const FAQS = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -40,10 +41,18 @@ const FAQS = () => {
       <Navbar />
       <div className="max-w-6xl mx-auto p-6 mt-14">
         <div className={`flex justify-center mb-6 transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
-          <img src={faq} alt="FAQ Illustration" className="w-full max-w-md" />
+          <motion.img src={faq} alt="FAQ Illustration" className="w-full max-w-md" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+            transition={{ duration: 0.6 }} // Duration of animation
+          />
         </div>
         <h2 className="text-3xl font-bold text-center mb-4 text-green-500">Frequently Asked Questions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4" initial={{ opacity: 0, y: 50 }} // Start with opacity 0 and moved down
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and move up to original position
+          viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the heading is in view
+          transition={{ duration: 0.6 }} // Duration of animation
+        >
           {faqs.map((faq, index) => (
             <div key={index} className="border rounded-lg p-4 shadow-md">
               <button
@@ -62,7 +71,7 @@ const FAQS = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
       <Footer />
     </>

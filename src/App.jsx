@@ -43,7 +43,7 @@ import ManagementCheckPlayerPerformancePrediction from './components/TeamManagem
 import TeamPerformancePrediction from './components/TeamManagement/TeamPerformancePrediction/TeamPerformancePrediction';
 import TeamPerformanceAnalysis from './components/TeamManagement/TeamPerformanceAnalysis/TeamPerformanceAnalysis';
 import FullRanking from './components/User/FullRanking';
-// 111
+
 function App() {
   return (
     <>
