@@ -18,14 +18,12 @@ const Sidebar = () => {
   return (
     <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-16'} md:w-64 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
       <div className="flex items-center justify-between mt-4">
-        <h1 className={`text-2xl font-bold ml-2 italic ${isOpen ? 'block' : 'hidden'} md:block`}>SmartCricket</h1>
+        <h1 className={`text-2xl font-bold ml-2 text-green-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-yellow-400'> Cricket</span></h1>
         <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          {isOpen ? <FaTimes className='text-2xl' /> : <FaBars className='text-2xl' />}
         </div>
       </div>
-      <div className="flex justify-center mt-4">
-        {/* <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} /> */}
-      </div>
+
       <ul className="flex flex-col text-xl mt-4">
         <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/MainDashboard" className="flex items-center w-full">
