@@ -3,6 +3,8 @@ import { FaMapMarkerAlt, FaHeart, FaShareAlt } from 'react-icons/fa';
 import playerProfileImage from '../../images/shaheen.jpeg';
 import countryFlag from '../../images/pak.png';
 import { Bar, Line } from "react-chartjs-2";
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -1354,7 +1356,30 @@ const playersData = [
         }
     }
 ];
+// Animation Variants
+const fadeInVariant = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
+// Reusable Animated Component
+const AnimatedComponent = ({ children }) => {
+    const [ref, inView] = useInView({
+        threshold: 0.2, // Trigger when 20% is visible
+        triggerOnce: true, // Animate only once
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            variants={fadeInVariant}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+        >
+            {children}
+        </motion.div>
+    );
+};
 
 const PlayerDetails = () => {
     const [selectedPlayer, setSelectedPlayer] = useState(playersData[0]);
@@ -1400,153 +1425,160 @@ const PlayerDetails = () => {
 
     return (
         <>
-            <div className="max-w-sm m-auto mt-10 dark:bg-gray-900 dark:text-white p-4 rounded-lg shadow-lg">
-                <label htmlFor="player-select" className="block mb-2">Select Player:</label>
-                <select
-                    id="player-select"
-                    className="block w-full p-2 border dark:bg-gray-900 dark:text-white border-gray-300 rounded"
-                    onChange={handlePlayerChange}
-                >
-                    {playersData.map(player => (
-                        <option className='dark:bg-gray-900 dark:text-white' key={player.fullName} value={player.fullName}>{player.fullName}</option>
-                    ))}
-                </select>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-                <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-4 transform transition-transform hover:scale-105 duration-400 m-auto">
-                    <div className="flex items-center mb-4">
-                        <img src={countryFlag} alt="Pakistan Flag" className="w-12 h-12 mr-2 border-2 rounded-full" />
-                        <h2 className="text-xl font-bold">{selectedPlayer.fullName}</h2>
-                    </div>
-                    <div className="flex justify-center mb-4">
-                        <img className="rounded-full border-4 border-white w-64 h-auto" src={playerProfileImage} alt={selectedPlayer.fullName} />
-                    </div>
-                    <div className="text-center mt-4">
-                        <p className="text-gray-300">INTL CAREER 2018 - 2024</p>
-                    </div>
-                    <div className="flex justify-end mt-4 space-x-2">
-                        <p className="text-lg flex items-center">
-                            <FaMapMarkerAlt className="mr-2" /> {selectedPlayer.country} | {selectedPlayer.playingRole}
-                        </p>
-                        <button
-                            className="text-white py-2 text-2xl rounded flex items-center justify-center"
-
-                        >
-                            <FaHeart className="mr-2" />
-                        </button>
-                        <button
-                            className="text-white py-2 text-2xl rounded flex items-center justify-center"
-                        >
-                            <FaShareAlt className="mr-2" />
-                        </button>
-                    </div>
-
+            <AnimatedComponent>
+                <div className="max-w-sm m-auto mt-10 dark:bg-gray-900 dark:text-white p-4 rounded-lg shadow-lg">
+                    <label htmlFor="player-select" className="block mb-2">Select Player:</label>
+                    <select
+                        id="player-select"
+                        className="block w-full p-2 border dark:bg-gray-900 dark:text-white border-gray-300 rounded"
+                        onChange={handlePlayerChange}
+                    >
+                        {playersData.map(player => (
+                            <option className='dark:bg-gray-900 dark:text-white' key={player.fullName} value={player.fullName}>{player.fullName}</option>
+                        ))}
+                    </select>
                 </div>
+            </AnimatedComponent>
 
-                <div className="grid justify-start items-start max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <h3 className="text-lg font-bold">FULL NAME</h3>
-                            <p className="text-md mt-2">{selectedPlayer.fullName}</p>
+            <AnimatedComponent>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                    <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-4 transform transition-transform hover:scale-105 duration-400 m-auto">
+                        <div className="flex items-center mb-4">
+                            <img src={countryFlag} alt="Pakistan Flag" className="w-12 h-12 mr-2 border-2 rounded-full" />
+                            <h2 className="text-xl font-bold">{selectedPlayer.fullName}</h2>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-bold">PLAYING ROLE</h3>
-                            <p className="text-md mt-2">{selectedPlayer.playingRole}</p>
+                        <div className="flex justify-center mb-4">
+                            <img className="rounded-full border-4 border-white w-64 h-auto" src={playerProfileImage} alt={selectedPlayer.fullName} />
                         </div>
-                        <div>
-                            <h3 className="text-lg font-bold">Country</h3>
-                            <p className="text-md mt-2">{selectedPlayer.country}</p>
+                        <div className="text-center mt-4">
+                            <p className="text-gray-300">INTL CAREER 2018 - 2024</p>
                         </div>
+                        <div className="flex justify-end mt-4 space-x-2">
+                            <p className="text-lg flex items-center">
+                                <FaMapMarkerAlt className="mr-2" /> {selectedPlayer.country} | {selectedPlayer.playingRole}
+                            </p>
+                            <button
+                                className="text-white py-2 text-2xl rounded flex items-center justify-center"
+
+                            >
+                                <FaHeart className="mr-2" />
+                            </button>
+                            <button
+                                className="text-white py-2 text-2xl rounded flex items-center justify-center"
+                            >
+                                <FaShareAlt className="mr-2" />
+                            </button>
+                        </div>
+
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                        <div>
-                            <h3 className="text-lg font-bold">BATTING STYLE</h3>
-                            <p className="text-md mt-2">{selectedPlayer.battingStyle}</p>
+
+                    <div className="grid justify-start items-start max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-[#00A09A] text-white p-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <h3 className="text-lg font-bold">FULL NAME</h3>
+                                <p className="text-md mt-2">{selectedPlayer.fullName}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold">PLAYING ROLE</h3>
+                                <p className="text-md mt-2">{selectedPlayer.playingRole}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold">Country</h3>
+                                <p className="text-md mt-2">{selectedPlayer.country}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-bold">BOWLING STYLE</h3>
-                            <p className="text-md mt-2">{selectedPlayer.bowlingStyle}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div>
+                                <h3 className="text-lg font-bold">BATTING STYLE</h3>
+                                <p className="text-md mt-2">{selectedPlayer.battingStyle}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold">BOWLING STYLE</h3>
+                                <p className="text-md mt-2">{selectedPlayer.bowlingStyle}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                        <div>
-                            <h3 className="text-lg font-bold">AGE</h3>
-                            <p className="text-md mt-2">{selectedPlayer.age}</p>
-                        </div>
-                        <div className="col-span-1 md:col-span-3">
-                            <h3 className="text-lg font-bold">ICC Rankings</h3>
-                            <div className="mt-2">
-                                <div className="grid grid-cols-4 text-center">
-                                    <div></div>
-                                    <div>Test</div>
-                                    <div>ODI</div>
-                                    <div>T20</div>
-                                </div>
-                                <div className="grid grid-cols-4 text-center mt-2">
-                                    <div className='font-bold'>Batting</div>
-                                    <div>{selectedPlayer.iccRankings.batting.test}</div>
-                                    <div>{selectedPlayer.iccRankings.batting.odi}</div>
-                                    <div>{selectedPlayer.iccRankings.batting.t20}</div>
-                                </div>
-                                <div className="grid grid-cols-4 text-center mt-2">
-                                    <div className='font-bold'>Bowling</div>
-                                    <div>{selectedPlayer.iccRankings.bowling.test}</div>
-                                    <div>{selectedPlayer.iccRankings.bowling.odi}</div>
-                                    <div>{selectedPlayer.iccRankings.bowling.t20}</div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div>
+                                <h3 className="text-lg font-bold">AGE</h3>
+                                <p className="text-md mt-2">{selectedPlayer.age}</p>
+                            </div>
+                            <div className="col-span-1 md:col-span-3">
+                                <h3 className="text-lg font-bold">ICC Rankings</h3>
+                                <div className="mt-2">
+                                    <div className="grid grid-cols-4 text-center">
+                                        <div></div>
+                                        <div>Test</div>
+                                        <div>ODI</div>
+                                        <div>T20</div>
+                                    </div>
+                                    <div className="grid grid-cols-4 text-center mt-2">
+                                        <div className='font-bold'>Batting</div>
+                                        <div>{selectedPlayer.iccRankings.batting.test}</div>
+                                        <div>{selectedPlayer.iccRankings.batting.odi}</div>
+                                        <div>{selectedPlayer.iccRankings.batting.t20}</div>
+                                    </div>
+                                    <div className="grid grid-cols-4 text-center mt-2">
+                                        <div className='font-bold'>Bowling</div>
+                                        <div>{selectedPlayer.iccRankings.bowling.test}</div>
+                                        <div>{selectedPlayer.iccRankings.bowling.odi}</div>
+                                        <div>{selectedPlayer.iccRankings.bowling.t20}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </AnimatedComponent>
+            <AnimatedComponent>
 
-            <div className="max-w-full mx-auto rounded overflow-hidden shadow-inner grid grid-cols-1 dark:text-white p-8 mt-8">
-                <div className='bg-[#00A09A] p-2 rounded-xl'>
-                    <h2 className="text-2xl font-bold flex items-center justify-center">{selectedPlayer.fullName} Career Stats</h2>
-                </div>
+                <div className="max-w-full mx-auto rounded overflow-hidden shadow-inner grid grid-cols-1 dark:text-white p-8 mt-8">
+                    <div className='bg-[#00A09A] p-2 rounded-xl'>
+                        <h2 className="text-2xl font-bold flex items-center justify-center">{selectedPlayer.fullName} Career Stats</h2>
+                    </div>
 
-                {Object.values(selectedPlayer.stats).map((section) => (
-                    <div key={section.title} className="mb-8">
-                        <h3 className="text-xl font-bold mb-4">{section.title}</h3>
-                        <div className="overflow-x-auto">
-                            <table className="min-w-full divide-y divide-gray-200">
-                                <thead>
-                                    <tr className="">
-                                        {Object.keys(section.stats[0]).map((key) => (
-                                            <th key={key} className="px-4 py-2 text-left dark:bg-gray-800 dark:text-white">{key.toUpperCase()}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody className="dark:bg-gray-900 dark:text-white">
-                                    {section.stats.map((stat, index) => (
-                                        <tr key={index} className="text-center">
-                                            {Object.values(stat).map((value, idx) => (
-                                                <td key={idx} className="px-4 py-2 border-t">{value}</td>
+                    {Object.values(selectedPlayer.stats).map((section) => (
+                        <div key={section.title} className="mb-8">
+                            <h3 className="text-xl font-bold mb-4">{section.title}</h3>
+                            <div className="overflow-x-auto">
+                                <table className="min-w-full divide-y divide-gray-200">
+                                    <thead>
+                                        <tr className="">
+                                            {Object.keys(section.stats[0]).map((key) => (
+                                                <th key={key} className="px-4 py-2 text-left dark:bg-gray-800 dark:text-white">{key.toUpperCase()}</th>
                                             ))}
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="dark:bg-gray-900 dark:text-white">
+                                        {section.stats.map((stat, index) => (
+                                            <tr key={index} className="text-center">
+                                                {Object.values(stat).map((value, idx) => (
+                                                    <td key={idx} className="px-4 py-2 border-t">{value}</td>
+                                                ))}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+                    ))}
+                    {/* Generate Graphs */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {["Tests", "ODIs", "T20Is"].map(format => (
+                            <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                                <h3 className="text-lg font-bold mb-2">{format} Bowling</h3>
+                                <Bar data={generateGraphData("bowling", format)} />
+                            </div>
+                        ))}
+                        {["Tests", "ODIs", "T20Is"].map(format => (
+                            <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                                <h3 className="text-lg font-bold mb-2">{format} Batting</h3>
+                                <Line data={generateGraphData("batting", format)} />
+                            </div>
+                        ))}
                     </div>
-                ))}
-                {/* Generate Graphs */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {["Tests", "ODIs", "T20Is"].map(format => (
-                        <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
-                            <h3 className="text-lg font-bold mb-2">{format} Bowling</h3>
-                            <Bar data={generateGraphData("bowling", format)} />
-                        </div>
-                    ))}
-                    {["Tests", "ODIs", "T20Is"].map(format => (
-                        <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
-                            <h3 className="text-lg font-bold mb-2">{format} Batting</h3>
-                            <Line data={generateGraphData("batting", format)} />
-                        </div>
-                    ))}
                 </div>
-            </div>
-
+            </AnimatedComponent>
 
             {/* <AverageGraph /> */}
         </>
