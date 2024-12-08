@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import babar from '../../images/babar.png';
+import { motion } from 'framer-motion';
 
 const playersData = {
   test: [
@@ -55,6 +56,20 @@ const playersData = {
   ],
 };
 
+const slideFromLeft = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const slideFromRight = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const slideFromTop = {
+  hidden: { opacity: 0, y: -100 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 const RecentSquad = () => {
   const [selectedFormat, setSelectedFormat] = useState('test');
   const players = playersData[selectedFormat];
@@ -86,8 +101,16 @@ const RecentSquad = () => {
           <div
             key={index}
             className=" flex items-center bg-white border border-gray-300 rounded-lg  transform transition-transform duration-300 hover:scale-105 shadow-lg dark:bg-gray-900 dark:text-white hover:border-warning"
+            variants={slideFromLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
-            <img src={player.image} alt={player.name} className="w-14 h-14 rounded-full mr-4" />
+            <motion.img src={player.image} alt={player.name} className="w-14 h-14 rounded-full mr-4" variants={slideFromTop}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
             <div className="text-left">
               <h3 className="text-md font-semibold">{player.name}</h3>
               <p className='text-sm'>{player.role}</p>

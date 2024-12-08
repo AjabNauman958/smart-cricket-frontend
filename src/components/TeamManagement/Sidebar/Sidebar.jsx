@@ -18,7 +18,7 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-20'} md:w-64 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
+    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-20'} md:w-64 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50 `}>
       <div className="flex items-center justify-center gap-3 mt-5">
         <h1 className={`text-2xl font-bold ml-2 text-green-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-yellow-400'> Cricket</span></h1>
         <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
