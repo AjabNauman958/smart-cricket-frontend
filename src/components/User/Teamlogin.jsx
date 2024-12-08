@@ -30,7 +30,7 @@ const Teamlogin = () => {
             toast.success('Login successful!');
             // Redirect to dashboard of player profile
             setTimeout(() => {
-                window.location.href = '/MainDashboard';
+                window.location.href = '/Maindashboard';
             }, 2000); // Redirect after 2 seconds
         } else {
             toast.error('Invalid email or password.'); // Show error toast

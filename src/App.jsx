@@ -85,7 +85,7 @@ function App() {
           <Route path="/PlayerProfile" element={<MainProfile />} />
 
           {/* Team Dashboard  */}
-          <Route path="/MainDashboard" element={<MainDashboard />} />
+          <Route path="/Maindashboard" element={<MainDashboard />} />
           <Route path="/TeamSchedule" element={<TeamSchedule />} />
           <Route path="/PlayerStatistics" element={<MainPlayerStat />} />
           <Route path="/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />

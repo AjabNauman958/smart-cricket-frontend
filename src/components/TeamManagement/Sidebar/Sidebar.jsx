@@ -26,7 +26,7 @@ const Sidebar = () => {
 
       <ul className="flex flex-col text-xl mt-4">
         <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/MainDashboard" className="flex items-center w-full">
+          <Link to="/Maindashboard" className="flex items-center w-full">
             <FaHome className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
           </Link>
