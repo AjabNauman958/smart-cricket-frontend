@@ -25,26 +25,26 @@ const Sidebar = () => {
       </div>
 
       <ul className="flex flex-col text-xl mt-4">
-        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/Maindashboard" className="flex items-center w-full">
+        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>
+          <Link to="/TeamManagement/MainDashboard" className="flex items-center w-full">
             <FaHome className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
           </Link>
         </li>
-        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/PlayerStatistics") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/PlayerStatistics" className="flex items-center w-full">
+        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/PlayerStatistics") ? 'bg-[#00A09A] text-white' : ''}`}>
+          <Link to="/TeamManagement/PlayerStatistics" className="flex items-center w-full">
             <FaUsers className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Player Stats</span>
           </Link>
         </li>
-        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamSchedule") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/TeamSchedule" className="flex items-center w-full ">
+        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/TeamSchedule") ? 'bg-[#00A09A] text-white' : ''}`}>
+          <Link to="/TeamManagement/TeamSchedule" className="flex items-center w-full ">
             <FaRegClock className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</span>
           </Link>
         </li>
 
-        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/ManagementCheckPlayerPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''} group`}>
+        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/ManagementCheckPlayerPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''} group`}>
           <div className="dropdown dropdown-right flex items-center w-full">
             <Link className="flex items-center w-full ">
               <FaChartLine className='text-2xl ' />
@@ -52,17 +52,17 @@ const Sidebar = () => {
             </Link>
             {/* Dropdown menu */}
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 group-hover:block hidden">
-              <li className={`hover:text-black text-black ${isActive("/ManagementCheckPlayerPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''}`}>
-                <Link to="/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link>
+              <li className={`hover:text-black text-black ${isActive("/TeamManagement/ManagementCheckPlayerPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''}`}>
+                <Link to="/TeamManagement/ManagementCheckPlayerPerformancePrediction" className='dark:hover:text-yellow-300'> Player's Performance Prediction</Link>
               </li>
-              <li className={`hover:text-black text-black ${isActive("/TeamPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''}`}>
-                <Link to="/TeamPerformancePrediction" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link>
+              <li className={`hover:text-black text-black ${isActive("/TeamManagement/TeamPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''}`}>
+                <Link to="/TeamManagement/TeamPerformancePrediction" className='dark:hover:text-yellow-300'> Team's Performance Prediction</Link>
               </li>
             </ul>
           </div>
         </li>
 
-        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/PlayerPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''} group`}>
+        <li className={`flex items-center py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/PlayerPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''} group`}>
           <div className="dropdown dropdown-right flex items-center w-full">
             <Link className="flex items-center w-full ">
               <FaChartBar className='text-2xl' />
@@ -70,26 +70,26 @@ const Sidebar = () => {
             </Link>
             {/* Dropdown menu */}
             <ul className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow dark:bg-gray-800 group-hover:block hidden">
-              <li className={`hover:text-black text-black ${isActive("/PlayerPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
-                <Link to="/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link>
+              <li className={`hover:text-black text-black ${isActive("/TeamManagement/PlayerPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
+                <Link to="/TeamManagement/PlayerPerformanceAnalysis" className='dark:hover:text-yellow-300 '> Player's Performance Analysis</Link>
               </li>
-              <li className={`hover:text-black text-black ${isActive("/TeamPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
-                <Link to="/TeamPerformanceAnalysis" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link>
+              <li className={`hover:text-black text-black ${isActive("/TeamManagement/TeamPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
+                <Link to="/TeamManagement/TeamPerformanceAnalysis" className='dark:hover:text-yellow-300'> Team's Performance Analysis</Link>
               </li>
             </ul>
           </div>
         </li>
 
 
-        <li className={`flex py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/SuggestPlayingXI") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/SuggestPlayingXI" className="flex items-center w-full">
+        <li className={`flex py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/SuggestPlayingXI") ? 'bg-[#00A09A] text-white' : ''}`}>
+          <Link to="/TeamManagement/SuggestPlayingXI" className="flex items-center w-full">
             <FaListAlt className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Suggest Playing XI</span>
           </Link>
         </li>
 
-        <li className={`flex py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamOpponentAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
-          <Link to="/TeamOpponentAnalysis" className="flex items-center w-full">
+        <li className={`flex py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/TeamOpponentAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
+          <Link to="/TeamManagement/TeamOpponentAnalysis" className="flex items-center w-full">
             <FaFistRaised className='text-2xl' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Team Analysis</span>
           </Link>

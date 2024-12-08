@@ -85,15 +85,15 @@ function App() {
           <Route path="/PlayerProfile" element={<MainProfile />} />
 
           {/* Team Dashboard  */}
-          <Route path="/Maindashboard" element={<MainDashboard />} />
-          <Route path="/TeamSchedule" element={<TeamSchedule />} />
-          <Route path="/PlayerStatistics" element={<MainPlayerStat />} />
-          <Route path="/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />
-          <Route path="/SuggestPlayingXI" element={<SuggestPlayingXI />} />
-          <Route path="/PlayerPerformanceAnalysis" element={<ManagementCheckPlayerPerformanceAnalysis />} />
-          <Route path="/ManagementCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
-          <Route path="/TeamPerformancePrediction" element={<TeamPerformancePrediction />} />
-          <Route path="/TeamPerformanceAnalysis" element={<TeamPerformanceAnalysis />} />
+          <Route path="/TeamManagement/MainDashboard" element={<MainDashboard />} />
+          <Route path="/TeamManagement/TeamSchedule" element={<TeamSchedule />} />
+          <Route path="/TeamManagement/PlayerStatistics" element={<MainPlayerStat />} />
+          <Route path="/TeamManagement/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />
+          <Route path="/TeamManagement/SuggestPlayingXI" element={<SuggestPlayingXI />} />
+          <Route path="/TeamManagement/PlayerPerformanceAnalysis" element={<ManagementCheckPlayerPerformanceAnalysis />} />
+          <Route path="/TeamManagement/ManagementCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
+          <Route path="/TeamManagement/TeamPerformancePrediction" element={<TeamPerformancePrediction />} />
+          <Route path="/TeamManagement/TeamPerformanceAnalysis" element={<TeamPerformanceAnalysis />} />
 
 
 
