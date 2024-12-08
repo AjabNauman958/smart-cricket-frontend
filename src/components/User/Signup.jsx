@@ -52,11 +52,6 @@ const Signup = () => {
         visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
     };
 
-    const slideFromTop = {
-        hidden: { opacity: 0, y: -100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    };
-
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen py-2  ${animation ? 'fade-in active' : ''}`}>
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
