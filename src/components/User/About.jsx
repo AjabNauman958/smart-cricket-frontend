@@ -72,7 +72,7 @@ const About = () => {
             </motion.h1>
             <motion.p
               className="mb-5 text-md"
-              variants={slideFromTop}
+              variants={slideFromLeft}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -118,7 +118,7 @@ const About = () => {
               src={section.imgSrc}
               alt={section.heading}
               className="w-full max-w-lg h-auto object-cover rounded transform transition-transform duration-500 hover:scale-105 hover:translate-y-1"
-              variants={slideFromTop}
+              variants={slideFromLeft}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
