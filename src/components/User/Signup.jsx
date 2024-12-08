@@ -6,6 +6,7 @@ import cricketImage from '../images/signup.png';
 import '../css/signup.css'; // Ensure your CSS file is imported
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { motion } from 'framer-motion';
 
 const Signup = () => {
     const [userName, setUserName] = useState('');
@@ -28,7 +29,7 @@ const Signup = () => {
             return;
         }
         if (password !== confirmPassword) {
-           
+
             toast.error('Passwords do not match.');
             return;
         }
@@ -40,6 +41,22 @@ const Signup = () => {
         }, 2000);
     };
 
+
+    const slideFromLeft = {
+        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+    };
+
+    const slideFromRight = {
+        hidden: { opacity: 0, x: 100 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+    };
+
+    const slideFromTop = {
+        hidden: { opacity: 0, y: -100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    };
+
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen py-2  ${animation ? 'fade-in active' : ''}`}>
             <main className="flex flex-col items-center justify-center w-full h-full px-4 md:px-20 text-center">
@@ -47,12 +64,20 @@ const Signup = () => {
                     {/* Left side */}
                     <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tl-2xl rounded-bl-2xl py-8 md:py-16 px-4 md:px-12 flex flex-col justify-center items-center leftdiv'>
                         <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold mb-2'>SmartCricket</h2>
-                        <div className='border-2 w-10 border-white inline-block mb-2'></div>
-                        <img src={cricketImage} alt="Cricket Image" className="w-40 md:w-60 lg:w-80 xl:w-96 h-40 md:h-60 lg:h-80 xl:h-96 mb-4" />
+                        <div className='border-2 w-60 border-white inline-block mb-2'></div>
+                        <motion.img src={cricketImage} alt="Cricket Image" className="w-40 md:w-60 lg:w-80 xl:w-96 h-40 md:h-60 lg:h-80 xl:h-96 mb-4" variants={slideFromLeft}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        />
                     </div>
                     {/* Right side */}
-                    <div className='w-full md:w-3/5 p-5 rightdiv'>
-                       
+                    <motion.div className='w-full md:w-3/5 p-5 rightdiv' variants={slideFromRight}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+
                         <div className='py-10'>
                             <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-green-500 mb-2'>Create an Account</h2>
                             <div className='border-2 w-72 border-green-500 inline-block mb-2'></div>
@@ -157,7 +182,7 @@ const Signup = () => {
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </main>
             <ToastContainer />
