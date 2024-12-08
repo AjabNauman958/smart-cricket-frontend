@@ -23,16 +23,16 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-16'} md:w-64 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
-      <div className="flex items-center justify-center mt-4 text-center relative">
-        <h1 className={`text-2xl font-bold italic ${isOpen ? 'block' : 'hidden'} md:block`}>
+    <div className={`bg-gray-100 text-gray-900 min-h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-20'} md:w-64 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
+      <div className="flex items-center justify-center gap-3 text-center relative mt-5">
+        <h1 className={`text-2xl font-bold  ${isOpen ? 'block' : 'hidden'} md:block`}>
           Smart <span className="text-green-600">Cricket</span>
         </h1>
-        <div className="cursor-pointer md:hidden absolute right-0" onClick={toggleSidebar}>
+        <div className="cursor-pointer  md:hidden " onClick={toggleSidebar}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </div>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex items-center mt-4">
         <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} />
       </div>
       <ul className="flex flex-col text-xl mt-4">
@@ -42,10 +42,10 @@ const Sidebar = () => {
           return (
             <li
               key={index}
-              className={`flex items-center justify-center md:justify-start py-3 px-2 space-x-4 rounded transition-all duration-300 ${isActive ? 'bg-[#00A09A] text-white' : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+              className={`flex items-center justify-start   py-3 px-2 space-x-4 rounded transition-all duration-300 ${isActive ? 'bg-[#00A09A] text-white' : 'hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
             >
-              <Link to={item.to} className="flex items-center w-full">
+              <Link to={item.to} className="flex items-center">
                 {React.cloneElement(item.icon, { className: `${isOpen ? 'text-2xl' : 'text-3xl'} md:text-2xl` })}
                 <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>{item.label}</span>
               </Link>
@@ -53,12 +53,12 @@ const Sidebar = () => {
           );
         })}
       </ul>
-      <div className={`absolute bottom-0 left-0 w-full p-4 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
+      <div className={`absolute bottom-0 left-0 w-full p-3 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
         <div className="flex items-center justify-center">
-          <FaUser className="w-8 h-8" />
+          <FaUser className="w-6 h-6" />
           <div className="ml-2">
-            <p className="text-lg font-bold">User Name</p>
-            <p className="text-sm">user@example.com</p>
+            <p className="text-base font-bold">User Name</p>
+            <p className="text-sm">user@gmail.com</p>
           </div>
         </div>
       </div>
