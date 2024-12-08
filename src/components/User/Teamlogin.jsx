@@ -24,13 +24,13 @@ const Teamlogin = () => {
             toast.error('Please enter both email and password.'); // Show error toast
             return;
         }
-         // Add authentication logic
-         if (email === 'your@email.com' && password === 'yourpassword') {
+        // Add authentication logic
+        if (email === 'your@email.com' && password === 'yourpassword') {
             // Show success toast
             toast.success('Login successful!');
             // Redirect to dashboard of player profile
             setTimeout(() => {
-                window.location.href = '/TeamManagement/MainDashboard';
+                window.location.href = '/MainDashboard';
             }, 2000); // Redirect after 2 seconds
         } else {
             toast.error('Invalid email or password.'); // Show error toast
@@ -63,8 +63,8 @@ const Teamlogin = () => {
                                         className='bg-gray-100 outline-none text-xs md:text-sm lg:text-md xl:text-md flex-1 p-2 rounded-lg input-field'
                                     />
                                 </div>
-                               {/* Password input field with icon and toggle */}
-                               <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
+                                {/* Password input field with icon and toggle */}
+                                <div className='bg-gray-100 w-full md:w-80 p-2 flex items-center mb-3 rounded-lg input-container'>
                                     <MdLockOutline className="text-gray-400 m-2 text-sm md:text-base lg:text-md xl:text-md" />
                                     <div className="relative flex-1">
                                         <input
