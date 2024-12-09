@@ -54,15 +54,7 @@ const Sidebar = () => {
           );
         })}
       </ul>
-      <div className={`absolute bottom-0 left-0 w-full p-3 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
-        <div className="flex items-center justify-center">
-          <FaUser className="w-6 h-6" />
-          <div className="ml-2">
-            <p className="text-base font-bold">User Name</p>
-            <p className="text-sm">user@gmail.com</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   );
 };
