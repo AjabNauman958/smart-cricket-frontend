@@ -20,30 +20,31 @@ const Sidebar = () => {
   return (
     <div className={`bg-gray-100 text-gray-900 h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-20'} md:w-64 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50 `}>
       <div className="flex items-center justify-center gap-3 mt-5">
-        <h1 className={`text-2xl font-bold ml-2 text-green-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-yellow-400'> Cricket</span></h1>
         <div className="cursor-pointer md:hidden" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes className='text-2xl' /> : <FaBars className='text-2xl' />}
+          {isOpen ? <FaTimes className='text-2xl text-gray-500' /> : <FaBars className='text-2xl text-gray-500' />}
         </div>
       </div>
-      <div className="flex items-center mt-4">
-        <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} />
+      <div className="text-center mt-4">
+
+        <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block w-32 mx-auto `} />
+        <h1 className={`text-2xl font-bold ml-2 text-green-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-yellow-400'> Cricket</span></h1>
       </div>
-      <ul className="flex flex-col text-xl mt-4">
+      <ul className="flex flex-col text-xl mt-4 justify-center gap-2">
         <li className={`flex items-center justify-start py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/MainDashboard" className="flex items-center ">
-            <FaHome className='text-2xl' />
+            <FaHome className='text-2xl text-gray-500' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Dashboard</span>
           </Link>
         </li>
         <li className={`flex items-center justify-start py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/PlayerStatistics") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/PlayerStatistics" className="flex items-center">
-            <FaUsers className='text-2xl' />
+            <FaUsers className='text-2xl text-gray-500' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Player Stats</span>
           </Link>
         </li>
         <li className={`flex items-center justify-start  py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/TeamSchedule") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/TeamSchedule" className="flex items-center  ">
-            <FaRegClock className='text-2xl' />
+            <FaRegClock className='text-2xl text-gray-500' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Team Schedule</span>
           </Link>
         </li>
@@ -51,7 +52,7 @@ const Sidebar = () => {
         <li className={`flex items-center py-3 justify-start  px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/ManagementCheckPlayerPerformancePrediction") ? 'bg-[#00A09A] text-white' : ''} group`}>
           <div className="dropdown dropdown-right flex items-center ">
             <Link className="flex items-center  ">
-              <FaChartLine className='text-2xl ' />
+              <FaChartLine className='text-2xl text-gray-500 ' />
               <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn " md:inline text-base `}>Performance Prediction</span>
             </Link>
             {/* Dropdown menu */}
@@ -69,7 +70,7 @@ const Sidebar = () => {
         <li className={`flex items-center justify-start  py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/PlayerPerformanceAnalysis") ? 'bg-[#00A09A] text-white' : ''} group`}>
           <div className="dropdown dropdown-right flex items-center">
             <Link className="flex items-center ">
-              <FaChartBar className='text-2xl' />
+              <FaChartBar className='text-2xl text-gray-500' />
               <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} tabIndex={0} role="button" className="btn " md:inline text-base`}>Performance Analysis</span>
             </Link>
             {/* Dropdown menu */}
@@ -87,28 +88,20 @@ const Sidebar = () => {
 
         <li className={`flex py-3 justify-start items-center px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/SuggestPlayingXI") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/SuggestPlayingXI" className="flex items-center">
-            <FaListAlt className='text-2xl' />
+            <FaListAlt className='text-2xl text-gray-500' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Suggest Playing XI</span>
           </Link>
         </li>
 
         <li className={`flex items-center justify-start py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/TeamOpponentAnalysis") ? 'bg-[#00A09A] text-white' : ''}`}>
           <Link to="/TeamManagement/TeamOpponentAnalysis" className="flex items-center ">
-            <FaFistRaised className='text-2xl' />
+            <FaFistRaised className='text-2xl text-gray-500' />
             <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>Opponent Team Analysis</span>
           </Link>
         </li>
       </ul>
 
-      <div className={`absolute bottom-0 left-0 w-full p-2 bg-[#00A09A] text-white ${isOpen ? 'block' : 'hidden'} md:block`}>
-        <div className="flex items-center justify-center">
-          <FaUser className="w-6 h-6" />
-          <div className="ml-2">
-            <p className="text-base font-bold">Your Manager</p>
-            <p className="text-sm">manager@gmail.com</p>
-          </div>
-        </div>
-      </div>
+      {/*  */}
     </div>
   );
 };
