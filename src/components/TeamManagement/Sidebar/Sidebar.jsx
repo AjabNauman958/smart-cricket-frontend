@@ -27,7 +27,7 @@ const Sidebar = () => {
       <div className="text-center mt-4">
 
         <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block w-32 mx-auto `} />
-        <h1 className={`text-2xl font-bold ml-2 text-green-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-yellow-400'> Cricket</span></h1>
+        <h1 className={`text-2xl font-bold ml-2 text-yellow-500  ${isOpen ? 'block' : 'hidden'} md:block`}>Smart <span className='text-green-600'> Cricket</span></h1>
       </div>
       <ul className="flex flex-col text-xl mt-4 justify-center gap-2">
         <li className={`flex items-center justify-start py-3 px-2 space-x-4 hover:bg-[#00A09A] hover:text-white rounded transition-all duration-300 ${isActive("/TeamManagement/MainDashboard") ? 'bg-[#00A09A] text-white' : ''}`}>

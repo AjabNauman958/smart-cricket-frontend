@@ -32,7 +32,7 @@ const Sidebar = () => {
       </div>
       <div className="text-center mt-4">
         <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block w-32 mx-auto`} />
-        <h1 className={`text-2xl font-bold  ${isOpen ? 'block' : 'hidden'} md:block`}>
+        <h1 className={`text-2xl font-bold text-yellow-500  ${isOpen ? 'block' : 'hidden'} md:block`}>
           Smart <span className="text-green-600">Cricket</span>
         </h1>
       </div>
