@@ -48,17 +48,21 @@ const MainDashboardApp = () => {
             <Sidebar />
           </AnimatedComponent>
           <div
-            className="grow ml-16 md:ml-64  bg-gray-100 text-gray-900
+            className="grow  ml-16 md:ml-64  bg-gray-100 text-gray-900
       dark:bg-gray-900 dark:text-white flex-wrap"
           >
             <AnimatedComponent>
 
               <DashboardNavbar />
             </AnimatedComponent>
-            <AnimatedComponent>
+            <div className="grow p-10   bg-gray-100 text-gray-900
+      dark:bg-gray-900 dark:text-white flex-wrap">
 
-              <WelcomeMessage />
-            </AnimatedComponent>
+              <AnimatedComponent>
+
+                <WelcomeMessage />
+              </AnimatedComponent>
+            </div>
             <div className="mt-9 ml-6 flex flex-wrap justify-center items-center">
               <AnimatedComponent>
 
