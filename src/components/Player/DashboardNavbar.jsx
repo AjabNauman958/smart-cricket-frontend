@@ -9,33 +9,33 @@ const DashboardNavbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const location = useLocation();
+  // const location = useLocation();
 
   const user = { name: "Shaheen Shah Afridi", email: "shaheenshah@gmail.com", profileImage: playerImage };
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
-    };
+  // // Close dropdown when clicking outside
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setDropdownOpen(false);
+  //     }
+  //   };
 
-    document.addEventListener('mousedown', handleClickOutside);
+  //   document.addEventListener('mousedown', handleClickOutside);
 
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  //   return () => document.removeEventListener('mousedown', handleClickOutside);
+  // }, []);
 
   // Extract current route for display
-  const currentPath = location.pathname.replace('/Player', 'PlayerDashboard');
+  // const currentPath = location.pathname.replace('/Player', 'PlayerDashboard');
 
   return (
     <div className='bg-gray-100 text-gray-900 border-b border-gray-300 p-4 flex justify-between items-center dark:border-gray-600 dark:bg-gray-900 dark:text-white'>
       {/* Left side: Display route name */}
       <h1 className='sm:text-sm text-gray-600 dark:text-white ml-5'>
-        {currentPath}
+        {/* {currentPath} */}
       </h1>
 
       {/* Right side: Theme toggle and profile */}
