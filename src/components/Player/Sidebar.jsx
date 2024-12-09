@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaHome, FaRegClock, FaChartLine, FaChartBar, FaFistRaised, FaUser, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaRegClock, FaChartLine, FaChartBar, FaFistRaised, FaUser, FaBars, FaTimes, } from 'react-icons/fa';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/logo.png';
@@ -25,17 +25,18 @@ const Sidebar = () => {
   return (
     <div className={`bg-gray-100 text-gray-900 min-h-screen px-4 fixed ${isOpen ? 'w-72' : 'w-20'} md:w-64 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white transition-width duration-300 shadow-lg z-50`}>
       <div className="flex items-center justify-center gap-3 text-center relative mt-5">
-        <h1 className={`text-2xl font-bold  ${isOpen ? 'block' : 'hidden'} md:block`}>
-          Smart <span className="text-green-600">Cricket</span>
-        </h1>
-        <div className="cursor-pointer  md:hidden " onClick={toggleSidebar}>
+
+        <div className="cursor-pointer  md:hidden text-gray-500" onClick={toggleSidebar}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </div>
       </div>
-      <div className="flex items-center mt-4">
-        <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block`} />
+      <div className="text-center mt-4">
+        <img src={logo} alt="Logo" className={`rounded-full ${isOpen ? 'block' : 'hidden'} md:block w-32 mx-auto`} />
+        <h1 className={`text-2xl font-bold  ${isOpen ? 'block' : 'hidden'} md:block`}>
+          Smart <span className="text-green-600">Cricket</span>
+        </h1>
       </div>
-      <ul className="flex flex-col text-xl mt-4">
+      <ul className="flex flex-col text-xl mt-4 gap-2">
         {links.map((item, index) => {
           const isActive = location.pathname === item.to; // Check if the current route matches the link
 
@@ -46,7 +47,7 @@ const Sidebar = () => {
                 }`}
             >
               <Link to={item.to} className="flex items-center">
-                {React.cloneElement(item.icon, { className: `${isOpen ? 'text-2xl' : 'text-3xl'} md:text-2xl` })}
+                {React.cloneElement(item.icon, { className: `${isOpen ? 'text-2xl text-gray-500' : 'text-2xl text-gray-500'} md:text-2xl ` })}
                 <span className={`ml-2 ${isOpen ? 'inline' : 'hidden'} md:inline text-base`}>{item.label}</span>
               </Link>
             </li>
