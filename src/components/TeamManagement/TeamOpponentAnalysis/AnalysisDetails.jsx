@@ -1,71 +1,225 @@
-import React, { useState } from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
-import { Chart, registerables } from 'chart.js';
-import 'tailwindcss/tailwind.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { Bar, Pie } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
+import "tailwindcss/tailwind.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 Chart.register(...registerables);
 
-const teams = [
-  'Australia', 'Bangladesh', 'England', 'India', 'New Zealand', 'Pakistan', 'South Africa',
-  'Sri Lanka', 'West Indies', 'Afghanistan', 'Ireland', 'Netherlands', 'Scotland',
-  'United Arab Emirates', 'Zimbabwe',
-];
+// Teams data against Pakistan for different formats (Test, ODI, T20)
+const teamsDataAgainstPakistan = {
+  India: {
+    Test: {
+      totalMatches: 20,
+      wins: 10,
+      losses: 10,
+      homeWins: 5,
+      awayWins: 3,
+      neutralWins: 2,
+      homeLosses: 5,
+      awayLosses: 3,
+      neutralLosses: 2,
+    },
+    ODI: {
+      totalMatches: 30,
+      wins: 18,
+      losses: 12,
+      homeWins: 8,
+      awayWins: 6,
+      neutralWins: 4,
+      homeLosses: 5,
+      awayLosses: 3,
+      neutralLosses: 4,
+    },
+    T20: {
+      totalMatches: 15,
+      wins: 8,
+      losses: 7,
+      homeWins: 4,
+      awayWins: 2,
+      neutralWins: 2,
+      homeLosses: 3,
+      awayLosses: 2,
+      neutralLosses: 2,
+    },
+  },
+  Australia: {
+    Test: {
+      totalMatches: 25,
+      wins: 15,
+      losses: 10,
+      homeWins: 8,
+      awayWins: 5,
+      neutralWins: 2,
+      homeLosses: 3,
+      awayLosses: 5,
+      neutralLosses: 2,
+    },
+    ODI: {
+      totalMatches: 35,
+      wins: 20,
+      losses: 15,
+      homeWins: 10,
+      awayWins: 7,
+      neutralWins: 3,
+      homeLosses: 5,
+      awayLosses: 6,
+      neutralLosses: 4,
+    },
+    T20: {
+      totalMatches: 18,
+      wins: 10,
+      losses: 8,
+      homeWins: 6,
+      awayWins: 3,
+      neutralWins: 1,
+      homeLosses: 2,
+      awayLosses: 3,
+      neutralLosses: 3,
+    },
+  },
+  England: {
+    Test: {
+      totalMatches: 22,
+      wins: 12,
+      losses: 10,
+      homeWins: 6,
+      awayWins: 4,
+      neutralWins: 2,
+      homeLosses: 3,
+      awayLosses: 4,
+      neutralLosses: 3,
+    },
+    ODI: {
+      totalMatches: 32,
+      wins: 18,
+      losses: 14,
+      homeWins: 9,
+      awayWins: 5,
+      neutralWins: 4,
+      homeLosses: 4,
+      awayLosses: 6,
+      neutralLosses: 4,
+    },
+    T20: {
+      totalMatches: 14,
+      wins: 7,
+      losses: 7,
+      homeWins: 3,
+      awayWins: 2,
+      neutralWins: 2,
+      homeLosses: 2,
+      awayLosses: 2,
+      neutralLosses: 3,
+    },
+  },
+  SouthAfrica: {
+    Test: {
+      totalMatches: 20,
+      wins: 10,
+      losses: 10,
+      homeWins: 5,
+      awayWins: 3,
+      neutralWins: 2,
+      homeLosses: 5,
+      awayLosses: 3,
+      neutralLosses: 2,
+    },
+    ODI: {
+      totalMatches: 28,
+      wins: 14,
+      losses: 14,
+      homeWins: 7,
+      awayWins: 5,
+      neutralWins: 2,
+      homeLosses: 6,
+      awayLosses: 5,
+      neutralLosses: 3,
+    },
+    T20: {
+      totalMatches: 12,
+      wins: 6,
+      losses: 6,
+      homeWins: 3,
+      awayWins: 2,
+      neutralWins: 1,
+      homeLosses: 2,
+      awayLosses: 2,
+      neutralLosses: 2,
+    },
+  },
+  NewZealand: {
+    Test: {
+      totalMatches: 18,
+      wins: 9,
+      losses: 9,
+      homeWins: 4,
+      awayWins: 3,
+      neutralWins: 2,
+      homeLosses: 4,
+      awayLosses: 3,
+      neutralLosses: 2,
+    },
+    ODI: {
+      totalMatches: 25,
+      wins: 15,
+      losses: 10,
+      homeWins: 6,
+      awayWins: 4,
+      neutralWins: 5,
+      homeLosses: 2,
+      awayLosses: 3,
+      neutralLosses: 3,
+    },
+    T20: {
+      totalMatches: 10,
+      wins: 6,
+      losses: 4,
+      homeWins: 3,
+      awayWins: 2,
+      neutralWins: 1,
+      homeLosses: 1,
+      awayLosses: 2,
+      neutralLosses: 1,
+    },
+  },
+};
 
-const AnalysisDetails = () => {
-  const [selectedTeam, setSelectedTeam] = useState('');
-  const [showCharts, setShowCharts] = useState(false);
 
-  // Generate random data for each month (12 months)
-  const generateRandomData = (min, max, count) =>
-    Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+const chartData = (label, labels, data) => ({
+  labels,
+  datasets: [
+    {
+      label,
+      data,
+      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(255, 99, 132, 0.6)", "rgba(255, 206, 86, 0.6)"],
+      borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)", "rgba(255, 206, 86, 1)"],
+      borderWidth: 1,
+    },
+  ],
+});
 
-  // Data sets for different formats and tournaments
-  const dataSets = {
-    overall: generateRandomData(50, 100, 12), // Data for 12 months
-    t20: generateRandomData(100, 180, 12), // Data for 12 months
-    test: generateRandomData(200, 500, 12), // Data for 12 months
-    odi: generateRandomData(200, 300, 12), // Data for 12 months
-    t20WorldCup: generateRandomData(120, 180, 12), // Data for 12 months
-    odiWorldCup: generateRandomData(220, 350, 12), // Data for 12 months
-    testChampionship: generateRandomData(400, 700, 12), // Data for 12 months
-  };
+const MatchAnalysis = () => {
+  const [selectedTeam, setSelectedTeam] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Test");
 
-  // Chart data function for dynamically rendering charts
-  const chartData = (label, data) => ({
-    labels: ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'],
-    datasets: [
-      {
-        label,
-        data,
-        backgroundColor: [
-          'rgba(75, 192, 192, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(255, 159, 64, 0.4)',
-          'rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(201, 203, 207, 0.4)',
-          'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 192, 0.4)', 'rgba(153, 102, 255, 0.4)',
-          'rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(201, 203, 207, 0.4)',
-        ],
-        borderColor: [
-          'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)',
-          'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(201, 203, 207, 1)',
-          'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-          'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(201, 203, 207, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  });
-
-  // Handle team selection change
   const handleTeamChange = (event) => {
-    setSelectedTeam(event.target.value);
-    setShowCharts(true);
-    toast.success(`You have selected ${event.target.value}`);
+    const team = event.target.value;
+    setSelectedTeam(team);
+    setSelectedCategory("Test"); // Default to "Test" when team changes
+    toast.success(`Showing stats for: ${team}`);
   };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const teamData = teamsDataAgainstPakistan[selectedTeam]?.[selectedCategory] || {};
 
   return (
     <div className="p-5">
+      {/* Team Selector */}
       <div className="mb-5 max-w-sm m-auto">
         <label htmlFor="team-select" className="block text-lg font-medium dark:bg-gray-900 dark:text-white">
           Select a Team
@@ -73,13 +227,11 @@ const AnalysisDetails = () => {
         <select
           id="team-select"
           className="dark:bg-gray-900 dark:text-white mt-2 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full"
-          value={selectedTeam}
           onChange={handleTeamChange}
+          value={selectedTeam}
         >
-          <option value="" disabled>
-            Select a team
-          </option>
-          {teams.map((team) => (
+          <option value="">-- Select Team --</option>
+          {Object.keys(teamsDataAgainstPakistan).map((team) => (
             <option key={team} value={team}>
               {team}
             </option>
@@ -87,85 +239,103 @@ const AnalysisDetails = () => {
         </select>
       </div>
 
-      {showCharts && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
-          {/* Overall Performance Chart */}
+      {/* Category Selector */}
+      {selectedTeam && (
+        <div className="mb-5 max-w-sm m-auto">
+          <label htmlFor="category-select" className="block text-lg font-medium dark:bg-gray-900 dark:text-white">
+            Select Category
+          </label>
+          <select
+            id="category-select"
+            className="dark:bg-gray-900 dark:text-white mt-2 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full"
+            onChange={handleCategoryChange}
+            value={selectedCategory}
+          >
+            <option value="Test">Test</option>
+            <option value="ODI">ODI</option>
+            <option value="T20">T20</option>
+          </select>
+        </div>
+      )}
+
+      {/* Show Charts */}
+      {selectedTeam && selectedCategory && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Total Matches */}
           <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">Overall</h2>
-            <div className="chart-wrapper">
-              <Bar data={chartData('Overall Performance', dataSets.overall)} options={{ maintainAspectRatio: false }} />
-            </div>
+            <h2 className="text-xl font-semibold mb-3">Total Matches Played</h2>
+            <Bar
+              data={chartData(
+                `Total Matches (${selectedCategory})`,
+                ["Wins", "Losses"],
+                [teamData.wins || 0, teamData.losses || 0]
+              )}
+              options={{ maintainAspectRatio: true }}
+            />
           </div>
 
-          {/* T20 Performance Chart */}
+          {/* Home Matches */}
           <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">T20</h2>
-            <div className="chart-wrapper">
-              <Line data={chartData('T20 Performance', dataSets.t20)} options={{ maintainAspectRatio: false }} />
-            </div>
+            <h2 className="text-xl font-semibold mb-3">Home Matches</h2>
+            <Pie
+              data={chartData(
+                `Home Matches (${selectedCategory})`,
+                ["Home Wins", "Home Losses"],
+                [teamData.homeWins || 0, teamData.homeLosses || 0]
+              )}
+              options={{ maintainAspectRatio: true }}
+            />
           </div>
 
-          {/* Test Performance Chart */}
+          {/* Away Matches */}
           <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">Test</h2>
-            <div className="chart-wrapper">
-              <Pie data={chartData('Test Performance', dataSets.test)} options={{ maintainAspectRatio: false }} />
-            </div>
+            <h2 className="text-xl font-semibold mb-3">Away Matches</h2>
+            <Bar
+              data={chartData(
+                `Away Matches (${selectedCategory})`,
+                ["Away Wins", "Away Losses"],
+                [teamData.awayWins || 0, teamData.awayLosses || 0]
+              )}
+              options={{ maintainAspectRatio: true }}
+            />
           </div>
 
-          {/* ODI Performance Chart */}
+          {/* Neutral Venue */}
           <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">ODI</h2>
-            <div className="chart-wrapper">
-              <Bar data={chartData('ODI Performance', dataSets.odi)} options={{ maintainAspectRatio: false }} />
-            </div>
+            <h2 className="text-xl font-semibold mb-3">Neutral Venue</h2>
+            <Pie
+              data={chartData(
+                `Neutral Matches (${selectedCategory})`,
+                ["Neutral Wins", "Neutral Losses"],
+                [teamData.neutralWins || 0, teamData.neutralLosses || 0]
+              )}
+              options={{ maintainAspectRatio: true }}
+            />
           </div>
 
-          {/* ICC T20 World Cup Performance Chart */}
+          {/* Total Losses */}
           <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">ICC T20 World Cup</h2>
-            <div className="chart-wrapper">
-              <Line
-                data={chartData('T20 World Cup Performance', dataSets.t20WorldCup)}
-                options={{ maintainAspectRatio: false }}
-              />
-            </div>
-          </div>
-
-          {/* ICC ODI World Cup Performance Chart */}
-          <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">ICC ODI World Cup</h2>
-            <div className="chart-wrapper">
-              <Pie
-                data={chartData('ODI World Cup Performance', dataSets.odiWorldCup)}
-                options={{ maintainAspectRatio: false }}
-              />
-            </div>
-          </div>
-
-          {/* ICC Test Championship Performance Chart */}
-          <div className="chart-container dark:bg-gray-900 dark:text-white p-5 shadow-md rounded-md">
-            <h2 className="text-xl font-semibold mb-3">ICC Test Championship</h2>
-            <div className="chart-wrapper">
-              <Bar
-                data={chartData('Test Championship Performance', dataSets.testChampionship)}
-                options={{ maintainAspectRatio: false }}
-              />
-            </div>
+            <h2 className="text-xl font-semibold mb-3">Total Losses</h2>
+            <Bar
+              data={chartData(
+                `Total Losses (${selectedCategory})`,
+                ["Home Losses", "Away Losses", "Neutral Losses"],
+                [
+                  teamData.homeLosses || 0,
+                  teamData.awayLosses || 0,
+                  teamData.neutralLosses || 0,
+                ]
+              )}
+              options={{ maintainAspectRatio: true }}
+            />
           </div>
         </div>
       )}
 
       <ToastContainer />
-
-      <style jsx>{`
-        .chart-wrapper {
-          width: 100%;
-          height: 300px; /* Fixed height for all charts */
-        }
-      `}</style>
     </div>
+
   );
 };
 
-export default AnalysisDetails;
+export default MatchAnalysis;
