@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// user screen 
 import Login from './components/User/Login';
 import Signup from './components/User/Signup';
 import PlayerLogin from './components/User/Playerlogin';
@@ -25,7 +26,9 @@ import Topheader from './components/User/Topheader';
 import UserProfile from './components/User/UserProfile';
 import ScrollToTop from './components/User/ScrollToTop/ScrollToTop';
 
+
 import './App.css';
+// player dashboard 
 import MainDashboardApp from './components/Player/PlayerDashboard/MainDashboardApp';
 import PlayerTeamSchedule from './components/Player/TeamSchedule/PlayerTeamSchedule';
 import PlayerPerformancePrediction from './components/Player/PerformancePrediction/PlayerPerformancePrediction';
@@ -33,6 +36,7 @@ import PlayerPerformanceAnalysis from './components/Player/PerformanceAnalysis/P
 import PlayerOpponentComparison from './components/Player/OpponentComparison/PlayerOpponentComparison';
 import PlayerFaqs from './components/Player/FAQS/PlayerFaqs';
 import MainProfile from './components/Player/RegisterPlayerProfile/MainProfile';
+// team screens
 import MainDashboard from './components/TeamManagement/TeamDashboard/MainDashboard';
 import TeamSchedule from './components/TeamManagement/TeamSchedule/TeamSchedule';
 import MainPlayerStat from './components/TeamManagement/PlayerStat/MainPlayerStat';

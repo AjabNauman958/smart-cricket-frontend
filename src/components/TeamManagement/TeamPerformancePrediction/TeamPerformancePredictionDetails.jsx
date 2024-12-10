@@ -188,8 +188,7 @@ function TeamPerformancePredictionDetails() {
               </select>
             </div>
           </div>
-
-          {/* Player Selection */}
+          {/* Player Selection  Option*/}
           <div>
             <label className="block text-lg font-medium">Select Players:</label>
             <select

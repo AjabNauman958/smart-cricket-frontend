@@ -45,14 +45,14 @@ const MainDashboard = () => {
 
           {/* Welcome Message */}
           <AnimatedComponent>
-            <div className="mx-4 mt-4 flex-grow">
+            <div className="mx-4 p-4 mt-4 flex-grow">
               <WelcomeMessage />
             </div>
           </AnimatedComponent>
 
           {/* Team Profile Details */}
           <AnimatedComponent>
-            <div className="mt-9 flex flex-wrap justify-center">
+            <div className="mt-9 p-4 flex flex-wrap justify-center">
               <div className="w-full max-w-5xl px-4">
                 <TeamProfileDetails />
               </div>
