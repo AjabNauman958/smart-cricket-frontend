@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ShowPerformanceGraph from './ShowPerformanceGraph';
 import '../css/ShowPerformance.css';
 
@@ -34,6 +34,7 @@ const players = {
   Pakistan: ['Babar Azam', 'Shaheen Afridi', 'Mohammad Rizwan', 'Fakhar Zaman', 'Shadab Khan', 'Haris Rauf', 'Hasan Ali', 'Imam-ul-Haq', 'Asif Ali', 'Mohammad Nawaz', 'Mohammad Hafeez', 'Shoaib Malik', 'Sarfaraz Ahmed', 'Mohammad Wasim', 'Usman Qadir']
 };
 
+
 const PredictionForm = () => {
   const [team1, setTeam1] = useState('');
   const [format, setFormat] = useState('');
@@ -42,18 +43,25 @@ const PredictionForm = () => {
   const [player, setPlayer] = useState('');
   const [showGraph, setShowGraph] = useState(false);
 
-  const handlePredictClick = (e) => {
-    e.preventDefault(); // Prevent form submission behavior
-    console.log(`Prediction made for ${team1} vs ${country} in ${format} format at ${ground}`);
-    setShowGraph(true); // Show the performance graph after prediction
+  // Function to handle prediction logic
+  const makePrediction = () => {
+    if (team1 && format && country && ground && player) {
+      console.log(`Prediction made for ${team1} vs ${country} in ${format} format at ${ground}`);
+      setShowGraph(true); // Show the graph when all values are selected
+    }
   };
+
+  // UseEffect to monitor changes in inputs
+  useEffect(() => {
+    makePrediction(); // Automatically predict on input change
+  }, [team1, format, country, ground, player]);
 
   const isButtonDisabled = !(team1 && format && country && ground && player);
 
   return (
     <div className="max-w-3xl mx-auto p-6 rounded-lg dark:bg-gray-900 dark:text-white mt-10 justify-center items-center">
       <div className="space-y-6 text-center">
-        <div className='flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4'>
+        <div className="flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4">
 
           {/* Opponent Team Select */}
           <div className="flex flex-col w-full md:flex-row md:items-center md:w-auto md:gap-2">
@@ -92,7 +100,7 @@ const PredictionForm = () => {
           </div>
         </div>
 
-        <div className='flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4'>
+        <div className="flex flex-wrap md:flex-nowrap space-y-4 md:space-y-0 md:space-x-4">
 
           {/* Country Select */}
           <div className="flex flex-col w-full md:flex-row md:items-center md:w-auto md:gap-2">
@@ -156,8 +164,7 @@ const PredictionForm = () => {
 
         {/* Predict Button */}
         <button
-          type="submit"
-          onClick={handlePredictClick}
+          type="button"
           className={`w-32 mr-auto ml-auto py-3 px-5 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#00A09A] hover:bg-[#2dada9]'} text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           disabled={isButtonDisabled}
         >
@@ -175,3 +182,4 @@ const PredictionForm = () => {
 };
 
 export default PredictionForm;
+

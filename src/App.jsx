@@ -47,6 +47,10 @@ import ManagementCheckPlayerPerformancePrediction from './components/TeamManagem
 import TeamPerformancePrediction from './components/TeamManagement/TeamPerformancePrediction/TeamPerformancePrediction';
 import TeamPerformanceAnalysis from './components/TeamManagement/TeamPerformanceAnalysis/TeamPerformanceAnalysis';
 import FullRanking from './components/User/FullRanking';
+import AdminDashboard from './components/superadmin/Dashboard/AdminDashboard';
+
+// Super Admin
+
 
 function App() {
   return (
@@ -98,6 +102,9 @@ function App() {
           <Route path="/TeamManagement/ManagementCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
           <Route path="/TeamManagement/TeamPerformancePrediction" element={<TeamPerformancePrediction />} />
           <Route path="/TeamManagement/TeamPerformanceAnalysis" element={<TeamPerformanceAnalysis />} />
+
+          {/* SuperAdmin */}
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
 
 
 
