@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const AdminSidebar = () => {
+
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
@@ -17,9 +18,9 @@ const AdminSidebar = () => {
         { to: "/admin/dashboard", icon: <FaHome />, label: "Dashboard" },
         { to: "/admin/manage-users", icon: <FaUsers />, label: "Manage Users" },
         { to: "/admin/manage-players-teams", icon: <FaUserShield />, label: "Players & Teams" },
-        { to: "/admin/manage-about-us", icon: <AiOutlineQuestionCircle />, label: "About Us" },
+        // { to: "/admin/manage-about-us", icon: <AiOutlineQuestionCircle />, label: "About Us" },
         { to: "/admin/account-settings", icon: <FaCogs />, label: "Account Settings" },
-        { to: "/admin/change-password", icon: <FaKey />, label: "Change Password" },
+        // { to: "/admin/change-password", icon: <FaKey />, label: "Change Password" },
         { to: "/admin/logout", icon: <FaSignOutAlt />, label: "Log Out" },
     ];
 
