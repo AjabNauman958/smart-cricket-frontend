@@ -84,24 +84,24 @@ function App() {
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/FullRanking" element={<FullRanking />} />
           {/* player dashboard  */}
-          <Route path="/Player/MainDashboardApp" element={<MainDashboardApp />} />
-          <Route path="/Player/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
-          <Route path="/Player/PlayerPerformancePrediction" element={<PlayerPerformancePrediction />} />
-          <Route path="/Player/PlayerPerformanceAnalysis" element={<PlayerPerformanceAnalysis />} />
-          <Route path="/Player/PlayerOpponentComparison" element={<PlayerOpponentComparison />} />
-          <Route path="/Player/PlayerFaq" element={<PlayerFaqs />} />
+          <Route path="/PlayerDashboard" element={<MainDashboardApp />} />
+          <Route path="/PlayerTeamSchedule" element={<PlayerTeamSchedule />} />
+          <Route path="/PlayerPerformancePrediction" element={<PlayerPerformancePrediction />} />
+          <Route path="/PlayerPerformanceAnalysis" element={<PlayerPerformanceAnalysis />} />
+          <Route path="/PlayerOpponentComparison" element={<PlayerOpponentComparison />} />
+          <Route path="/PlayerFaq" element={<PlayerFaqs />} />
           <Route path="/PlayerProfile" element={<MainProfile />} />
 
           {/* Team Dashboard  */}
-          <Route path="/TeamManagement/MainDashboard" element={<MainDashboard />} />
-          <Route path="/TeamManagement/TeamSchedule" element={<TeamSchedule />} />
-          <Route path="/TeamManagement/PlayerStatistics" element={<MainPlayerStat />} />
-          <Route path="/TeamManagement/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />
-          <Route path="/TeamManagement/SuggestPlayingXI" element={<SuggestPlayingXI />} />
-          <Route path="/TeamManagement/PlayerPerformanceAnalysis" element={<ManagementCheckPlayerPerformanceAnalysis />} />
-          <Route path="/TeamManagement/ManagementCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
-          <Route path="/TeamManagement/TeamPerformancePrediction" element={<TeamPerformancePrediction />} />
-          <Route path="/TeamManagement/TeamPerformanceAnalysis" element={<TeamPerformanceAnalysis />} />
+          <Route path="/TeamDashboard" element={<MainDashboard />} />
+          <Route path="/TeamSchedule" element={<TeamSchedule />} />
+          <Route path="/TeamPlayerStatistics" element={<MainPlayerStat />} />
+          <Route path="/TeamOpponentAnalysis" element={<TeamOpponentAnalysis />} />
+          <Route path="/TeamSuggestPlayingXI" element={<SuggestPlayingXI />} />
+          <Route path="/TeamPlayerPerformanceAnalysis" element={<ManagementCheckPlayerPerformanceAnalysis />} />
+          <Route path="/TeamCheckPlayerPerformancePrediction" element={<ManagementCheckPlayerPerformancePrediction />} />
+          <Route path="/TeamPerformancePrediction" element={<TeamPerformancePrediction />} />
+          <Route path="/TeamPerformanceAnalysis" element={<TeamPerformanceAnalysis />} />
 
           {/* SuperAdmin */}
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
