@@ -32,7 +32,7 @@ const Playerlogin = () => {
             toast.success('Login successful!');
             // Redirect to dashboard of player profile
             setTimeout(() => {
-                window.location.href = '/Player/MainDashboardApp';
+                window.location.href = '/PlayerDashboard';
             }, 2000); // Redirect after 2 seconds
         } else {
             setError('Invalid email or password.');
@@ -46,7 +46,7 @@ const Playerlogin = () => {
                 <div className='bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl maindiv'>
                     {/* Right side */}
                     <div className='w-full md:w-3/5 p-5 rightdiv'>
-                       
+
                         <div className='py-10'>
                             <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-green-500 mb-2'>Player Login</h2>
                             <div className='border-2 w-52 md:w-72 border-green-500 inline-block mb-2'></div>
@@ -121,7 +121,7 @@ const Playerlogin = () => {
                             </div>
                         </form>
                     </div>
-                    
+
                     {/* Left side */}
                     <div className='w-full md:w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-8 md:py-16 px-4 md:px-12 flex flex-col justify-center items-center leftdiv'>
                         <h2 className='text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold mb-2'>SmartCricket</h2>

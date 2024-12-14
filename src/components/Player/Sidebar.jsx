@@ -14,12 +14,12 @@ const Sidebar = () => {
 
   // Sidebar links data
   const links = [
-    { to: "/Player/MainDashboardApp", icon: <FaHome />, label: "Dashboard" },
-    { to: "/Player/PlayerTeamSchedule", icon: <FaRegClock />, label: "Team Schedule" },
-    { to: "/Player/PlayerPerformancePrediction", icon: <FaChartLine />, label: "Performance Prediction" },
-    { to: "/Player/PlayerPerformanceAnalysis", icon: <FaChartBar />, label: "Performance Analysis" },
-    { to: "/Player/PlayerOpponentComparison", icon: <FaFistRaised />, label: "Opponent Analysis" },
-    { to: "/Player/PlayerFaq", icon: <AiOutlineQuestionCircle />, label: "Faqs" }
+    { to: "/PlayerDashboard", icon: <FaHome />, label: "Dashboard" },
+    { to: "/PlayerTeamSchedule", icon: <FaRegClock />, label: "Team Schedule" },
+    { to: "/PlayerPerformancePrediction", icon: <FaChartLine />, label: "Performance Prediction" },
+    { to: "/PlayerPerformanceAnalysis", icon: <FaChartBar />, label: "Performance Analysis" },
+    { to: "/PlayerOpponentComparison", icon: <FaFistRaised />, label: "Opponent Analysis" },
+    { to: "/PlayerFaq", icon: <AiOutlineQuestionCircle />, label: "Faqs" }
   ];
 
   return (

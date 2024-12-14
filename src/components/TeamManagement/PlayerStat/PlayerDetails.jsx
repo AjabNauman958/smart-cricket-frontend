@@ -1563,15 +1563,15 @@ const PlayerDetails = () => {
                         </div>
                     ))}
                     {/* Generate Graphs */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 dark:bg-gray-900    dark:text-white">
                         {["Tests", "ODIs", "T20Is"].map(format => (
-                            <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                            <div key={format} className="p-4 dark:bg-gray-900    dark:text-white rounded-lg shadow-lg">
                                 <h3 className="text-lg font-bold mb-2">{format} Bowling</h3>
                                 <Bar data={generateGraphData("bowling", format)} />
                             </div>
                         ))}
                         {["Tests", "ODIs", "T20Is"].map(format => (
-                            <div key={format} className="p-4 bg-gray-100 rounded-lg shadow-lg">
+                            <div key={format} className="p-4  dark:bg-gray-900    dark:text-white rounded-lg shadow-lg">
                                 <h3 className="text-lg font-bold mb-2">{format} Batting</h3>
                                 <Line data={generateGraphData("batting", format)} />
                             </div>
@@ -1580,7 +1580,7 @@ const PlayerDetails = () => {
                 </div>
             </AnimatedComponent>
 
-            {/* <AverageGraph /> */}
+
         </>
     );
 };
